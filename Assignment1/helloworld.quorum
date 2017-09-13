@@ -1,0 +1,7 @@
+class helloworld
+    action Main
+    
+    output "hello world"
+
+    end
+end
