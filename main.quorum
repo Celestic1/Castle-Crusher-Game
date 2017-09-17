@@ -1,0 +1,112 @@
+use Libraries.Game.Game
+use Libraries.Language.Object
+use Libraries.Game.Graphics.Drawable
+use Libraries.Game.Graphics.Model
+use Libraries.Game.InputMonitor
+use Libraries.Game.Graphics.Color
+use Libraries.Interface.Events.KeyboardEvent
+use Libraries.Interface.Events.CollisionEvent2D
+use Libraries.Compute.Vector2
+
+/*
+    This is a default class for creating a game in Quorum. Note that the Main 
+    action begins by calling StartGame(), which loads a window a game can 
+    be displayed in. The action CreateGame is where the game should load any 
+    assets, like images to be displayed, frames of animation, or sounds to be
+    played. 
+*/
+class Main is Game
+    /*
+        This action, Main, starts our computer program. In Quorum, programs always
+        begin from Main.
+    */
+    Drawable rectangle
+    Drawable ground
+    Color color
+    Vector2 gravity
+    
+
+    KeyboardEvent keys
+    InputMonitor monitor
+
+    action Main
+        EnableResizing(true)
+        SetGameName("Castle Crusher")
+        StartGame()
+    end
+
+    /*
+        This action sets up the default values for a game. For example, we might
+        use the Libraries.Game.Graphics.Drawable class to load up an image or 
+        a shape. Or, we might add a Libraries.Interface.Button for making something clickable
+        or a Libraries.Interface.TextBox for gathering user input in a game.
+    */
+    action CreateGame
+
+    ground:SetName("ground")
+    ground:LoadFilledRectangle(1000,50,color:Gray())
+    ground:SetPosition(0,0)
+    Add(ground)
+    ground:EnablePhysics(true)
+    ground:SetUnmovable()
+
+    rectangle:SetName("rect")
+    rectangle:LoadFilledRectangle(50,50)
+    rectangle:SetPosition(250,250)
+    rectangle:Scale(0.5)
+    Add(rectangle)
+    //rectangle:EnablePhysics(true)
+    //rectangle:SetResponsive()
+ 
+
+
+    end
+
+/*
+    action CreateInvisibleWall(integer x, integer y)
+        Drawable invisibleWall
+        if y <= 0
+           invisibleWall:LoadRectangle(1, 22)
+        else
+           invisibleWall:LoadRectangle(21, 1)
+        end
+        invisibleWall:SetPosition(x , y)
+        Add(invisibleWall)
+        invisibleWall:EnablePhysics(true)
+        invisibleWall:SetUnmovable()
+    end
+*/
+
+    /*
+        The update action is called on every "frame" of animation in a game. This
+        action should be used to do operations on items. So, for example, we 
+        might use this action to change frames of animation, to rotate items, 
+        or to make creatures jump.
+    */
+    action Update(number seconds)
+    if monitor:IsKeyPressed(keys:UP)
+        number newX = rectangle:GetX()
+        number newY = rectangle:GetY() + 1
+        rectangle:SetPosition(newX,newY)
+    end
+
+    if monitor:IsKeyPressed(keys:DOWN)
+        number newX = rectangle:GetX() 
+        number newY = rectangle:GetY() - 1
+        rectangle:SetPosition(newX,newY)
+    end
+
+    if monitor:IsKeyPressed(keys:LEFT)
+        number newX = rectangle:GetX() - 1
+        number newY = rectangle:GetY()
+        rectangle:SetPosition(newX,newY)
+    end
+
+    if monitor:IsKeyPressed(keys:RIGHT)
+        number newX = rectangle:GetX() + 1
+        number newY = rectangle:GetY()
+        rectangle:SetPosition(newX,newY)
+    end
+
+    end
+end
