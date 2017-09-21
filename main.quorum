@@ -62,21 +62,6 @@ class Main is Game
 
     end
 
-/*
-    action CreateInvisibleWall(integer x, integer y)
-        Drawable invisibleWall
-        if y <= 0
-           invisibleWall:LoadRectangle(1, 22)
-        else
-           invisibleWall:LoadRectangle(21, 1)
-        end
-        invisibleWall:SetPosition(x , y)
-        Add(invisibleWall)
-        invisibleWall:EnablePhysics(true)
-        invisibleWall:SetUnmovable()
-    end
-*/
-
     /*
         The update action is called on every "frame" of animation in a game. This
         action should be used to do operations on items. So, for example, we 
@@ -91,8 +76,12 @@ class Main is Game
     end
 
     if monitor:IsKeyPressed(keys:DOWN)
-        number newX = rectangle:GetX() 
+        number newX = rectangle:GetX()
         number newY = rectangle:GetY() - 1
+        if  newY < 50
+            newY = 50
+        end
+
         rectangle:SetPosition(newX,newY)
     end
 
