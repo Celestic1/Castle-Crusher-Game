@@ -58,12 +58,7 @@ class Main is Game, KeyboardListener, CollisionListener2D
     action UnloadRoom
         g_CatIndex = -1
         repeat until roo:GetObjCount() = 0
-            //NOTE! this is not deleting anything, when using dispose() it leaves an ugly black box around where the drawable used to be
-            // need to find proper way of dealing with removal of items
-            //roo:GetObjAtIndwaex(0):Dispose()
-            roo:GetObjAtIndex(0):SetAlpha(0)
-            roo:GetObjAtIndex(0):EnablePhysics(false)
-            roo:GetObjAtIndex(0):SetCollidable(false)
+            Remove(roo:GetObjAtIndex(0))
             roo:DeleteObjAtIndex(0)
         end
     end
@@ -89,41 +84,37 @@ class Main is Game, KeyboardListener, CollisionListener2D
         Drawable itemB = cast(Drawable, event:GetItemB())
 
         if itemA:GetName() = "objFish" and itemB:GetName() = "objCat"
-            itemA:SetAlpha(0)
+            Remove(itemA)
         end
         if itemA:GetName() = "objCat" and itemB:GetName() = "objFish"
-            itemB:SetAlpha(0)
+            Remove(itemB)
         end
 
         if itemA:GetName() = "objExit" and itemB:GetName() = "objCat"
+            Remove(itemA)
             LoadRoom("./map1.txt")
-            itemB:SetPosition(0,0)
         end
         if itemA:GetName() = "objCat" and itemB:GetName() = "objExit"
+            Remove(itemB)
             LoadRoom("./map1.txt")
-            itemA:SetPosition(0,0)
         end
 
         if itemA:GetName() = "objKey" and itemB:GetName() = "objCat"
-            itemA:SetAlpha(0)
-            itemA:SetCollidable(false)
+            Remove(itemA)
             integer i = roo:GetObjCount()
             repeat until i = 0
                 if (roo:GetObjAtIndex(i-1):GetName() = "objLock")
-                    roo:GetObjAtIndex(i-1):SetAlpha(0)
-                    roo:GetObjAtIndex(i-1):EnablePhysics(false)
+                    Remove(roo:GetObjAtIndex(i-1))
                 end
                 i = i - 1
             end
         end
         if itemA:GetName() = "objCat" and itemB:GetName() = "objKey"
-            itemB:SetAlpha(0)
-            itemA:SetCollidable(false)
+            Remove(itemB)
             integer i = roo:GetObjCount()
             repeat until i = 0
                 if (roo:GetObjAtIndex(i-1):GetName() = "objLock")
-                    roo:GetObjAtIndex(i-1):SetAlpha(0)
-                    roo:GetObjAtIndex(i-1):EnablePhysics(false)
+                    Remove(roo:GetObjAtIndex(i-1))
                 end
                 i = i - 1
             end
