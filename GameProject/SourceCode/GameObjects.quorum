@@ -35,8 +35,16 @@ class GameObjects
             tmpObj:Load("resources/sprKey-trimmed.png")
             tmpObj:SetCollidable(true)
             xxx = 2
-        elseif objName = "E"
-            tmpObj:SetName("objExit")
+        elseif objName = "E1"
+            tmpObj:SetName("objExit1")
+            tmpObj:Load("resources/sprMouseHole_0.png")
+            tmpObj:SetCollidable(true)
+        elseif objName = "E2"
+            tmpObj:SetName("objExit2")
+            tmpObj:Load("resources/sprMouseHole_0.png")
+            tmpObj:SetCollidable(true)
+        elseif objName = "E3"
+            tmpObj:SetName("objExit3")
             tmpObj:Load("resources/sprMouseHole_0.png")
             tmpObj:SetCollidable(true)
         elseif objName = "X"
@@ -44,6 +52,10 @@ class GameObjects
             tmpObj:Load("resources/sprBrick_0.png")
             tmpObj:EnablePhysics(true)
             tmpObj:SetResponsive()
+        elseif objName = "SB"
+            tmpObj:SetName("objStartButton")
+            tmpObj:Load("resources/sprStartButton.png")
+            xxx = 20
         end
 
         tmpObj:SetPosition(objX+xxx, objY+yyy)

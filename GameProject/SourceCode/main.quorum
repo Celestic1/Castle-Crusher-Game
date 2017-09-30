@@ -4,9 +4,11 @@ use Libraries.Interface.Events.CollisionListener2D
 use Libraries.Interface.Events.CollisionEvent2D
 use Libraries.Interface.Events.KeyboardListener
 use Libraries.Interface.Events.KeyboardEvent
+use Libraries.Interface.Events.MouseListener
+use Libraries.Interface.Events.MouseEvent
 use Libraries.Compute.Vector2
 
-class Main is Game, KeyboardListener, CollisionListener2D
+class Main is Game, KeyboardListener, CollisionListener2D, MouseListener
     GameRoom roo
 
     g_CatIndex = -1
@@ -32,10 +34,11 @@ class Main is Game, KeyboardListener, CollisionListener2D
         SetGravity2D(0, -200)
         AddKeyboardListener(me)
         AddCollisionListener(me)
+        AddMouseListener(me)
         g_Jump:Set(0, 25000)
         g_Right:Set(10000, 0)
         g_Left:Set(-10000, 0)
-        LoadRoom("./map1.txt")
+        LoadRoom("./map0.txt")
     end
 
     action Update(number seconds)
@@ -63,6 +66,33 @@ class Main is Game, KeyboardListener, CollisionListener2D
         end
     end
 
+    action ClickedMouse(MouseEvent event)
+        integer x = event:GetX()
+        integer y = event:GetY()
+        output "MouseClick: " + x + "," + y
+
+        integer startButtonIndex = roo:GetIndexOfObj("objStartButton")
+
+        if (startButtonIndex > -1)
+            number startX = roo:GetObjAtIndex(startButtonIndex):GetX()
+            number startY = roo:GetObjAtIndex(startButtonIndex):GetY()
+            number endX = startX + roo:GetObjAtIndex(startButtonIndex):GetWidth()
+            number endY = startY + roo:GetObjAtIndex(startButtonIndex):GetHeight()
+
+            if startX <= x
+                if endX >= x
+                    if startY <= y
+                        if endY >= y
+                            Remove(roo:GetObjAtIndex(startButtonIndex))
+                            LoadRoom("./map1.txt")
+                        end
+                    end
+                end
+            end
+
+        end
+    end
+
     action PressedKey(KeyboardEvent event)
         if g_CatIndex > -1
             if event:keyCode = event:W
@@ -85,18 +115,24 @@ class Main is Game, KeyboardListener, CollisionListener2D
 
         if itemA:GetName() = "objFish" and itemB:GetName() = "objCat"
             Remove(itemA)
-        end
-        if itemA:GetName() = "objCat" and itemB:GetName() = "objFish"
+        elseif itemA:GetName() = "objCat" and itemB:GetName() = "objFish"
             Remove(itemB)
         end
 
-        if itemA:GetName() = "objExit" and itemB:GetName() = "objCat"
+        if itemA:GetName() = "objExit1" and itemB:GetName() = "objCat"
             Remove(itemA)
-            LoadRoom("./map1.txt")
-        end
-        if itemA:GetName() = "objCat" and itemB:GetName() = "objExit"
+            LoadRoom("./map2.txt")
+        elseif itemA:GetName() = "objCat" and itemB:GetName() = "objExit1"
             Remove(itemB)
-            LoadRoom("./map1.txt")
+            LoadRoom("./map2.txt")
+        end
+
+        if itemA:GetName() = "objExit2" and itemB:GetName() = "objCat"
+            Remove(itemA)
+            LoadRoom("./map0.txt")
+        elseif itemA:GetName() = "objCat" and itemB:GetName() = "objExit2"
+            Remove(itemB)
+            LoadRoom("./map0.txt")
         end
 
         if itemA:GetName() = "objKey" and itemB:GetName() = "objCat"
@@ -108,8 +144,7 @@ class Main is Game, KeyboardListener, CollisionListener2D
                 end
                 i = i - 1
             end
-        end
-        if itemA:GetName() = "objCat" and itemB:GetName() = "objKey"
+        elseif itemA:GetName() = "objCat" and itemB:GetName() = "objKey"
             Remove(itemB)
             integer i = roo:GetObjCount()
             repeat until i = 0
