@@ -1,0 +1,23 @@
+use Libraries.Game.Game
+use Libraries.Game.Graphics.Color
+use Libraries.Game.Graphics.Drawable
+
+class Main is Game 
+   Drawable bar
+   Clickable startMenu
+
+   action Main
+       EnableResizing(true)
+       StartGame()
+   end
+
+   action CreateGame
+       
+       startMenu:Load("assets/start.png")
+       startMenu:SetPosition(300, 400)
+       Add(startMenu)
+   end
+
+   action Update(number seconds)
+   end
+end
