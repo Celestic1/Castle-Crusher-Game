@@ -2,11 +2,13 @@ use Libraries.Game.Game
 use Libraries.Game.Graphics.Color
 use Libraries.Game.Graphics.Drawable
 use Libraries.Game.Graphics.Camera
-
+use Libraries.Interface.Button
+use Libraries.Interface.Panel
+//Main Menu of Game
 class Main is Game 
-   Drawable bar
-   Clickable button
-
+   Clickable button 
+   
+    number time = 0
    action Main
        EnableResizing(true)
        StartGame()
@@ -14,9 +16,17 @@ class Main is Game
 
    action CreateGame
        
-
+       button:Load("Assets/start.png")
+       Add(button)
+       button:Load("Assets/settings.jpg")
+       
    end
 
    action Update(number seconds)
+        time = seconds + time
+        if (time > 3)
+            Exit()
+            output "BYE"
+        end
    end
 end
