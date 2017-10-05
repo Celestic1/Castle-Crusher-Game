@@ -1,190 +1,23 @@
 use Libraries.Game.Game
-use Libraries.Language.Object
-use Libraries.Game.Graphics.Drawable
-use Libraries.Game.Graphics.Model
-use Libraries.Game.InputMonitor
 use Libraries.Game.Graphics.Color
-use Libraries.Interface.Events.KeyboardEvent
-use Libraries.Interface.Events.CollisionEvent2D
-use Libraries.Compute.Vector2
+use Libraries.Game.Graphics.Drawable
 
-/*
-    This is a default class for creating a game in Quorum. Note that the Main 
-    action begins by calling StartGame(), which loads a window a game can 
-    be displayed in. The action CreateGame is where the game should load any 
-    assets, like images to be displayed, frames of animation, or sounds to be
-    played. 
-*/
-class Main is Game
-    /*
-        This action, Main, starts our computer program. In Quorum, programs always
-        begin from Main.
-    */
-    Drawable rectangle
-    Drawable hitthis1
-    Drawable hitthis2
-    Drawable hitthis3
-    Drawable ground
-    Drawable leftwall
-    Drawable rightwall
-    Drawable topwall
-    Color color
-    Vector2 worldGravity
-    
+class Main is Game 
+   Drawable bar
+   Clickable startMenu
 
-    KeyboardEvent keys
-    InputMonitor monitor
+   action Main
+       EnableResizing(true)
+       StartGame()
+   end
 
-    action Main
-        EnableResizing(true)
-        SetGameName("Castle Crusher")
-        StartGame()
-    end
+   action CreateGame
+       
+       startMenu:Load("assets/start.png")
+       startMenu:SetPosition(300, 400)
+       Add(startMenu)
+   end
 
-    /*
-        This action sets up the default values for a game. For example, we might
-        use the Libraries.Game.Graphics.Drawable class to load up an image or 
-        a shape. Or, we might add a Libraries.Interface.Button for making something clickable
-        or a Libraries.Interface.TextBox for gathering user input in a game.
-    */
-    action CreateGame
-
-        EnablePhysics2D(true)
-
-        ground:SetName("ground")
-        ground:LoadFilledRectangle(1000,50,color:Gray())
-        ground:SetPosition(0,0)
-        Add(ground)
-        ground:EnablePhysics(true)
-        ground:SetUnmovable()
-	ground:SetFriction(1)
-
-        leftwall:SetName("leftwall")
-        leftwall:LoadFilledRectangle(50,1000,color:Gray())
-        leftwall:SetPosition(0,0)
-        Add(leftwall)
-        leftwall:EnablePhysics(true)
-        leftwall:SetUnmovable()
-	leftwall:SetFriction(1)
-
-        rightwall:SetName("rightwall")
-        rightwall:LoadFilledRectangle(50,1000,color:Gray())
-        rightwall:SetPosition(GetScreenWidth()-50,0)
-        Add(rightwall)
-        rightwall:EnablePhysics(true)
-        rightwall:SetUnmovable()
-	rightwall:SetFriction(1)
-
-        topwall:SetName("topwall")
-        topwall:LoadFilledRectangle(1000,50,color:Gray())
-        topwall:SetPosition(0,GetScreenHeight()-50)
-        Add(topwall)
-        topwall:EnablePhysics(true)
-        topwall:SetUnmovable()
-	topwall:SetFriction(1)
-
-        rectangle:SetName("rect")
-        rectangle:LoadFilledRectangle(50,50)
-        rectangle:SetPosition(250,250)
-        rectangle:Scale(0.5)
-        Add(rectangle)
-        rectangle:EnablePhysics(true)
-        rectangle:SetResponsive()
-	rectangle:SetFriction(0.2)
-	rectangle:SetRestitution(0.2)
-        
-        hitthis1:SetName("hitthis")
-        hitthis1:LoadFilledRectangle(50,50)
-        hitthis1:SetPosition(350,50)
-        hitthis1:Scale(0.5)
-        Add(hitthis1)
-        hitthis1:EnablePhysics(true)
-        hitthis1:SetResponsive()
-	hitthis1:SetFriction(0.2)
-	hitthis1:SetRestitution(0.2)
-        
-        hitthis2:SetName("hitthis")
-        hitthis2:LoadFilledRectangle(50,50)
-        hitthis2:SetPosition(350,100)
-        hitthis2:Scale(0.5)
-        Add(hitthis2)
-        hitthis2:EnablePhysics(true)
-        hitthis2:SetResponsive()
-	hitthis2:SetFriction(0.2)
-	hitthis2:SetRestitution(0.2)
-        
-        hitthis3:SetName("hitthis")
-        hitthis3:LoadFilledRectangle(50,50)
-        hitthis3:SetPosition(350,150)
-        hitthis3:Scale(0.5)
-        Add(hitthis3)
-        hitthis3:EnablePhysics(true)
-        hitthis3:SetResponsive()
-	hitthis3:SetFriction(0.2)
-	hitthis3:SetRestitution(0.2)
- 
-        worldGravity:Set(0, -500)
-        SetGravity2D(worldGravity)
-
-    end
-
-/*
-    action CreateInvisibleWall(integer x, integer y)
-        Drawable invisibleWall
-        if y <= 0
-           invisibleWall:LoadRectangle(1, 22)
-        else
-           invisibleWall:LoadRectangle(21, 1)
-        end
-        invisibleWall:SetPosition(x , y)
-        Add(invisibleWall)
-        invisibleWall:EnablePhysics(true)
-        invisibleWall:SetUnmovable()
-    end
-*/
-
-    /*
-        The update action is called on every "frame" of animation in a game. This
-        action should be used to do operations on items. So, for example, we 
-        might use this action to change frames of animation, to rotate items, 
-        or to make creatures jump.
-    */
-    action Update(number seconds)
-        if monitor:IsKeyPressed(keys:UP)
-            //number newX = rectangle:GetX()
-            //number newY = rectangle:GetY() + 1
-            //rectangle:SetPosition(newX,newY)
-            Vector2 newForce
-            newForce:Set(0,1000)
-	    rectangle:ApplyForceToCenter(newForce)
-        end
-
-        if monitor:IsKeyPressed(keys:DOWN)
-            //number newX = rectangle:GetX() 
-            //number newY = rectangle:GetY() - 1
-            //rectangle:SetPosition(newX,newY)
-            Vector2 newForce
-            newForce:Set(0,-600)
-	    rectangle:ApplyForceToCenter(newForce)
-        end
-
-        if monitor:IsKeyPressed(keys:LEFT)
-            //number newX = rectangle:GetX() - 1
-            //number newY = rectangle:GetY()
-            //rectangle:SetPosition(newX,newY)
-            Vector2 newForce
-            newForce:Set(-800,0)
-	    rectangle:ApplyForceToCenter(newForce)
-        end
-
-        if monitor:IsKeyPressed(keys:RIGHT)
-            //number newX = rectangle:GetX() + 1
-            //number newY = rectangle:GetY()
-            //rectangle:SetPosition(newX,newY)
-            Vector2 newForce
-            newForce:Set(800,0)
-	    rectangle:ApplyForceToCenter(newForce)
-        end
-
-    end
+   action Update(number seconds)
+   end
 end

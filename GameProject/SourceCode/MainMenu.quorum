@@ -1,0 +1,8 @@
+class MainMenu 
+    
+    public Clickable startMenu
+    public Clickable settingsMenu
+    public Clickable loadMenu
+    public Clickable exitMenu
+
+end
