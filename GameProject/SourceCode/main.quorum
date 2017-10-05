@@ -1,10 +1,11 @@
 use Libraries.Game.Game
 use Libraries.Game.Graphics.Color
 use Libraries.Game.Graphics.Drawable
+use Libraries.Game.Graphics.Camera
 
 class Main is Game 
    Drawable bar
-   Clickable startMenu
+   Clickable button
 
    action Main
        EnableResizing(true)
@@ -13,9 +14,7 @@ class Main is Game
 
    action CreateGame
        
-       startMenu:Load("assets/start.png")
-       startMenu:SetPosition(300, 400)
-       Add(startMenu)
+
    end
 
    action Update(number seconds)
