@@ -1,0 +1,20 @@
+use Libraries.Game.Game
+use Libraries.Game.Graphics.Drawable
+
+class ClickableTest is Game
+    Drawable bar
+    Clickable startMenu
+
+    action Main
+        EnableResizing(true)
+        StartGame()
+    end
+
+    action CreateGame
+
+        startMenu:Load("resources/sprStartButton.png")
+        startMenu:SetPosition(300, 400)
+        Add(startMenu)
+    end
+
+end
