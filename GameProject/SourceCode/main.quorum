@@ -1,202 +1,23 @@
 use Libraries.Game.Game
+use Libraries.Game.Graphics.Color
 use Libraries.Game.Graphics.Drawable
-use Libraries.System.File
-use Libraries.System.FileReader
-use Libraries.Containers.Array
-use Libraries.Interface.Events.CollisionListener2D
-use Libraries.Interface.Events.CollisionEvent2D
-use Libraries.Interface.Events.KeyboardListener
-use Libraries.Interface.Events.KeyboardEvent
-use Libraries.Compute.Vector2
 
-class Main is Game, CollisionListener2D, KeyboardListener
-    Array<Drawable> objects
-    Array<integer> locks
+class Main is Game 
+   Drawable bar
+   Clickable startMenu
 
-    text roomName = ""
-    number widthUnits = -1
-    number heightUnits = -1
-    number unitWidth = -1
-    number unitHeight = -1
-    integer roomWidth = -1
-    integer roomHeight = -1
-    integer catIndex = -1
-    Vector2 jump
-    Vector2 left
-    Vector2 right
+   action Main
+       EnableResizing(true)
+       StartGame()
+   end
 
-    action Main
-        // [Get and set room config from map1.txt]
-        File f
-        f:SetPath("/map1.txt")
-        FileReader reader
-        reader:OpenForRead(f)
-        text readLine = ""
-        repeat until readLine = "[DATA]" and not reader:IsAtEndOfFile()
-            readLine = reader:ReadLine()
-        end
-        roomName = reader:ReadLine()
-        widthUnits = cast(number, reader:ReadLine())
-        heightUnits = cast(number, reader:ReadLine())
-        unitWidth = cast(number, reader:ReadLine())
-        unitHeight = cast(number, reader:ReadLine())
-        reader:Close()
-        
-        roomWidth = cast(integer, widthUnits * unitWidth)
-        roomHeight = cast(integer, heightUnits * unitHeight)
-        SetScreenSize(roomWidth, roomHeight)
-        SetGameName("Physics [cat] Game: " + roomName)
-        // [Get and set room config from map1.txt end]
-        
-        StartGame()
-    end
+   action CreateGame
+       
+       startMenu:Load("assets/start.png")
+       startMenu:SetPosition(300, 400)
+       Add(startMenu)
+   end
 
-    action CreateGame
-        EnablePhysics2D(true)
-        AddCollisionListener(me)
-        AddKeyboardListener(me)
-        SetGravity2D(0, -200)
-
-        File f  
-        f:SetPath("/map2.txt")
-        FileReader reader
-        text readLine = ""
-        number currentY = 0
-        reader:OpenForRead(f)
-        repeat until readLine = "[MAP]" and not reader:IsAtEndOfFile()
-            readLine = reader:ReadLine()
-        end
-        readLine = reader:ReadLine()
-        repeat until readLine = "[MAPEND]" and not reader:IsAtEndOfFile()
-            Array<text> tmpArray = readLine:Split(",")
-            i = 0
-            text myMap = ""
-            repeat until i = tmpArray:GetSize()
-                Drawable tmpObj
-                xxx = 0
-                yyy = 0
-                if tmpArray:Get(i) = "B"
-                    tmpObj:SetName("objBlock")
-                    tmpObj:Load("resources/Brick_vg.jpg")
-                    tmpObj:EnablePhysics(true)
-                    tmpObj:SetUnmovable()
-                elseif tmpArray:Get(i) = "S"
-                    tmpObj:SetName("objSky")
-                    tmpObj:Load("resources/sky.png")
-                    tmpObj:EnablePhysics(true)
-                    tmpObj:SetUnmovable()    
-                elseif tmpArray:Get(i) = "D"
-                    tmpObj:SetName("objCloud")
-                    tmpObj:Load("resources/cloud.png")
-                    tmpObj:EnablePhysics(true)
-                    tmpObj:SetUnmovable()    
-                elseif tmpArray:Get(i) = "F"
-                    tmpObj:SetName("objFish")
-                    tmpObj:Load("resources/sprFesh-trimmed.png")
-                    tmpObj:SetCollidable(true)
-                    xxx = 5
-                    yyy = 5
-                elseif tmpArray:Get(i) = "C"
-                    tmpObj:SetName("objCat")
-                    tmpObj:Load("resources/sprCatR-trimmed.png")
-                    tmpObj:EnablePhysics(true)
-                    tmpObj:SetResponsive()
-                    tmpObj:SetCollidable(true)
-                    catIndex = i + cast(integer,currentY*widthUnits)
-                elseif tmpArray:Get(i) = "L"
-                    tmpObj:SetName("objLock")
-                    tmpObj:Load("resources/sprLock_0.png")
-                    tmpObj:EnablePhysics(true)
-                    tmpObj:SetUnmovable()
-                    locks:Add(i + cast(integer,currentY*widthUnits))
-                elseif tmpArray:Get(i) = "K"
-                    tmpObj:SetName("objKey")
-                    tmpObj:Load("resources/sprKey-trimmed.png")
-                    tmpObj:SetCollidable(true)
-                    xxx = 2
-                elseif tmpArray:Get(i) = "E"
-                    tmpObj:SetName("objExit")
-                    tmpObj:Load("resources/sprMouseHole_0.png")
-                    tmpObj:SetCollidable(true)
-                elseif tmpArray:Get(i) = "X"
-                    tmpObj:SetName("objBox")
-                    tmpObj:Load("resources/sprBrick_0.png")
-                    tmpObj:EnablePhysics(true)
-                    tmpObj:SetResponsive()
-                end
-                tmpObj:SetPosition(i*unitWidth+xxx, roomHeight-(currentY*unitHeight)-unitHeight+yyy)
-                objects:Add(tmpObj)
-                Add(objects:Get(i + cast(integer,currentY*widthUnits)))
-                myMap = myMap + tmpArray:Get(i)
-                i = i + 1
-            end
-            output myMap + " " + (roomHeight-(currentY*unitHeight)-unitHeight)
-            currentY = currentY + 1
-
-            readLine = reader:ReadLine()
-        end  
-        reader:Close()
-        // [Generate room end]
-
-        jump:Set(0, 25000)
-        right:Set(10000, 0)
-        left:Set(-10000, 0)
-    end
-
-    action Update(number seconds)
-    end
-
-    action PressedKey(KeyboardEvent event)
-        // When space is pressed, the circle jumps!
-       if event:keyCode = event:SPACE
-           objects:Get(catIndex):ApplyForceToCenter(jump)
-       end
-
-       if event:keyCode = event:RIGHT
-           objects:Get(catIndex):ApplyForceToCenter(right)
-           objects:Get(catIndex):ApplyTorque(-150000)
-       end
-
-       if event:keyCode = event:LEFT
-           objects:Get(catIndex):ApplyForceToCenter(left)
-           objects:Get(catIndex):ApplyTorque(150000)
-       end
-    end
-
-    action BeginCollision(CollisionEvent2D event)
-        Drawable itemA = cast(Drawable, event:GetItemA())
-        Drawable itemB = cast(Drawable, event:GetItemB())
-
-        if itemA:GetName() = "objFish" and itemB:GetName() = "objCat"
-            itemA:SetAlpha(0)
-        end
-        if itemA:GetName() = "objCat" and itemB:GetName() = "objFish"
-            itemB:SetAlpha(0)
-        end
-
-        if itemA:GetName() = "objExit" and itemB:GetName() = "objCat"
-            itemB:SetAlpha(0)
-        end
-        if itemA:GetName() = "objCat" and itemB:GetName() = "objExit"
-            itemA:SetAlpha(0)
-        end
-
-        if itemA:GetName() = "objKey" and itemB:GetName() = "objCat"
-            itemA:SetAlpha(0)
-            repeat until locks:GetSize() = 0
-                objects:Get(locks:Get(0)):SetAlpha(0)
-                objects:Get(locks:Get(0)):SetCollidable(false)
-                locks:RemoveAt(0)
-            end
-        end
-        if itemA:GetName() = "objCat" and itemB:GetName() = "objKey"
-            itemB:SetAlpha(0)
-            repeat until locks:GetSize() = 0
-                objects:Get(locks:Get(0)):SetAlpha(0)
-                objects:Get(locks:Get(0)):SetCollidable(false)
-                locks:RemoveAt(0)
-            end
-        end
-
-    end
+   action Update(number seconds)
+   end
 end
