@@ -1,0 +1,46 @@
+use Libraries.Game.Game
+use Libraries.Interface.Events.KeyboardListener
+use Libraries.Interface.Events.KeyboardEvent
+use Libraries.Game.Graphics.Drawable
+use GameObjects
+use Libraries.Compute.Vector2
+
+class PlayerCannon is KeyboardListener, Drawable
+    xVel = 0
+    yVel = 0
+    Game parentGame
+    GameObjects refObject
+    action FireCannon(Drawable newProj)
+        parentGame:Add(newProj)
+        Vector2 fireVector
+        fireVector:Set(xVel, yVel)
+        newProj:ApplyForceToCenter(fireVector)
+        xVel = 10000
+        yVel = 10000
+    end
+
+    action Update(number seconds)
+        
+    end
+
+    action PressedKey(KeyboardEvent event)
+        if event:keyCode = event:SPACE
+            Drawable cannonBall
+            cannonBall = refObject:CreateObj("B", me:GetCenterX(), me:GetCenterY())
+            FireCannon(cannonBall)
+        end
+    end
+    
+    on create
+        xVel = 10000
+        yVel = 10000
+    end
+
+    action SetParent(Game targetGame)
+        parentGame = targetGame
+    end
+
+ //   action Main
+ //       
+ //   end
+end
