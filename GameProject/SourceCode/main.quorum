@@ -56,6 +56,8 @@ class Main is Game, KeyboardListener, CollisionListener2D, MouseListener
             end
             i = i - 1
         end
+	PlayerCannon testCannon
+	testCannon:AddToGame(me, 100, 100)
     end
 
     action UnloadRoom

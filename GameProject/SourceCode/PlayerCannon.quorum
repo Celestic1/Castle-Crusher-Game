@@ -4,40 +4,98 @@ use Libraries.Interface.Events.KeyboardEvent
 use Libraries.Game.Graphics.Drawable
 use GameObjects
 use Libraries.Compute.Vector2
+use Libraries.Game.InputMonitor
 
 class PlayerCannon is KeyboardListener, Drawable
     xVel = 0
     yVel = 0
     Game parentGame
     GameObjects refObject
+    Drawable xBar
+    number velScaleFactor = 400
+    number offSideScale = 4
+    Drawable yBar
+ //   InputMonitor monitor
+//    KeyboardEvent keys
+
     action FireCannon(Drawable newProj)
         parentGame:Add(newProj)
+	newProj:SetPosition(me:GetGlobalX(),me:GetGlobalY())
         Vector2 fireVector
         fireVector:Set(xVel, yVel)
         newProj:ApplyForceToCenter(fireVector)
         xVel = 10000
         yVel = 10000
+	xBar:LoadFilledRectangle(cast(integer,xVel/velScaleFactor),cast(integer,me:GetHeight()/offSideScale))
+	yBar:LoadFilledRectangle(cast(integer,me:GetWidth()/offSideScale), cast(integer,yVel/velScaleFactor))
+//        xBar:SetWidth(xVel/500)
+//	yBar:SetHeight(xVel/500)
     end
 
-    action Update(number seconds)
-        
-    end
+/*    action Update(number seconds)
+	if monitor:IsKeyPressed(keys:A)
+	    xVel = xVel - 1000
+	end
+	if monitor:IsKeyPressed(keys:D)
+	    xVel = xVel + 1000
+	end
+	if monitor:IsKeyPressed(keys:W)
+	    yVel = yVel + 1000
+	end
+	if monitor:IsKeyPressed(keys:S)
+	    yVel = yVel - 1000
+	end
+    end*/
 
     action PressedKey(KeyboardEvent event)
         if event:keyCode = event:SPACE
             Drawable cannonBall
-            cannonBall = refObject:CreateObj("B", me:GetCenterX(), me:GetCenterY())
+            //cannonBall = refObject:CreateObj("B", me:GetCenterX(), me:GetCenterY())
+	    cannonBall:LoadFilledCircle(8)
+	    cannonBall:EnablePhysics(true)
+            cannonBall:SetResponsive()
+            cannonBall:SetCollidable(true)
             FireCannon(cannonBall)
+	elseif event:keyCode = event:A
+	    xVel = xVel - 4000
+	    if xVel < 0
+		xVel = 0
+	    end
+	elseif event:keyCode = event:D
+	    xVel = xVel + 4000
+	elseif event:keyCode = event:S
+	    yVel = yVel - 4000
+	    if yVel < 0
+		yVel = 0
+	    end
+	elseif event:keyCode = event:W
+	    yVel = yVel + 4000
         end
+	xBar:LoadFilledRectangle(cast(integer,xVel/velScaleFactor),cast(integer,me:GetHeight()/offSideScale))
+	yBar:LoadFilledRectangle(cast(integer,me:GetWidth()/offSideScale), cast(integer,yVel/velScaleFactor))
+ //       xBar:SetWidth(xVel/500)
+//	yBar:SetHeight(xVel/500)
     end
     
     on create
         xVel = 10000
         yVel = 10000
+	me:LoadRectangle(50,50)
+	xBar:LoadFilledRectangle(cast(integer,xVel/velScaleFactor),cast(integer,me:GetHeight()/offSideScale))
+	yBar:LoadFilledRectangle(cast(integer,me:GetWidth()/offSideScale), cast(integer,yVel/velScaleFactor))
     end
 
-    action SetParent(Game targetGame)
+    action AddToGame(Game targetGame, number xPos, number yPos)
         parentGame = targetGame
+	parentGame:Add(me)
+	parentGame:AddKeyboardListener(me)
+	parentGame:Add(xBar)
+	parentGame:Add(yBar)
+	me:SetPosition(xPos, yPos)
+	xBar:SetPosition(xPos, yPos)
+	yBar:SetPosition(xPos, yPos)
+	//me:Add(xBar)
+	//me:Add(yBar)
     end
 
  //   action Main
