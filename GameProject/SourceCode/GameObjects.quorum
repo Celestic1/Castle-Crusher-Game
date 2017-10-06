@@ -1,0 +1,64 @@
+use Libraries.Game.Graphics.Drawable
+
+class GameObjects
+    action CreateObj(text objName, number objX, number objY)
+        returns Libraries.Game.Graphics.Drawable
+
+        Drawable tmpObj
+        tmpObj:SetName("null")
+        xxx = 0
+        yyy = 0
+        if objName = "B"
+            tmpObj:SetName("objBlock")
+            tmpObj:Load("resources/sprBrick_0.png")
+            tmpObj:EnablePhysics(true)
+            tmpObj:SetUnmovable()
+        elseif objName = "F"
+            tmpObj:SetName("objFish")
+            tmpObj:Load("resources/sprFesh-trimmed.png")
+            tmpObj:SetCollidable(true)
+            xxx = 5
+            yyy = 5
+        elseif objName = "C"
+            tmpObj:SetName("objCat")
+            tmpObj:Load("resources/sprCatR-trimmed.png")
+            tmpObj:EnablePhysics(true)
+            tmpObj:SetResponsive()
+            tmpObj:SetCollidable(true)
+        elseif objName = "L"
+            tmpObj:SetName("objLock")
+            tmpObj:Load("resources/sprLock_0.png")
+            tmpObj:EnablePhysics(true)
+            tmpObj:SetUnmovable()
+        elseif objName = "K"
+            tmpObj:SetName("objKey")
+            tmpObj:Load("resources/sprKey-trimmed.png")
+            tmpObj:SetCollidable(true)
+            xxx = 2
+        elseif objName = "E1"
+            tmpObj:SetName("objExit1")
+            tmpObj:Load("resources/sprMouseHole_0.png")
+            tmpObj:SetCollidable(true)
+        elseif objName = "E2"
+            tmpObj:SetName("objExit2")
+            tmpObj:Load("resources/sprMouseHole_0.png")
+            tmpObj:SetCollidable(true)
+        elseif objName = "E3"
+            tmpObj:SetName("objExit3")
+            tmpObj:Load("resources/sprMouseHole_0.png")
+            tmpObj:SetCollidable(true)
+        elseif objName = "X"
+            tmpObj:SetName("objBox")
+            tmpObj:Load("resources/sprBrick_0.png")
+            tmpObj:EnablePhysics(true)
+            tmpObj:SetResponsive()
+        elseif objName = "SB"
+            tmpObj:SetName("objStartButton")
+            tmpObj:Load("resources/sprStartButton.png")
+            xxx = 20
+        end
+
+        tmpObj:SetPosition(objX+xxx, objY+yyy)
+        return tmpObj
+    end
+end
