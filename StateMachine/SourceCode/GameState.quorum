@@ -1,0 +1,27 @@
+use Libraries.Game.Graphics.Drawable
+use Libraries.Game.Game
+
+class GameState is IState,Drawable
+    StateMachine ED
+    Game game_beingPlayed
+    Clickable exitButton
+    
+    //game_beingPlayed = ED:giveGame()
+    action Update(number secs)
+        if (exitButton:isClicked())
+            game_beingPlayed:Exit()
+        end
+    end
+    action Render
+        //Render map, layers, cannon, stuff
+    end
+    action OnEnter
+       game_beingPlayed:Add(me)
+       exitButton:Load("assets/exit.png")
+       exitButton:SetCenter(50, 50)
+       Add(exitButton)
+    end
+    action OnExit
+        game_beingPlayed:Remove(me)
+    end
+end

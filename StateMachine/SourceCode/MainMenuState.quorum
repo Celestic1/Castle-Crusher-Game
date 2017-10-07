@@ -1,0 +1,32 @@
+use Libraries.Game.Graphics.Drawable 
+use Libraries.Game.Game
+
+class MainMenuState is IState,Drawable
+    StateMachine ED
+    Clickable startButton
+    Clickable cat
+    Game main_beingPlayed
+    
+    //main_beingPlayed = ED:giveGame()
+    //called for each frame of the current state
+    action Update(number secs)
+       if (startButton:isClicked())
+        ED:Change("game")
+       end
+    end
+    //called for each frame of the current state
+    action Render
+    //No Rendering for the main menu
+    end
+    action OnEnter
+        main_beingPlayed:Add(me)
+        startButton:Load("assets/sprStartButton.png")
+        Add(startButton)
+        cat:Load("assets/sprCatR-trimmed.png")
+        Add(cat)
+    end
+    action OnExit
+        main_beingPlayed:Remove(startButton)
+        main_beingPlayed:Remove(me)
+    end
+end
