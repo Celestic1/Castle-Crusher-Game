@@ -1,0 +1,19 @@
+use Libraries.Game.Graphics.Drawable
+
+class GameState is Drawable, IState
+    Clickable picture
+    StateMachine ED
+
+    action Update(number secs)
+    
+    end
+    action Render
+        
+    end
+    action OnEnter
+    
+    end
+    action OnExit
+    
+    end
+end
