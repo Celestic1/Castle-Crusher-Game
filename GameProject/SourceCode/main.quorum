@@ -31,36 +31,18 @@ class Main is Game, KeyboardListener, CollisionListener2D, MouseListener
         g_Jump:Set(0, 25000)
         g_Right:Set(10000, 0)
         g_Left:Set(-10000, 0)
-        LoadRoom("./map0.txt")
+        roo:LoadRoom("./map0.txt")
     end
 
     action Update(number seconds)
-        // Check if there are items that need to be removed
+        // Check if there are objs that need to be removed
         repeat until roo:GetDelQueueSize() = 0
             Remove(roo:DequeueDelObj())
         end
-    end
 
-    action LoadRoom(text roomTextPath)
-        UnloadRoom() // Remove all exisiting room objects on screen before loading new room
-        roo:InitializeRoo(roomTextPath)
-
-        integer i = roo:GetObjCount()
-        repeat until i = 0
-            Add(roo:GetObjAtIndex(i-1))
-            if (roo:GetObjAtIndex(i-1):GetName() = "objCat")
-                g_CatIndex = i - 1
-            end
-            i = i - 1
-        end
-    end
-
-    action UnloadRoom
-        g_CatIndex = -1
-        integer i = roo:GetObjCount()
-        repeat until i = 0
-            roo:QueueDelObj(i - 1)
-            i = i - 1
+        // Check if there are objs that need to be added
+        repeat until roo:GetAddQueueSize() = 0
+            Add(roo:DequeueAddObj())
         end
     end
 
@@ -82,7 +64,7 @@ class Main is Game, KeyboardListener, CollisionListener2D, MouseListener
                     if startY <= y
                         if endY >= y
                             Remove(roo:GetObjAtIndex(startButtonIndex))
-                            LoadRoom("./map1.txt")
+                            roo:LoadRoom("./map1.txt")
                         end
                     end
                 end
@@ -119,18 +101,18 @@ class Main is Game, KeyboardListener, CollisionListener2D, MouseListener
 
         if itemA:GetName() = "objExit1" and itemB:GetName() = "objCat"
             Remove(itemA)
-            LoadRoom("./map2.txt")
+            roo:LoadRoom("./map2.txt")
         elseif itemA:GetName() = "objCat" and itemB:GetName() = "objExit1"
             Remove(itemB)
-            LoadRoom("./map2.txt")
+            roo:LoadRoom("./map2.txt")
         end
 
         if itemA:GetName() = "objExit2" and itemB:GetName() = "objCat"
             Remove(itemA)
-            LoadRoom("./map0.txt")
+            roo:LoadRoom("./map0.txt")
         elseif itemA:GetName() = "objCat" and itemB:GetName() = "objExit2"
             Remove(itemB)
-            LoadRoom("./map0.txt")
+            roo:LoadRoom("./map0.txt")
         end
 
         if itemA:GetName() = "objKey" and itemB:GetName() = "objCat"
