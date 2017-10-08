@@ -4,8 +4,25 @@ use Libraries.System.FileReader
 use Libraries.Game.Graphics.Drawable
 
 class GameRoom
-    GameObjects obj
-    Array<Drawable> g_objs
+    private GameObjects obj
+    private Array<Drawable> g_objs
+    private Array<Drawable> g_deleted_objs_queue
+
+    action QueueDelObj (integer objIndex)
+        Drawable tmpObj = g_objs:Get(objIndex)
+        g_objs:RemoveAt(objIndex)
+        g_deleted_objs_queue:AddToEnd(tmpObj)
+    end
+
+    action DequeueDelObj
+        returns Drawable
+        return g_deleted_objs_queue:RemoveFromFront()
+    end
+
+    action GetDelQueueSize
+        returns integer
+        return g_deleted_objs_queue:GetSize()
+    end
 
     action GetObjCount
         returns integer

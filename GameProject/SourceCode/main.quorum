@@ -42,6 +42,10 @@ class Main is Game, KeyboardListener, CollisionListener2D, MouseListener
     end
 
     action Update(number seconds)
+        // Check if there are items that need to be removed
+        repeat until roo:GetDelQueueSize() = 0
+            Remove(roo:DequeueDelObj())
+        end
     end
 
     action LoadRoom(text roomTextPath)
@@ -60,9 +64,10 @@ class Main is Game, KeyboardListener, CollisionListener2D, MouseListener
 
     action UnloadRoom
         g_CatIndex = -1
-        repeat until roo:GetObjCount() = 0
-            Remove(roo:GetObjAtIndex(0))
-            roo:DeleteObjAtIndex(0)
+        integer i = roo:GetObjCount()
+        repeat until i = 0
+            roo:QueueDelObj(i - 1)
+            i = i - 1
         end
     end
 
