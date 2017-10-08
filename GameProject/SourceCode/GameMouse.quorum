@@ -1,0 +1,33 @@
+use Libraries.Interface.Events.MouseListener
+use Libraries.Interface.Events.MouseEvent
+
+class GameMouse is MouseListener
+    public GameRoom roo
+
+    action ClickedMouse(MouseEvent event)
+        integer x = event:GetX()
+        integer y = event:GetY()
+        output "MouseClick: " + x + "," + y
+
+        integer startButtonIndex = roo:GetIndexOfObj("objStartButton")
+
+        if (startButtonIndex > -1)
+            number startX = roo:GetObjAtIndex(startButtonIndex):GetX()
+            number startY = roo:GetObjAtIndex(startButtonIndex):GetY()
+            number endX = startX + roo:GetObjAtIndex(startButtonIndex):GetWidth()
+            number endY = startY + roo:GetObjAtIndex(startButtonIndex):GetHeight()
+
+            if startX <= x
+                if endX >= x
+                    if startY <= y
+                        if endY >= y
+                            roo:QueueDelObj(roo:GetIndexOfObj("objStartButton"))
+                            roo:LoadRoom("./map1.txt")
+                        end
+                    end
+                end
+            end
+
+        end
+    end
+end

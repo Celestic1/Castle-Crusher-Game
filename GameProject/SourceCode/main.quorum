@@ -2,15 +2,15 @@ use Libraries.Game.Game
 use Libraries.Game.Graphics.Drawable
 use Libraries.Interface.Events.CollisionListener2D
 use Libraries.Interface.Events.CollisionEvent2D
-use Libraries.Interface.Events.MouseListener
-use Libraries.Interface.Events.MouseEvent
 
-class Main is Game, CollisionListener2D, MouseListener
+class Main is Game, CollisionListener2D
     GameRoom roo
     GameKeyboard GameKeyboardListener
+    GameMouse GameMouseListener
 
     action Main
         GameKeyboardListener:roo = roo
+        GameMouseListener:roo = roo
         // Fixed screensize / gamename
         SetScreenSize(roo:pg_ScreenSizeX , roo:pg_ScreenSizeY)
         SetGameName("Castle Crusher")
@@ -22,7 +22,7 @@ class Main is Game, CollisionListener2D, MouseListener
         SetGravity2D(0, -200)
         AddKeyboardListener(GameKeyboardListener)
         AddCollisionListener(me)
-        AddMouseListener(me)
+        AddMouseListener(GameMouseListener)
         roo:LoadRoom("./map0.txt")
     end
 
@@ -35,33 +35,6 @@ class Main is Game, CollisionListener2D, MouseListener
         // Check if there are objs that need to be added
         repeat until roo:GetAddQueueSize() = 0
             Add(roo:DequeueAddObj())
-        end
-    end
-
-    action ClickedMouse(MouseEvent event)
-        integer x = event:GetX()
-        integer y = event:GetY()
-        output "MouseClick: " + x + "," + y
-
-        integer startButtonIndex = roo:GetIndexOfObj("objStartButton")
-
-        if (startButtonIndex > -1)
-            number startX = roo:GetObjAtIndex(startButtonIndex):GetX()
-            number startY = roo:GetObjAtIndex(startButtonIndex):GetY()
-            number endX = startX + roo:GetObjAtIndex(startButtonIndex):GetWidth()
-            number endY = startY + roo:GetObjAtIndex(startButtonIndex):GetHeight()
-
-            if startX <= x
-                if endX >= x
-                    if startY <= y
-                        if endY >= y
-                            Remove(roo:GetObjAtIndex(startButtonIndex))
-                            roo:LoadRoom("./map1.txt")
-                        end
-                    end
-                end
-            end
-
         end
     end
 
