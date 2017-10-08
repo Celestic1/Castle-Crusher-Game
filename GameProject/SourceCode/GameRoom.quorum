@@ -34,6 +34,11 @@ class GameRoom
         g_deleted_objs_queue:AddToEnd(tmpObj)
     end
 
+    action QueueDelObj (Drawable obj)
+        g_objs:RemoveAt(GetIndexOfObj(obj))
+        g_deleted_objs_queue:AddToEnd(obj)
+    end
+
     action DequeueDelObj
         returns Drawable
         return g_deleted_objs_queue:RemoveFromFront()
@@ -49,20 +54,34 @@ class GameRoom
         return g_objs:GetSize()
     end
 
-    // returns the first obj found with name
-    // if none are found, returns empty obj
+    // returns the first index of obj found with name
+    // if none are found, returns -1
     action GetIndexOfObj (text objName)
         returns integer
 
         i = g_objs:GetSize()
         repeat until i = 0
-            if (g_objs:Get(i-1):GetName() = objName)
+            if (g_objs:Get(i-1):GetName():Contains(objName))
                 return i - 1 // obj found, return index
             end
             i = i - 1
         end
 
-        // output "ERROR: GetIndexOfObj(" + objName + ") returning -1, no such obj found"
+        // returns -1 if obj not found
+        return -1
+    end
+
+    // returns the index of obj found
+    // if non are found, returns -1
+    action GetIndexOfObj (Drawable tmpObj)
+        returns integer
+        i = g_objs:GetSize()
+        repeat until i = 0
+            if (g_objs:Get(i-1):Equals(tmpObj))
+                return i - 1 // obj found, return index
+            end
+            i = i - 1
+        end
 
         // returns -1 if obj not found
         return -1

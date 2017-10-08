@@ -1,16 +1,16 @@
 use Libraries.Game.Game
 use Libraries.Game.Graphics.Drawable
-use Libraries.Interface.Events.CollisionListener2D
-use Libraries.Interface.Events.CollisionEvent2D
 
-class Main is Game, CollisionListener2D
+class Main is Game
     GameRoom roo
     GameKeyboard GameKeyboardListener
     GameMouse GameMouseListener
+    GameCollision GameCollisionListener
 
     action Main
         GameKeyboardListener:roo = roo
         GameMouseListener:roo = roo
+        GameCollisionListener:roo = roo
         // Fixed screensize / gamename
         SetScreenSize(roo:pg_ScreenSizeX , roo:pg_ScreenSizeY)
         SetGameName("Castle Crusher")
@@ -21,7 +21,7 @@ class Main is Game, CollisionListener2D
         EnablePhysics2D(true)
         SetGravity2D(0, -200)
         AddKeyboardListener(GameKeyboardListener)
-        AddCollisionListener(me)
+        AddCollisionListener(GameCollisionListener)
         AddMouseListener(GameMouseListener)
         roo:LoadRoom("./map0.txt")
     end
@@ -38,51 +38,4 @@ class Main is Game, CollisionListener2D
         end
     end
 
-    action BeginCollision(CollisionEvent2D event)
-        Drawable itemA = cast(Drawable, event:GetItemA())
-        Drawable itemB = cast(Drawable, event:GetItemB())
-
-        if itemA:GetName() = "objFish" and itemB:GetName() = "objCat"
-            Remove(itemA)
-        elseif itemA:GetName() = "objCat" and itemB:GetName() = "objFish"
-            Remove(itemB)
-        end
-
-        if itemA:GetName() = "objExit1" and itemB:GetName() = "objCat"
-            Remove(itemA)
-            roo:LoadRoom("./map2.txt")
-        elseif itemA:GetName() = "objCat" and itemB:GetName() = "objExit1"
-            Remove(itemB)
-            roo:LoadRoom("./map2.txt")
-        end
-
-        if itemA:GetName() = "objExit2" and itemB:GetName() = "objCat"
-            Remove(itemA)
-            roo:LoadRoom("./map0.txt")
-        elseif itemA:GetName() = "objCat" and itemB:GetName() = "objExit2"
-            Remove(itemB)
-            roo:LoadRoom("./map0.txt")
-        end
-
-        if itemA:GetName() = "objKey" and itemB:GetName() = "objCat"
-            Remove(itemA)
-            integer i = roo:GetObjCount()
-            repeat until i = 0
-                if (roo:GetObjAtIndex(i-1):GetName() = "objLock")
-                    Remove(roo:GetObjAtIndex(i-1))
-                end
-                i = i - 1
-            end
-        elseif itemA:GetName() = "objCat" and itemB:GetName() = "objKey"
-            Remove(itemB)
-            integer i = roo:GetObjCount()
-            repeat until i = 0
-                if (roo:GetObjAtIndex(i-1):GetName() = "objLock")
-                    Remove(roo:GetObjAtIndex(i-1))
-                end
-                i = i - 1
-            end
-        end
-
-    end
 end
