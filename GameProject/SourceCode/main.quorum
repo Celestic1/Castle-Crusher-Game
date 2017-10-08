@@ -11,21 +11,14 @@ use Libraries.Compute.Vector2
 class Main is Game, KeyboardListener, CollisionListener2D, MouseListener
     GameRoom roo
 
-    g_CatIndex = -1
     Vector2 g_Jump
     Vector2 g_Left
     Vector2 g_Right
 
-    // Initial Game Settings
-    g_GameName = "Physics [cat] Game"
-    g_ScreenSizeX = 1000
-    g_ScreenSizeY = 320 
-    g_GridX = 40          // This is the width  of each 'grid' on map
-    g_GridY = 40          // This is the height of each 'grid' on map
-
     action Main
-        SetScreenSize(g_ScreenSizeX , g_ScreenSizeY)    // Screen Size is fixed
-        SetGameName(g_GameName)                         // Game Title is fixed
+        // Fixed screensize / gamename
+        SetScreenSize(roo:pg_ScreenSizeX , roo:pg_ScreenSizeY)
+        SetGameName("Castle Crusher")
         StartGame()
     end
 
@@ -50,7 +43,7 @@ class Main is Game, KeyboardListener, CollisionListener2D, MouseListener
 
     action LoadRoom(text roomTextPath)
         UnloadRoom() // Remove all exisiting room objects on screen before loading new room
-        roo:InitializeRoo(roomTextPath, g_ScreenSizeX, g_ScreenSizeY, g_GridX, g_GridY)
+        roo:InitializeRoo(roomTextPath)
 
         integer i = roo:GetObjCount()
         repeat until i = 0
@@ -99,17 +92,17 @@ class Main is Game, KeyboardListener, CollisionListener2D, MouseListener
     end
 
     action PressedKey(KeyboardEvent event)
-        if g_CatIndex > -1
+        if roo:GetIndexOfObj("objCat") > -1
             if event:keyCode = event:W
-                roo:GetObjAtIndex(g_CatIndex):ApplyForceToCenter(g_Jump)
+                roo:GetObjAtIndex(roo:GetIndexOfObj("objCat")):ApplyForceToCenter(g_Jump)
             end
             if event:keyCode = event:A
-                roo:GetObjAtIndex(g_CatIndex):ApplyForceToCenter(g_Left)
-                roo:GetObjAtIndex(g_CatIndex):ApplyTorque(150000)
+                roo:GetObjAtIndex(roo:GetIndexOfObj("objCat")):ApplyForceToCenter(g_Left)
+                roo:GetObjAtIndex(roo:GetIndexOfObj("objCat")):ApplyTorque(150000)
             end
             if event:keyCode = event:D
-                roo:GetObjAtIndex(g_CatIndex):ApplyForceToCenter(g_Right)
-                roo:GetObjAtIndex(g_CatIndex):ApplyTorque(-150000)
+                roo:GetObjAtIndex(roo:GetIndexOfObj("objCat")):ApplyForceToCenter(g_Right)
+                roo:GetObjAtIndex(roo:GetIndexOfObj("objCat")):ApplyTorque(-150000)
             end
         end
     end
