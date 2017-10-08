@@ -2,20 +2,15 @@ use Libraries.Game.Game
 use Libraries.Game.Graphics.Drawable
 use Libraries.Interface.Events.CollisionListener2D
 use Libraries.Interface.Events.CollisionEvent2D
-use Libraries.Interface.Events.KeyboardListener
-use Libraries.Interface.Events.KeyboardEvent
 use Libraries.Interface.Events.MouseListener
 use Libraries.Interface.Events.MouseEvent
-use Libraries.Compute.Vector2
 
-class Main is Game, KeyboardListener, CollisionListener2D, MouseListener
+class Main is Game, CollisionListener2D, MouseListener
     GameRoom roo
-
-    Vector2 g_Jump
-    Vector2 g_Left
-    Vector2 g_Right
+    GameKeyboard GameKeyboardListener
 
     action Main
+        GameKeyboardListener:roo = roo
         // Fixed screensize / gamename
         SetScreenSize(roo:pg_ScreenSizeX , roo:pg_ScreenSizeY)
         SetGameName("Castle Crusher")
@@ -25,12 +20,9 @@ class Main is Game, KeyboardListener, CollisionListener2D, MouseListener
     action CreateGame
         EnablePhysics2D(true)
         SetGravity2D(0, -200)
-        AddKeyboardListener(me)
+        AddKeyboardListener(GameKeyboardListener)
         AddCollisionListener(me)
         AddMouseListener(me)
-        g_Jump:Set(0, 25000)
-        g_Right:Set(10000, 0)
-        g_Left:Set(-10000, 0)
         roo:LoadRoom("./map0.txt")
     end
 
@@ -70,22 +62,6 @@ class Main is Game, KeyboardListener, CollisionListener2D, MouseListener
                 end
             end
 
-        end
-    end
-
-    action PressedKey(KeyboardEvent event)
-        if roo:GetIndexOfObj("objCat") > -1
-            if event:keyCode = event:W
-                roo:GetObjAtIndex(roo:GetIndexOfObj("objCat")):ApplyForceToCenter(g_Jump)
-            end
-            if event:keyCode = event:A
-                roo:GetObjAtIndex(roo:GetIndexOfObj("objCat")):ApplyForceToCenter(g_Left)
-                roo:GetObjAtIndex(roo:GetIndexOfObj("objCat")):ApplyTorque(150000)
-            end
-            if event:keyCode = event:D
-                roo:GetObjAtIndex(roo:GetIndexOfObj("objCat")):ApplyForceToCenter(g_Right)
-                roo:GetObjAtIndex(roo:GetIndexOfObj("objCat")):ApplyTorque(-150000)
-            end
         end
     end
 
