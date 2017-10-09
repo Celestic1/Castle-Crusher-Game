@@ -1,15 +1,4 @@
 use Libraries.Game.Game
-<<<<<<< HEAD
-use Libraries.Game.Graphics.Color
-use Libraries.Game.Graphics.Drawable
-
-class Main is Game 
-    Drawable bar
-    Clickable startMenu
-
-    action Main
-        EnableResizing(true)
-=======
 use Libraries.Game.Graphics.Drawable
 use Libraries.Interface.Events.CollisionListener2D
 use Libraries.Interface.Events.CollisionEvent2D
@@ -37,16 +26,10 @@ class Main is Game, KeyboardListener, CollisionListener2D, MouseListener
     action Main
         SetScreenSize(g_ScreenSizeX , g_ScreenSizeY)    // Screen Size is fixed
         SetGameName(g_GameName)                         // Game Title is fixed
->>>>>>> robins-dev
         StartGame()
     end
 
     action CreateGame
-<<<<<<< HEAD
-        startMenu:Load("resources/startMenu.png")
-        //startMenu:SetPosition(1280, 720)
-        Add(startMenu)
-=======
         EnablePhysics2D(true)
         SetGravity2D(0, -200)
         AddKeyboardListener(me)
@@ -56,14 +39,11 @@ class Main is Game, KeyboardListener, CollisionListener2D, MouseListener
         g_Right:Set(10000, 0)
         g_Left:Set(-10000, 0)
         LoadRoom("./map0.txt")
->>>>>>> robins-dev
     end
 
     action Update(number seconds)
     end
 
-<<<<<<< HEAD
-=======
     action LoadRoom(text roomTextPath)
         UnloadRoom() // Remove all exisiting room objects on screen before loading new room
         roo:InitializeRoo(roomTextPath, g_ScreenSizeX, g_ScreenSizeY, g_GridX, g_GridY)
@@ -176,5 +156,4 @@ class Main is Game, KeyboardListener, CollisionListener2D, MouseListener
         end
 
     end
->>>>>>> robins-dev
 end
