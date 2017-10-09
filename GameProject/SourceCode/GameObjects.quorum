@@ -56,6 +56,9 @@ class GameObjects
             tmpObj:SetName("objStartButton")
             tmpObj:Load("resources/sprStartButton.png")
             xxx = 20
+        elseif objName = "O"
+            tmpObj:SetName("objGameMouseFollower")
+            tmpObj:Load("resources/sprFesh-trimmed.png")
         end
 
         tmpObj:SetPosition(objX+xxx, objY+yyy)
