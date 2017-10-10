@@ -1,0 +1,18 @@
+use Libraries.Game.Graphics.Drawable
+use GameObject_Attribs
+
+class GameObject is Drawable
+    // myAttributes is the base state of an object (not necessarily the current one).
+    // Whenever we reset the object, or create a new one, we use its attributes.
+    GameObject_Attribs myAttributes
+    action SetAttributes (GameObject_Attribs newAttribs)
+	myAttributes = newAttribs
+    end
+    action GetAttributes returns GameObject_Attribs
+	return myAttributes
+    end
+
+    // Here, we use the attributes to set our GameObject the way we want it.
+    action InitGameObject
+    end
+end
