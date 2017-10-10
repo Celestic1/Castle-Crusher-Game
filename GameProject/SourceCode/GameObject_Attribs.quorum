@@ -19,15 +19,21 @@ class GameObject_Attribs
     // If we try to have animations or more than one sprite, we may need
     // to update this sort of thing.
     private text SpritePath = ""
+    boolean HasSpritePath = false
     action SetSpritePath (text newPath)
 	SpritePath = newPath
+	HasSprite = true
     end
     action GetSpritePath returns text
 	return SpritePath
     end
+    action CheckForSpritePath returns boolean
+	return HasSpritePath
+    end
 
     // Tangibility is whether the object should ever be touchable or not.
     // Buttons should not be tangible. Any object in a game should.
+    // If it's not tangible, most of the rest of these attributes get skipped!
     boolean Tangible = false
     action SetTangible (boolean newTang)
 	Tangible = newTang
