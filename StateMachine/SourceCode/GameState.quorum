@@ -2,26 +2,30 @@ use Libraries.Game.Graphics.Drawable
 use Libraries.Game.Game
 
 class GameState is IState,Drawable
-    StateMachine ED
+    StateStack Order
     Game game_beingPlayed
     Clickable exitButton
+    IState tmp
     
     //game_beingPlayed = ED:giveGame()
     action Update(number secs)
         if (exitButton:isClicked())
             game_beingPlayed:Exit()
+            tmp = Order:Pop()
         end
     end
+    //Loads any new objects that the game needs like map layers animations
     action Render
-        //Render map, layers, cannon, stuff
-    end
-    action OnEnter
-       game_beingPlayed:Add(me)
        exitButton:Load("assets/exit.png")
        exitButton:SetCenter(50, 50)
        Add(exitButton)
     end
+    // Load the UI buttons
+    action OnEnter
+       game_beingPlayed:Add(me)
+    end
     action OnExit
+        game_beingPlayed:Remove(exitButton)
         game_beingPlayed:Remove(me)
     end
 end

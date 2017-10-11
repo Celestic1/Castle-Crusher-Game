@@ -9,24 +9,29 @@ use Libraries.Game.Graphics.Drawable
 */
 class Main is Game
     StateMachine mainGameMode
+    StateStack mainStack
     MainMenuState mainMenu
     GameState game
-    Drawable startButton
+    
 
-    mainGameMode:beingPlayed = me
-    mainMenu:ED = mainGameMode
-    game:ED = mainGameMode
-    mainMenu:main_beingPlayed = me
-    game:game_beingPlayed = me
+    mainStack:beingPlayed = me
+    //mainMenu:ED = mainGameMode:getStateMachine()
+    //game:ED = mainGameMode:getStateMachine()
+    mainMenu:Order = mainStack:GetStack()
+    game:Order = mainStack:GetStack()
+    mainMenu:main_beingPlayed = mainStack:getGame()
+    game:game_beingPlayed = mainStack:getGame()
+    
     action Main
         StartGame()
     end
     action CreateGame
 
-        mainGameMode:Add("mainmenu", mainMenu)
-        mainGameMode:Add("game", game)
+        mainStack:Add("mainmenu", mainMenu)
+        mainStack:Add("gamescreen", game)
+        //output "State Machine has " + mainGameMode:getStateTable():GetSize() + "states"
         
-        mainGameMode:Change("mainmenu")
+        mainStack:Push("mainmenu")
 
     end
 
@@ -37,7 +42,7 @@ class Main is Game
         or to make creatures jump.
     */
     action Update(number seconds)
-        mainGameMode:Update(seconds)        
-        mainGameMode:Render()
+        mainStack:Update(seconds)        
+        mainStack:Render()
     end
 end

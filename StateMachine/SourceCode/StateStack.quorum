@@ -1,22 +1,69 @@
 use Libraries.Containers.HashTable
 use Libraries.Containers.Stack
+use Libraries.Game.Game
 
 class StateStack 
-    HashTable<text, IState> stateTable
-    Stack<IState> stateStack
+    // map of all the states in the game
+    private HashTable<text, IState> mStates
+    //stack of States
+    private Stack<IState> stateStack
+    Game beingPlayed
+    //Top of the stack is the current state being drawn
+    IState currentState
+    
+    on create
+        EmptyState m 
+        stateStack:Push(m)
+        currentState = stateStack:Peek()
+    end
+    
+    action setGame (Game main)
+        beingPlayed = main
+    end
+    action getGame returns Game
+        return beingPlayed
+    end
+    
+    action stateExists (text name, IState state) returns boolean
+        return mStates:HasValue(state) or mStates:HasKey(name)
+    end
+    
     action Update (number t)
         IState top = stateStack:Peek()
         top:Update(t)
     end
+    
     action Render()
         IState top = stateStack:Peek()
         top:Render()
     end
+    
     action Push(text name)
-        IState a_state = stateTable:GetValue(name)
-        stateStack:Push(a_state)
+        output name
+        IState state
+        state = mStates:GetValue(name)
+        stateStack:Push(state)
+        Change(name)
     end
+    
     action Pop returns IState
         return stateStack:Pop()
+    end
+    
+    action Change (text t)
+        currentState:OnExit()
+        currentState = mStates:GetValue(t)
+        currentState:OnEnter()
+    end
+    
+    action ssIsEmpty returns boolean
+        return stateStack:IsEmpty()
+    end
+    
+    action Add (text name, IState state)
+        mStates:Add(name, state)
+    end
+    action GetStack returns StateStack
+        return me
     end
 end

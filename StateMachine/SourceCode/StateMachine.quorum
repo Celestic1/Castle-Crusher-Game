@@ -6,7 +6,6 @@ class StateMachine
     private HashTable<text, IState> mStates
     EmptyState m
     IState currentState = m
-    boolean timetoswitch = false
     Game beingPlayed
     
     action Update (number secs)
@@ -22,8 +21,28 @@ class StateMachine
     end
     action Add (text name, IState state)
         mStates:Add(name, state)
+        output name + " Added"
     end
-    action giveGame returns Game
+    
+    action setGame (Game main)
+        beingPlayed = main
+    end
+    action getGame returns Game
         return beingPlayed
+    end
+    action getState (text name) returns IState
+        return mStates:GetValue(name)
+    end
+    action getStateName (IState x) returns text
+        return mStates:GetKey(x)
+    end
+    action getStateMachine returns StateMachine
+        return me
+    end
+    action stateExists (text name, IState state) returns boolean
+        return mStates:HasValue(state) or mStates:HasKey(name)
+    end
+    action getStateTable returns HashTable<text, IState>
+        return mStates
     end
 end
