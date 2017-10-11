@@ -5,26 +5,50 @@
 // unit height in pixels
 [DATA]
 Simple Goals
-36
-15
-40
-40
+93
+39
+5
+5
 [DATAEND]
 
 [MAP]
-B, , , , , , , , , , , , , , ,B,B,B, , ,B,B,B, , , ,B,B,B, , ,B,B,B, ,B
-B, , , , , , , , , , , , , , ,B,B,B, ,F,B,B,B, , , ,B,B,B, ,F,B,B,B, ,B
-B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B, , , ,B,B,B,B,B,B,B,B, ,B
-B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B, , , ,B,B,B,B,B,B,B,B, ,B
-B, , , , , , , , , , , , , , ,B,B,B, , ,B,B,B, , , ,B,B,B, , ,B,B,B, ,B
-B,C, , , , , , , , , , , , , ,B,B,B, ,F,B,B,B, , , ,B,B,B,F, ,B,B,B, ,B
-B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B, , , ,B,B,B,B,B,B,B,B, ,B
-B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, ,B
-B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, ,B
-B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, ,B
-B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, ,B
-B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, ,B
-B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, ,B
-B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, ,B
-B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B
+B, , , , , , , , , , , , , , ,B,B,B, , ,B,B,B, , , ,B,B,B, , ,B,B,B, ,B,B,B, , ,B,B,B, , , ,B,B,B, , ,B,B,B, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B, , ,B,B,B, , , ,B,B,B, , ,B,B,B, ,B,B,B, , ,B,B,B, , , ,B,B,B, , ,B,B,B, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B, , , ,B,B,B,B,B,B,B,B, ,B,B,B,B,B,B,B,B, , , ,B,B,B,B,B,B,B,B, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B, , , ,B,B,B,B,B,B,B,B, ,B,B,B,B,B,B,B,B, , , ,B,B,B,B,B,B,B,B, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B, , ,B,B,B, , , ,B,B,B, , ,B,B,B, ,B,B,B, , ,B,B,B, , , ,B,B,B, , ,B,B,B, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B, , ,B,B,B, , , ,B,B,B, , ,B,B,B, ,B,B,B, , ,B,B,B, , , ,B,B,B, , ,B,B,B, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B, , , ,B,B,B,B,B,B,B,B, ,B,B,B,B,B,B,B,B, , , ,B,B,B,B,B,B,B,B, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , ,B
+B, , , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , ,B
+B,C, , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B, , , , , , , , , ,B
+D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,D, ,B
 [MAPEND]
