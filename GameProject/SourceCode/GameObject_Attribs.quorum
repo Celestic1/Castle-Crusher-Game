@@ -22,7 +22,7 @@ class GameObject_Attribs
     boolean HasSpritePath = false
     action SetSpritePath (text newPath)
 	SpritePath = newPath
-	HasSprite = true
+	HasSpritePath = true
     end
     action GetSpritePath returns text
 	return SpritePath

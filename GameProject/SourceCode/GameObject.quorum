@@ -22,14 +22,23 @@ class GameObject is Drawable
 	me:SetName(myAttribs:GetObjectName())
 	if myAttribs:CheckForSpritePath()
 	    me:Load(myAttribs:GetSpritePath())
+        else
+            me:LoadRectangle(10,10)
 	end
+        if not IsLoaded()
+            output me:GetName()
+            output "did not load"
+        end
 	// if it's not tangible, it doesn't have physics; skip the other steps
 	if myAttribs:GetTangible()
 	    if myAttribs:GetPhysicsEnabled()
 		me:EnablePhysics(true)
-	    end
-	    if not myAttribs:GetMovable()
-		me:SetUnmovable()
+                if not myAttribs:GetMovable()
+                    me:SetUnmovable()
+                end
+                me:SetMass(myAttribs:GetMass())
+                me:SetFriction(myAttribs:GetFriction())
+                me:SetRestitution(myAttribs:GetRestitution())
 	    end
 	    if myAttribs:GetResponsive()
 		me:SetResponsive()
@@ -37,9 +46,6 @@ class GameObject is Drawable
 	    if myAttribs:GetCollidable()
 		me:SetCollidable(true)
 	    end
-	    me:SetMass(myAttribs:GetMass())
-	    me:SetFriction(myAttribs:GetFriction())
-	    me:SetRestitution(myAttribs:GetRestitution())
 	end
 	// do set up position though
 	me:SetPosition(myAttribs:GetBasePositionX(), myAttribs:GetBasePositionY())
