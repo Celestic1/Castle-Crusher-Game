@@ -1,8 +1,9 @@
 use Libraries.Game.Graphics.Drawable
 use Libraries.Interface.Events.MouseMovementListener
 use Libraries.Interface.Events.MouseEvent
+use Libraries.Game.Game
 
-class GameMouseFollower is Drawable, MouseMovementListener
+class GameMouseFollower is Drawable, MouseMovementListener, GameObject
    // This action will be called when the MouseFollower receives a MouseEvent because the mouse was moved with no mouse buttons being held down.
    action MovedMouse(MouseEvent event)
        // This code sets the center of the box directly under the mouse.
@@ -17,4 +18,14 @@ class GameMouseFollower is Drawable, MouseMovementListener
        number y = event:GetMovementY()
        //Translate(-x, -y)
    end
+
+    action AddToGame (Game newGame)
+        parent:GameObject:AddToGame(newGame)
+        newGame:AddMouseMovementListener(me)
+    end
+
+    action RemoveFromGame (Game newGame)
+        parent:GameObject:RemoveFromGame(newGame)
+        newGame:RemoveMouseMovementListener(me)
+    end
 end

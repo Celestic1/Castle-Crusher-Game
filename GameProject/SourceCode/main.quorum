@@ -1,14 +1,18 @@
 use Libraries.Game.Game
 use Libraries.Game.Graphics.Drawable
+use GameObject_Attrib_List
+use GameObject
+use GameObject_Player
 
 class Main is Game
     GameRoom roo
-    GameKeyboard GameKeyboardListener
+//    GameKeyboard GameKeyboardListener
     GameMouse GameMouseListener
     GameCollision GameCollisionListener
+    GameObject_Attrib_List src
 
     action Main
-        GameKeyboardListener:roo = roo
+//        GameKeyboardListener:roo = roo
         GameMouseListener:roo = roo
         GameCollisionListener:roo = roo
         // Fixed screensize / gamename
@@ -20,7 +24,7 @@ class Main is Game
     action CreateGame
         EnablePhysics2D(true)
         SetGravity2D(0, -200)
-        AddKeyboardListener(GameKeyboardListener)
+//        AddKeyboardListener(GameKeyboardListener)
         AddCollisionListener(GameCollisionListener)
         AddMouseListener(GameMouseListener)
         roo:LoadRoom("./map0.txt")
@@ -29,27 +33,32 @@ class Main is Game
     action Update(number seconds)
         // Check if there are objs that need to be removed
         repeat until roo:GetDelQueueSize() = 0
-            Drawable tmpDraw = roo:DequeueDelObj()
+            GameObject tmpDraw = roo:DequeueDelObj()
 
             // Removing example cursor object
-            if tmpDraw:GetName() = "objGameMouseFollower"
-                Remove(roo:g_Cursors:RemoveFromFront())
-            end
+//            if tmpDraw:GetName() = "objGameMouseFollower"
+//                Remove(roo:g_Cursors:RemoveFromFront())
+//            end
 
-            Remove(tmpDraw)
+            tmpDraw:RemoveFromGame(me)
         end
 
         // Check if there are objs that need to be added
         repeat until roo:GetAddQueueSize() = 0
-            Drawable tmpDraw = roo:DequeueAddObj()
+            GameObject tmpDraw = roo:DequeueAddObj()
 
             // Adding example cursor object
-            if tmpDraw:GetName() = "objGameMouseFollower"
+/*            if tmpDraw:GetName() = "objGameMouseFollower"
                 AddMouseMovementListener(roo:g_Cursors:GetFromFront())
                 Add(roo:g_Cursors:GetFromFront())
-            else
-                Add(tmpDraw)        // Add standard Drawable
-            end
+            elseif tmpDraw:GetName() = "objCannon"
+                GameObject_Player tmpPlayer = cast(GameObject_Player,tmpDraw)
+                AddKeyboardListener(tmpPlayer)
+                Add(tmpPlayer)    
+
+            else*/
+            tmpDraw:AddToGame(me)        // Add standard Drawable
+            //end
         end
     end
 

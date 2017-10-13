@@ -1,5 +1,6 @@
 use Libraries.Game.Graphics.Drawable
 use GameObject_Attribs
+use Libraries.Game.Game
 
 class GameObject is Drawable
     // myAttributes is the base state of an object (not necessarily the current one).
@@ -49,5 +50,14 @@ class GameObject is Drawable
 	end
 	// do set up position though
 	me:SetPosition(myAttribs:GetBasePositionX(), myAttribs:GetBasePositionY())
+    end
+
+    action AddToGame (Game newGame)
+        output "Adding object " + me:GetName() + " to game."
+        newGame:Add(me)
+    end
+
+    action RemoveFromGame (Game newGame)
+        newGame:Remove(me)
     end
 end

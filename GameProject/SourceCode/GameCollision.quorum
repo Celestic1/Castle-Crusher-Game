@@ -1,13 +1,14 @@
 use Libraries.Game.Graphics.Drawable
 use Libraries.Interface.Events.CollisionListener2D
 use Libraries.Interface.Events.CollisionEvent2D
+use GameObject
 
 class GameCollision is CollisionListener2D
     public GameRoom roo
 
     action BeginCollision(CollisionEvent2D event)
-        Drawable itemA = cast(Drawable, event:GetItemA())
-        Drawable itemB = cast(Drawable, event:GetItemB())
+        GameObject itemA = cast(GameObject, event:GetItemA())
+        GameObject itemB = cast(GameObject, event:GetItemB())
 
         if itemA:GetName() = "objFish" and itemB:GetName() = "objCat"
             roo:QueueDelObj(itemA)

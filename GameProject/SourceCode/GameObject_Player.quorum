@@ -1,0 +1,80 @@
+use GameObject
+use GameObject_Attribs
+use GameObject_Attrib_List
+use GameKeyboard
+use Libraries.Game.Game
+use Libraries.Containers.List
+use Libraries.Game.Graphics.Drawable
+use Libraries.Compute.Vector2
+use Libraries.Interface.Events.KeyboardEvent
+
+class GameObject_Player is GameObject, GameKeyboard
+    List<GameObject> myAmmo
+    private number baseFX = 10000
+    private number baseFY = 10000
+    Vector2 MyForce
+    
+    action FireCannon(integer AmmoRef)
+        if not (AmmoRef < myAmmo:GetSize() and AmmoRef >= 0)
+            output "Cannon is out of ammo!"
+            return now
+        end
+        GameObject toFire = myAmmo:Get(AmmoRef)
+        toFire:SetPosition(0,0)
+        toFire:ApplyForceToCenter(MyForce)
+        toFire:Show()
+        myAmmo:RemoveAt(AmmoRef)
+        output "Shot fired! " + myAmmo:GetSize() + " ammo left."
+        ResetForce()
+    end
+
+    action LoadCannon(GameObject newAmmo)
+//        if newAmmo:GetAttributes():IsProjectile()
+            newAmmo:Hide()
+            Add(newAmmo)
+            myAmmo:Add(newAmmo)
+            output "Ammo loaded; " + myAmmo:GetSize() + " left."
+//        else
+//            output "Tried to load a bad projectile!"
+//        end
+    end
+
+    action InitGameObject
+        parent:GameObject:InitGameObject()
+        ResetForce()
+    end
+
+    action ResetForce
+        MyForce:Set(baseFX,baseFY)
+    end
+
+    action StartKey(KeyboardEvent event)
+        output "STARTKEY"
+        if event:keyCode = event:SPACE
+            FireCannon(0)
+        end
+    end
+
+    action AddToGame (Game newGame)
+        GameObject_Attrib_List src
+        parent:GameObject:AddToGame(newGame)
+        newGame:AddKeyboardListener(me)
+        GameObject ammo1
+        ammo1:InitGameObject(src:GetNewCannonBallAttribs(0,0))
+        newGame:Add(ammo1)
+        GameObject ammo2
+        ammo2:InitGameObject(src:GetNewCannonBallAttribs(0,0))
+        newGame:Add(ammo2)
+        GameObject ammo3
+        ammo3:InitGameObject(src:GetNewCannonBallAttribs(0,0))
+        newGame:Add(ammo3)
+        LoadCannon(ammo1)
+        LoadCannon(ammo2)
+        LoadCannon(ammo3)
+    end
+
+    action RemoveFromGame (Game newGame)
+        parent:GameObject:RemoveFromGame(newGame)
+        newGame:RemoveKeyboardListener(me)
+    end
+end

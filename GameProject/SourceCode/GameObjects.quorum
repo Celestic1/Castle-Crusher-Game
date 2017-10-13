@@ -4,7 +4,7 @@ use GameObject_Attrib_List
 
 class GameObjects
     action CreateObj(text objName, number objX, number objY)
-        returns Libraries.Game.Graphics.Drawable
+        returns GameObject
 
         GameObject_Attrib_List src
         GameObject tmpObj
@@ -29,7 +29,10 @@ class GameObjects
             tmpObj:EnablePhysics(true)
             tmpObj:SetResponsive()
             tmpObj:SetCollidable(true)*/
-            tmpObj:InitGameObject(src:GetNewCatAttribs(objX,objY))
+            //tmpObj:InitGameObject(src:GetNewCatAttribs(objX,objY))
+            GameObject_Player SecondObj
+            SecondObj:InitGameObject(src:GetNewCannonAttribs(objX,objY))
+            tmpObj = SecondObj
         elseif objName = "L"
 /*            tmpObj:SetName("objLock")
             tmpObj:Load("resources/sprLock_0.png")

@@ -3,24 +3,25 @@ use Libraries.Containers.Array
 use Libraries.System.File
 use Libraries.System.FileReader
 use Libraries.Game.Graphics.Drawable
+use GameObject
 
 class GameRoom
     private GameObjects obj
-    private Array<Drawable> g_objs
-    private Array<Drawable> g_deleted_objs_queue
-    private Array<Drawable> g_added_objs_queue
+    private Array<GameObject> g_objs
+    private Array<GameObject> g_deleted_objs_queue
+    private Array<GameObject> g_added_objs_queue
     public Array<GameMouseFollower> g_Cursors
     public integer pg_ScreenSizeX = 1000  // Default width of room
     public integer pg_ScreenSizeY = 320   // Default height of room
     private integer g_GridX = 40          // This is the width  of each 'grid' on map
     private integer g_GridY = 40          // This is the height of each 'grid' on map
 
-    action QueueAddObj (Drawable tmpObj)
+    action QueueAddObj (GameObject tmpObj)
         g_added_objs_queue:AddToEnd(tmpObj)
     end
 
     action DequeueAddObj
-        returns Drawable
+        returns GameObject
         g_objs:AddToEnd(g_added_objs_queue:RemoveFromFront())
         return g_objs:GetFromEnd()
     end
@@ -31,18 +32,18 @@ class GameRoom
     end
 
     action QueueDelObj (integer objIndex)
-        Drawable tmpObj = g_objs:Get(objIndex)
+        GameObject tmpObj = g_objs:Get(objIndex)
         g_objs:RemoveAt(objIndex)
         g_deleted_objs_queue:AddToEnd(tmpObj)
     end
 
-    action QueueDelObj (Drawable obj)
+    action QueueDelObj (GameObject obj)
         g_objs:RemoveAt(GetIndexOfObj(obj))
         g_deleted_objs_queue:AddToEnd(obj)
     end
 
     action DequeueDelObj
-        returns Drawable
+        returns GameObject
         return g_deleted_objs_queue:RemoveFromFront()
     end
 
@@ -75,7 +76,7 @@ class GameRoom
 
     // returns the index of obj found
     // if non are found, returns -1
-    action GetIndexOfObj (Drawable tmpObj)
+    action GetIndexOfObj (GameObject tmpObj)
         returns integer
         i = g_objs:GetSize()
         repeat until i = 0
@@ -90,7 +91,7 @@ class GameRoom
     end
 
     action GetObjAtIndex (integer index)
-        returns Drawable
+        returns GameObject
         return g_objs:Get(index)
     end
 

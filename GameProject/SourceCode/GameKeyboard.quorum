@@ -1,31 +1,52 @@
 use Libraries.Interface.Events.KeyboardListener
 use Libraries.Interface.Events.KeyboardEvent
-use Libraries.Compute.Vector2
+use Libraries.Containers.List
+use Libraries.Containers.Iterator
 
 class GameKeyboard is KeyboardListener
-    public GameRoom roo
-
-    Vector2 g_Jump
-    Vector2 g_Left
-    Vector2 g_Right
+    List<KeyboardEvent> ActiveKeys
 
     action PressedKey(KeyboardEvent event)
-        g_Jump:Set(0, 25000)
-        g_Right:Set(10000, 0)
-        g_Left:Set(-10000, 0)
+//        ActiveKeys:AddToFront(event)
+        StartKey(event)
+    end
 
-        if roo:GetIndexOfObj("objCat") > -1
-            if event:keyCode = event:W
-                roo:GetObjAtIndex(roo:GetIndexOfObj("objCat")):ApplyForceToCenter(g_Jump)
+    // find object, remove
+    action ReleasedKey(KeyboardEvent event)
+        EndKey(event)
+ /*       integer TargLoc = GetActiveKeyLocation(event)
+        if TargLoc >= 0
+            ActiveKeys:RemoveAt(TargLoc)
+        end*/
+    end
+
+    action GetActiveKeys() returns List<KeyboardEvent>
+        return ActiveKeys
+    end
+
+    action GetActiveKeyLocation(KeyboardEvent target) returns integer
+        integer KeyIt = 0
+        repeat while KeyIt < ActiveKeys:GetSize()
+            if target:Equals(ActiveKeys:Get(KeyIt))
+                return KeyIt
             end
-            if event:keyCode = event:A
-                roo:GetObjAtIndex(roo:GetIndexOfObj("objCat")):ApplyForceToCenter(g_Left)
-                roo:GetObjAtIndex(roo:GetIndexOfObj("objCat")):ApplyTorque(150000)
-            end
-            if event:keyCode = event:D
-                roo:GetObjAtIndex(roo:GetIndexOfObj("objCat")):ApplyForceToCenter(g_Right)
-                roo:GetObjAtIndex(roo:GetIndexOfObj("objCat")):ApplyTorque(-150000)
-            end
+        end
+        return -1
+    end
+
+    action StartKey(KeyboardEvent event)
+    end
+
+    action EndKey(KeyboardEvent event)
+    end
+
+    action OperateOnKey(KeyboardEvent event)
+    end
+
+    action UpdateActiveKeys()
+        integer KeyIt = 0
+        repeat while KeyIt < ActiveKeys:GetSize()
+            OperateOnKey(ActiveKeys:Get(KeyIt))
         end
     end
 end

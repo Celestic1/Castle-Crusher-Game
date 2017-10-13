@@ -128,4 +128,10 @@ class GameObject_Attribs
     action GetBasePositionY returns number
 	return BasePosition:GetY()
     end
+
+    // THIS DOES NOT TELL YOU IF IT IS NOT A PROJECTILE
+    // This is just to make sure that the cannon isn't taking things it can't use.
+    action IsProjectile() returns boolean
+        return (GetTangible() and GetPhysicsEnabled() and GetMovable() and GetResponsive())
+    end
 end
