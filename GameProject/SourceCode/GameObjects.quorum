@@ -68,6 +68,11 @@ class GameObjects
             tmpObj:Load("resources/sprStartButton.png")
             xxx = 20*/
             tmpObj:InitGameObject(src:GetNewStartButtonAttribs(objX,objY))
+        elseif objName = "T"
+/*            tmpObj:SetName("objStartButton")
+            tmpObj:Load("resources/sprStartButton.png")
+            xxx = 20*/
+            tmpObj:InitGameObject(src:GetNewTitleAttribs(objX,objY))
         elseif objName = "O"
 /*            tmpObj:SetName("objGameMouseFollower")
             tmpObj:Load("resources/sprFesh-trimmed.png")*/

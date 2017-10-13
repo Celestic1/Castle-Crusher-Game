@@ -116,6 +116,14 @@ class GameObject_Attrib_List
 	return newAttribs
     end
 
+    action GetNewTitleAttribs (number posX, number posY) returns GameObject_Attribs
+	GameObject_Attribs newAttribs
+	newAttribs:SetObjectName("objTitle")
+	newAttribs:SetSpritePath("resources/Title.png")
+	newAttribs:SetBasePosition(posX+20, posY)
+	return newAttribs
+    end
+
     action GetNewMouseFollowerAttribs (number posX, number posY) returns GameObject_Attribs
 	GameObject_Attribs newAttribs
 	newAttribs:SetObjectName("objGameMouseFollower")
