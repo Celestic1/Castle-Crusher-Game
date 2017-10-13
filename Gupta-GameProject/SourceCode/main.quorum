@@ -28,7 +28,7 @@ class Main is Game, CollisionListener2D, KeyboardListener
     action Main
         // [Get and set room config from map1.txt]
         File f
-        f:SetPath("/map1.txt")
+        f:SetPath("/map3.txt")
         FileReader reader
         reader:OpenForRead(f)
         text readLine = ""
@@ -58,7 +58,7 @@ class Main is Game, CollisionListener2D, KeyboardListener
         SetGravity2D(0, -200)
 
         File f  
-        f:SetPath("/map2.txt")
+        f:SetPath("/map3.txt")
         FileReader reader
         text readLine = ""
         number currentY = 0
@@ -86,8 +86,8 @@ class Main is Game, CollisionListener2D, KeyboardListener
                     tmpObj:EnablePhysics(true)
                     tmpObj:SetUnmovable()    
                 elseif tmpArray:Get(i) = "D"
-                    tmpObj:SetName("objCloud")
-                    tmpObj:Load("resources/cloud.png")
+                    tmpObj:SetName("objDoubleBrick")
+                    tmpObj:Load("resources/DoubleBrick_vg.jpg")
                     tmpObj:EnablePhysics(true)
                     tmpObj:SetUnmovable()    
                 elseif tmpArray:Get(i) = "F"
@@ -104,8 +104,8 @@ class Main is Game, CollisionListener2D, KeyboardListener
                     tmpObj:SetCollidable(true)
                     catIndex = i + cast(integer,currentY*widthUnits)
                 elseif tmpArray:Get(i) = "L"
-                    tmpObj:SetName("objLock")
-                    tmpObj:Load("resources/sprLock_0.png")
+                    tmpObj:SetName("objLong")
+                    tmpObj:Load("resources/LongBrick_vg.jpg")
                     tmpObj:EnablePhysics(true)
                     tmpObj:SetUnmovable()
                     locks:Add(i + cast(integer,currentY*widthUnits))
@@ -123,6 +123,11 @@ class Main is Game, CollisionListener2D, KeyboardListener
                     tmpObj:Load("resources/sprBrick_0.png")
                     tmpObj:EnablePhysics(true)
                     tmpObj:SetResponsive()
+                elseif tmpArray:Get(i) = "T"
+                    tmpObj:SetName("objTri")
+                    tmpObj:Load("resources/TriBrick_vg.png")
+                    tmpObj:EnablePhysics(true)
+                    tmpObj:SetCollidable(true)
                 end
                 tmpObj:SetPosition(i*unitWidth+xxx, roomHeight-(currentY*unitHeight)-unitHeight+yyy)
                 objects:Add(tmpObj)
