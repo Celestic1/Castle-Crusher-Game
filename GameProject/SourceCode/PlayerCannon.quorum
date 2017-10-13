@@ -15,8 +15,6 @@ class PlayerCannon is KeyboardListener, Drawable
     number velScaleFactor = 400
     number offSideScale = 4
     Drawable yBar
- //   InputMonitor monitor
-//    KeyboardEvent keys
 
     action FireCannon(Drawable newProj)
         parentGame:Add(newProj)
@@ -28,29 +26,14 @@ class PlayerCannon is KeyboardListener, Drawable
         yVel = 10000
 	xBar:LoadFilledRectangle(cast(integer,xVel/velScaleFactor),cast(integer,me:GetHeight()/offSideScale))
 	yBar:LoadFilledRectangle(cast(integer,me:GetWidth()/offSideScale), cast(integer,yVel/velScaleFactor))
-//        xBar:SetWidth(xVel/500)
-//	yBar:SetHeight(xVel/500)
+
+
     end
 
-/*    action Update(number seconds)
-	if monitor:IsKeyPressed(keys:A)
-	    xVel = xVel - 1000
-	end
-	if monitor:IsKeyPressed(keys:D)
-	    xVel = xVel + 1000
-	end
-	if monitor:IsKeyPressed(keys:W)
-	    yVel = yVel + 1000
-	end
-	if monitor:IsKeyPressed(keys:S)
-	    yVel = yVel - 1000
-	end
-    end*/
 
     action PressedKey(KeyboardEvent event)
         if event:keyCode = event:SPACE
             Drawable cannonBall
-            //cannonBall = refObject:CreateObj("B", me:GetCenterX(), me:GetCenterY())
 	    cannonBall:LoadFilledCircle(8)
 	    cannonBall:EnablePhysics(true)
             cannonBall:SetResponsive()
@@ -73,8 +56,6 @@ class PlayerCannon is KeyboardListener, Drawable
         end
 	xBar:LoadFilledRectangle(cast(integer,xVel/velScaleFactor),cast(integer,me:GetHeight()/offSideScale))
 	yBar:LoadFilledRectangle(cast(integer,me:GetWidth()/offSideScale), cast(integer,yVel/velScaleFactor))
- //       xBar:SetWidth(xVel/500)
-//	yBar:SetHeight(xVel/500)
     end
     
     on create
@@ -94,11 +75,6 @@ class PlayerCannon is KeyboardListener, Drawable
 	me:SetPosition(xPos, yPos)
 	xBar:SetPosition(xPos, yPos)
 	yBar:SetPosition(xPos, yPos)
-	//me:Add(xBar)
-	//me:Add(yBar)
     end
 
- //   action Main
- //       
- //   end
 end

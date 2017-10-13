@@ -38,7 +38,9 @@ class Main is Game, KeyboardListener, CollisionListener2D, MouseListener
         g_Jump:Set(0, 25000)
         g_Right:Set(10000, 0)
         g_Left:Set(-10000, 0)
-        LoadRoom("./map0.txt")
+        //LoadRoom("./map0.txt")
+        PlayerCannon testCannon
+	testCannon:AddToGame(me, 100, 100)
     end
 
     action Update(number seconds)
@@ -56,8 +58,8 @@ class Main is Game, KeyboardListener, CollisionListener2D, MouseListener
             end
             i = i - 1
         end
-	PlayerCannon testCannon
-	testCannon:AddToGame(me, 100, 100)
+	//PlayerCannon testCannon
+	//testCannon:AddToGame(me, 100, 100)
     end
 
     action UnloadRoom
