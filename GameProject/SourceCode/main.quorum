@@ -40,6 +40,7 @@ class Main is Game
 //                Remove(roo:g_Cursors:RemoveFromFront())
 //            end
 
+//            Remove(tmpDraw)
             tmpDraw:RemoveFromGame(me)
         end
 
