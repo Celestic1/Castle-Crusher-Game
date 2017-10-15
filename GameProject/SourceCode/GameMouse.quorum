@@ -3,6 +3,7 @@ use Libraries.Interface.Events.MouseEvent
 
 class GameMouse is MouseListener
     public GameRoom roo
+    public text currentRoom = ""
 
     action ClickedMouse(MouseEvent event)
         integer x = event:GetX()
@@ -10,6 +11,8 @@ class GameMouse is MouseListener
         output "MouseClick: " + x + "," + y
 
         integer startButtonIndex = roo:GetIndexOfObj("objStartButton")
+        integer pauseButtonIndex = roo:GetIndexOfObj("objPauseButton")
+        integer resumeButtonIndex = roo:GetIndexOfObj("objResumeButton")
 
         if (startButtonIndex > -1)
             number startX = roo:GetObjAtIndex(startButtonIndex):GetX()
@@ -23,6 +26,45 @@ class GameMouse is MouseListener
                         if endY >= y
                             roo:QueueDelObj(roo:GetIndexOfObj("objStartButton"))
                             roo:LoadRoom("./map1.txt")
+                        end
+                    end
+                end
+            end
+
+        end
+
+        if (pauseButtonIndex > -1)
+            number startX = roo:GetObjAtIndex(pauseButtonIndex):GetX()
+            number startY = roo:GetObjAtIndex(pauseButtonIndex):GetY()
+            number endX = startX + roo:GetObjAtIndex(pauseButtonIndex):GetWidth()
+            number endY = startY + roo:GetObjAtIndex(pauseButtonIndex):GetHeight()
+
+            if startX <= x
+                if endX >= x
+                    if startY <= y
+                        if endY >= y
+                            roo:QueueDelObj(roo:GetIndexOfObj("objPauseButton"))
+                            currentRoom = roo:getRoomPath()
+                            roo:LoadRoom("./pause_menu.txt")
+                        end
+                    end
+                end
+            end
+
+        end
+
+        if (resumeButtonIndex > -1)
+            number startX = roo:GetObjAtIndex(resumeButtonIndex):GetX()
+            number startY = roo:GetObjAtIndex(resumeButtonIndex):GetY()
+            number endX = startX + roo:GetObjAtIndex(resumeButtonIndex):GetWidth()
+            number endY = startY + roo:GetObjAtIndex(resumeButtonIndex):GetHeight()
+
+            if startX <= x
+                if endX >= x
+                    if startY <= y
+                        if endY >= y
+                            roo:QueueDelObj(roo:GetIndexOfObj("objResumeButton"))
+                            roo:LoadRoom(currentRoom)
                         end
                     end
                 end

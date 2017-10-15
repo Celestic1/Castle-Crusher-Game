@@ -116,6 +116,22 @@ class GameObject_Attrib_List
 	return newAttribs
     end
 
+    action GetNewPauseButtonAttribs (number posX, number posY) returns GameObject_Attribs
+	GameObject_Attribs newAttribs
+	newAttribs:SetObjectName("objPauseButton")
+	newAttribs:SetSpritePath("resources/pause_button.png")
+	newAttribs:SetBasePosition(posX, posY)
+	return newAttribs
+    end
+
+    action GetNewResumeButtonAttribs (number posX, number posY) returns GameObject_Attribs
+	GameObject_Attribs newAttribs
+	newAttribs:SetObjectName("objResumeButton")
+	newAttribs:SetSpritePath("resources/resume_button.png")
+	newAttribs:SetBasePosition(posX, posY)
+	return newAttribs
+    end
+
     action GetNewTitleAttribs (number posX, number posY) returns GameObject_Attribs
 	GameObject_Attribs newAttribs
 	newAttribs:SetObjectName("objTitle")

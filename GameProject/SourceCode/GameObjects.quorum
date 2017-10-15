@@ -68,6 +68,10 @@ class GameObjects
             tmpObj:Load("resources/sprStartButton.png")
             xxx = 20*/
             tmpObj:InitGameObject(src:GetNewStartButtonAttribs(objX,objY))
+        elseif objName = "PB"
+            tmpObj:InitGameObject(src:GetNewPauseButtonAttribs(objX,objY))
+        elseif objName = "R"
+            tmpObj:InitGameObject(src:GetNewResumeButtonAttribs(objX,objY))
         elseif objName = "T"
 /*            tmpObj:SetName("objStartButton")
             tmpObj:Load("resources/sprStartButton.png")
