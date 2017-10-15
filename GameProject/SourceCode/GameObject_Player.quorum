@@ -12,7 +12,11 @@ class GameObject_Player is GameObject, GameKeyboard
     List<GameObject> myAmmo
     private number baseFX = 10000
     private number baseFY = 10000
+    private number velScaleFactor = 400
+    private number offSideScale = 4
     Vector2 MyForce
+    Drawable barX
+    Drawable barY
     
     action FireCannon(integer AmmoRef)
         if not (AmmoRef < myAmmo:GetSize() and AmmoRef >= 0)
@@ -20,7 +24,7 @@ class GameObject_Player is GameObject, GameKeyboard
             return now
         end
         GameObject toFire = myAmmo:Get(AmmoRef)
-        toFire:SetPosition(0,0)
+        toFire:SetPosition(me:GetGlobalX()+me:GetWidth()/1.1,me:GetGlobalY()-me:GetRotation())
         toFire:ApplyForceToCenter(MyForce)
         toFire:Show()
         myAmmo:RemoveAt(AmmoRef)
@@ -42,35 +46,44 @@ class GameObject_Player is GameObject, GameKeyboard
     action InitGameObject
         parent:GameObject:InitGameObject()
         ResetForce()
+	me:LoadFilledRectangle(80,20)
     end
 
     action ResetForce
         MyForce:Set(baseFX,baseFY)
     end
 
+    action ReloadBars
+	barX:LoadFilledRectangle(cast(integer,MyForce:GetX()/velScaleFactor),cast(integer,me:GetHeight()/offSideScale))
+	barY:LoadFilledRectangle(cast(integer,me:GetWidth()/offSideScale), cast(integer,MyForce:GetY()/velScaleFactor))
+    end
+
     action StartKey(KeyboardEvent event)
-        output "STARTKEY"
+//      output "STARTKEY"
         if event:keyCode = event:SPACE
             FireCannon(0)
         end
+        if event:keyCode = event:W
+            //output "W key rotation: " + me:GetRotation()
+            if me:GetRotation() > -90
+                me:Rotate(-1)
+            end
+            else
+                me:Rotate(0)
+       end
+       if event:keyCode = event:S
+            //output "S key rotation: " + me:GetRotation()
+            if me:GetRotation() < 0
+                me:Rotate(1)
+            end
+            else
+                me:Rotate(0)
+       end
     end
 
     action AddToGame (Game newGame)
-        GameObject_Attrib_List src
         parent:GameObject:AddToGame(newGame)
         newGame:AddKeyboardListener(me)
-        GameObject ammo1
-        ammo1:InitGameObject(src:GetNewCannonBallAttribs(0,0))
-        newGame:Add(ammo1)
-        GameObject ammo2
-        ammo2:InitGameObject(src:GetNewCannonBallAttribs(0,0))
-        newGame:Add(ammo2)
-        GameObject ammo3
-        ammo3:InitGameObject(src:GetNewCannonBallAttribs(0,0))
-        newGame:Add(ammo3)
-        LoadCannon(ammo1)
-        LoadCannon(ammo2)
-        LoadCannon(ammo3)
     end
 
     action RemoveFromGame (Game newGame)

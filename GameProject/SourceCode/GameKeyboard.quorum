@@ -43,7 +43,7 @@ class GameKeyboard is KeyboardListener
     action OperateOnKey(KeyboardEvent event)
     end
 
-    action UpdateActiveKeys()
+    action ActiveKeysUpdate()
         integer KeyIt = 0
         repeat while KeyIt < ActiveKeys:GetSize()
             OperateOnKey(ActiveKeys:Get(KeyIt))

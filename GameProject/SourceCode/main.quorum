@@ -59,8 +59,27 @@ class Main is Game
 
             else*/
             tmpDraw:AddToGame(me)        // Add standard Drawable
+	    if tmpDraw:GetAttributes():GetObjectName() = "objCannon"
+		HackedTogetherCannonLoad (cast(GameObject_Player,tmpDraw))
+	    end
             //end
         end
+    end
+
+    action HackedTogetherCannonLoad (GameObject_Player PlayCan)
+        GameObject_Attrib_List src
+        GameObject ammo1
+        ammo1:InitGameObject(src:GetNewCannonBallAttribs(0,0))
+        ammo1:AddToGame(me)
+        GameObject ammo2
+        ammo2:InitGameObject(src:GetNewCannonBallAttribs(0,0))
+        ammo2:AddToGame(me)
+        GameObject ammo3
+        ammo3:InitGameObject(src:GetNewCannonBallAttribs(0,0))
+        ammo3:AddToGame(me)
+        PlayCan:LoadCannon(ammo1)
+        PlayCan:LoadCannon(ammo2)
+        PlayCan:LoadCannon(ammo3)
     end
 
 end
