@@ -14,17 +14,21 @@ class GameObject_Player is GameObject, GameKeyboard
     List<GameObject> myAmmo
 //    private number baseFX = 10000
 //    private number baseFY = 0
-    private number baseForce = 30000
+    private number ForceCap = 50000
+    private number Force = 0
     private number velScaleFactor = 400
     private number offSideScale = 4
     Vector2 MyForce
     Drawable barX
     Drawable barY
+    Drawable PowerBar
     Math MyMath
     InputMonitor monitor
     KeyboardEvent keys
     
-    action FireCannon(integer AmmoRef)
+    
+
+    action FireCannon(integer AmmoRef, number VelocityX, number VelocityY)
         if not (AmmoRef < myAmmo:GetSize() and AmmoRef >= 0)
             output "Cannon is out of ammo!"
             return now
@@ -32,12 +36,13 @@ class GameObject_Player is GameObject, GameKeyboard
         GameObject toFire = myAmmo:Get(AmmoRef)
         toFire:SetPosition(GetBarrelX()-toFire:GetWidth()/2,GetBarrelY()-toFire:GetHeight()/2)
         //output "(" + me:GetGlobalX() + " + " + me:GetWidth()/1.1 + "," + me:GetGlobalY() + " - " + me:GetRotation() + ") = (" + (me:GetGlobalX()+me:GetWidth()/1.1) + "," + (me:GetGlobalY()-me:GetRotation()) + ")"
-        MyForce:Set(GetVelocityX(),GetVelocityY())
+        MyForce:Set(VelocityX,VelocityY)
         //output "(" + MyForce:GetX() + "," + MyForce:GetY() + ") vs (" + ThisLanguageSucks:GetX() + "," + ThisLanguageSucks:GetY() + ")"
         toFire:SetResponsive()
         toFire:ApplyForceToCenter(MyForce)
         toFire:Show()
         myAmmo:RemoveAt(AmmoRef)
+        //output "Force: " + Force
         output "Shot fired! " + myAmmo:GetSize() + " ammo left."
         ResetForce()
     end
@@ -47,7 +52,7 @@ class GameObject_Player is GameObject, GameKeyboard
             newAmmo:Hide()
             //Add(newAmmo)
             myAmmo:Add(newAmmo)
-            output "Ammo loaded; " + myAmmo:GetSize() + " left."
+            //output "Ammo loaded; " + myAmmo:GetSize() + " left."
 //        else
 //            output "Tried to load a bad projectile!"
 //        end
@@ -59,10 +64,12 @@ class GameObject_Player is GameObject, GameKeyboard
 	me:LoadFilledRectangle(80,20)
     end
 
+    // resets Force after we released Space Bar
     action ResetForce
-        MyForce:Set(0,0)
+        Force = 0
     end
 
+    //don't need this either
     action ReloadBars
 	barX:LoadFilledRectangle(cast(integer,MyForce:GetX()/velScaleFactor),cast(integer,me:GetHeight()/offSideScale))
 	barY:LoadFilledRectangle(cast(integer,me:GetWidth()/offSideScale), cast(integer,MyForce:GetY()/velScaleFactor))
@@ -78,6 +85,7 @@ class GameObject_Player is GameObject, GameKeyboard
             else
                 me:Rotate(0)
        end
+
        if monitor:IsKeyPressed(keys:S)
             //output "S key rotation: " + me:GetRotation()
             if me:GetRotation() < 0
@@ -86,11 +94,22 @@ class GameObject_Player is GameObject, GameKeyboard
             else
                 me:Rotate(0)
        end
+
+       if monitor:IsKeyPressed(keys:SPACE)
+            if Force < ForceCap
+                Force = Force + 2500
+                if Force >= ForceCap
+                    Force = 0
+                end
+            end
+            output "Force: " + Force
+       end
     end
 
-    action PressedKey(KeyboardEvent event)
+
+    action ReleasedKey(KeyboardEvent event)
         if event:keyCode = event:SPACE
-            FireCannon(0)
+            FireCannon(0, GetVelocityX(Force), GetVelocityY(Force))
         end
     end
 
@@ -112,12 +131,12 @@ class GameObject_Player is GameObject, GameKeyboard
         return (GetGlobalY() + GetHeight()/2 - (MyMath:Sine(GetRotationInRadians()) * GetWidth()/2))
     end
 
-    action GetVelocityX returns number
-        return MyMath:Cosine(GetRotationInRadians()) * baseForce
+    action GetVelocityX(number Force) returns number
+        return MyMath:Cosine(GetRotationInRadians()) * Force
     end
 
-    action GetVelocityY returns number
-        return -(MyMath:Sine(GetRotationInRadians()) * baseForce)
+    action GetVelocityY(number Force) returns number
+        return -(MyMath:Sine(GetRotationInRadians()) * Force)
     end
 
     action removeAmmo

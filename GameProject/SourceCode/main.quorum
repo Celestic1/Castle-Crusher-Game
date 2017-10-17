@@ -62,7 +62,7 @@ class Main is Game
             tmpDraw:AddToGame(me)        // Add standard Drawable
 	    if tmpDraw:GetAttributes():GetObjectName() = "objCannon"
                 // for reasons mysterious, you can't do this more than 31 times without a crash
-                    HackedTogetherCannonLoad (cast(GameObject_Player,tmpDraw), 50)
+                    HackedTogetherCannonLoad (cast(GameObject_Player,tmpDraw), 10)
 	    end
             //end
         end
