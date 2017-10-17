@@ -22,12 +22,11 @@ class GameObject_Player is GameObject, GameKeyboard
     Drawable barX
     Drawable barY
     Drawable PowerBar
+    Drawable Cannon
     Math MyMath
     InputMonitor monitor
     KeyboardEvent keys
     
-    
-
     action FireCannon(integer AmmoRef, number VelocityX, number VelocityY)
         if not (AmmoRef < myAmmo:GetSize() and AmmoRef >= 0)
             output "Cannon is out of ammo!"
@@ -69,7 +68,7 @@ class GameObject_Player is GameObject, GameKeyboard
         Force = 0
     end
 
-    //don't need this either
+    //don't need this
     action ReloadBars
 	barX:LoadFilledRectangle(cast(integer,MyForce:GetX()/velScaleFactor),cast(integer,me:GetHeight()/offSideScale))
 	barY:LoadFilledRectangle(cast(integer,me:GetWidth()/offSideScale), cast(integer,MyForce:GetY()/velScaleFactor))
@@ -97,11 +96,14 @@ class GameObject_Player is GameObject, GameKeyboard
 
        if monitor:IsKeyPressed(keys:SPACE)
             if Force < ForceCap
-                Force = Force + 2500
+                Force = Force + 500
                 if Force >= ForceCap
                     Force = 0
                 end
             end
+            PowerBar:LoadRectangle(20,cast(integer,Force)/500)
+            PowerBar:SetPosition(20,40)
+            Add(PowerBar)
             output "Force: " + Force
        end
     end
