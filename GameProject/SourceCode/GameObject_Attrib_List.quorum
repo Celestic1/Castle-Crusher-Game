@@ -61,7 +61,7 @@ class GameObject_Attrib_List
         newAttribs:SetTangible(true)
         newAttribs:SetPhysicsEnabled(true)
         newAttribs:SetMovable(true)
-        newAttribs:SetResponsive(true)
+//        newAttribs:SetResponsive(true)
         newAttribs:SetMass(100)
         newAttribs:SetRestitution(0.5)
         newAttribs:SetFriction(0.5)
