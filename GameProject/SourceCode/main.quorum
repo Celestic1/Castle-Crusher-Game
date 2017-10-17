@@ -62,19 +62,19 @@ class Main is Game
             tmpDraw:AddToGame(me)        // Add standard Drawable
 	    if tmpDraw:GetAttributes():GetObjectName() = "objCannon"
                 // for reasons mysterious, you can't do this more than 31 times without a crash
-                repeat 31 times
-                    HackedTogetherCannonLoad (cast(GameObject_Player,tmpDraw))
-                end
+                    HackedTogetherCannonLoad (cast(GameObject_Player,tmpDraw), 50)
 	    end
             //end
         end
     end
 
-    action HackedTogetherCannonLoad (GameObject_Player PlayCan)
-        GameObject nextShot
-        nextShot:InitGameObject(src:GetNewCannonBallAttribs(0,0))
-        nextShot:AddToGame(me)
-        PlayCan:LoadCannon(nextShot)
+    action HackedTogetherCannonLoad (GameObject_Player PlayCan, integer count)
+        repeat count times
+            GameObject nextShot
+            nextShot:InitGameObject(src:GetNewCannonBallAttribs(0,0))
+            nextShot:AddToGame(me)
+            PlayCan:LoadCannon(nextShot)
+        end
     end
 
 end

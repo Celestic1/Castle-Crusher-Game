@@ -8,18 +8,21 @@ use Libraries.Game.Graphics.Drawable
 use Libraries.Compute.Vector2
 use Libraries.Interface.Events.KeyboardEvent
 use Libraries.Compute.Math
+use Libraries.Game.InputMonitor
 
 class GameObject_Player is GameObject, GameKeyboard
     List<GameObject> myAmmo
 //    private number baseFX = 10000
 //    private number baseFY = 0
-    private number baseForce = 20000
+    private number baseForce = 30000
     private number velScaleFactor = 400
     private number offSideScale = 4
     Vector2 MyForce
     Drawable barX
     Drawable barY
     Math MyMath
+    InputMonitor monitor
+    KeyboardEvent keys
     
     action FireCannon(integer AmmoRef)
         if not (AmmoRef < myAmmo:GetSize() and AmmoRef >= 0)
@@ -65,27 +68,30 @@ class GameObject_Player is GameObject, GameKeyboard
 	barY:LoadFilledRectangle(cast(integer,me:GetWidth()/offSideScale), cast(integer,MyForce:GetY()/velScaleFactor))
     end
 
-    action StartKey(KeyboardEvent event)
-//      output "STARTKEY"
+
+    action Update(number seconds)
+       if monitor:IsKeyPressed(keys:W)
+            //output "W key rotation: " + me:GetRotation()
+            if me:GetRotation() > -90
+                me:Rotate(-1)
+            end
+            else
+                me:Rotate(0)
+       end
+       if monitor:IsKeyPressed(keys:S)
+            //output "S key rotation: " + me:GetRotation()
+            if me:GetRotation() < 0
+                me:Rotate(1)
+            end
+            else
+                me:Rotate(0)
+       end
+    end
+
+    action PressedKey(KeyboardEvent event)
         if event:keyCode = event:SPACE
             FireCannon(0)
         end
-        if event:keyCode = event:W
-            //output "W key rotation: " + me:GetRotation()
-            if me:GetRotation() > -90
-                me:Rotate(-5)
-            end
-            else
-                me:Rotate(0)
-       end
-       if event:keyCode = event:S
-            //output "S key rotation: " + me:GetRotation()
-            if me:GetRotation() < 0
-                me:Rotate(5)
-            end
-            else
-                me:Rotate(0)
-       end
     end
 
     action AddToGame (Game newGame)
@@ -112,5 +118,9 @@ class GameObject_Player is GameObject, GameKeyboard
 
     action GetVelocityY returns number
         return -(MyMath:Sine(GetRotationInRadians()) * baseForce)
+    end
+
+    action removeAmmo
+ 
     end
 end
