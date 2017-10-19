@@ -22,12 +22,14 @@ class GameObject_Player is GameObject, GameKeyboard
     Drawable barX
     Drawable barY
     Drawable PowerBar
+    Drawable PowerBarBackground
     Drawable Cannon
     Math MyMath
     InputMonitor monitor
     KeyboardEvent keys
+    Game parentGame // I hate this hack and want it gone ASAP
     
-    action FireCannon(integer AmmoRef, number VelocityX, number VelocityY)
+    action FireCannon(integer AmmoRef)
         if not (AmmoRef < myAmmo:GetSize() and AmmoRef >= 0)
             output "Cannon is out of ammo!"
             return now
@@ -35,7 +37,7 @@ class GameObject_Player is GameObject, GameKeyboard
         GameObject toFire = myAmmo:Get(AmmoRef)
         toFire:SetPosition(GetBarrelX()-toFire:GetWidth()/2,GetBarrelY()-toFire:GetHeight()/2)
         //output "(" + me:GetGlobalX() + " + " + me:GetWidth()/1.1 + "," + me:GetGlobalY() + " - " + me:GetRotation() + ") = (" + (me:GetGlobalX()+me:GetWidth()/1.1) + "," + (me:GetGlobalY()-me:GetRotation()) + ")"
-        MyForce:Set(VelocityX,VelocityY)
+        MyForce:Set(GetVelocityX(),GetVelocityY())
         //output "(" + MyForce:GetX() + "," + MyForce:GetY() + ") vs (" + ThisLanguageSucks:GetX() + "," + ThisLanguageSucks:GetY() + ")"
         toFire:SetResponsive()
         toFire:ApplyForceToCenter(MyForce)
@@ -101,23 +103,37 @@ class GameObject_Player is GameObject, GameKeyboard
                     Force = 0
                 end
             end
-            PowerBar:LoadRectangle(20,cast(integer,Force)/500)
-            PowerBar:SetPosition(20,40)
-            Add(PowerBar)
             output "Force: " + Force
+	    UpdatePowerBar()
        end
     end
 
 
     action ReleasedKey(KeyboardEvent event)
         if event:keyCode = event:SPACE
-            FireCannon(0, GetVelocityX(Force), GetVelocityY(Force))
+            FireCannon(0)
+	    ResetForce()
+	    UpdatePowerBar()
         end
     end
 
     action AddToGame (Game newGame)
         parent:GameObject:AddToGame(newGame)
         newGame:AddKeyboardListener(me)
+	SetupPowerBars(newGame)
+    end
+
+    action SetupPowerBars (Game newGame)
+	PowerBar:LoadFilledRectangle(20,cast(integer,Force)/500)
+	PowerBar:SetPosition(20,40)
+	PowerBarBackground:LoadRectangle(20,cast(integer,ForceCap)/500)
+	PowerBarBackground:SetPosition(20,40)
+	newGame:Add(PowerBar)
+	newGame:Add(PowerBarBackground)
+    end
+
+    action UpdatePowerBar
+	PowerBar:LoadFilledRectangle(20,cast(integer,Force)/500)
     end
 
     action RemoveFromGame (Game newGame)
@@ -133,11 +149,11 @@ class GameObject_Player is GameObject, GameKeyboard
         return (GetGlobalY() + GetHeight()/2 - (MyMath:Sine(GetRotationInRadians()) * GetWidth()/2))
     end
 
-    action GetVelocityX(number Force) returns number
+    action GetVelocityX() returns number
         return MyMath:Cosine(GetRotationInRadians()) * Force
     end
 
-    action GetVelocityY(number Force) returns number
+    action GetVelocityY() returns number
         return -(MyMath:Sine(GetRotationInRadians()) * Force)
     end
 
