@@ -27,7 +27,7 @@ class GameObject_Player is GameObject, GameKeyboard
     Math MyMath
     InputMonitor monitor
     KeyboardEvent keys
-    Game parentGame // I hate this hack and want it gone ASAP
+//    Game parentGame // I hate this hack and want it gone ASAP
     
     action FireCannon(integer AmmoRef)
         if not (AmmoRef < myAmmo:GetSize() and AmmoRef >= 0)
@@ -78,43 +78,9 @@ class GameObject_Player is GameObject, GameKeyboard
 
 
     action Update(number seconds)
-       if monitor:IsKeyPressed(keys:W)
-            //output "W key rotation: " + me:GetRotation()
-            if me:GetRotation() > -90
-                me:Rotate(-1)
-            end
-            else
-                me:Rotate(0)
-       end
-
-       if monitor:IsKeyPressed(keys:S)
-            //output "S key rotation: " + me:GetRotation()
-            if me:GetRotation() < 0
-                me:Rotate(1)
-            end
-            else
-                me:Rotate(0)
-       end
-
-       if monitor:IsKeyPressed(keys:SPACE)
-            if Force < ForceCap
-                Force = Force + 500
-                if Force >= ForceCap
-                    Force = 0
-                end
-            end
-            output "Force: " + Force
-	    UpdatePowerBar()
-       end
-    end
-
-
-    action ReleasedKey(KeyboardEvent event)
-        if event:keyCode = event:SPACE
-            FireCannon(0)
-	    ResetForce()
-	    UpdatePowerBar()
-        end
+	if HaveActiveKeys()
+	    ActiveKeysUpdate()
+	end
     end
 
     action AddToGame (Game newGame)
@@ -159,5 +125,42 @@ class GameObject_Player is GameObject, GameKeyboard
 
     action removeAmmo
  
+    end
+
+    // Keyboard Managers
+    action StartKey(KeyboardEvent event)
+    end
+
+    action EndKey(KeyboardEvent event)
+	if event:keyCode = event:SPACE
+            FireCannon(0)
+	    ResetForce()
+	    UpdatePowerBar()
+	end
+    end
+
+    action OperateOnKey(KeyboardEvent event)
+	if event:keyCode = event:W
+            if me:GetRotation() > -90
+                me:Rotate(-1)
+            end
+	end
+
+	if event:keyCode = event:S
+            if me:GetRotation() < 0
+                me:Rotate(1)
+            end
+	end
+
+	if event:keyCode = event:SPACE
+            if Force < ForceCap
+                Force = Force + 500
+                if Force >= ForceCap
+                    Force = 0
+                end
+            end
+//            output "Force: " + Force
+	    UpdatePowerBar()
+	end
     end
 end
