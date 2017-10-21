@@ -8,18 +8,26 @@ use Libraries.Game.Graphics.Drawable
 use Libraries.Compute.Vector2
 use Libraries.Interface.Events.KeyboardEvent
 use Libraries.Compute.Math
+use Libraries.Game.InputMonitor
 
 class GameObject_Player is GameObject, GameKeyboard
     List<GameObject> myAmmo
 //    private number baseFX = 10000
 //    private number baseFY = 0
-    private number baseForce = 20000
+    private number ForceCap = 50000
+    private number Force = 0
     private number velScaleFactor = 400
     private number offSideScale = 4
     Vector2 MyForce
     Drawable barX
     Drawable barY
+    Drawable PowerBar
+    Drawable PowerBarBackground
+    Drawable Cannon
     Math MyMath
+    InputMonitor monitor
+    KeyboardEvent keys
+    Game parentGame // I hate this hack and want it gone ASAP
     
     action FireCannon(integer AmmoRef)
         if not (AmmoRef < myAmmo:GetSize() and AmmoRef >= 0)
@@ -35,6 +43,7 @@ class GameObject_Player is GameObject, GameKeyboard
         toFire:ApplyForceToCenter(MyForce)
         toFire:Show()
         myAmmo:RemoveAt(AmmoRef)
+        //output "Force: " + Force
         output "Shot fired! " + myAmmo:GetSize() + " ammo left."
         ResetForce()
     end
@@ -44,7 +53,7 @@ class GameObject_Player is GameObject, GameKeyboard
             newAmmo:Hide()
             //Add(newAmmo)
             myAmmo:Add(newAmmo)
-            output "Ammo loaded; " + myAmmo:GetSize() + " left."
+            //output "Ammo loaded; " + myAmmo:GetSize() + " left."
 //        else
 //            output "Tried to load a bad projectile!"
 //        end
@@ -56,41 +65,75 @@ class GameObject_Player is GameObject, GameKeyboard
 	me:LoadFilledRectangle(80,20)
     end
 
+    // resets Force after we released Space Bar
     action ResetForce
-        MyForce:Set(0,0)
+        Force = 0
     end
 
+    //don't need this
     action ReloadBars
 	barX:LoadFilledRectangle(cast(integer,MyForce:GetX()/velScaleFactor),cast(integer,me:GetHeight()/offSideScale))
 	barY:LoadFilledRectangle(cast(integer,me:GetWidth()/offSideScale), cast(integer,MyForce:GetY()/velScaleFactor))
     end
 
-    action StartKey(KeyboardEvent event)
-//      output "STARTKEY"
-        if event:keyCode = event:SPACE
-            FireCannon(0)
-        end
-        if event:keyCode = event:W
+
+    action Update(number seconds)
+       if monitor:IsKeyPressed(keys:W)
             //output "W key rotation: " + me:GetRotation()
             if me:GetRotation() > -90
-                me:Rotate(-5)
+                me:Rotate(-1)
             end
             else
                 me:Rotate(0)
        end
-       if event:keyCode = event:S
+
+       if monitor:IsKeyPressed(keys:S)
             //output "S key rotation: " + me:GetRotation()
             if me:GetRotation() < 0
-                me:Rotate(5)
+                me:Rotate(1)
             end
             else
                 me:Rotate(0)
        end
+
+       if monitor:IsKeyPressed(keys:SPACE)
+            if Force < ForceCap
+                Force = Force + 500
+                if Force >= ForceCap
+                    Force = 0
+                end
+            end
+            output "Force: " + Force
+	    UpdatePowerBar()
+       end
+    end
+
+
+    action ReleasedKey(KeyboardEvent event)
+        if event:keyCode = event:SPACE
+            FireCannon(0)
+	    ResetForce()
+	    UpdatePowerBar()
+        end
     end
 
     action AddToGame (Game newGame)
         parent:GameObject:AddToGame(newGame)
         newGame:AddKeyboardListener(me)
+	SetupPowerBars(newGame)
+    end
+
+    action SetupPowerBars (Game newGame)
+	PowerBar:LoadFilledRectangle(20,cast(integer,Force)/500)
+	PowerBar:SetPosition(20,40)
+	PowerBarBackground:LoadRectangle(20,cast(integer,ForceCap)/500)
+	PowerBarBackground:SetPosition(20,40)
+	newGame:Add(PowerBar)
+	newGame:Add(PowerBarBackground)
+    end
+
+    action UpdatePowerBar
+	PowerBar:LoadFilledRectangle(20,cast(integer,Force)/500)
     end
 
     action RemoveFromGame (Game newGame)
@@ -106,11 +149,15 @@ class GameObject_Player is GameObject, GameKeyboard
         return (GetGlobalY() + GetHeight()/2 - (MyMath:Sine(GetRotationInRadians()) * GetWidth()/2))
     end
 
-    action GetVelocityX returns number
-        return MyMath:Cosine(GetRotationInRadians()) * baseForce
+    action GetVelocityX() returns number
+        return MyMath:Cosine(GetRotationInRadians()) * Force
     end
 
-    action GetVelocityY returns number
-        return -(MyMath:Sine(GetRotationInRadians()) * baseForce)
+    action GetVelocityY() returns number
+        return -(MyMath:Sine(GetRotationInRadians()) * Force)
+    end
+
+    action removeAmmo
+ 
     end
 end
