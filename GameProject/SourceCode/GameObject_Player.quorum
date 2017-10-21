@@ -85,7 +85,7 @@ class GameObject_Player is GameObject, GameKeyboard
 
     action AddToGame (Game newGame)
         parent:GameObject:AddToGame(newGame)
-        newGame:AddKeyboardListener(me)
+	AddKeyboardToGame(newGame)
 	SetupPowerBars(newGame)
     end
 

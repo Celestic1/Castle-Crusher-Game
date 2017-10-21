@@ -2,6 +2,7 @@ use Libraries.Interface.Events.KeyboardListener
 use Libraries.Interface.Events.KeyboardEvent
 use Libraries.Containers.List
 use Libraries.Containers.Iterator
+use Libraries.Game.Game
 
 class GameKeyboard is KeyboardListener
     List<KeyboardEvent> ActiveKeys
@@ -56,5 +57,9 @@ class GameKeyboard is KeyboardListener
             OperateOnKey(ActiveKeys:Get(KeyIt))
 	    KeyIt = KeyIt + 1
         end
+    end
+
+    action AddKeyboardToGame(Game newGame)
+	newGame:AddKeyboardListener(me)
     end
 end
