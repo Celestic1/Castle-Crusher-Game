@@ -1,8 +1,26 @@
+use Libraries.Interface.Events.MouseMovementListener
 use Libraries.Interface.Events.MouseListener
 use Libraries.Interface.Events.MouseEvent
+use Libraries.Game.Graphics.Drawable
 
-class GameMouse is MouseListener
+class GameMouse is Drawable, MouseListener, MouseMovementListener
     public GameRoom roo
+
+    action MovedMouse(MouseEvent event)
+        // get the x and y coords of mouse
+        number x = event:GetX()
+        number y = event:GetY() 
+        SetCenter(x, y)
+        
+        if x < 80
+            Load("resources/sprCursorLeft.png")
+        elseif x > (roo:pg_ScreenSizeX - 80)
+            Load("resources/sprCursorRight.png")
+        else
+            Load("resources/sprFesh-Trimmed.png")
+        end
+
+    end
 
     action ClickedMouse(MouseEvent event)
         integer x = event:GetX()

@@ -10,7 +10,6 @@ class GameRoom
     private Array<GameObject> g_objs
     private Array<GameObject> g_deleted_objs_queue
     private Array<GameObject> g_added_objs_queue
-    public Array<GameMouseFollower> g_Cursors
     public integer pg_ScreenSizeX = 1000  // Default width of room
     public integer pg_ScreenSizeY = 320   // Default height of room
     private integer g_GridX = 40          // This is the width  of each 'grid' on map
@@ -135,11 +134,6 @@ class GameRoom
                 if tmpArray:Get(i) = " "     // don't create a blank object
                 elseif tmpArray:Get(i) = "C" // make cat object first object on list
                     g_added_objs_queue:AddToFront(obj:CreateObj(tmpArray:Get(i), i*g_GridX, pg_ScreenSizeY-(currentY*g_GridY)-g_GridY))
-                elseif tmpArray:Get(i) = "O"
-                    g_added_objs_queue:AddToEnd(obj:CreateObj(tmpArray:Get(i), i*g_GridX, pg_ScreenSizeY-(currentY*g_GridY)-g_GridY))
-                    GameMouseFollower Cursor
-                    Cursor:Load(g_added_objs_queue:GetFromEnd())
-                    g_Cursors:AddToFront(Cursor)
                 else
                     g_added_objs_queue:AddToEnd(obj:CreateObj(tmpArray:Get(i), i*g_GridX, pg_ScreenSizeY-(currentY*g_GridY)-g_GridY))
                 end
