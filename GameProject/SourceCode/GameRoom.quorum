@@ -15,6 +15,13 @@ class GameRoom
     private integer g_GridX = 40          // This is the width  of each 'grid' on map
     private integer g_GridY = 40          // This is the height of each 'grid' on map
 
+    // Camera Variables
+    public integer pg_CamXOffset = 0
+    public integer pg_CamYOffset = 0
+    public integer pg_CamMaxXOffset = 0
+    public integer pg_CamMaxYOffset = 0
+    public integer pg_CamReset = 0        // Set to one so main knows to reset cam
+
     action QueueAddObj (GameObject tmpObj)
         g_added_objs_queue:AddToEnd(tmpObj)
     end
@@ -104,6 +111,13 @@ class GameRoom
             QueueDelObj(i - 1)
             i = i - 1
         end
+
+        // Reset Camera
+        pg_CamXOffset = 0
+        pg_CamYOffset = 0
+        pg_CamMaxXOffset = 0
+        pg_CamMaxYOffset = 0
+        pg_CamReset = 1
     end
 
     action LoadRoom(text roomTextPath)

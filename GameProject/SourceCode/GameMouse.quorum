@@ -5,21 +5,29 @@ use Libraries.Game.Graphics.Drawable
 
 class GameMouse is Drawable, MouseListener, MouseMovementListener
     public GameRoom roo
+    public integer pg_Scrolling = 0 // 0->NotScrolling:1->Left:2->Right
+    public integer pg_ScrollSpeed = 3
+    public integer pg_LastMouseX = 0
+    public integer pg_LastMouseY = 0
 
     action MovedMouse(MouseEvent event)
         // get the x and y coords of mouse
-        number x = event:GetX()
-        number y = event:GetY() 
-        SetCenter(x, y)
+        pg_LastMouseX = event:GetX()
+        pg_LastMouseY = event:GetY()
         
-        if x < 80
+        if pg_LastMouseX < 80
             Load("resources/sprCursorLeft.png")
-        elseif x > (roo:pg_ScreenSizeX - 80)
+                pg_Scrolling = 1
+        elseif pg_LastMouseX > (roo:pg_ScreenSizeX - 80)
+                pg_Scrolling = 2
             Load("resources/sprCursorRight.png")
         else
+                pg_Scrolling = 0
             Load("resources/sprFesh-Trimmed.png")
         end
 
+        // Update Cursor Location
+        SetCenter(roo:pg_CamXOffset + pg_LastMouseX, roo:pg_CamYOffset + pg_LastMouseY)
     end
 
     action ClickedMouse(MouseEvent event)
@@ -29,9 +37,10 @@ class GameMouse is Drawable, MouseListener, MouseMovementListener
 
         integer startButtonIndex = roo:GetIndexOfObj("objStartButton")
 
+        // this is very lazy fix, will address in later commit
         if (startButtonIndex > -1)
-            number startX = roo:GetObjAtIndex(startButtonIndex):GetX()
-            number startY = roo:GetObjAtIndex(startButtonIndex):GetY()
+            number startX = roo:GetObjAtIndex(startButtonIndex):GetX() - roo:pg_CamXOffset
+            number startY = roo:GetObjAtIndex(startButtonIndex):GetY() - roo:pg_CamYOffset
             number endX = startX + roo:GetObjAtIndex(startButtonIndex):GetWidth()
             number endY = startY + roo:GetObjAtIndex(startButtonIndex):GetHeight()
 
