@@ -108,7 +108,7 @@ class GameRoom
     action AddRoomToGame(Game game)
         integer i = 0
         repeat while i < g_objs:GetSize()
-            game:Add(g_objs:Get(i))
+	    g_objs:Get(i):AddToGame(game)
             i = i + 1
         end
     end
@@ -116,7 +116,7 @@ class GameRoom
     action RemoveRoomFromGame(Game game)
         integer i = 0
         repeat while i < g_objs:GetSize()
-            game:Remove(g_objs:Get(i))
+	    g_objs:Get(i):RemoveFromGame(game)
             i = i + 1
         end
     end
