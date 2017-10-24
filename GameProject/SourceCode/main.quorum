@@ -1,32 +1,80 @@
 use Libraries.Game.Game
-use Libraries.Game.Graphics.Color
 use Libraries.Game.Graphics.Drawable
-use Libraries.Game.Graphics.Camera
-use Libraries.Interface.Button
-use Libraries.Interface.Panel
-//Main Menu of Game
-class Main is Game 
-   Clickable button 
-   
-    number time = 0
-   action Main
-       EnableResizing(true)
-       StartGame()
-   end
+use GameObject_Attrib_List
+use GameObject
+use GameObject_Player
+use Libraries.Containers.Array
 
-   action CreateGame
-       
-       button:Load("Assets/start.png")
-       Add(button)
-       button:Load("Assets/settings.jpg")
-       
-   end
+class Main is Game
+    GameRoom roo
+//    GameKeyboard GameKeyboardListener
+    GameMouse GameMouseListener
+    GameCollision GameCollisionListener
+    GameObject_Attrib_List src
 
-   action Update(number seconds)
-        time = seconds + time
-        if (time > 3)
-            Exit()
-            output "BYE"
+    action Main
+//        GameKeyboardListener:roo = roo
+        GameMouseListener:roo = roo
+        GameCollisionListener:roo = roo
+        // Fixed screensize / gamename
+        SetScreenSize(roo:pg_ScreenSizeX , roo:pg_ScreenSizeY)
+        SetGameName("Castle Crusher")
+        StartGame()
+    end
+
+    action CreateGame
+        EnablePhysics2D(true)
+        SetGravity2D(0, -200)
+//        AddKeyboardListener(GameKeyboardListener)
+        AddCollisionListener(GameCollisionListener)
+        AddMouseListener(GameMouseListener)
+        roo:LoadRoom("./map0.txt")
+    end
+
+    action Update(number seconds)
+        // Check if there are objs that need to be removed
+        repeat until roo:GetDelQueueSize() = 0
+            GameObject tmpDraw = roo:DequeueDelObj()
+
+            // Removing example cursor object
+//            if tmpDraw:GetName() = "objGameMouseFollower"
+//                Remove(roo:g_Cursors:RemoveFromFront())
+//            end
+
+//            Remove(tmpDraw)
+            tmpDraw:RemoveFromGame(me)
         end
-   end
+
+        // Check if there are objs that need to be added
+        repeat until roo:GetAddQueueSize() = 0
+            GameObject tmpDraw = roo:DequeueAddObj()
+
+            // Adding example cursor object
+/*            if tmpDraw:GetName() = "objGameMouseFollower"
+                AddMouseMovementListener(roo:g_Cursors:GetFromFront())
+                Add(roo:g_Cursors:GetFromFront())
+            elseif tmpDraw:GetName() = "objCannon"
+                GameObject_Player tmpPlayer = cast(GameObject_Player,tmpDraw)
+                AddKeyboardListener(tmpPlayer)
+                Add(tmpPlayer)    
+
+            else*/
+            tmpDraw:AddToGame(me)        // Add standard Drawable
+	    if tmpDraw:GetAttributes():GetObjectName() = "objCannon"
+                // for reasons mysterious, you can't do this more than 31 times without a crash
+                    HackedTogetherCannonLoad (cast(GameObject_Player,tmpDraw), 10)
+	    end
+            //end
+        end
+    end
+
+    action HackedTogetherCannonLoad (GameObject_Player PlayCan, integer count)
+        repeat count times
+            GameObject nextShot
+            nextShot:InitGameObject(src:GetNewCannonBallAttribs(0,0))
+            nextShot:AddToGame(me)
+            PlayCan:LoadCannon(nextShot)
+        end
+    end
+
 end

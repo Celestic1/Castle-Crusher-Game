@@ -1,0 +1,63 @@
+use Libraries.Game.Graphics.Drawable
+use GameObject_Attribs
+use Libraries.Game.Game
+
+class GameObject is Drawable
+    // myAttributes is the base state of an object (not necessarily the current one).
+    // Whenever we reset the object, or create a new one, we use its attributes.
+    GameObject_Attribs myAttribs
+    action SetAttributes (GameObject_Attribs newAttribs)
+	myAttribs = newAttribs
+    end
+    action GetAttributes returns GameObject_Attribs
+	return myAttribs
+    end
+
+    // Here, we use the attributes to set our GameObject the way we want it.
+    // We have a varient that also sets up our attributes for us!
+    action InitGameObject(GameObject_Attribs NewObjAtr)
+	SetAttributes(NewObjAtr)
+	me:InitGameObject()
+    end
+    action InitGameObject
+	me:SetName(myAttribs:GetObjectName())
+	if myAttribs:CheckForSpritePath()
+	    me:Load(myAttribs:GetSpritePath())
+        else
+            me:LoadFilledCircle(5)
+	end
+        if not IsLoaded()
+            output me:GetName()
+            output "did not load"
+        end
+	// if it's not tangible, it doesn't have physics; skip the other steps
+	if myAttribs:GetTangible()
+	    if myAttribs:GetPhysicsEnabled()
+		me:EnablePhysics(true)
+                if not myAttribs:GetMovable()
+                    me:SetUnmovable()
+                end
+                me:SetMass(myAttribs:GetMass())
+                me:SetFriction(myAttribs:GetFriction())
+                me:SetRestitution(myAttribs:GetRestitution())
+	    end
+	    if myAttribs:GetResponsive()
+		me:SetResponsive()
+	    end
+	    if myAttribs:GetCollidable()
+		me:SetCollidable(true)
+	    end
+	end
+	// do set up position though
+	me:SetPosition(myAttribs:GetBasePositionX(), myAttribs:GetBasePositionY())
+    end
+
+    action AddToGame (Game newGame)
+        //output "Adding object " + me:GetName() + " (" + me:GetX() + "," + me:GetY() + ") to game."
+        newGame:Add(me)
+    end
+
+    action RemoveFromGame (Game newGame)
+        newGame:Remove(me)
+    end
+end

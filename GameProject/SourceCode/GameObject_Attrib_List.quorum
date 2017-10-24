@@ -1,0 +1,147 @@
+//A hopefully very, very temporary solution to listing the types of objects
+//we need for our game.
+
+use GameObject_Attribs
+
+class GameObject_Attrib_List
+    // template action
+    action GetNew_Attribs (number posX, number posY) returns GameObject_Attribs
+	GameObject_Attribs newAttribs
+	newAttribs:SetObjectName("")
+	newAttribs:SetSpritePath("")
+
+	newAttribs:SetBasePosition(posX, posY)
+	return newAttribs
+    end
+
+    action GetNewBlockAttribs (number posX, number posY) returns GameObject_Attribs
+	GameObject_Attribs newAttribs
+	newAttribs:SetObjectName("objBlock")
+	newAttribs:SetSpritePath("resources/sprBrick_0.png")
+	newAttribs:SetTangible(true)
+	newAttribs:SetPhysicsEnabled(true)
+	newAttribs:SetBasePosition(posX, posY)
+	return newAttribs
+    end
+
+    action GetNewFishAttribs (number posX, number posY) returns GameObject_Attribs
+	GameObject_Attribs newAttribs
+	newAttribs:SetObjectName("objFish")
+	newAttribs:SetSpritePath("resources/sprFesh-trimmed.png")
+	newAttribs:SetTangible(true)
+	newAttribs:SetCollidable(true)
+	newAttribs:SetBasePosition(posX+5, posY+5)
+	return newAttribs
+    end
+
+    action GetNewCatAttribs (number posX, number posY) returns GameObject_Attribs
+	GameObject_Attribs newAttribs
+	newAttribs:SetObjectName("objCat")
+	newAttribs:SetSpritePath("resources/sprCatR-trimmed.png")
+	newAttribs:SetTangible(true)
+	newAttribs:SetPhysicsEnabled(true)
+	newAttribs:SetResponsive(true)
+	newAttribs:SetCollidable(true)
+	newAttribs:SetMovable(true)
+	newAttribs:SetBasePosition(posX, posY)
+	return newAttribs
+    end
+
+    action GetNewCannonAttribs(number posX, number posY) returns GameObject_Attribs
+        GameObject_Attribs newAttribs
+        newAttribs:SetObjectName("objCannon")
+        newAttribs:SetSpritePath("resources/TrashCannon.png")
+        newAttribs:SetBasePosition(posX, posY)
+        return newAttribs
+    end
+
+    action GetNewCannonBallAttribs(number posX, number posY) returns GameObject_Attribs        GameObject_Attribs newAttribs
+        newAttribs:SetObjectName("objCannon")
+        newAttribs:SetBasePosition(posX, posY)
+        newAttribs:SetTangible(true)
+        newAttribs:SetPhysicsEnabled(true)
+        newAttribs:SetMovable(true)
+//        newAttribs:SetResponsive(true)
+        newAttribs:SetMass(100)
+        newAttribs:SetRestitution(0.5)
+        newAttribs:SetFriction(0.5)
+        return newAttribs
+    end
+
+    action GetNewLockAttribs (number posX, number posY) returns GameObject_Attribs
+	GameObject_Attribs newAttribs
+	newAttribs:SetObjectName("objLock")
+	newAttribs:SetSpritePath("resources/sprLock_0.png")
+	newAttribs:SetTangible(true)
+	newAttribs:SetPhysicsEnabled(true)
+	newAttribs:SetBasePosition(posX, posY)
+	return newAttribs
+    end
+
+    action GetNewKeyAttribs (number posX, number posY) returns GameObject_Attribs
+	GameObject_Attribs newAttribs
+	newAttribs:SetObjectName("objKey")
+	newAttribs:SetSpritePath("resources/sprKey-trimmed.png")
+	newAttribs:SetTangible(true)
+	newAttribs:SetCollidable(true)
+	newAttribs:SetBasePosition(posX+2, posY)
+	return newAttribs
+    end
+
+    action GetNewExit1Attribs (number posX, number posY) returns GameObject_Attribs
+	GameObject_Attribs newAttribs
+	newAttribs:SetObjectName("objExit1")
+	newAttribs:SetSpritePath("resources/sprMouseHole_0.png")
+	newAttribs:SetTangible(true)
+	newAttribs:SetCollidable(true)
+	newAttribs:SetBasePosition(posX, posY)
+	return newAttribs
+    end
+
+    action GetNewExit2Attribs (number posX, number posY) returns GameObject_Attribs
+	GameObject_Attribs newAttribs
+	newAttribs:SetObjectName("objExit2")
+	newAttribs:SetSpritePath("resources/sprMouseHole_0.png")
+	newAttribs:SetTangible(true)
+	newAttribs:SetCollidable(true)
+	newAttribs:SetBasePosition(posX, posY)
+	return newAttribs
+    end
+
+    action GetNewExit3Attribs (number posX, number posY) returns GameObject_Attribs
+	GameObject_Attribs newAttribs
+	newAttribs:SetObjectName("objExit3")
+	newAttribs:SetSpritePath("resources/sprMouseHole_0.png")
+	newAttribs:SetTangible(true)
+	newAttribs:SetCollidable(true)
+	newAttribs:SetBasePosition(posX, posY)
+	return newAttribs
+    end
+
+    action GetNewBoxAttribs (number posX, number posY) returns GameObject_Attribs
+	GameObject_Attribs newAttribs
+	newAttribs:SetObjectName("objBox")
+	newAttribs:SetSpritePath("resources/sprBrick_0.png")
+	newAttribs:SetTangible(true)
+	newAttribs:SetPhysicsEnabled(true)
+	newAttribs:SetResponsive(true)
+	newAttribs:SetBasePosition(posX, posY)
+	return newAttribs
+    end
+
+    action GetNewStartButtonAttribs (number posX, number posY) returns GameObject_Attribs
+	GameObject_Attribs newAttribs
+	newAttribs:SetObjectName("objStartButton")
+	newAttribs:SetSpritePath("resources/sprStartButton.png")
+	newAttribs:SetBasePosition(posX+20, posY)
+	return newAttribs
+    end
+
+    action GetNewMouseFollowerAttribs (number posX, number posY) returns GameObject_Attribs
+	GameObject_Attribs newAttribs
+	newAttribs:SetObjectName("objGameMouseFollower")
+	newAttribs:SetSpritePath("resources/sprFesh-trimmed.png")
+	newAttribs:SetBasePosition(posX, posY)
+	return newAttribs
+    end
+end
