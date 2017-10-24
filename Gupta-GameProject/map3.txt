@@ -1,0 +1,25 @@
+// mapname
+// width in units
+// height in units
+// unit width in pixels
+// unit height in pixels
+[DATA]
+Simple Goals
+25
+10
+40
+40
+[DATAEND]
+
+[MAP]
+B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B
+B, , , , , , , , , , , , , , , , , , , , , , , ,B
+B, , , , , , , , , , , , , , , , , , , , , , , ,B
+B, , , , , , , , , , , , , , , , ,D, , , , , , ,B
+B, , , , , , , , , , , , , , , , , , , , , , , ,B
+B, , , , , , , , , , , , , , , , ,L,F,L, , , , ,B
+B, , , , , , , , , , , , , , , , ,D, , , , , , ,B
+B, , , , , , , , , , , , , , , , , , , , , , , ,B
+B, , , , , , , , , , , , , , , , ,L,F,L, , , , ,B
+B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B
+[MAPEND]
