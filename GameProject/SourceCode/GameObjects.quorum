@@ -71,7 +71,11 @@ class GameObjects
         elseif objName = "PB"
             tmpObj:InitGameObject(src:GetNewPauseButtonAttribs(objX,objY))
         elseif objName = "R"
-            tmpObj:InitGameObject(src:GetNewResumeButtonAttribs(objX,objY))
+            tmpObj:InitGameObject(src:GetNewRetryButtonAttribs(objX,objY))
+        elseif objName = "E"
+            tmpObj:InitGameObject(src:GetNewExitButtonAttribs(objX,objY))
+        elseif objName = "Co"
+            tmpObj:InitGameObject(src:GetNewContinueButtonAttribs(objX,objY))
         elseif objName = "T"
 /*            tmpObj:SetName("objStartButton")
             tmpObj:Load("resources/sprStartButton.png")

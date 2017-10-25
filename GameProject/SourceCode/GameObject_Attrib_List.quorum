@@ -124,11 +124,27 @@ class GameObject_Attrib_List
 	return newAttribs
     end
 
-    action GetNewResumeButtonAttribs (number posX, number posY) returns GameObject_Attribs
+    action GetNewRetryButtonAttribs (number posX, number posY) returns GameObject_Attribs
 	GameObject_Attribs newAttribs
-	newAttribs:SetObjectName("objResumeButton")
-	newAttribs:SetSpritePath("resources/resume_button.png")
-	newAttribs:SetBasePosition(posX, posY)
+	newAttribs:SetObjectName("objRetryButton")
+	newAttribs:SetSpritePath("resources/retry_button.png")
+	newAttribs:SetBasePosition(posX-30, posY)
+	return newAttribs
+    end
+
+    action GetNewContinueButtonAttribs (number posX, number posY) returns GameObject_Attribs
+	GameObject_Attribs newAttribs
+	newAttribs:SetObjectName("objContinueButton")
+	newAttribs:SetSpritePath("resources/continue_button.png")
+	newAttribs:SetBasePosition(posX-30, posY)
+	return newAttribs
+    end
+
+    action GetNewExitButtonAttribs (number posX, number posY) returns GameObject_Attribs
+	GameObject_Attribs newAttribs
+	newAttribs:SetObjectName("objExitButton")
+	newAttribs:SetSpritePath("resources/exit_button.png")
+	newAttribs:SetBasePosition(posX-30, posY)
 	return newAttribs
     end
 
@@ -136,7 +152,7 @@ class GameObject_Attrib_List
 	GameObject_Attribs newAttribs
 	newAttribs:SetObjectName("objTitle")
 	newAttribs:SetSpritePath("resources/Title.png")
-	newAttribs:SetBasePosition(posX+20, posY)
+	newAttribs:SetBasePosition(posX, posY)
 	return newAttribs
     end
 
