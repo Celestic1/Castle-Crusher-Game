@@ -12,9 +12,8 @@ class GameMouse is MouseListener
 
         integer startButtonIndex = roo:GetIndexOfObj("objStartButton")
         integer pauseButtonIndex = roo:GetIndexOfObj("objPauseButton")
-        integer retryButtonIndex = roo:GetIndexOfObj("objRetryButton")
-        integer exitButtonIndex = roo:GetIndexOfObj("objExitButton")
-        integer continueButtonIndex = roo:GetIndexOfObj("objContinueButton")
+        integer settingButtonIndex = roo:GetIndexOfObj("objSettingButton")
+         
         number startX = 0
         number startY = 0
         number endX = 0
@@ -53,54 +52,24 @@ class GameMouse is MouseListener
                 end
             end
         
-
-        elseif (retryButtonIndex > -1)
-            startX = roo:GetObjAtIndex(retryButtonIndex):GetX()
-            startY = roo:GetObjAtIndex(retryButtonIndex):GetY()
-            endX = startX + roo:GetObjAtIndex(retryButtonIndex):GetWidth()
-            endY = startY + roo:GetObjAtIndex(retryButtonIndex):GetHeight()
+        elseif (settingButtonIndex > -1)
+            startX = roo:GetObjAtIndex(pauseButtonIndex):GetX()
+            startY = roo:GetObjAtIndex(pauseButtonIndex):GetY()
+            endX = startX + roo:GetObjAtIndex(pauseButtonIndex):GetWidth()
+            endY = startY + roo:GetObjAtIndex(pauseButtonIndex):GetHeight()
             if startX <= x
                 if endX >= x
                     if startY <= y
                         if endY >= y
-                            roo:QueueDelObj(roo:GetIndexOfObj("objRetryButton"))
-                            roo:LoadRoom(currentRoom)
+                            roo:QueueDelObj(roo:GetIndexOfObj("objSettingButton"))
+                            currentRoom = roo:getRoomPath()
+                            roo:LoadRoom("./setting_menu.txt")
                         end
                     end
                 end
-            end
+            end    
+
         
-        elseif (continueButtonIndex > -1)
-            startX = roo:GetObjAtIndex(continueButtonIndex):GetX()
-            startY = roo:GetObjAtIndex(continueButtonIndex):GetY()
-            endX = startX + roo:GetObjAtIndex(continueButtonIndex):GetWidth()
-            endY = startY + roo:GetObjAtIndex(continueButtonIndex):GetHeight()
-            if startX <= x
-                if endX >= x
-                    if startY <= y
-                        if endY >= y
-                            roo:QueueDelObj(roo:GetIndexOfObj("objContinueButton"))
-                            roo:UnloadRoom()
-                        end
-                    end
-                end
-            end
-
-        elseif (exitButtonIndex > -1)
-            startX = roo:GetObjAtIndex(exitButtonIndex):GetX()
-            startY = roo:GetObjAtIndex(exitButtonIndex):GetY()
-            endX = startX + roo:GetObjAtIndex(exitButtonIndex):GetWidth()
-            endY = startY + roo:GetObjAtIndex(exitButtonIndex):GetHeight()
-            if startX <= x
-                if endX >= x
-                    if startY <= y
-                        if endY >= y
-                            roo:QueueDelObj(roo:GetIndexOfObj("objExitButton"))
-                            roo:LoadRoom("./map0.txt")
-                        end
-                    end
-                end
-            end
         end
 
     end

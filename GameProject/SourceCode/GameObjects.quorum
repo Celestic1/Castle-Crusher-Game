@@ -64,23 +64,27 @@ class GameObjects
             tmpObj:SetResponsive()*/
             tmpObj:InitGameObject(src:GetNewBoxAttribs(objX,objY))
         elseif objName = "SB"
-/*            tmpObj:SetName("objStartButton")
-            tmpObj:Load("resources/sprStartButton.png")
-            xxx = 20*/
             tmpObj:InitGameObject(src:GetNewStartButtonAttribs(objX,objY))
         elseif objName = "PB"
             tmpObj:InitGameObject(src:GetNewPauseButtonAttribs(objX,objY))
-        elseif objName = "R"
+        elseif objName = "Re"
             tmpObj:InitGameObject(src:GetNewRetryButtonAttribs(objX,objY))
+        elseif objName = "Q"
+            tmpObj:InitGameObject(src:GetNewQuitButtonAttribs(objX,objY))    
         elseif objName = "E"
             tmpObj:InitGameObject(src:GetNewExitButtonAttribs(objX,objY))
-        elseif objName = "Co"
-            tmpObj:InitGameObject(src:GetNewContinueButtonAttribs(objX,objY))
+        elseif objName = "R"
+            tmpObj:InitGameObject(src:GetNewResumeButtonAttribs(objX,objY))
+        elseif objName = "S"
+            tmpObj:InitGameObject(src:GetNewSettingButtonAttribs(objX,objY)) 
+        elseif objName = "St"
+            tmpObj:InitGameObject(src:GetNewStatButtonAttribs(objX,objY))  
+        elseif objName = "Lv"
+            tmpObj:InitGameObject(src:GetNewLevelButtonAttribs(objX,objY))    
         elseif objName = "T"
-/*            tmpObj:SetName("objStartButton")
-            tmpObj:Load("resources/sprStartButton.png")
-            xxx = 20*/
             tmpObj:InitGameObject(src:GetNewTitleAttribs(objX,objY))
+        elseif objName = "PT"
+            tmpObj:InitGameObject(src:GetNewPauseTitleAttribs(objX,objY))    
         elseif objName = "O"
 /*            tmpObj:SetName("objGameMouseFollower")
             tmpObj:Load("resources/sprFesh-trimmed.png")*/
