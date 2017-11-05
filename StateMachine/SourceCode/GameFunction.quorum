@@ -1,7 +1,0 @@
-use Libraries.Interface.Events.MouseEvent
-
-class GameFunction 
-    action run(MouseEvent e)
-        //output "doing stuff"
-    end
-end

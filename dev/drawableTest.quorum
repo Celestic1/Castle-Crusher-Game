@@ -1,8 +1,0 @@
-use Libraries.Game.Graphics.Drawable
-class drawableTest is Drawable
-    action Main
-        Drawable t 
-        t:Load("assets/exit.png")
-        Add(t)
-    end
-end
