@@ -31,7 +31,7 @@ class GameObjects
             tmpObj:SetCollidable(true)*/
             //tmpObj:InitGameObject(src:GetNewCatAttribs(objX,objY))
             GameObject_Player SecondObj
-            SecondObj:InitGameObject(src:GetNewCannonAttribs(objX,objY))
+            SecondObj:InitGameObject(src:GetNewCannonAttribs(objX, objY))
             tmpObj = SecondObj
         elseif objName = "L"
 /*            tmpObj:SetName("objLock")
@@ -76,7 +76,7 @@ class GameObjects
             tmpObj:Load("resources/sprFesh-trimmed.png")*/
             tmpObj:InitGameObject(src:GetNewMouseFollowerAttribs(objX,objY))
         elseif  objName = "BG"
-            tmpObj:InitGameObject(src:GetNewBackgroundAttribs(objX, objY))
+            tmpObj:InitGameObject(src:GetNewBackgroundAttribs())
         end
 
         //tmpObj:SetPosition(objX+xxx, objY+yyy)

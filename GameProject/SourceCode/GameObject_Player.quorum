@@ -63,7 +63,6 @@ class GameObject_Player is GameObject, GameKeyboard
     action InitGameObject
         parent:GameObject:InitGameObject()
         ResetForce()
-	me:LoadFilledRectangle(80,20)
     end
 
     // resets Force after we released Space Bar

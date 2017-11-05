@@ -36,6 +36,7 @@ class PlayerCannon is KeyboardListener, Drawable
             Drawable cannonBall
 	    cannonBall:LoadFilledCircle(8)
             cannonBall:Load("resources/cannonball.png")
+            cannonBall:SetScale(0.143)
 	    cannonBall:EnablePhysics(true)
             cannonBall:SetResponsive()
             cannonBall:SetCollidable(true)

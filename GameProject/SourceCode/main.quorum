@@ -5,6 +5,7 @@ use Libraries.Game.Graphics.Drawable
 use GameObject
 use GameObject_Attrib_List
 use GameObject_Player
+use Libraries.Game.ScreenResolution
 
 class Main is Game
     GameRoom roo
@@ -12,12 +13,14 @@ class Main is Game
     GameCollision GameCollisionListener
     GameObject_Attrib_List src
     Camera camera = undefined
+    StateStack MS
 
     action Main
         GameMouseListener:roo = roo
         GameCollisionListener:roo = roo
         // Fixed screensize / gamename
-        SetScreenSize(roo:pg_ScreenSizeX , roo:pg_ScreenSizeY)
+        SetScreenSize(roo:pg_ScreenSizeX , roo:pg_ScreenSizeY, false)
+        
         SetGameName("Castle Crusher")
         StartGame()
     end
@@ -31,7 +34,7 @@ class Main is Game
         AddMouseMovementListener(GameMouseListener)
         roo:LoadRoom("./map0.txt")
         roo:pg_CamMaxXOffset = 200
-
+        
         // Draw cursor
         Add(GameMouseListener)
     end

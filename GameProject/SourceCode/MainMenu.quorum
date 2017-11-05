@@ -1,5 +1,5 @@
 
-class MainMenu 
+class MainMenu is IState
     
     public Clickable startMenu
     public Clickable settingsMenu

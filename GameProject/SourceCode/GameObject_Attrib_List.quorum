@@ -57,6 +57,7 @@ class GameObject_Attrib_List
 
     action GetNewCannonBallAttribs(number posX, number posY) returns GameObject_Attribs        GameObject_Attribs newAttribs
         newAttribs:SetObjectName("objCannon")
+        newAttribs:SetSpritePath("resources/cannonball.png")
         newAttribs:SetBasePosition(posX, posY)
         newAttribs:SetTangible(true)
         newAttribs:SetPhysicsEnabled(true)
@@ -144,11 +145,18 @@ class GameObject_Attrib_List
 	newAttribs:SetBasePosition(posX, posY)
 	return newAttribs
     end
-    action GetNewBackgroundAttribs( number posX, number posY) returns GameObject_Attribs
+    action GetNewBackgroundAttribs( ) returns GameObject_Attribs
         GameObject_Attribs newAttribs
         newAttribs:SetObjectName("background0")
         newAttribs:SetSpritePath("resources/background0.png")
-        newAttribs:SetBasePosition (posX,posY)
+        newAttribs:SetBasePosition (0, 0)
+        return newAttribs
+    end
+    action GetNewMenuButton (number posX, number posY) returns GameObject_Attribs
+        GameObject_Attribs newAttribs
+        newAttribs:SetObjectName("ingameMenu")
+        newAttribs:SetSpritePath("resources/sprStartButton.png")
+        newAttribs:SetBasePosition(posX, posY)
         return newAttribs
     end
 end

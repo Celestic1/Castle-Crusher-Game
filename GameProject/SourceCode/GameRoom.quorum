@@ -14,7 +14,8 @@ class GameRoom
     public integer pg_ScreenSizeY = 320   // Default height of room
     private integer g_GridX = 40          // This is the width  of each 'grid' on map
     private integer g_GridY = 40          // This is the height of each 'grid' on map
-
+    
+    
     // Camera Variables
     public integer pg_CamXOffset = 0
     public integer pg_CamYOffset = 0
@@ -146,7 +147,7 @@ class GameRoom
             text myMap = ""
             repeat until i = tmpArray:GetSize()
                 if tmpArray:Get(i) = " "     // don't create a blank object
-                elseif tmpArray:Get(i) = "C" // make cat object first object on list
+                elseif tmpArray:Get(i) = "C" // make cannon object first object on list
                     g_added_objs_queue:AddToFront(obj:CreateObj(tmpArray:Get(i), i*g_GridX, pg_ScreenSizeY-(currentY*g_GridY)-g_GridY))
                 else
                     g_added_objs_queue:AddToEnd(obj:CreateObj(tmpArray:Get(i), i*g_GridX, pg_ScreenSizeY-(currentY*g_GridY)-g_GridY))

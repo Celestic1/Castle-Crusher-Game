@@ -1,7 +1,6 @@
 use Libraries.Compute.Vector2
 
 class GameObject_Attribs
-
     // Set up the attributes from scratch. This may be messy. Or unused.
     action Init ()
     end
