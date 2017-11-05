@@ -1,0 +1,48 @@
+use Libraries.Containers.HashTable
+use Libraries.Game.Graphics.Drawable
+use Libraries.Game.Game
+
+class StateMachine
+    private HashTable<text, IState> mStates
+    EmptyState m
+    IState currentState = m
+    Game beingPlayed
+    
+    action Update (number secs)
+        currentState:Update(secs)
+    end
+    action Render
+        currentState:Render()
+    end
+    action Change (text t)
+        currentState:OnExit()
+        currentState = mStates:GetValue(t)
+        currentState:OnEnter()
+    end
+    action Add (text name, IState state)
+        mStates:Add(name, state)
+        output name + " Added"
+    end
+    
+    action setGame (Game main)
+        beingPlayed = main
+    end
+    action getGame returns Game
+        return beingPlayed
+    end
+    action getState (text name) returns IState
+        return mStates:GetValue(name)
+    end
+    action getStateName (IState x) returns text
+        return mStates:GetKey(x)
+    end
+    action getStateMachine returns StateMachine
+        return me
+    end
+    action stateExists (text name, IState state) returns boolean
+        return mStates:HasValue(state) or mStates:HasKey(name)
+    end
+    action getStateTable returns HashTable<text, IState>
+        return mStates
+    end
+end

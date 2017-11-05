@@ -1,0 +1,7 @@
+use Libraries.Interface.Events.MouseEvent
+
+class GameFunction 
+    action run(MouseEvent e)
+        
+    end
+end
