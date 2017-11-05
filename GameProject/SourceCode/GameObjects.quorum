@@ -75,6 +75,8 @@ class GameObjects
 /*            tmpObj:SetName("objGameMouseFollower")
             tmpObj:Load("resources/sprFesh-trimmed.png")*/
             tmpObj:InitGameObject(src:GetNewMouseFollowerAttribs(objX,objY))
+        elseif  objName = "BG"
+            tmpObj:InitGameObject(src:GetNewBackgroundAttribs(objX, objY))
         end
 
         //tmpObj:SetPosition(objX+xxx, objY+yyy)

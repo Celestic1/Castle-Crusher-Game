@@ -1,6 +1,7 @@
 use Libraries.Interface.Events.MouseListener
 use Libraries.Interface.Events.MouseEvent
 use Libraries.Game.Graphics.Drawable
+use Libraries.Interface.Button
 
 class Clickable is Drawable, MouseListener
     
