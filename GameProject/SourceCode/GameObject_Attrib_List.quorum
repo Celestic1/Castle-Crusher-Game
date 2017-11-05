@@ -144,4 +144,11 @@ class GameObject_Attrib_List
 	newAttribs:SetBasePosition(posX, posY)
 	return newAttribs
     end
+    action GetNewBackgroundAttribs( number posX, number posY) returns GameObject_Attribs
+        GameObject_Attribs newAttribs
+        newAttribs:SetObjectName("background0")
+        newAttribs:SetSpritePath("resources/background0.png")
+        newAttribs:SetBasePosition (posX,posY)
+        return newAttribs
+    end
 end

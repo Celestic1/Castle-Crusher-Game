@@ -35,6 +35,7 @@ class PlayerCannon is KeyboardListener, Drawable
         if event:keyCode = event:SPACE
             Drawable cannonBall
 	    cannonBall:LoadFilledCircle(8)
+            cannonBall:Load("resources/cannonball.png")
 	    cannonBall:EnablePhysics(true)
             cannonBall:SetResponsive()
             cannonBall:SetCollidable(true)

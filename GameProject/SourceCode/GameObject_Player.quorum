@@ -112,7 +112,7 @@ class GameObject_Player is GameObject, GameKeyboard
             PowerBar:LoadRectangle(20,cast(integer,Force)/500)
             PowerBar:SetPosition(20,40)
             Add(PowerBar)
-            output "Force: " + Force
+            //output "Force: " + Force
        end
     end
 
