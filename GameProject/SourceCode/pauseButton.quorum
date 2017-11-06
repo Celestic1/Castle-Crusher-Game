@@ -1,0 +1,26 @@
+class pauseButton 
+    public GameRoom roo
+
+    action run(integer x, integer y)
+        returns boolean
+        integer pauseButtonIndex = roo:GetIndexOfObj("objPauseButton")
+
+        if (pauseButtonIndex > -1)
+            number startX = roo:GetObjAtIndex(pauseButtonIndex):GetX()
+            number startY = roo:GetObjAtIndex(pauseButtonIndex):GetY()
+            number endX = startX + roo:GetObjAtIndex(pauseButtonIndex):GetWidth()
+            number endY = startY + roo:GetObjAtIndex(pauseButtonIndex):GetHeight()
+            if startX <= x
+                if endX >= x
+                    if startY <= y
+                        if endY >= y
+                            return true
+                        end
+                    end
+                end
+            end   
+        end
+
+        return false
+    end
+end

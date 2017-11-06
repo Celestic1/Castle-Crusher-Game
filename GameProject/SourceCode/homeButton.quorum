@@ -1,0 +1,26 @@
+class homeButton 
+    public GameRoom roo
+
+    action run(integer x, integer y)
+        returns boolean
+        integer homeButtonIndex = roo:GetIndexOfObj("objBackMainButton")
+
+        if (homeButtonIndex > -1)
+            number startX = roo:GetObjAtIndex(homeButtonIndex):GetX()
+            number startY = roo:GetObjAtIndex(homeButtonIndex):GetY()
+            number endX = startX + roo:GetObjAtIndex(homeButtonIndex):GetWidth()
+            number endY = startY + roo:GetObjAtIndex(homeButtonIndex):GetHeight()
+            if startX <= x
+                if endX >= x
+                    if startY <= y
+                        if endY >= y
+                            return true
+                        end
+                    end
+                end
+            end   
+        end
+
+        return false
+    end
+end

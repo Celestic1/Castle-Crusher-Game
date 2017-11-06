@@ -4,7 +4,7 @@ use Libraries.Game.Graphics.Drawable
 class Main is Game
     GameRoom roo
     GameKeyboard GameKeyboardListener
-    GameMouse GameMouseListener
+    Clickable GameMouseListener
     GameCollision GameCollisionListener
 
     action Main
@@ -23,7 +23,7 @@ class Main is Game
         AddKeyboardListener(GameKeyboardListener)
         AddCollisionListener(GameCollisionListener)
         AddMouseListener(GameMouseListener)
-        roo:LoadRoom("./map0.txt")
+        roo:LoadRoom("./start_menu.txt")
     end
 
     action Update(number seconds)

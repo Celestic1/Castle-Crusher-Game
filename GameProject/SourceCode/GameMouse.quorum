@@ -3,7 +3,6 @@ use Libraries.Interface.Events.MouseEvent
 
 class GameMouse is MouseListener
     public GameRoom roo
-    public text currentRoom = ""
 
     action ClickedMouse(MouseEvent event)
         integer x = event:GetX()
@@ -11,9 +10,7 @@ class GameMouse is MouseListener
         output "MouseClick: " + x + "," + y
 
         integer startButtonIndex = roo:GetIndexOfObj("objStartButton")
-        integer pauseButtonIndex = roo:GetIndexOfObj("objPauseButton")
-        integer settingButtonIndex = roo:GetIndexOfObj("objSettingButton")
-         
+      
         number startX = 0
         number startY = 0
         number endX = 0
@@ -34,43 +31,7 @@ class GameMouse is MouseListener
                     end
                 end
             end   
- 
-        elseif (pauseButtonIndex > -1)
-            startX = roo:GetObjAtIndex(pauseButtonIndex):GetX()
-            startY = roo:GetObjAtIndex(pauseButtonIndex):GetY()
-            endX = startX + roo:GetObjAtIndex(pauseButtonIndex):GetWidth()
-            endY = startY + roo:GetObjAtIndex(pauseButtonIndex):GetHeight()
-            if startX <= x
-                if endX >= x
-                    if startY <= y
-                        if endY >= y
-                            roo:QueueDelObj(roo:GetIndexOfObj("objPauseButton"))
-                            currentRoom = roo:getRoomPath()
-                            roo:LoadRoom("./pause_menu.txt")
-                        end
-                    end
-                end
-            end
-        
-        elseif (settingButtonIndex > -1)
-            startX = roo:GetObjAtIndex(pauseButtonIndex):GetX()
-            startY = roo:GetObjAtIndex(pauseButtonIndex):GetY()
-            endX = startX + roo:GetObjAtIndex(pauseButtonIndex):GetWidth()
-            endY = startY + roo:GetObjAtIndex(pauseButtonIndex):GetHeight()
-            if startX <= x
-                if endX >= x
-                    if startY <= y
-                        if endY >= y
-                            roo:QueueDelObj(roo:GetIndexOfObj("objSettingButton"))
-                            currentRoom = roo:getRoomPath()
-                            roo:LoadRoom("./setting_menu.txt")
-                        end
-                    end
-                end
-            end    
-
-        
         end
-
+    
     end
 end

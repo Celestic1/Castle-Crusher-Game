@@ -107,12 +107,12 @@ class GameObject_Attrib_List
 	newAttribs:SetBasePosition(posX, posY)
 	return newAttribs
     end
-
+    // Main Menu buttons
     action GetNewStartButtonAttribs (number posX, number posY) returns GameObject_Attribs
 	GameObject_Attribs newAttribs
 	newAttribs:SetObjectName("objStartButton")
 	newAttribs:SetSpritePath("resources/sprStartButton.png")
-	newAttribs:SetBasePosition(posX+20, posY)
+	newAttribs:SetBasePosition(posX+20, posY+25)
 	return newAttribs
     end
 
@@ -120,7 +120,7 @@ class GameObject_Attrib_List
 	GameObject_Attribs newAttribs
 	newAttribs:SetObjectName("objSettingButton")
 	newAttribs:SetSpritePath("resources/setting_button.png")
-	newAttribs:SetBasePosition(posX+20, posY)
+	newAttribs:SetBasePosition(posX+20, posY+10)
 	return newAttribs
     end
 
@@ -128,7 +128,7 @@ class GameObject_Attrib_List
 	GameObject_Attribs newAttribs
 	newAttribs:SetObjectName("objStatButton")
 	newAttribs:SetSpritePath("resources/stats_button.png")
-	newAttribs:SetBasePosition(posX+20, posY)
+	newAttribs:SetBasePosition(posX+20, posY-4)
 	return newAttribs
     end
 
@@ -136,7 +136,7 @@ class GameObject_Attrib_List
 	GameObject_Attribs newAttribs
 	newAttribs:SetObjectName("objLevelButton")
 	newAttribs:SetSpritePath("resources/level_button.png")
-	newAttribs:SetBasePosition(posX+20, posY)
+	newAttribs:SetBasePosition(posX+20, posY-15)
 	return newAttribs
     end
 
@@ -144,10 +144,10 @@ class GameObject_Attrib_List
 	GameObject_Attribs newAttribs
 	newAttribs:SetObjectName("objExitButton")
 	newAttribs:SetSpritePath("resources/exit_button.png")
-	newAttribs:SetBasePosition(posX+20, posY)
+	newAttribs:SetBasePosition(posX+20, posY-23)
 	return newAttribs
     end
-
+    // Pause Menu buttons
     action GetNewPauseButtonAttribs (number posX, number posY) returns GameObject_Attribs
 	GameObject_Attribs newAttribs
 	newAttribs:SetObjectName("objPauseButton")
@@ -171,12 +171,20 @@ class GameObject_Attrib_List
 	newAttribs:SetBasePosition(posX+10, posY+10)
 	return newAttribs
     end
-
+/*
     action GetNewQuitButtonAttribs (number posX, number posY) returns GameObject_Attribs
 	GameObject_Attribs newAttribs
 	newAttribs:SetObjectName("objQuitButton")
 	newAttribs:SetSpritePath("resources/quit_button.png")
 	newAttribs:SetBasePosition(posX+10, posY-10)
+	return newAttribs
+    end
+*/
+    action GetNewBackMainButtonAttribs (number posX, number posY) returns GameObject_Attribs
+	GameObject_Attribs newAttribs
+	newAttribs:SetObjectName("objBackMainButton")
+	newAttribs:SetSpritePath("resources/back_to_main.png")
+	newAttribs:SetBasePosition(posX-40, posY-10)
 	return newAttribs
     end
 
@@ -193,6 +201,30 @@ class GameObject_Attrib_List
 	newAttribs:SetObjectName("objPauseTitle")
 	newAttribs:SetSpritePath("resources/pause_title.png")
 	newAttribs:SetBasePosition(posX+10, posY-10)
+	return newAttribs
+    end
+    
+    action GetNewSettingTitleAttribs (number posX, number posY) returns GameObject_Attribs
+	GameObject_Attribs newAttribs
+	newAttribs:SetObjectName("objSettingTitle")
+	newAttribs:SetSpritePath("resources/setting_title.png")
+	newAttribs:SetBasePosition(posX-20, posY-10)
+	return newAttribs
+    end
+
+    action GetNewStatTitleAttribs (number posX, number posY) returns GameObject_Attribs
+	GameObject_Attribs newAttribs
+	newAttribs:SetObjectName("objStatTitle")
+	newAttribs:SetSpritePath("resources/stat_title.png")
+	newAttribs:SetBasePosition(posX-20, posY-10)
+	return newAttribs
+    end
+
+    action GetNewLevelTitleAttribs (number posX, number posY) returns GameObject_Attribs
+	GameObject_Attribs newAttribs
+	newAttribs:SetObjectName("objLevelTitle")
+	newAttribs:SetSpritePath("resources/level_title.png")
+	newAttribs:SetBasePosition(posX-50, posY-10)
 	return newAttribs
     end
 

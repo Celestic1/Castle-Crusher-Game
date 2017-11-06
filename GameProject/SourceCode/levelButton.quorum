@@ -1,0 +1,26 @@
+class levelButton 
+    public GameRoom roo
+
+    action run(integer x, integer y)
+        returns boolean
+        integer levelButtonIndex = roo:GetIndexOfObj("objLevelButton")
+
+        if (levelButtonIndex > -1)
+            number startX = roo:GetObjAtIndex(levelButtonIndex):GetX()
+            number startY = roo:GetObjAtIndex(levelButtonIndex):GetY()
+            number endX = startX + roo:GetObjAtIndex(levelButtonIndex):GetWidth()
+            number endY = startY + roo:GetObjAtIndex(levelButtonIndex):GetHeight()
+            if startX <= x
+                if endX >= x
+                    if startY <= y
+                        if endY >= y
+                            return true
+                        end
+                    end
+                end
+            end   
+        end
+
+        return false
+    end
+end

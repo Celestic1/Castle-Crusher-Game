@@ -1,6 +1,7 @@
 use Libraries.Interface.Events.MouseEvent
+use Libraries.Interface.Button
 
-class GameFunction 
+class GameFunction is Button
     action run(MouseEvent e)
         output "We can use this to switch between screens or do actions"
     end

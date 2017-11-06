@@ -1,0 +1,26 @@
+class startButton 
+    public GameRoom roo
+
+    action run(integer x, integer y)
+        returns boolean
+        integer startButtonIndex = roo:GetIndexOfObj("objStartButton")
+
+        if (startButtonIndex > -1)
+            number startX = roo:GetObjAtIndex(startButtonIndex):GetX()
+            number startY = roo:GetObjAtIndex(startButtonIndex):GetY()
+            number endX = startX + roo:GetObjAtIndex(startButtonIndex):GetWidth()
+            number endY = startY + roo:GetObjAtIndex(startButtonIndex):GetHeight()
+            if startX <= x
+                if endX >= x
+                    if startY <= y
+                        if endY >= y
+                            return true
+                        end
+                    end
+                end
+            end   
+        end
+
+        return false
+    end
+end

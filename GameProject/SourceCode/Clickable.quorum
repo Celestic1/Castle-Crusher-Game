@@ -4,17 +4,81 @@ use Libraries.Game.Graphics.Drawable
 
 class Clickable is Drawable, MouseListener
     
-
-    private GameFunction mouseClick
+    public GameRoom roo
+    private text currentRoom = " "
+    private startButton gameStart
+    private settingButton gameSettings
+    private statButton gameStats
+    private levelButton gameLevels
+    private homeButton backMain
+    private pauseButton gamePause
+    private retryButton gameRetry
+    private resumeButton gameResume
 
     // Ensures this object will receive mouse events when it is clicked
     on create
         AddMouseListener(me)
     end
 
-    // When mouse is clicked, it acces the GameFunction class's run function
+    // When mouse is clicked, it access the GameFunction class's run function
     action ClickedMouse(MouseEvent event)
-        mouseClick:run(event)
+        integer x = event:GetX()
+        integer y = event:GetY()
+        
+        gameStart:roo = roo
+        if gameStart:run(x, y)
+            roo:QueueDelObj(roo:GetIndexOfObj("objStartButton"))
+            roo:LoadRoom("./map1.txt")
+        end
+
+        gameSettings:roo = roo
+        if gameSettings:run(x, y)
+            roo:QueueDelObj(roo:GetIndexOfObj("objSettingButton"))
+            roo:LoadRoom("./setting_menu.txt")
+        end
+
+        gameStats:roo = roo
+        if gameStats:run(x, y)
+            roo:QueueDelObj(roo:GetIndexOfObj("objStatButton"))
+            roo:LoadRoom("./stat_menu.txt")
+        end
+        
+        gameLevels:roo = roo
+        if gameLevels:run(x, y)
+            roo:QueueDelObj(roo:GetIndexOfObj("objLevelButton"))
+            roo:LoadRoom("./level_menu.txt")
+        end
+
+        backMain:roo = roo
+        if backMain:run(x, y)
+            roo:QueueDelObj(roo:GetIndexOfObj("objBackMainButton"))
+            roo:LoadRoom("./start_menu.txt")
+        end
+
+        gamePause:roo = roo
+        if gamePause:run(x, y)
+            roo:QueueDelObj(roo:GetIndexOfObj("objPauseButton"))
+            currentRoom = roo:getRoomPath()
+            roo:LoadRoom("./pause_menu.txt")
+        end
+
+        gameRetry:roo = roo
+        if gameRetry:run(x, y)
+            roo:QueueDelObj(roo:GetIndexOfObj("objRetryButton"))
+            roo:LoadRoom(currentRoom)
+        end
+
+        gameResume:roo = roo
+        if gameResume:run(x, y)
+            roo:QueueDelObj(roo:GetIndexOfObj("objResumeButton"))
+            roo:LoadRoom(currentRoom)
+        end
+
+
+
+
+
+
     end
 
     action ReleasedMouse(MouseEvent event)
