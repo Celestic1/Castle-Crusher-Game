@@ -12,6 +12,7 @@ class Main is Game
     GameCollision GameCollisionListener
     GameObject_Attrib_List src
     Camera camera = undefined
+    Clickable startMenu
 
     action Main
         GameMouseListener:roo = roo
@@ -29,7 +30,12 @@ class Main is Game
         AddCollisionListener(GameCollisionListener)
         AddMouseListener(GameMouseListener)
         AddMouseMovementListener(GameMouseListener)
-        roo:LoadRoom("./map0.txt")
+        startMenu:Load("./resources/sprStartButton.png")
+        startMenu:SetPosition(450,200)
+        startMenu:roo = roo
+        startMenu:setGameRoom(roo)
+        Add(startMenu)
+        //roo:LoadRoom("./testMap.txt")
         roo:pg_CamMaxXOffset = 200
 
         // Draw cursor

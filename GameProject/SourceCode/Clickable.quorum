@@ -6,6 +6,7 @@ class Clickable is Drawable, MouseListener
     
 
     private GameFunction mouseClick
+    private GameRoom roo
 
     // Ensures this object will receive mouse events when it is clicked
     on create
@@ -15,6 +16,15 @@ class Clickable is Drawable, MouseListener
     // When mouse is clicked, it acces the GameFunction class's run function
     action ClickedMouse(MouseEvent event)
         mouseClick:run(event)
+    end
+
+    action setGameRoom(GameRoom room)
+        roo = room
+        mouseClick:setGameRoom(roo)
+    end
+
+    action getGameRoom returns GameRoom
+        return roo
     end
 
     action ReleasedMouse(MouseEvent event)

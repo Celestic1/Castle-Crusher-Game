@@ -1,7 +1,20 @@
 use Libraries.Interface.Events.MouseEvent
 
 class GameFunction 
-    action run(MouseEvent e)
+    
+    private GameRoom roo
+
+    action run(MouseEvent e)        
         output "We can use this to switch between screens or do actions"
+        roo:LoadRoom("./testMap.txt")
     end
+
+    action setGameRoom(GameRoom room)
+        roo = room
+    end
+
+    action getGameRoom returns GameRoom
+        return roo
+    end
+
 end
