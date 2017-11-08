@@ -12,7 +12,9 @@ class Main is Game
     GameCollision GameCollisionListener
     GameObject_Attrib_List src
     Camera camera = undefined
-    Clickable startMenu
+    Drawable mainScreen
+    MainMenu mainmenu
+    MainMenuDisplay display
 
     action Main
         GameMouseListener:roo = roo
@@ -30,20 +32,19 @@ class Main is Game
         AddCollisionListener(GameCollisionListener)
         AddMouseListener(GameMouseListener)
         AddMouseMovementListener(GameMouseListener)
-        startMenu:Load("./resources/sprStartButton.png")
-        startMenu:SetPosition(450,200)
-        startMenu:roo = roo
-        startMenu:setGameRoom(roo)
-        Add(startMenu)
         //roo:LoadRoom("./testMap.txt")
         roo:pg_CamMaxXOffset = 200
-
-        // Draw cursor
+        mainScreen:SetName("screen")
+        //mainScreen:LoadFilledRectangle(me:GetScreenWidth(), me:GetScreenHeight())
+        mainScreen:Load("/assets/newBackground.png")
+        Add(mainScreen)
+        createMainMenu()
         Add(GameMouseListener)
     end
 
     action Update(number seconds)
         // Scrolling Update
+
         if GameMouseListener:pg_Scrolling > 0 or roo:pg_CamReset = 1
             roo:pg_CamReset = 0
             if GameMouseListener:pg_Scrolling = 1
@@ -81,6 +82,19 @@ class Main is Game
             nextShot:AddToGame(me)
             PlayCan:LoadCannon(nextShot)
         end
+    end
+
+    action createMainMenu
+    
+        exitFunction exit
+        startFunction start
+        display:Create(mainScreen, mainmenu)
+        exit:setGame(me)
+        start:getGameRoom(roo)
+        mainmenu:startMenu:LoadClick(start)
+        mainmenu:exitMenu:LoadClick(exit)
+        display:Render()
+
     end
 
 end

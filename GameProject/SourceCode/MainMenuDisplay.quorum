@@ -1,0 +1,25 @@
+use Libraries.Game.Graphics.Drawable
+
+class MainMenuDisplay is GameObject
+
+    Drawable label
+    MainMenu mainmenu
+    
+    action Create(Drawable l, MainMenu m)
+        label = l
+        mainmenu = m
+        //me:Load("/assets/background0.png")
+        mainmenu:startMenu:Load("/assets/start.png")
+        mainmenu:exitMenu:Load("/assets/exit.png")
+    end
+
+    action Render()
+        //label:Add(me)
+        mainmenu:startMenu:SetPosition(450,250)
+        label:Add(mainmenu:startMenu)
+        mainmenu:exitMenu:SetPosition(450,50)
+        label:Add(mainmenu:exitMenu)
+    end
+
+
+end

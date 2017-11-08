@@ -50,14 +50,8 @@ class GameObject_Player is GameObject, GameKeyboard
     end
 
     action LoadCannon(GameObject newAmmo)
-//        if newAmmo:GetAttributes():IsProjectile()
             newAmmo:Hide()
-            //Add(newAmmo)
             myAmmo:Add(newAmmo)
-            //output "Ammo loaded; " + myAmmo:GetSize() + " left."
-//        else
-//            output "Tried to load a bad projectile!"
-//        end
     end
 
     action InitGameObject

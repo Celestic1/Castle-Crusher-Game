@@ -1,4 +1,4 @@
-class MainMenu 
+class MainMenu is Clickable
     
     public Clickable startMenu
     public Clickable settingsMenu
