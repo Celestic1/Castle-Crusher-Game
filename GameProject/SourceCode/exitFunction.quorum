@@ -1,0 +1,16 @@
+use Libraries.Interface.Events.MouseEvent
+use Libraries.Game.Game
+
+class exitFunction is GameFunction
+    
+    Game game
+
+    action run(MouseEvent e)        
+        game:Exit()
+    end
+
+    action setGame(Game g)
+        game = g
+    end
+
+end

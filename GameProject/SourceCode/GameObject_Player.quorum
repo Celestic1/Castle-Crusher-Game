@@ -50,19 +50,14 @@ class GameObject_Player is GameObject, GameKeyboard
     end
 
     action LoadCannon(GameObject newAmmo)
-//        if newAmmo:GetAttributes():IsProjectile()
             newAmmo:Hide()
-            //Add(newAmmo)
             myAmmo:Add(newAmmo)
-            //output "Ammo loaded; " + myAmmo:GetSize() + " left."
-//        else
-//            output "Tried to load a bad projectile!"
-//        end
     end
 
     action InitGameObject
         parent:GameObject:InitGameObject()
         ResetForce()
+	me:LoadFilledRectangle(80,20)
     end
 
     // resets Force after we released Space Bar
@@ -153,7 +148,7 @@ class GameObject_Player is GameObject, GameKeyboard
 	end
 
 	if event:keyCode = event:SPACE
-           if (Force <= ForceCap and not reachedCap)
+            if (Force <= ForceCap and not reachedCap)
                 Force = Force + 500
                 if (Force = ForceCap)
                      reachedCap = true
@@ -166,7 +161,6 @@ class GameObject_Player is GameObject, GameKeyboard
                    reachedCap = false
                 end
             end
-//            output "Force: " + Force
 	    UpdatePowerBar()
 	end
     end

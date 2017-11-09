@@ -155,7 +155,7 @@ class GameRoom
                 myMap = myMap + tmpArray:Get(i)
                 i = i + 1
             end
-            output myMap + " " + (pg_ScreenSizeY-(currentY*g_GridY)-g_GridY)
+            //output myMap + " " + (pg_ScreenSizeY-(currentY*g_GridY)-g_GridY)
             currentY = currentY + 1
 
             readLine = reader:ReadLine()
