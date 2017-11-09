@@ -4,15 +4,17 @@ use Libraries.Game.Graphics.Drawable
 use Libraries.Interface.Button
 
 class Clickable is Drawable, MouseListener
-    
     private GameFunction click
     private GameFunction release
-    
+    private GameFunction mouseClick
+    private boolean clicked = false
+    action isClicked returns boolean
+        return clicked
+    end
     // Ensures this object will receive mouse events when it is clicked
     on create
         AddMouseListener(me)
     end
-
     action LoadClick(GameFunction c)
         click = c
     end
@@ -23,11 +25,12 @@ class Clickable is Drawable, MouseListener
 
     // When mouse is clicked, it acces the GameFunction class's run function
     action ClickedMouse(MouseEvent event)
-        click:run(event)
+        mouseClick:run(event)
+        clicked = true
     end
 
     action ReleasedMouse(MouseEvent event)
-        release:run(event)
+        mouseClick:run(event)
+        clicked = false
     end
-
 end

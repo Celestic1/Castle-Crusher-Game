@@ -1,8 +1,28 @@
-class MainMenu is Clickable
-    
-    public Clickable startMenu
-    public Clickable settingsMenu
-    public Clickable loadMenu
-    public Clickable exitMenu
+use Libraries.Game.Graphics.Drawable 
+use Libraries.Game.Game
+use Libraries.Game.Layer2D
+use Libraries.Game.Graphics.Camera
 
+
+class MainMenu is IState,Drawable
+    StateStack Order
+    Game main_beingPlayed
+    GameRoom room 
+    
+    //called for each frame of the current state
+    action Update(number secs)
+       
+    end
+    //called for each frame of the current state
+    action Render
+        room:LoadRoom("map0.txt")
+    end
+
+    action OnEnter
+        main_beingPlayed:Add(me)
+    end
+    
+    action OnExit
+        main_beingPlayed:Remove(me)
+    end
 end
