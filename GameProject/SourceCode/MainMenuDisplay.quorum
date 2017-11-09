@@ -1,25 +1,30 @@
 use Libraries.Game.Graphics.Drawable
 
-class MainMenuDisplay is GameObject
-/*
+// This class displays the main menu
+// Functionality is added through startFunction and exitFunction
+class MainMenuDisplay is Drawable
+
     Drawable label
     MainMenu mainmenu
     
     action Create(Drawable l, MainMenu m)
         label = l
         mainmenu = m
-        //me:Load("/assets/background0.png")
+        Load("/assets/newBackground.png")
         mainmenu:startMenu:Load("/assets/start.png")
         mainmenu:exitMenu:Load("/assets/exit.png")
     end
 
-    action Render()
-        //label:Add(me)
+    action Create()
+        label:Add(me)
         mainmenu:startMenu:SetPosition(450,250)
-        label:Add(mainmenu:startMenu)
+        Add(mainmenu:startMenu)
         mainmenu:exitMenu:SetPosition(450,50)
-        label:Add(mainmenu:exitMenu)
+        Add(mainmenu:exitMenu)
     end
 
-*/
+    action DeleteMenu()
+        label:Remove(me)
+    end
+
 end

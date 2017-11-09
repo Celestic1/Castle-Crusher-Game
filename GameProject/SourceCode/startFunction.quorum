@@ -1,18 +1,28 @@
 use Libraries.Interface.Events.MouseEvent
 use Libraries.Game.Game
+use Libraries.Game.Graphics.Drawable
 
 class startFunction is GameFunction
     
     Game game
     GameRoom room
- 
+    MainMenuDisplay mainmenu
+
     action run(MouseEvent e)  
-        //output "startFunction clicked"
         room:LoadRoom("/testMap.txt")
+        mainmenu:DeleteMenu()
     end
 
-    action getGameRoom(GameRoom r)
+    action setGameRoom(GameRoom r)
         room = r
+    end
+
+    action setMainMenu(MainMenuDisplay m)
+        mainmenu = m
+    end
+
+    action setGame(Game g)
+        game = g
     end
 
 end

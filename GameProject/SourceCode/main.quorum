@@ -12,23 +12,11 @@ class Main is Game
     GameCollision GameCollisionListener
     GameObject_Attrib_List src
     Camera camera = undefined
-    //Drawable mainScreen
-    //MainMenu mainmenu
-    //MainMenuDisplay display
-    StateStack mainStack
-    MainMenu mainMenu
-    GameState game
-    
+    Drawable mainScreen
+    MainMenu mainmenu
+    MainMenuDisplay mainmenudisplay
 
-    mainStack:beingPlayed = me
-    //mainMenu:ED = mainGameMode:getStateMachine()
-    //game:ED = mainGameMode:getStateMachine()
-    mainMenu:Order = mainStack:GetStack()
-    game:Order = mainStack:GetStack()
-    mainMenu:main_beingPlayed = mainStack:getGame()
-    game:game_beingPlayed = mainStack:getGame()
-    
-    action Main 
+    action Main
         GameMouseListener:roo = roo
         GameCollisionListener:roo = roo
         // Fixed screensize / gamename
@@ -46,18 +34,14 @@ class Main is Game
         AddMouseMovementListener(GameMouseListener)
         //roo:LoadRoom("./testMap.txt")
         roo:pg_CamMaxXOffset = 200
-        //mainScreen:SetName("screen")
+        mainScreen:SetName("screen")
         //mainScreen:LoadFilledRectangle(me:GetScreenWidth(), me:GetScreenHeight())
         //mainScreen:Load("/assets/newBackground.png")
-        //Add(mainScreen)
-        //createMainMenu()
-        //Add(GameMouseListener)
-        mainStack:Add("mainmenu", mainMenu)
-        mainStack:Add("gamescreen", game)
-        //output "State Machine has " + mainGameMode:getStateTable():GetSize() + "states"
+        Add(mainScreen)
+        createMainMenu()
         
-        mainStack:Push("mainmenu")
 
+        Add(GameMouseListener)
     end
 
     action Update(number seconds)
@@ -102,17 +86,18 @@ class Main is Game
         end
     end
 
-    /*action createMainMenu
+    action createMainMenu
     
         exitFunction exit
         startFunction start
-        display:Create(mainScreen, mainmenu)
+        mainmenudisplay:Create(mainScreen, mainmenu)
         exit:setGame(me)
-        start:getGameRoom(roo)
+        start:setMainMenu(mainmenudisplay)
+        start:setGameRoom(roo)
+        start:setGame(me)
         mainmenu:startMenu:LoadClick(start)
         mainmenu:exitMenu:LoadClick(exit)
-        display:Render()
-
-    end*/
+        mainmenudisplay:Create()
+    end
 
 end
