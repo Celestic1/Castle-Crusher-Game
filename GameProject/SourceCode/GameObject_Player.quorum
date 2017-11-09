@@ -34,6 +34,7 @@ class GameObject_Player is GameObject, GameKeyboard
             output "Cannon is out of ammo!"
             return now
         end
+
         GameObject toFire = myAmmo:Get(AmmoRef)
         toFire:SetPosition(GetBarrelX()-toFire:GetWidth()/2,GetBarrelY()-toFire:GetHeight()/2)
         //output "(" + me:GetGlobalX() + " + " + me:GetWidth()/1.1 + "," + me:GetGlobalY() + " - " + me:GetRotation() + ") = (" + (me:GetGlobalX()+me:GetWidth()/1.1) + "," + (me:GetGlobalY()-me:GetRotation()) + ")"
