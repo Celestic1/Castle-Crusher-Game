@@ -14,7 +14,7 @@ class Main is Game
     Camera camera = undefined
     Drawable mainScreen
     MainMenu mainmenu
-    MainMenuDisplay display
+    MainMenuDisplay mainmenudisplay
 
     action Main
         GameMouseListener:roo = roo
@@ -36,9 +36,11 @@ class Main is Game
         roo:pg_CamMaxXOffset = 200
         mainScreen:SetName("screen")
         //mainScreen:LoadFilledRectangle(me:GetScreenWidth(), me:GetScreenHeight())
-        mainScreen:Load("/assets/newBackground.png")
+        //mainScreen:Load("/assets/newBackground.png")
         Add(mainScreen)
         createMainMenu()
+        
+
         Add(GameMouseListener)
     end
 
@@ -88,13 +90,14 @@ class Main is Game
     
         exitFunction exit
         startFunction start
-        display:Create(mainScreen, mainmenu)
+        mainmenudisplay:Create(mainScreen, mainmenu)
         exit:setGame(me)
-        start:getGameRoom(roo)
+        start:setMainMenu(mainmenudisplay)
+        start:setGameRoom(roo)
+        start:setGame(me)
         mainmenu:startMenu:LoadClick(start)
         mainmenu:exitMenu:LoadClick(exit)
-        display:Render()
-
+        mainmenudisplay:Create()
     end
 
 end
