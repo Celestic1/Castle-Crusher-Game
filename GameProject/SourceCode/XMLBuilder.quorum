@@ -1,0 +1,51 @@
+use Libraries.Data.Formats.all
+use Libraries.Containers.Stack
+use Libraries.Containers.Array
+
+class XMLBuilder is MarkupListener
+    Stack<XMLNode> InheritanceStack
+    Array<XMLNode> TopLevelStack
+
+    // Happens when the starting tag is detected.
+    // Push the new node onto the InheritanceStack so we know it's the active node.
+    action StartElement(Element NewElement)
+        XMLNode NewNode
+//        output "Grabbed NewElement " + NewElement:GetName() + " = " + NewElement:GetValue()
+        NewNode:SetName(NewElement:GetName())
+        InheritanceStack:Push(NewNode)
+//        output "Stowed to NewNode " + NewNode:GetName() + " = " + NewNode:GetValue()
+    end
+
+    // We have to have a function to handle the parsing of the value.
+    // I don't know why it can't just be saved. I didn't write this shitty library.
+    // Either way, we look at the top of the stack, 'cuz that's the active node,
+    // and add the value to it. We also trim it because it gets random whitespace.
+    // THAT COULD BE A PROBLEM LATER.
+    action Value(text Value)
+//        output "Value is [" + Value + "]"
+//        output "If I prune it, [" + Value:Trim() + "]"
+        InheritanceStack:Peek():SetValue(Value:Trim())
+    end
+
+    // Happens when the closing tag is detected.
+    action EndElement(Element NewElement)
+        XMLNode NewNode = InheritanceStack:Pop()
+//        NewNode:SetNodeToElement(NewElement)
+        // If this tag has a parent, add it to that parent's children list.
+        if not InheritanceStack:IsEmpty()
+            InheritanceStack:Peek():Children:Add(NewNode)
+        // If not, then it's a top level, and we save it there.
+        else
+            TopLevelStack:Add(NewNode)
+        end
+//        output "Final Node: " + NewNode:GetName() + " = " + NewNode:GetValue()
+    end
+
+    action OutputTopLevelStack
+        integer i = 0
+        repeat while i < TopLevelStack:GetSize()
+            TopLevelStack:Get(i):OutputNode(0)
+            i = i + 1
+        end
+    end
+end

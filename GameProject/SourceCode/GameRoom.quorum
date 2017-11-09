@@ -122,36 +122,11 @@ class GameRoom
     end
 
     action LoadRoomFromFile(text roomTextPath)
-        text readLine = ""
-        number currentY = 0
 
         // Open the map file find the line after [MAP] and place in readLine
         File f  
         f:SetPath(roomTextPath)
-        FileReader reader
-        reader:OpenForRead(f)
-        repeat until readLine = "[MAP]" and not reader:IsAtEndOfFile()
-            readLine = reader:ReadLine()
-        end
-        readLine = reader:ReadLine()
-
-        repeat until readLine = "[MAPEND]" and not reader:IsAtEndOfFile()
-            Array<text> tmpArray = readLine:Split(",")
-            i = 0
-            text myMap = ""
-            repeat until i = tmpArray:GetSize()
-                if tmpArray:Get(i) not= " "     // don't create a blank object
-                    g_objs:Add(obj:CreateObj(tmpArray:Get(i), i*g_GridX, pg_ScreenSizeY-(currentY*g_GridY)-g_GridY))
-                end
-                myMap = myMap + tmpArray:Get(i)
-                i = i + 1
-            end
-            output myMap + " " + (pg_ScreenSizeY-(currentY*g_GridY)-g_GridY)
-            currentY = currentY + 1
-
-            readLine = reader:ReadLine()
-        end
-        reader:Close()
+        LoadRoomFromFile(f)
     end
 
     action LoadRoomFromFile(File TargetFile)

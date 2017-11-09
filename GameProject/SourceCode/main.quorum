@@ -15,6 +15,9 @@ class Main is Game
     Camera camera = undefined
 
     action Main
+        XMLFileManager FileMan
+        FileMan:GetXMLFromFile("TestXML.xml")
+        Exit()
         GameMouseListener:RefRoom = RefRoom
         // Fixed screensize / gamename
         SetScreenSize(RefRoom:pg_ScreenSizeX , RefRoom:pg_ScreenSizeY)

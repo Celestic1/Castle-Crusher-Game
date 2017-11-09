@@ -1,0 +1,32 @@
+use Libraries.Data.Formats.all
+use Libraries.Containers.Array
+
+class XMLNode is Element
+    public Array<XMLNode> Children
+
+    action OutputNode (integer depth)
+        text OutputTarget = ""
+        integer i = 0
+        repeat while i < depth
+            OutputTarget = OutputTarget + OutputTarget:GetTab()
+            i = i + 1
+        end
+        OutputTarget = OutputTarget + me:GetName() + " - " + me:GetValue()
+        
+        output OutputTarget
+
+        i = 0
+        repeat while i < Children:GetSize()
+            Children:Get(i):OutputNode(depth + 1)
+            i = i + 1
+        end
+    end
+
+    action SetName (text Name)
+        parent:Libraries.Data.Formats.Element:name = Name
+    end
+
+    action SetValue (text Value)
+        parent:Libraries.Data.Formats.Element:value = Value
+    end
+end
