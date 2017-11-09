@@ -4,6 +4,7 @@ use Libraries.Game.Graphics.Drawable
 class ClickableTest is Game
     Drawable bar
     Clickable startMenu
+   
 
     action Main
         EnableResizing(true)
