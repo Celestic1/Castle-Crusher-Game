@@ -1,0 +1,25 @@
+use Libraries.Game.Graphics.Drawable
+
+class LevelSelectorDisplay is GameObject
+
+    Drawable label
+    MainMenu mainmenu
+    
+    action Create(Drawable l, MainMenu m)
+        label = l
+        mainmenu = m
+        //me:Load("/assets/background0.png")
+        mainmenu:levelOne:Load("/assets/one.png")
+        mainmenu:levelTwo:Load("/assets/two.jpg")
+    end
+
+    action Render()
+        //label:Add(me)
+        mainmenu:levelOne:SetPosition(450,250)
+        label:Add(mainmenu:startMenu)
+        mainmenu:levelTwo:SetPosition(450,50)
+        label:Add(mainmenu:exitMenu)
+    end
+
+
+end

@@ -1,0 +1,18 @@
+use Libraries.Interface.Events.MouseEvent
+use Libraries.Game.Game
+
+class levelOneFunction is GameFunction
+    
+    Game game
+    GameRoom room
+ 
+    action run(MouseEvent e)  
+        //output "startFunction clicked"
+        room:LoadRoom("/testMap.txt")
+    end
+
+    action getGameRoom(GameRoom r)
+        room = r
+    end
+
+end
