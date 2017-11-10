@@ -66,6 +66,18 @@ class GameObjects
             tmpObj:EnablePhysics(true)
             tmpObj:SetResponsive()*/
             tmpObj:InitGameObject(src:GetNewBoxAttribs(objX,objY))
+         elseif objName = "D"
+/*          tmpObj:SetName("objBox-D")
+            tmpObj:Load("resources/sprBrick_0-d.png")
+            tmpObj:EnablePhysics(true)
+            tmpObj:SetResponsive()*/
+            tmpObj:InitGameObject(src:GetNewBlockDAttribs(objX,objY))
+        elseif objName = "T"
+/*          tmpObj:SetName("objBox")
+            tmpObj:Load("resources/sprBrick_0-tall.png")
+            tmpObj:EnablePhysics(true)
+            tmpObj:SetResponsive()*/
+            tmpObj:InitGameObject(src:GetNewBlockTAttribs(objX,objY))
         elseif objName = "SB"
 /*            tmpObj:SetName("objStartButton")
             tmpObj:Load("resources/sprStartButton.png")

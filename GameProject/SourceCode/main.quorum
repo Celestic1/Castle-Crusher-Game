@@ -32,7 +32,7 @@ class Main is Game
         AddCollisionListener(GameCollisionListener)
         AddMouseListener(GameMouseListener)
         AddMouseMovementListener(GameMouseListener)
-        //roo:LoadRoom("./testMap.txt")
+        //roo:LoadRoom("./testMap2.txt")
         roo:pg_CamMaxXOffset = 200
         mainScreen:SetName("screen")
         //mainScreen:LoadFilledRectangle(me:GetScreenWidth(), me:GetScreenHeight())

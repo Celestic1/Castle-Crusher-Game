@@ -24,6 +24,26 @@ class GameObject_Attrib_List
 	return newAttribs
     end
 
+        action GetNewBlockDAttribs (number posX, number posY) returns GameObject_Attribs
+	GameObject_Attribs newAttribs
+	newAttribs:SetObjectName("objBlock")
+	newAttribs:SetSpritePath("resources/sprBrick_0-d.png")
+	newAttribs:SetTangible(true)
+	newAttribs:SetPhysicsEnabled(true)
+	newAttribs:SetBasePosition(posX, posY)
+	return newAttribs
+    end
+
+        action GetNewBlockTAttribs (number posX, number posY) returns GameObject_Attribs
+	GameObject_Attribs newAttribs
+	newAttribs:SetObjectName("objBlock")
+	newAttribs:SetSpritePath("resources/sprBrick_0-tall.png")
+	newAttribs:SetTangible(true)
+	newAttribs:SetPhysicsEnabled(true)
+	newAttribs:SetBasePosition(posX, posY)
+	return newAttribs
+    end
+
     action GetNewFishAttribs (number posX, number posY) returns GameObject_Attribs
 	GameObject_Attribs newAttribs
 	newAttribs:SetObjectName("objFish")

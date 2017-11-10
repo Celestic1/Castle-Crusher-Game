@@ -9,7 +9,7 @@ class startFunction is GameFunction
     MainMenuDisplay mainmenu
 
     action run(MouseEvent e)  
-        room:LoadRoom("/testMap.txt")
+        room:LoadRoom("/testMap2.txt")
         mainmenu:DeleteMenu()
     end
 
