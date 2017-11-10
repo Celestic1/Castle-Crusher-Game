@@ -57,7 +57,7 @@ class GameObject_Attrib_List
 
     action GetNewCannonBallAttribs(number posX, number posY) returns GameObject_Attribs        GameObject_Attribs newAttribs
         newAttribs:SetObjectName("objCannon")
-        newAttribs:SetSpritePath("resources/cannonball.png")
+        //newAttribs:SetSpritePath("")
         newAttribs:SetBasePosition(posX, posY)
         newAttribs:SetTangible(true)
         newAttribs:SetPhysicsEnabled(true)

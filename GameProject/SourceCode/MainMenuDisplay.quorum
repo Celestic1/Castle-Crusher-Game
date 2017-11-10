@@ -17,9 +17,9 @@ class MainMenuDisplay is Drawable
 
     action Create()
         label:Add(me)
-        mainmenu:startMenu:SetPosition(450,250)
+        mainmenu:startMenu:SetPosition(100,50)
         Add(mainmenu:startMenu)
-        mainmenu:exitMenu:SetPosition(450,50)
+        mainmenu:exitMenu:SetPosition(300,50)
         Add(mainmenu:exitMenu)
     end
 

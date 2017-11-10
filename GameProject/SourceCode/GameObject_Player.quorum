@@ -10,6 +10,9 @@ use Libraries.Interface.Events.KeyboardEvent
 use Libraries.Compute.Math
 use Libraries.Game.InputMonitor
 
+use Libraries.Sound.Audio
+use Libraries.System.File
+
 class GameObject_Player is GameObject, GameKeyboard
     List<GameObject> myAmmo
 //    private number baseFX = 10000
@@ -44,6 +47,12 @@ class GameObject_Player is GameObject, GameKeyboard
         toFire:ApplyForceToCenter(MyForce)
         toFire:Show()
         myAmmo:RemoveAt(AmmoRef)
+        
+        //Audio
+        Audio cannonFire
+        cannonFire:Load("resources/cannonfire.wav")
+        cannonFire:Play()
+        
         //output "Force: " + Force
         output "Shot fired! " + myAmmo:GetSize() + " ammo left."
         ResetForce()
@@ -57,7 +66,6 @@ class GameObject_Player is GameObject, GameKeyboard
     action InitGameObject
         parent:GameObject:InitGameObject()
         ResetForce()
-	me:LoadFilledRectangle(80,20)
     end
 
     // resets Force after we released Space Bar

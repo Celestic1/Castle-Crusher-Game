@@ -6,6 +6,7 @@ use Libraries.Game.Game
 class Clickable is Drawable, MouseListener
     
     private GameFunction click
+    private boolean clicked = false
     
     // Ensures this object will receive mouse events when it is clicked
     on create
@@ -18,7 +19,11 @@ class Clickable is Drawable, MouseListener
 
     // When mouse is clicked, it acces the GameFunction class's run function
     action ClickedMouse(MouseEvent event)
+        clicked = true
         click:run(event)
     end
-
+    
+    action isClicked returns boolean
+        return clicked
+    end
 end

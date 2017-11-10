@@ -5,6 +5,8 @@ use Libraries.Game.Graphics.Drawable
 use GameObjects
 use Libraries.Compute.Vector2
 use Libraries.Game.InputMonitor
+use Libraries.Sound.Audio
+use Libraries.System.File
 
 class PlayerCannon is KeyboardListener, Drawable
     xVel = 0
@@ -35,8 +37,6 @@ class PlayerCannon is KeyboardListener, Drawable
         if event:keyCode = event:SPACE
             Drawable cannonBall
 	    cannonBall:LoadFilledCircle(8)
-            cannonBall:Load("resources/cannonball.png")
-            cannonBall:SetScale(0.143)
 	    cannonBall:EnablePhysics(true)
             cannonBall:SetResponsive()
             cannonBall:SetCollidable(true)

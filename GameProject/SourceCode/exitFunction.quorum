@@ -1,11 +1,11 @@
 use Libraries.Interface.Events.MouseEvent
 use Libraries.Game.Game
+use Libraries.Interface.Panel
 
 class exitFunction is GameFunction
-    
     Game game
 
-    action run(MouseEvent e)        
+    action run(MouseEvent e)
         game:Exit()
     end
 
