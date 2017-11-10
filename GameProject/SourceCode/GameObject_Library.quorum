@@ -1,0 +1,12 @@
+use Libraries.Containers.HashTable
+use XMLNode
+
+// GameObject_Library stores blueprints of the objects we care about
+// and spits copies out when we ask for them
+class GameObject_Library
+    private HashTable<text,GameObject> ObjectLibrary
+
+    action LoadLibraryFromTree(XMLNode TargetTree)
+        
+    end
+end
