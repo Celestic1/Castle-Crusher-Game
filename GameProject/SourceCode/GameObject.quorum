@@ -3,11 +3,11 @@ use Libraries.Game.Graphics.Drawable
 use Libraries.Compute.Vector2
 
 class GameObject is Drawable
-    private text SpritePath = ""
-    private boolean HasSpritePath = false
+    private text SpritePath = "resources/sprFesh-Trimmed.png"
     private Vector2 StartPosition
 
     // loads the things that aren't auto-loaded to begin with
+/*
     action InitGameObject
 	if HasSpritePath
 	    me:Load(SpritePath)
@@ -16,6 +16,7 @@ class GameObject is Drawable
 	end
 	me:SetPosition(GetStartPositionX(), GetStartPositionY())
     end
+*/
 
     // AddToGame and RemoveFromGame give you a place to do special behavior
     // when you get added or removed.
@@ -26,6 +27,18 @@ class GameObject is Drawable
 
     action RemoveFromGame (Game newGame)
         newGame:Remove(me)
+    end
+
+    on create
+	// constructor does some basic work to ensure we have an object at all
+	SetStartPosition(0,0)
+	RefreshGameObject()
+    end
+
+    // function to refresh object and make sure it's what and where we think it is
+    action RefreshGameObject
+	Load(SpritePath)
+	SetPosition(GetStartPositionX(),GetStartPositionY())
     end
 
     // Some getters and setter
@@ -58,7 +71,12 @@ class GameObject is Drawable
     action GetSpritePath returns text
 	return SpritePath
     end
-    action CheckForSpritePath returns boolean
-	return HasSpritePath
+
+    action Copy returns GameObject
+	GameObject NewObject
+	NewObject:QuickCopy(me)
+	NewObject:SetStartPosition(me:GetStartPosition())
+	NewObject:SetSpritePath(me:GetSpritePath())
+	return NewObject
     end
 end

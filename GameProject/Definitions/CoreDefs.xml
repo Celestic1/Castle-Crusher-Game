@@ -51,17 +51,17 @@ and open the template in the editor.
     </Object>
     <Object>
 	<Name>Exit1</Name>
-	<SpritePath>sprMouseHole_0.png</SpritePath>
+	<SpritePath>resources/sprMouseHole_0.png</SpritePath>
 	<Collidable>true</Collidable>
     </Object>
     <Object>
 	<Name>Exit2</Name>
-	<SpritePath>sprMouseHole_0.png</SpritePath>
+	<SpritePath>resources/sprMouseHole_0.png</SpritePath>
 	<Collidable>true</Collidable>
     </Object>
     <Object>
 	<Name>Exit3</Name>
-	<SpritePath>sprMouseHole_0.png</SpritePath>
+	<SpritePath>resources/sprMouseHole_0.png</SpritePath>
 	<Collidable>true</Collidable>
     </Object>
     <Object>
