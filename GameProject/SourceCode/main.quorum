@@ -53,6 +53,10 @@ class Main is Game
                 RefRoom:pg_CamXOffset = RefRoom:pg_CamXOffset - GameMouseListener:pg_ScrollSpeed
             elseif GameMouseListener:pg_Scrolling = 2
                 RefRoom:pg_CamXOffset = RefRoom:pg_CamXOffset + GameMouseListener:pg_ScrollSpeed
+            elseif GameMouseListener:pg_Scrolling = 3
+                RefRoom:pg_CamYOffset = RefRoom:pg_CamYOffset - GameMouseListener:pg_ScrollSpeed
+            elseif GameMouseListener:pg_Scrolling = 4
+                RefRoom:pg_CamYOffset = RefRoom:pg_CamYOffset + GameMouseListener:pg_ScrollSpeed
             end
             camera:SetPosition(RefRoom:pg_CamXOffset + RefRoom:pg_ScreenSizeX/2, RefRoom:pg_CamYOffset + RefRoom:pg_ScreenSizeY/2, 0)
             GameMouseListener:SetCenter(RefRoom:pg_CamXOffset + GameMouseListener:pg_LastMouseX, RefRoom:pg_CamYOffset + GameMouseListener:pg_LastMouseY)

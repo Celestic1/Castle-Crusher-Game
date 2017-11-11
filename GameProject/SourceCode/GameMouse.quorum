@@ -17,12 +17,18 @@ class GameMouse is Drawable, MouseListener, MouseMovementListener
         
         if pg_LastMouseX < 80
             Load("resources/sprCursorLeft.png")
-                pg_Scrolling = 1
+            pg_Scrolling = 1
         elseif pg_LastMouseX > (RefRoom:pg_ScreenSizeX - 80)
-                pg_Scrolling = 2
             Load("resources/sprCursorRight.png")
+            pg_Scrolling = 2
+        elseif pg_LastMouseY < 80
+            Load("resources/sprCursorDown.png")
+            pg_Scrolling = 3
+        elseif pg_LastMouseY > (RefRoom:pg_ScreenSizeY - 80)
+            Load("resources/sprCursorUp.png")
+            pg_Scrolling = 4
         else
-                pg_Scrolling = 0
+            pg_Scrolling = 0
             Load("resources/sprFesh-Trimmed.png")
         end
 
