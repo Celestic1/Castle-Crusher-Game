@@ -149,7 +149,7 @@ class GameRoom
             text myMap = ""
             repeat until i = tmpArray:GetSize()
                 if tmpArray:Get(i) not= " "     // don't create a blank object
-                    g_objs:Add(obj:CreateObj(tmpArray:Get(i), i*g_GridX, pg_ScreenSizeY-(currentY*g_GridY)-g_GridY))
+//                    g_objs:Add(obj:CreateObj(tmpArray:Get(i), i*g_GridX, pg_ScreenSizeY-(currentY*g_GridY)-g_GridY))
                 end
                 myMap = myMap + tmpArray:Get(i)
                 i = i + 1

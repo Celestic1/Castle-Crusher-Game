@@ -4,7 +4,7 @@ use Libraries.Containers.Array
 
 class XMLBuilder is MarkupListener
     Stack<XMLNode> InheritanceStack
-    Array<XMLNode> TopLevelStack
+    XMLNode RootNode
 
     // Happens when the starting tag is detected.
     // Push the new node onto the InheritanceStack so we know it's the active node.
@@ -36,16 +36,16 @@ class XMLBuilder is MarkupListener
             InheritanceStack:Peek():Children:Add(NewNode)
         // If not, then it's a top level, and we save it there.
         else
-            TopLevelStack:Add(NewNode)
+            RootNode = NewNode
         end
 //        output "Final Node: " + NewNode:GetName() + " = " + NewNode:GetValue()
     end
 
+    action GetRoot returns XMLNode
+	return RootNode
+    end
+
     action OutputTopLevelStack
-        integer i = 0
-        repeat while i < TopLevelStack:GetSize()
-            TopLevelStack:Get(i):OutputNode(0)
-            i = i + 1
-        end
+        RootNode:OutputNode(0)
     end
 end

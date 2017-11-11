@@ -6,14 +6,14 @@ use XMLBuilder
 
 class XMLFileManager
     // simple wrapper function so we can load directly from text paths
-    action GetXMLFromFile (text FilePath)
+    action GetXMLFromFile (text FilePath) returns XMLNode
         File XMLFile
         XMLFile:SetPath(FilePath)
-        GetXMLFromFile (XMLFile)
+        return GetXMLFromFile (XMLFile)
     end
 
     // Grabs the XML and gets it into a data structure, which we can parse as per our type
-    action GetXMLFromFile (File TargetFile)
+    action GetXMLFromFile (File TargetFile) returns XMLNode
         ExtensibleMarkupReader XMLReader
 
         XMLBuilder Parser
@@ -24,5 +24,6 @@ class XMLFileManager
         TargetFile:Close()
 
         Parser:OutputTopLevelStack()
+	return Parser:GetRoot()
     end
 end

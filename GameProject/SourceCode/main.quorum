@@ -13,11 +13,9 @@ class Main is Game
     GameMouse GameMouseListener
     GameObject_Attrib_List src
     Camera camera = undefined
+    GameObject_Library CoreLibrary
 
     action Main
-        XMLFileManager FileMan
-        FileMan:GetXMLFromFile("TestXML.xml")
-        Exit()
         GameMouseListener:RefRoom = RefRoom
         // Fixed screensize / gamename
         SetScreenSize(RefRoom:pg_ScreenSizeX , RefRoom:pg_ScreenSizeY)
@@ -26,6 +24,11 @@ class Main is Game
     end
 
     action CreateGame
+        XMLFileManager FileMan
+        XMLNode ReadRoot = FileMan:GetXMLFromFile("Definitions/CoreDefs.xml")
+	CoreLibrary:LoadLibraryFromTree(ReadRoot)
+	CoreLibrary:OutputHashTableContents()
+	Exit()
         camera = GetCamera2D()
         EnablePhysics2D(true)
         SetGravity2D(0, -200)
@@ -74,12 +77,12 @@ class Main is Game
     end
 
     action HackedTogetherCannonLoad (GameObject_Player PlayCan, integer count)
-        repeat count times
+/*        repeat count times
             GameObject nextShot
             nextShot:InitGameObject(src:GetNewCannonBallAttribs(0,0))
             nextShot:AddToGame(me)
             PlayCan:LoadCannon(nextShot)
-        end
+        end*/
     end
 
     action LoadMapFolder (text MapPath) returns integer

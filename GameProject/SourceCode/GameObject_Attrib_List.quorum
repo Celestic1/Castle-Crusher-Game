@@ -1,9 +1,9 @@
 //A hopefully very, very temporary solution to listing the types of objects
 //we need for our game.
 
-use GameObject_Attribs
+//use GameObject_Attribs
 
-class GameObject_Attrib_List
+/*class GameObject_Attrib_List
     // template action
     action GetNew_Attribs (number posX, number posY) returns GameObject_Attribs
 	GameObject_Attribs newAttribs
@@ -144,4 +144,7 @@ class GameObject_Attrib_List
 	newAttribs:SetBasePosition(posX, posY)
 	return newAttribs
     end
+end*/
+
+class GameObject_Attrib_List
 end
