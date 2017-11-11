@@ -8,8 +8,6 @@ use GameObject
 class GameRoom
     private GameObjects obj
     private Array<GameObject> g_objs
-//    private Array<GameObject> g_deleted_objs_queue
-//    private Array<GameObject> g_added_objs_queue
     public integer pg_ScreenSizeX = 1000  // Default width of room
     public integer pg_ScreenSizeY = 320   // Default height of room
     private integer g_GridX = 40          // This is the width  of each 'grid' on map
@@ -21,42 +19,6 @@ class GameRoom
     public integer pg_CamMaxXOffset = 0
     public integer pg_CamMaxYOffset = 0
     public integer pg_CamReset = 0        // Set to one so main knows to reset cam
-
-/*    action QueueAddObj (GameObject tmpObj)
-        g_added_objs_queue:AddToEnd(tmpObj)
-    end
-
-    action DequeueAddObj
-        returns GameObject
-        g_objs:AddToEnd(g_added_objs_queue:RemoveFromFront())
-        return g_objs:GetFromEnd()
-    end
-
-    action GetAddQueueSize
-        returns integer
-        return g_added_objs_queue:GetSize()
-    end
-
-    action QueueDelObj (integer objIndex)
-        GameObject tmpObj = g_objs:Get(objIndex)
-        g_objs:RemoveAt(objIndex)
-        g_deleted_objs_queue:AddToEnd(tmpObj)
-    end
-
-    action QueueDelObj (GameObject obj)
-        g_objs:RemoveAt(GetIndexOfObj(obj))
-        g_deleted_objs_queue:AddToEnd(obj)
-    end
-
-    action DequeueDelObj
-        returns GameObject
-        return g_deleted_objs_queue:RemoveFromFront()
-    end
-
-    action GetDelQueueSize
-        returns integer
-        return g_deleted_objs_queue:GetSize()
-    end*/
 
     action GetObjCount
         returns integer
@@ -106,6 +68,7 @@ class GameRoom
     end
 
     action AddRoomToGame(Game game)
+        ResetCamera()
         integer i = 0
         repeat while i < g_objs:GetSize()
 	    g_objs:Get(i):AddToGame(game)
@@ -114,6 +77,7 @@ class GameRoom
     end
 
     action RemoveRoomFromGame(Game game)
+        ResetCamera()
         integer i = 0
         repeat while i < g_objs:GetSize()
 	    g_objs:Get(i):RemoveFromGame(game)
@@ -159,8 +123,6 @@ class GameRoom
         number currentY = 0
 
         // Open the map file find the line after [MAP] and place in readLine
-//        File f  
-//        f:SetPath(roomTextPath)
         FileReader reader
         reader:OpenForRead(TargetFile)
         repeat until readLine = "[MAP]" and not reader:IsAtEndOfFile()
@@ -192,13 +154,6 @@ class GameRoom
     end
 
     action ResetCamera
-/*        integer i = GetObjCount()
-        repeat until i = 0
-            QueueDelObj(i - 1)
-            i = i - 1
-        end*/
-        
-
         // Reset Camera
         pg_CamXOffset = 0
         pg_CamYOffset = 0

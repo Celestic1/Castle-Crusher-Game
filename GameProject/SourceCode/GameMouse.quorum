@@ -30,31 +30,4 @@ class GameMouse is Drawable, MouseListener, MouseMovementListener
         SetCenter(RefRoom:pg_CamXOffset + pg_LastMouseX, RefRoom:pg_CamYOffset + pg_LastMouseY)
     end
 
-/*    action ClickedMouse(MouseEvent event)
-        integer x = event:GetX()
-        integer y = event:GetY()
-        output "MouseClick: " + x + "," + y
-
-        integer startButtonIndex = RefRoom:GetIndexOfObj("objStartButton")
-
-        // this is very lazy fix, will address in later commit
-        if (startButtonIndex > -1)
-            number startX = RefRoom:GetObjAtIndex(startButtonIndex):GetX() - RefRoom:pg_CamXOffset
-            number startY = RefRoom:GetObjAtIndex(startButtonIndex):GetY() - RefRoom:pg_CamYOffset
-            number endX = startX + RefRoom:GetObjAtIndex(startButtonIndex):GetWidth()
-            number endY = startY + RefRoom:GetObjAtIndex(startButtonIndex):GetHeight()
-
-            if startX <= x
-                if endX >= x
-                    if startY <= y
-                        if endY >= y
-                            RefRoom:QueueDelObj(RefRoom:GetIndexOfObj("objStartButton"))
-                            RefRoom:LoadRoom("./map1.txt")
-                        end
-                    end
-                end
-            end
-
-        end
-    end*/
 end
