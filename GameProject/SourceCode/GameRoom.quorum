@@ -121,15 +121,15 @@ class GameRoom
         end
     end
 
-    action LoadRoomFromFile(text roomTextPath)
+    action LoadRoomFromFile(text roomTextPath, GameObject_Library BlockLib)
 
         // Open the map file find the line after [MAP] and place in readLine
         File f  
         f:SetPath(roomTextPath)
-        LoadRoomFromFile(f)
+        LoadRoomFromFile(f, BlockLib)
     end
 
-    action LoadRoomFromFile(File TargetFile)
+    action LoadRoomFromFile(File TargetFile, GameObject_Library BlockLib)
         text readLine = ""
         number currentY = 0
 
@@ -149,7 +149,7 @@ class GameRoom
             text myMap = ""
             repeat until i = tmpArray:GetSize()
                 if tmpArray:Get(i) not= " "     // don't create a blank object
-//                    g_objs:Add(obj:CreateObj(tmpArray:Get(i), i*g_GridX, pg_ScreenSizeY-(currentY*g_GridY)-g_GridY))
+		    g_objs:Add(BlockLib:GetGameObject(tmpArray:Get(i)))
                 end
                 myMap = myMap + tmpArray:Get(i)
                 i = i + 1

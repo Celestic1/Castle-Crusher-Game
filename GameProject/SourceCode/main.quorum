@@ -25,10 +25,9 @@ class Main is Game
 
     action CreateGame
         XMLFileManager FileMan
-        XMLNode ReadRoot = FileMan:GetXMLFromFile("Definitions/CoreDefs.xml")
+        XMLNode ReadRoot = FileMan:GetXMLFromFile("Definitions/TempCoreDefs.xml")
 	CoreLibrary:LoadLibraryFromTree(ReadRoot)
 	CoreLibrary:OutputHashTableContents()
-	Exit()
         camera = GetCamera2D()
         EnablePhysics2D(true)
         SetGravity2D(0, -200)
@@ -106,7 +105,7 @@ class Main is Game
         integer Next = 0
         repeat while Next < TargetMaps:GetSize()
             GameRoom NextRoom
-            NextRoom:LoadRoomFromFile(TargetMaps:Get(Next))
+            NextRoom:LoadRoomFromFile(TargetMaps:Get(Next), CoreLibrary)
             RealRooms:Add(NextRoom)
             Next = Next + 1
         end
