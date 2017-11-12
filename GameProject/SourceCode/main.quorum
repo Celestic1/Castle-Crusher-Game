@@ -75,8 +75,36 @@ class Main is Game
         end
 
         // If the user is pressing the 'R' key, reset the room
+        // ... seems to only reset the camera, room will be in the same state as before
         if monitor:IsKeyPressed(keys:R)
             RealRooms:Get(currentRoom):RemoveRoomFromGame(me)
+            RealRooms:Get(currentRoom):AddRoomToGame(me)
+        end
+
+        // If the user is pressing the '1' key, jump to map0
+        if monitor:IsKeyPressed(keys:NUM_1)
+            RealRooms:Get(currentRoom):RemoveRoomFromGame(me)
+            currentRoom = 0
+            RefRoom = RealRooms:Get(currentRoom)
+            GameMouseListener:RefRoom = RefRoom
+            RealRooms:Get(currentRoom):AddRoomToGame(me)
+        end
+
+        // If the user is pressing the '2' key, jump to map1
+        if monitor:IsKeyPressed(keys:NUM_2)
+            RealRooms:Get(currentRoom):RemoveRoomFromGame(me)
+            currentRoom = 1
+            RefRoom = RealRooms:Get(currentRoom)
+            GameMouseListener:RefRoom = RefRoom
+            RealRooms:Get(currentRoom):AddRoomToGame(me)
+        end
+
+        // If the user is pressing the '3' key, jump to map2
+        if monitor:IsKeyPressed(keys:NUM_3)
+            RealRooms:Get(currentRoom):RemoveRoomFromGame(me)
+            currentRoom = 2
+            RefRoom = RealRooms:Get(currentRoom)
+            GameMouseListener:RefRoom = RefRoom
             RealRooms:Get(currentRoom):AddRoomToGame(me)
         end
     end
