@@ -1,5 +1,4 @@
 use GameObject
-use GameObject_Attribs
 use GameObject_Attrib_List
 use GameKeyboard
 use Libraries.Game.Game
@@ -59,8 +58,13 @@ class GameObject_Player is GameObject, GameKeyboard
 //        end
     end
 
-    action InitGameObject
-        parent:GameObject:InitGameObject()
+    on create
+	SetStartPosition(0,0)
+	RefreshGameObject()
+    end
+
+    action RefreshGameObject
+        parent:GameObject:RefreshGameObject()
         ResetForce()
 	me:LoadFilledRectangle(80,20)
     end

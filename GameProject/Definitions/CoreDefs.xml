@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<ObjectLibrary>
+    <Object>
+	<Name>BasicBlock</Name>
+	<SpritePath>resources/sprBrick_0.png</SpritePath>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Unmovable>true</Unmovable>
+	<Restitution>0.5</Restitution>
+	<Friction>0.5</Friction>
+    </Object>
+    <Object>
+	<Name>Fish</Name>
+	<SpritePath>resources/sprFesh-trimmed.png</SpritePath>
+	<Collidable>true</Collidable>
+    </Object>
+    <Object>
+	<Name>Cat</Name>
+	<SpritePath>resources/sprCatR-trimmed.png</SpritePath>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Responsive>true</Responsive>
+	<Collidable>true</Collidable>
+    </Object>
+    <Object>
+	<Name>Cannon</Name>
+	<SpritePath>resources/TrashCannon.png</SpritePath>
+    </Object>
+    <Object>
+	<Name>CannonBall</Name>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Mass>100</Mass>
+	<Restitution>0.5</Restitution>
+	<Friction>0.5</Friction>
+    </Object>
+    <Object>
+	<Name>Lock</Name>
+	<SpritePath>resources/sprLock_0.png</SpritePath>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Unmovable>true</Unmovable>
+    </Object>
+    <Object>
+	<Name>Key</Name>
+	<SpritePath>resources/sprKey-trimmed.png</SpritePath>
+	<Collidable>true</Collidable>
+    </Object>
+    <Object>
+	<Name>Exit1</Name>
+	<SpritePath>resources/sprMouseHole_0.png</SpritePath>
+	<Collidable>true</Collidable>
+    </Object>
+    <Object>
+	<Name>Exit2</Name>
+	<SpritePath>resources/sprMouseHole_0.png</SpritePath>
+	<Collidable>true</Collidable>
+    </Object>
+    <Object>
+	<Name>Exit3</Name>
+	<SpritePath>resources/sprMouseHole_0.png</SpritePath>
+	<Collidable>true</Collidable>
+    </Object>
+    <Object>
+	<Name>BasicBox</Name>
+	<SpritePath>resources/sprBrick_0.png</SpritePath>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Responsive>true</Responsive>
+    </Object>
+    <Object>
+	<Name>StartButton</Name>
+	<SpritePath>resources/sprStartButton.png</SpritePath>
+    </Object>
+    <Object>
+	<Name>MouseFollower</Name>
+	<SpritePath>resources/sprFesh-trimmed.png</SpritePath>
+    </Object>
+</ObjectLibrary>
