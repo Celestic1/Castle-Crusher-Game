@@ -10,47 +10,68 @@ class GameCollision is CollisionListener2D
         GameObject itemA = cast(GameObject, event:GetItemA())
         GameObject itemB = cast(GameObject, event:GetItemB())
 
-        if itemA:GetName() = "objFish" and itemB:GetName() = "objCat"
-            roo:QueueDelObj(itemA)
-        elseif itemA:GetName() = "objCat" and itemB:GetName() = "objFish"
+        // Standard cannon ball can ONLY destory wooden stuff
+        if itemA:GetName() = "objStandardCannonBall" and itemB:GetName() = "objWoodenBox"
             roo:QueueDelObj(itemB)
+        elseif itemA:GetName() = "objWoodenBox" and itemB:GetName() = "objStandardCannonBall"
+            roo:QueueDelObj(itemA)
         end
 
-        if itemA:GetName() = "objExit1" and itemB:GetName() = "objCat"
-            roo:QueueDelObj(itemA)
-            roo:LoadRoom("./map2.txt")
-        elseif itemA:GetName() = "objCat" and itemB:GetName() = "objExit1"
+        if itemA:GetName() = "objStandardCannonBall" and itemB:GetName() = "objWoodenTriangle"
             roo:QueueDelObj(itemB)
-            roo:LoadRoom("./map2.txt")
+        elseif itemA:GetName() = "objWoodenTriangle" and itemB:GetName() = "objStandardCannonBall"
+            roo:QueueDelObj(itemA)
         end
 
-        if itemA:GetName() = "objExit2" and itemB:GetName() = "objCat"
-            roo:QueueDelObj(itemA)
-            roo:LoadRoom("./map0.txt")
-        elseif itemA:GetName() = "objCat" and itemB:GetName() = "objExit2"
+        if itemA:GetName() = "objStandardCannonBall" and itemB:GetName() = "objWoodenRectangle"
             roo:QueueDelObj(itemB)
-            roo:LoadRoom("./map0.txt")
+        elseif itemA:GetName() = "objWoodenRectangle" and itemB:GetName() = "objStandardCannonBall"
+            roo:QueueDelObj(itemA)
         end
 
-        if itemA:GetName() = "objKey" and itemB:GetName() = "objCat"
-            roo:QueueDelObj(itemA)
-            integer i = roo:GetObjCount()
-            repeat until i = 0
-                if (roo:GetObjAtIndex(i-1):GetName() = "objLock")
-                    roo:QueueDelObj(roo:GetObjAtIndex(i-1))
-                end
-                i = i - 1
-            end
-        elseif itemA:GetName() = "objCat" and itemB:GetName() = "objKey"
+        if itemA:GetName() = "objStandardCannonBall" and itemB:GetName() = "objFish"
             roo:QueueDelObj(itemB)
-            integer i = roo:GetObjCount()
-            repeat until i = 0
-                if (roo:GetObjAtIndex(i-1):GetName() = "objLock")
-                    roo:QueueDelObj(roo:GetObjAtIndex(i-1))
-                end
-                i = i - 1
-            end
+        elseif itemA:GetName() = "objFish" and itemB:GetName() = "objStandardCannonBall"
+            roo:QueueDelObj(itemA)
         end
+
+        // High-Explosive(HE) cannon ball can ONLY destory brick stuff
+        if itemA:GetName() = "objHECannonBall" and itemB:GetName() = "objBrickBox"
+            roo:QueueDelObj(itemB)
+        elseif itemA:GetName() = "objBrickBox" and itemB:GetName() = "objHECannonBall"
+            roo:QueueDelObj(itemA)
+        end
+
+        if itemA:GetName() = "objHECannonBall" and itemB:GetName() = "objBrickTriangle"
+            roo:QueueDelObj(itemB)
+        elseif itemA:GetName() = "objBrickTriangle" and itemB:GetName() = "objHECannonBall"
+            roo:QueueDelObj(itemA)
+        end
+
+        if itemA:GetName() = "objHECannonBall" and itemB:GetName() = "objBrickRectangle"
+            roo:QueueDelObj(itemB)
+        elseif itemA:GetName() = "objBrickRectangle" and itemB:GetName() = "objHECannonBall"
+            roo:QueueDelObj(itemA)
+        end
+
+        if itemA:GetName() = "objStandardCannonBall" and itemB:GetName() = "objBrickBox"
+            itemB:SetUnmovable()
+        elseif itemA:GetName() = "objBrickBox" and itemB:GetName() = "objStandardCannonBall"
+            itemA:SetUnmovable()
+        end
+
+        if itemA:GetName() = "objStandardCannonBall" and itemB:GetName() = "objBrickTriangle"
+            itemB:SetUnmovable()
+        elseif itemA:GetName() = "objBrickTriangle" and itemB:GetName() = "objStandardCannonBall"
+            itemA:SetUnmovable()
+        end
+
+        if itemA:GetName() = "objStandardCannonBall" and itemB:GetName() = "objBrickRectangle"
+            itemB:SetUnmovable()
+        elseif itemA:GetName() = "objBrickRectangle" and itemB:GetName() = "objStandardCannonBall"
+            itemA:SetUnmovable()
+        end
+       
 
     end
 end

@@ -37,27 +37,18 @@ class GameObject_Player is GameObject, GameKeyboard
 
         GameObject toFire = myAmmo:Get(AmmoRef)
         toFire:SetPosition(GetBarrelX()-toFire:GetWidth()/2,GetBarrelY()-toFire:GetHeight()/2)
-        //output "(" + me:GetGlobalX() + " + " + me:GetWidth()/1.1 + "," + me:GetGlobalY() + " - " + me:GetRotation() + ") = (" + (me:GetGlobalX()+me:GetWidth()/1.1) + "," + (me:GetGlobalY()-me:GetRotation()) + ")"
         MyForce:Set(GetVelocityX(),GetVelocityY())
-        //output "(" + MyForce:GetX() + "," + MyForce:GetY() + ") vs (" + ThisLanguageSucks:GetX() + "," + ThisLanguageSucks:GetY() + ")"
         toFire:SetResponsive()
         toFire:ApplyForceToCenter(MyForce)
         toFire:Show()
         myAmmo:RemoveAt(AmmoRef)
-        //output "Force: " + Force
         output "Shot fired! " + myAmmo:GetSize() + " ammo left."
         ResetForce()
     end
 
     action LoadCannon(GameObject newAmmo)
-//        if newAmmo:GetAttributes():IsProjectile()
             newAmmo:Hide()
-            //Add(newAmmo)
             myAmmo:Add(newAmmo)
-            //output "Ammo loaded; " + myAmmo:GetSize() + " left."
-//        else
-//            output "Tried to load a bad projectile!"
-//        end
     end
 
     action InitGameObject
@@ -160,7 +151,7 @@ class GameObject_Player is GameObject, GameKeyboard
                     Force = 0
                 end
             end
-//            output "Force: " + Force
+
 	    UpdatePowerBar()
 	end
     end

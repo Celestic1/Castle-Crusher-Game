@@ -161,5 +161,4 @@ class GameRoom
         end
         reader:Close()
     end
-
 end

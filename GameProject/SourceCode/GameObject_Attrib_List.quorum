@@ -24,10 +24,10 @@ class GameObject_Attrib_List
 	return newAttribs
     end
 
-    action GetNewBoxAttribs (number posX, number posY) returns GameObject_Attribs
+    action GetNewWoodenBoxAttribs (number posX, number posY) returns GameObject_Attribs
 	GameObject_Attribs newAttribs
-	newAttribs:SetObjectName("objBox")
-	newAttribs:SetSpritePath("resources/sprBrick_0.png")
+	newAttribs:SetObjectName("objWoodenBox")
+	newAttribs:SetSpritePath("resources/wooden_box.png")
 	newAttribs:SetTangible(true)
 	newAttribs:SetPhysicsEnabled(true)
 	newAttribs:SetResponsive(true)
@@ -35,10 +35,10 @@ class GameObject_Attrib_List
 	return newAttribs
     end
 
-    action GetNewTriangleAttribs (number posX, number posY) returns GameObject_Attribs
+    action GetNewWoodenTriangleAttribs (number posX, number posY) returns GameObject_Attribs
 	GameObject_Attribs newAttribs
-	newAttribs:SetObjectName("objTriangle")
-	newAttribs:SetSpritePath("resources/triangle_0.png")
+	newAttribs:SetObjectName("objWoodenTriangle")
+	newAttribs:SetSpritePath("resources/wooden_triangle.png")
 	newAttribs:SetTangible(true)
 	newAttribs:SetPhysicsEnabled(true)
 	newAttribs:SetResponsive(true)
@@ -46,10 +46,77 @@ class GameObject_Attrib_List
 	return newAttribs
     end
 
-    action GetNewRectangleAttribs (number posX, number posY) returns GameObject_Attribs
+    action GetNewWoodenRectangleAttribs (number posX, number posY) returns GameObject_Attribs
 	GameObject_Attribs newAttribs
-	newAttribs:SetObjectName("objRectangle")
-	newAttribs:SetSpritePath("resources/rectangle_0.png")
+	newAttribs:SetObjectName("objWoodenRectangle")
+	newAttribs:SetSpritePath("resources/wooden_rectangle.png")
+	newAttribs:SetTangible(true)
+	newAttribs:SetPhysicsEnabled(true)
+	newAttribs:SetResponsive(true)
+	newAttribs:SetBasePosition(posX-42, posY)
+	return newAttribs
+    end
+
+    action GetNewBrickBoxAttribs (number posX, number posY) returns GameObject_Attribs
+	GameObject_Attribs newAttribs
+	newAttribs:SetObjectName("objBrickBox")
+	newAttribs:SetSpritePath("resources/brick_box.png")
+	newAttribs:SetTangible(true)
+	newAttribs:SetPhysicsEnabled(true)   
+	newAttribs:SetResponsive(true)
+	newAttribs:SetBasePosition(posX, posY)
+	return newAttribs
+    end
+
+    action GetNewBrickTriangleAttribs (number posX, number posY) returns GameObject_Attribs
+	GameObject_Attribs newAttribs
+	newAttribs:SetObjectName("objBrickTriangle")
+	newAttribs:SetSpritePath("resources/brick_triangle.png")
+	newAttribs:SetTangible(true)
+	newAttribs:SetPhysicsEnabled(true)
+	newAttribs:SetResponsive(true)
+	newAttribs:SetBasePosition(posX-48, posY)
+	return newAttribs
+    end
+
+    action GetNewBrickRectangleAttribs (number posX, number posY) returns GameObject_Attribs
+	GameObject_Attribs newAttribs
+	newAttribs:SetObjectName("objBrickRectangle")
+	newAttribs:SetSpritePath("resources/brick_rectangle.png")
+	newAttribs:SetTangible(true)
+	newAttribs:SetPhysicsEnabled(true)
+	newAttribs:SetResponsive(true)
+	newAttribs:SetBasePosition(posX-42, posY)
+	return newAttribs
+    end
+
+    action GetNewSteelBoxAttribs (number posX, number posY) returns GameObject_Attribs
+	GameObject_Attribs newAttribs
+	newAttribs:SetObjectName("objSteelBox")
+	newAttribs:SetSpritePath("resources/steel_box.png")
+	newAttribs:SetTangible(true)
+	newAttribs:SetPhysicsEnabled(true)
+        
+	newAttribs:SetResponsive(true)
+	newAttribs:SetBasePosition(posX, posY)
+	return newAttribs
+    end
+
+    action GetNewSteelTriangleAttribs (number posX, number posY) returns GameObject_Attribs
+	GameObject_Attribs newAttribs
+	newAttribs:SetObjectName("objSteelTriangle")
+	newAttribs:SetSpritePath("resources/steel_triangle.png")
+	newAttribs:SetTangible(true)
+	newAttribs:SetPhysicsEnabled(true)
+	newAttribs:SetResponsive(true)
+	newAttribs:SetBasePosition(posX-48, posY)
+	return newAttribs
+    end
+
+    action GetNewSteelRectangleAttribs (number posX, number posY) returns GameObject_Attribs
+	GameObject_Attribs newAttribs
+	newAttribs:SetObjectName("objSteelRectangle")
+	newAttribs:SetSpritePath("resources/steel_rectangle.png")
 	newAttribs:SetTangible(true)
 	newAttribs:SetPhysicsEnabled(true)
 	newAttribs:SetResponsive(true)
@@ -67,19 +134,6 @@ class GameObject_Attrib_List
 	return newAttribs
     end
 
-    action GetNewCatAttribs (number posX, number posY) returns GameObject_Attribs
-	GameObject_Attribs newAttribs
-	newAttribs:SetObjectName("objCat")
-	newAttribs:SetSpritePath("resources/sprCatR-trimmed.png")
-	newAttribs:SetTangible(true)
-	newAttribs:SetPhysicsEnabled(true)
-	newAttribs:SetResponsive(true)
-	newAttribs:SetCollidable(true)
-	newAttribs:SetMovable(true)
-	newAttribs:SetBasePosition(posX, posY)
-	return newAttribs
-    end
-
     action GetNewCannonAttribs(number posX, number posY) returns GameObject_Attribs
         GameObject_Attribs newAttribs
         newAttribs:SetObjectName("objCannon")
@@ -88,67 +142,30 @@ class GameObject_Attrib_List
         return newAttribs
     end
 
-    action GetNewCannonBallAttribs(number posX, number posY) returns GameObject_Attribs        
+    action GetNewStandardCannonBallAttribs(number posX, number posY) returns GameObject_Attribs        
         GameObject_Attribs newAttribs
-        newAttribs:SetObjectName("objCannonBall")
+        newAttribs:SetObjectName("objStandardCannonBall")
         newAttribs:SetBasePosition(posX, posY)
         newAttribs:SetTangible(true)
         newAttribs:SetPhysicsEnabled(true)
         newAttribs:SetMovable(true)
-        newAttribs:SetMass(100)
+        newAttribs:SetMass(10)
         newAttribs:SetRestitution(0.5)
         newAttribs:SetFriction(0.5)
         return newAttribs
     end
 
-    action GetNewLockAttribs (number posX, number posY) returns GameObject_Attribs
-	GameObject_Attribs newAttribs
-	newAttribs:SetObjectName("objLock")
-	newAttribs:SetSpritePath("resources/sprLock_0.png")
-	newAttribs:SetTangible(true)
-	newAttribs:SetPhysicsEnabled(true)
-	newAttribs:SetBasePosition(posX, posY)
-	return newAttribs
-    end
-
-    action GetNewKeyAttribs (number posX, number posY) returns GameObject_Attribs
-	GameObject_Attribs newAttribs
-	newAttribs:SetObjectName("objKey")
-	newAttribs:SetSpritePath("resources/sprKey-trimmed.png")
-	newAttribs:SetTangible(true)
-	newAttribs:SetCollidable(true)
-	newAttribs:SetBasePosition(posX+2, posY)
-	return newAttribs
-    end
-
-    action GetNewExit1Attribs (number posX, number posY) returns GameObject_Attribs
-	GameObject_Attribs newAttribs
-	newAttribs:SetObjectName("objExit1")
-	newAttribs:SetSpritePath("resources/sprMouseHole_0.png")
-	newAttribs:SetTangible(true)
-	newAttribs:SetCollidable(true)
-	newAttribs:SetBasePosition(posX, posY)
-	return newAttribs
-    end
-
-    action GetNewExit2Attribs (number posX, number posY) returns GameObject_Attribs
-	GameObject_Attribs newAttribs
-	newAttribs:SetObjectName("objExit2")
-	newAttribs:SetSpritePath("resources/sprMouseHole_0.png")
-	newAttribs:SetTangible(true)
-	newAttribs:SetCollidable(true)
-	newAttribs:SetBasePosition(posX, posY)
-	return newAttribs
-    end
-
-    action GetNewExit3Attribs (number posX, number posY) returns GameObject_Attribs
-	GameObject_Attribs newAttribs
-	newAttribs:SetObjectName("objExit3")
-	newAttribs:SetSpritePath("resources/sprMouseHole_0.png")
-	newAttribs:SetTangible(true)
-	newAttribs:SetCollidable(true)
-	newAttribs:SetBasePosition(posX, posY)
-	return newAttribs
+    action GetNewHECannonBallAttribs(number posX, number posY) returns GameObject_Attribs        
+        GameObject_Attribs newAttribs
+        newAttribs:SetObjectName("objHECannonBall")
+        newAttribs:SetBasePosition(posX, posY)
+        newAttribs:SetTangible(true)
+        newAttribs:SetPhysicsEnabled(true)
+        newAttribs:SetMovable(true)
+        newAttribs:SetMass(10)
+        newAttribs:SetRestitution(0.5)
+        newAttribs:SetFriction(0.5)
+        return newAttribs
     end
 
     action GetNewStartButtonAttribs (number posX, number posY) returns GameObject_Attribs

@@ -10,28 +10,34 @@ class GameObjects
         GameObject tmpObj
         if objName = "B"
             tmpObj:InitGameObject(src:GetNewBlockAttribs(objX,objY))
-        elseif objName = "X"
-            tmpObj:InitGameObject(src:GetNewBoxAttribs(objX,objY))
-        elseif objName = "T"
-            tmpObj:InitGameObject(src:GetNewTriangleAttribs(objX,objY))
-        elseif objName = "R"
-            tmpObj:InitGameObject(src:GetNewRectangleAttribs(objX,objY))
+        // Wooden 
+        elseif objName = "wX"
+            tmpObj:InitGameObject(src:GetNewWoodenBoxAttribs(objX,objY))
+        elseif objName = "wT"
+            tmpObj:InitGameObject(src:GetNewWoodenTriangleAttribs(objX,objY))
+        elseif objName = "wR"
+            tmpObj:InitGameObject(src:GetNewWoodenRectangleAttribs(objX,objY))
+        // Brick
+        elseif objName = "bX"
+            tmpObj:InitGameObject(src:GetNewBrickBoxAttribs(objX,objY))
+        elseif objName = "bT"
+            tmpObj:InitGameObject(src:GetNewBrickTriangleAttribs(objX,objY))
+        elseif objName = "bR"
+            tmpObj:InitGameObject(src:GetNewBrickRectangleAttribs(objX,objY))
+        // Steel
+        elseif objName = "sX"
+            tmpObj:InitGameObject(src:GetNewSteelBoxAttribs(objX,objY))
+        elseif objName = "sT"
+            tmpObj:InitGameObject(src:GetNewSteelTriangleAttribs(objX,objY))
+        elseif objName = "sR"
+            tmpObj:InitGameObject(src:GetNewSteelRectangleAttribs(objX,objY))
+
         elseif objName = "F"
             tmpObj:InitGameObject(src:GetNewFishAttribs(objX,objY))
         elseif objName = "C"
             GameObject_Player SecondObj
             SecondObj:InitGameObject(src:GetNewCannonAttribs(objX,objY))
             tmpObj = SecondObj
-        elseif objName = "L"
-            tmpObj:InitGameObject(src:GetNewLockAttribs(objX,objY))
-        elseif objName = "K"
-            tmpObj:InitGameObject(src:GetNewKeyAttribs(objX,objY))
-        elseif objName = "E1"
-            tmpObj:InitGameObject(src:GetNewExit1Attribs(objX,objY))
-        elseif objName = "E2"
-            tmpObj:InitGameObject(src:GetNewExit2Attribs(objX,objY))
-        elseif objName = "E3"
-            tmpObj:InitGameObject(src:GetNewExit3Attribs(objX,objY))
         elseif objName = "SB"
             tmpObj:InitGameObject(src:GetNewStartButtonAttribs(objX,objY))
         elseif objName = "O"

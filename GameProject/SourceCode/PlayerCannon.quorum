@@ -28,7 +28,7 @@ class PlayerCannon is KeyboardListener, Drawable
 	yBar:LoadFilledRectangle(cast(integer,me:GetWidth()/offSideScale), cast(integer,yVel/velScaleFactor))
     end
 */
-    action PressedKey(KeyboardEvent event)
+/*    action PressedKey(KeyboardEvent event)
         if event:keyCode = event:SPACE
             Drawable cannonBall
 	    cannonBall:LoadFilledCircle(8)
@@ -54,7 +54,7 @@ class PlayerCannon is KeyboardListener, Drawable
 	xBar:LoadFilledRectangle(cast(integer,xVel/velScaleFactor),cast(integer,me:GetHeight()/offSideScale))
 	yBar:LoadFilledRectangle(cast(integer,me:GetWidth()/offSideScale), cast(integer,yVel/velScaleFactor))
     end
-    
+  */  
     on create
         xVel = 10000
         yVel = 10000

@@ -53,7 +53,6 @@ class GameObject is Drawable
     end
 
     action AddToGame (Game newGame)
-        //output "Adding object " + me:GetName() + " (" + me:GetX() + "," + me:GetY() + ") to game."
         newGame:Add(me)
     end
 
