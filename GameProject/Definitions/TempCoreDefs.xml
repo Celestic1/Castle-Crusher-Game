@@ -67,7 +67,7 @@ and open the template in the editor.
     </Object>
     <Object>
 	<Name>X</Name>
-	<SpritePath>resources/sprBrick_0.png</SpritePath>
+	<SpritePath>resources/sprBrick_1.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
     </Object>
@@ -78,5 +78,13 @@ and open the template in the editor.
     <Object>
 	<Name>O</Name>
 	<SpritePath>resources/sprFesh-trimmed.png</SpritePath>
+    </Object>
+    <Object>
+	<Name>U</Name>
+	<SpritePath>resources/sprYouTriedStar.png</SpritePath>
+    </Object>
+    <Object>
+	<Name>W</Name>
+	<SpritePath>resources/sprWater.png</SpritePath>
     </Object>
 </ObjectLibrary>
