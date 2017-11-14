@@ -87,7 +87,6 @@ class Main is Game
     end
 
     action createMainMenu
-    
         exitFunction exit
         startFunction start
         mainmenudisplay:Create(mainScreen, mainmenu)

@@ -4,19 +4,19 @@ use Libraries.Game.Graphics.Drawable
 // Functionality is added through startFunction and exitFunction
 class MainMenuDisplay is Drawable
 
-    Drawable label
+    Drawable screen
     MainMenu mainmenu
-    
+    //called by create Main Menu in Game (2nd) time
     action Create(Drawable l, MainMenu m)
-        label = l
+        screen = l
         mainmenu = m
         Load("/assets/newBackground.png")
         mainmenu:startMenu:Load("/assets/start.png")
         mainmenu:exitMenu:Load("/assets/exit.png")
     end
-
+    //called by main (1st time)
     action Create()
-        label:Add(me)
+        screen:Add(me)
         mainmenu:startMenu:SetPosition(100,50)
         Add(mainmenu:startMenu)
         mainmenu:exitMenu:SetPosition(300,50)
@@ -24,7 +24,7 @@ class MainMenuDisplay is Drawable
     end
 
     action DeleteMenu()
-        label:Remove(me)
+        screen:Remove(me)
     end
 
 end
