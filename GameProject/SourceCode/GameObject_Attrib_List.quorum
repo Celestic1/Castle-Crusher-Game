@@ -50,14 +50,14 @@ class GameObject_Attrib_List
     action GetNewCannonAttribs(number posX, number posY) returns GameObject_Attribs
         GameObject_Attribs newAttribs
         newAttribs:SetObjectName("objCannon")
-        newAttribs:SetSpritePath("resources/TrashCannon.png")
+        newAttribs:SetSpritePath("resources/can.png")
         newAttribs:SetBasePosition(posX, posY)
         return newAttribs
     end
 
     action GetNewCannonBallAttribs(number posX, number posY) returns GameObject_Attribs        GameObject_Attribs newAttribs
         newAttribs:SetObjectName("objCannon")
-        //newAttribs:SetSpritePath("")
+        newAttribs:SetSpritePath("resources/normalBall.png")
         newAttribs:SetBasePosition(posX, posY)
         newAttribs:SetTangible(true)
         newAttribs:SetPhysicsEnabled(true)

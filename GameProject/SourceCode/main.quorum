@@ -20,7 +20,8 @@ class Main is Game
         GameMouseListener:roo = roo
         GameCollisionListener:roo = roo
         // Fixed screensize / gamename
-        SetScreenSize(roo:pg_ScreenSizeX , roo:pg_ScreenSizeY)
+
+        SetScreenSize(roo:pg_ScreenSizeX , roo:pg_ScreenSizeY, false)
         SetGameName("Castle Crusher")
         StartGame()
     end
@@ -40,7 +41,6 @@ class Main is Game
         Add(mainScreen)
         createMainMenu()
         
-
         Add(GameMouseListener)
     end
 

@@ -1,0 +1,10 @@
+use Libraries.Game.Graphics.Drawable
+class levelSelectDisplay is Drawable
+
+    Drawable screen
+    levelSelectMenu levelSelect
+
+    action Create
+        
+    end
+end

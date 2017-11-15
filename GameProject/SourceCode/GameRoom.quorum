@@ -5,6 +5,7 @@ use Libraries.System.FileReader
 use Libraries.Game.Graphics.Drawable
 use GameObject
 
+
 class GameRoom
     private GameObjects obj
     private Array<GameObject> g_objs
@@ -14,7 +15,6 @@ class GameRoom
     public integer pg_ScreenSizeY = 320   // Default height of room
     private integer g_GridX = 40          // This is the width  of each 'grid' on map
     private integer g_GridY = 40          // This is the height of each 'grid' on map
-    
     
     // Camera Variables
     public integer pg_CamXOffset = 0

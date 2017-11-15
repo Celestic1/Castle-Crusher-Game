@@ -11,15 +11,18 @@ class MainMenuDisplay is Drawable
         screen = l
         mainmenu = m
         Load("/assets/newBackground.png")
-        mainmenu:startMenu:Load("/assets/start.png")
-        mainmenu:exitMenu:Load("/assets/exit.png")
+        mainmenu:logo:Load("assets/castlecrushers3.png")
+        mainmenu:startMenu:Load("/assets/buttonstart.png")
+        mainmenu:exitMenu:Load("/assets/exit_1.png")
     end
     //called by main (1st time)
     action Create()
         screen:Add(me)
-        mainmenu:startMenu:SetPosition(100,50)
+        mainmenu:logo:SetPosition(100, 100)
+        Add(mainmenu:logo)
+        mainmenu:startMenu:SetPosition(100,20)
         Add(mainmenu:startMenu)
-        mainmenu:exitMenu:SetPosition(300,50)
+        mainmenu:exitMenu:SetPosition(500,10)
         Add(mainmenu:exitMenu)
     end
 

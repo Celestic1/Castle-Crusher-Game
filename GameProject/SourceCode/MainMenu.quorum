@@ -1,5 +1,5 @@
 class MainMenu is Clickable
-    
+    public Clickable logo
     public Clickable startMenu
     public Clickable loadMenu
     public Clickable exitMenu
