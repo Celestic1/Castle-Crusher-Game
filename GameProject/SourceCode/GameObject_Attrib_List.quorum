@@ -42,7 +42,7 @@ class GameObject_Attrib_List
 	newAttribs:SetTangible(true)
 	newAttribs:SetPhysicsEnabled(true)
 	newAttribs:SetResponsive(true)
-	newAttribs:SetBasePosition(posX-48, posY)
+	newAttribs:SetBasePosition(posX-40, posY)
 	return newAttribs
     end
 
@@ -53,7 +53,7 @@ class GameObject_Attrib_List
 	newAttribs:SetTangible(true)
 	newAttribs:SetPhysicsEnabled(true)
 	newAttribs:SetResponsive(true)
-	newAttribs:SetBasePosition(posX-42, posY)
+	newAttribs:SetBasePosition(posX-40, posY)
 	return newAttribs
     end
 
@@ -75,7 +75,7 @@ class GameObject_Attrib_List
 	newAttribs:SetTangible(true)
 	newAttribs:SetPhysicsEnabled(true)
 	newAttribs:SetResponsive(true)
-	newAttribs:SetBasePosition(posX-48, posY)
+	newAttribs:SetBasePosition(posX-40, posY)
 	return newAttribs
     end
 
@@ -86,7 +86,7 @@ class GameObject_Attrib_List
 	newAttribs:SetTangible(true)
 	newAttribs:SetPhysicsEnabled(true)
 	newAttribs:SetResponsive(true)
-	newAttribs:SetBasePosition(posX-42, posY)
+	newAttribs:SetBasePosition(posX-40, posY)
 	return newAttribs
     end
 
@@ -109,7 +109,7 @@ class GameObject_Attrib_List
 	newAttribs:SetTangible(true)
 	newAttribs:SetPhysicsEnabled(true)
 	newAttribs:SetResponsive(true)
-	newAttribs:SetBasePosition(posX-48, posY)
+	newAttribs:SetBasePosition(posX-40, posY)
 	return newAttribs
     end
 
@@ -120,7 +120,7 @@ class GameObject_Attrib_List
 	newAttribs:SetTangible(true)
 	newAttribs:SetPhysicsEnabled(true)
 	newAttribs:SetResponsive(true)
-	newAttribs:SetBasePosition(posX-42, posY)
+	newAttribs:SetBasePosition(posX-40, posY)
 	return newAttribs
     end
 

@@ -1,10 +1,10 @@
 [MAP]
 B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B
-B, , , , , , , , , , , , , , ,bT, , , , , , , , ,B
-B, , , , , , , , , , , , , ,bX, ,bX, , , , , , , ,B
-B, , , , , , , , , , , , , ,bX, ,bX, , , , , , , ,B
-B, , , , , , , , , , , , , , ,bR, , ,bT, , , , , ,B
-B, ,C, , , , , , , , , , , ,bX, ,bX,bX, ,bX, , , , ,B
-B, , , , , , , , , , , , , ,bX, ,bX,bX, ,bX, , , , ,B
+B, , , , , , , , , , ,bX, ,bX, , , , , , ,bX, ,bX, ,B
+B, , , , , , , , , , ,bX,bX,bX, , , , , , ,bX,bX,bX, ,B
+B, , , , , , , , , , , ,bR, , , , ,bT, , , ,bR, , ,B
+B, , , , , , , , , , ,bX,F,bX, ,bR, , ,bR, ,bX,F,bX, ,B
+B, ,C, , , , , , , , ,bX,bX,bX,bX, , , , ,bX,bX,bX,bX, ,B
+B, , , , , , , , , , ,bX,bX,bX,bX, , , , ,bX,bX,bX,bX, ,B
 B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B
 [MAPEND]

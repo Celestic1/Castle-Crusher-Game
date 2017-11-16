@@ -29,6 +29,24 @@ class GameCollision is CollisionListener2D
             roo:QueueDelObj(itemA)
         end
 
+        if itemA:GetName() = "objHECannonBall" and itemB:GetName() = "objWoodenBox"
+            itemB:SetUnmovable()
+        elseif itemA:GetName() = "objWoodenBox" and itemB:GetName() = "objHECannonBall"
+            itemA:SetUnmovable()
+        end
+
+        if itemA:GetName() = "objHECannonBall" and itemB:GetName() = "objWoodenTriangle"
+            itemB:SetUnmovable()
+        elseif itemA:GetName() = "objWoodenTriangle" and itemB:GetName() = "objHECannonBall"
+            itemA:SetUnmovable()
+        end
+
+        if itemA:GetName() = "objHECannonBall" and itemB:GetName() = "objWoodenRectangle"
+            itemB:SetUnmovable()
+        elseif itemA:GetName() = "objWoodenRectangle" and itemB:GetName() = "objHECannonBall"
+            itemA:SetUnmovable()
+        end
+
         if itemA:GetName() = "objStandardCannonBall" and itemB:GetName() = "objFish"
             roo:QueueDelObj(itemB)
         elseif itemA:GetName() = "objFish" and itemB:GetName() = "objStandardCannonBall"
@@ -72,6 +90,12 @@ class GameCollision is CollisionListener2D
             itemA:SetUnmovable()
         end
        
+        if itemA:GetName() = "objHECannonBall" and itemB:GetName() = "objFish"
+            roo:QueueDelObj(itemB)
+        elseif itemA:GetName() = "objFish" and itemB:GetName() = "objHECannonBall"
+            roo:QueueDelObj(itemA)
+        end
 
+        // Armor-piercing(AP) cannon ball can ONLY destory steel stuff
     end
 end
