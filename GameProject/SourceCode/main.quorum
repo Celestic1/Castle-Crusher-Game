@@ -14,7 +14,6 @@ class Main is Game
     Camera camera = undefined
     Drawable mainScreen
     MainMenu mainmenu
-    MainMenuDisplay mainmenudisplay
 
     action Main
         GameMouseListener:roo = roo
@@ -90,14 +89,14 @@ class Main is Game
     
         exitFunction exit
         startFunction start
-        mainmenudisplay:Create(mainScreen, mainmenu)
+        mainmenu:Create(mainScreen)
         exit:setGame(me)
-        start:setMainMenu(mainmenudisplay)
+        start:setMainMenu(mainmenu)
         start:setGameRoom(roo)
-        start:setGame(me)
         mainmenu:startMenu:LoadClick(start)
         mainmenu:exitMenu:LoadClick(exit)
-        mainmenudisplay:Create()
+        mainmenu:Render()
+
     end
 
 end

@@ -6,7 +6,7 @@ class startFunction is GameFunction
     
     Game game
     GameRoom room
-    MainMenuDisplay mainmenu
+    MainMenu mainmenu
 
     action run(MouseEvent e)  
         room:LoadRoom("/testMap.txt")
@@ -17,7 +17,7 @@ class startFunction is GameFunction
         room = r
     end
 
-    action setMainMenu(MainMenuDisplay m)
+    action setMainMenu(MainMenu m)
         mainmenu = m
     end
 
