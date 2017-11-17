@@ -5,6 +5,7 @@ use GameObject
 
 class GameCollision is CollisionListener2D
     public GameRoom roo
+    integer score = 0
 
     action BeginCollision(CollisionEvent2D event)
         GameObject itemA = cast(GameObject, event:GetItemA())
@@ -30,6 +31,12 @@ class GameCollision is CollisionListener2D
         elseif itemA:GetName() = "objCat" and itemB:GetName() = "objExit2"
             roo:QueueDelObj(itemB)
             roo:LoadRoom("./map0.txt")
+        end
+
+        if itemA:GetName() = "objBox" and itemB:GetName() = "objBlock"
+            //roo:QueueDelObj(itemA)
+            score = score + 5
+            output score 
         end
 
         if itemA:GetName() = "objKey" and itemB:GetName() = "objCat"

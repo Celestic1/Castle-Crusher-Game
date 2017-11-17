@@ -24,9 +24,9 @@ class GameObject_Attrib_List
 	return newAttribs
     end
 
-        action GetNewBlockDAttribs (number posX, number posY) returns GameObject_Attribs
+        action GetNewBoxDAttribs (number posX, number posY) returns GameObject_Attribs
 	GameObject_Attribs newAttribs
-	newAttribs:SetObjectName("objBlock")
+	newAttribs:SetObjectName("objDBox")
 	newAttribs:SetSpritePath("resources/sprBrick_0-d.png")
 	newAttribs:SetTangible(true)
 	newAttribs:SetPhysicsEnabled(true)
@@ -34,9 +34,9 @@ class GameObject_Attrib_List
 	return newAttribs
     end
 
-        action GetNewBlockTAttribs (number posX, number posY) returns GameObject_Attribs
+        action GetNewBoxTAttribs (number posX, number posY) returns GameObject_Attribs
 	GameObject_Attribs newAttribs
-	newAttribs:SetObjectName("objBlock")
+	newAttribs:SetObjectName("objTBox")
 	newAttribs:SetSpritePath("resources/sprBrick_0-tall.png")
 	newAttribs:SetTangible(true)
 	newAttribs:SetPhysicsEnabled(true)
@@ -71,6 +71,14 @@ class GameObject_Attrib_List
         GameObject_Attribs newAttribs
         newAttribs:SetObjectName("objCannon")
         newAttribs:SetSpritePath("resources/TrashCannon.png")
+        newAttribs:SetBasePosition(posX, posY)
+        return newAttribs
+    end
+
+    action GetNewScoreAttribs(number posX, number posY) returns GameObject_Attribs
+        GameObject_Attribs newAttribs
+        newAttribs:SetObjectName("objScore")
+        newAttribs:SetSpritePath("resources/score.png")
         newAttribs:SetBasePosition(posX, posY)
         return newAttribs
     end
