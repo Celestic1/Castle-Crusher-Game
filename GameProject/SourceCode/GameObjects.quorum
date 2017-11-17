@@ -13,22 +13,16 @@ class GameObjects
         // Wooden 
         elseif objName = "wX"
             tmpObj:InitGameObject(src:GetNewWoodenBoxAttribs(objX,objY))
-        elseif objName = "wT"
-            tmpObj:InitGameObject(src:GetNewWoodenTriangleAttribs(objX,objY))
         elseif objName = "wR"
             tmpObj:InitGameObject(src:GetNewWoodenRectangleAttribs(objX,objY))
         // Brick
         elseif objName = "bX"
             tmpObj:InitGameObject(src:GetNewBrickBoxAttribs(objX,objY))
-        elseif objName = "bT"
-            tmpObj:InitGameObject(src:GetNewBrickTriangleAttribs(objX,objY))
         elseif objName = "bR"
             tmpObj:InitGameObject(src:GetNewBrickRectangleAttribs(objX,objY))
         // Steel
         elseif objName = "sX"
             tmpObj:InitGameObject(src:GetNewSteelBoxAttribs(objX,objY))
-        elseif objName = "sT"
-            tmpObj:InitGameObject(src:GetNewSteelTriangleAttribs(objX,objY))
         elseif objName = "sR"
             tmpObj:InitGameObject(src:GetNewSteelRectangleAttribs(objX,objY))
 

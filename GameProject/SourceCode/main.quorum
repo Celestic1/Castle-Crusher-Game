@@ -71,8 +71,8 @@ class Main is Game
     action LoadStandardCannonBall (GameObject_Player PlayCan, integer count)
         repeat count times
             GameObject nextShot
-            //nextShot:InitGameObject(src:GetNewStandardCannonBallAttribs(0,0))
-            nextShot:InitGameObject(src:GetNewHECannonBallAttribs(0,0))
+            nextShot:InitGameObject(src:GetNewStandardCannonBallAttribs(0,0))
+            //nextShot:InitGameObject(src:GetNewHECannonBallAttribs(0,0))
             nextShot:AddToGame(me)
             PlayCan:LoadCannon(nextShot)
         end

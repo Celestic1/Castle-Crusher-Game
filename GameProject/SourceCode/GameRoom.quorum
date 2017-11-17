@@ -10,8 +10,8 @@ class GameRoom
     private Array<GameObject> g_objs
     private Array<GameObject> g_deleted_objs_queue
     private Array<GameObject> g_added_objs_queue
-    public integer pg_ScreenSizeX = 1000  // Default width of room
-    public integer pg_ScreenSizeY = 320   // Default height of room
+    public integer pg_ScreenSizeX = 1280  // Default width of room
+    public integer pg_ScreenSizeY = 720   // Default height of room
     private integer g_GridX = 40          // This is the width  of each 'grid' on map
     private integer g_GridY = 40          // This is the height of each 'grid' on map
 

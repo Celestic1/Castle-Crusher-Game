@@ -35,17 +35,6 @@ class GameObject_Attrib_List
 	return newAttribs
     end
 
-    action GetNewWoodenTriangleAttribs (number posX, number posY) returns GameObject_Attribs
-	GameObject_Attribs newAttribs
-	newAttribs:SetObjectName("objWoodenTriangle")
-	newAttribs:SetSpritePath("resources/wooden_triangle.png")
-	newAttribs:SetTangible(true)
-	newAttribs:SetPhysicsEnabled(true)
-	newAttribs:SetResponsive(true)
-	newAttribs:SetBasePosition(posX-40, posY)
-	return newAttribs
-    end
-
     action GetNewWoodenRectangleAttribs (number posX, number posY) returns GameObject_Attribs
 	GameObject_Attribs newAttribs
 	newAttribs:SetObjectName("objWoodenRectangle")
@@ -65,17 +54,6 @@ class GameObject_Attrib_List
 	newAttribs:SetPhysicsEnabled(true)   
 	newAttribs:SetResponsive(true)
 	newAttribs:SetBasePosition(posX, posY)
-	return newAttribs
-    end
-
-    action GetNewBrickTriangleAttribs (number posX, number posY) returns GameObject_Attribs
-	GameObject_Attribs newAttribs
-	newAttribs:SetObjectName("objBrickTriangle")
-	newAttribs:SetSpritePath("resources/brick_triangle.png")
-	newAttribs:SetTangible(true)
-	newAttribs:SetPhysicsEnabled(true)
-	newAttribs:SetResponsive(true)
-	newAttribs:SetBasePosition(posX-40, posY)
 	return newAttribs
     end
 
@@ -99,17 +77,6 @@ class GameObject_Attrib_List
         
 	newAttribs:SetResponsive(true)
 	newAttribs:SetBasePosition(posX, posY)
-	return newAttribs
-    end
-
-    action GetNewSteelTriangleAttribs (number posX, number posY) returns GameObject_Attribs
-	GameObject_Attribs newAttribs
-	newAttribs:SetObjectName("objSteelTriangle")
-	newAttribs:SetSpritePath("resources/steel_triangle.png")
-	newAttribs:SetTangible(true)
-	newAttribs:SetPhysicsEnabled(true)
-	newAttribs:SetResponsive(true)
-	newAttribs:SetBasePosition(posX-40, posY)
 	return newAttribs
     end
 

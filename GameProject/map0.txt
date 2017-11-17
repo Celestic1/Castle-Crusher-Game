@@ -1,10 +1,15 @@
 [MAP]
-B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B
-B, , , , , , , , , , ,wX, ,wX, , , , , , ,wX, ,wX, ,B
-B, , , , ,SB, , , , , ,wX,wX,wX, , , , , , ,wX,wX,wX, ,B
-B, , , , , , , , , , , ,wR, , , , , , , , ,wR, , ,B
-B, , , , , , , , , , ,wX,F,wX, ,wR, , ,wR, ,wX,F,wX, ,B
-B, ,C, , , , , , , , ,wX,wX,wX,wX, , , , ,wX,wX,wX,wX, ,B
-B, , , , , , , , , , ,wX,wX,wX,wX, , , , ,wX,wX,wX,wX, ,B
-B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B
+B, , , , , , , , , , , , , , , , , , , , , , , , , , , , ,B,  
+B, , , , , , , , , , , , , , , , , , , , , , , , , , , , ,B,  
+B, , , , , , , , , , , , , , , , , , , , , , , , , , , , ,B,  
+B, , , , , , , , , , , , , , , , , , , , , , , , , , , , ,B, 
+B, , , , , , , , , , , , , , , , , , , , , , , , , , , , ,B,  
+B, , , , , , , , , , , , , , , , , , , , , , , , , , , , ,B,  
+B, , , , , , , , , , ,wX, ,wX, , , , , , ,wX, ,wX, , , , , , ,B, 
+B, , , , ,SB, , , , , ,wX,wX,wX, , , , , , ,wX,wX,wX, , , , , , ,B,
+B, , , , , , , , , , , ,wR, , , , , , , , ,wR, , , , , , , ,B,
+B, , , , , , , , , , ,wX,F,wX, ,wR, , ,wR, ,wX,F,wX, , , , , , ,B,
+B, ,C, , , , , , , , ,wX,wX,wX,wX, , , , ,wX,wX,wX,wX, , , , , , ,B,
+B, , , , , , , , , , ,wX,wX,wX,wX, , , , ,wX,wX,wX,wX, , , , , , ,B,
+B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,
 [MAPEND]

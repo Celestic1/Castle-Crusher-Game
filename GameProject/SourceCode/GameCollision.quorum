@@ -1,10 +1,12 @@
 use Libraries.Game.Graphics.Drawable
 use Libraries.Interface.Events.CollisionListener2D
 use Libraries.Interface.Events.CollisionEvent2D
+use Libraries.Compute.Vector2
 use GameObject
 
 class GameCollision is CollisionListener2D
     public GameRoom roo
+    Vector2 force
 
     action BeginCollision(CollisionEvent2D event)
         GameObject itemA = cast(GameObject, event:GetItemA())
@@ -12,32 +14,40 @@ class GameCollision is CollisionListener2D
 
         // Standard cannon ball can ONLY destory wooden stuff
         if itemA:GetName() = "objStandardCannonBall" and itemB:GetName() = "objWoodenBox"
-            roo:QueueDelObj(itemB)
+            force = itemA:GetLinearVelocity()
+            if force:Length() > 400
+                roo:QueueDelObj(itemB)
+            else
+                itemB:SetUnmovable()
+            end
         elseif itemA:GetName() = "objWoodenBox" and itemB:GetName() = "objStandardCannonBall"
-            roo:QueueDelObj(itemA)
-        end
-
-        if itemA:GetName() = "objStandardCannonBall" and itemB:GetName() = "objWoodenTriangle"
-            roo:QueueDelObj(itemB)
-        elseif itemA:GetName() = "objWoodenTriangle" and itemB:GetName() = "objStandardCannonBall"
-            roo:QueueDelObj(itemA)
+            force = itemB:GetLinearVelocity()
+            if force:Length() > 400
+                roo:QueueDelObj(itemA)
+            else
+                itemA:SetUnmovable()
+            end
         end
 
         if itemA:GetName() = "objStandardCannonBall" and itemB:GetName() = "objWoodenRectangle"
-            roo:QueueDelObj(itemB)
+            force = itemA:GetLinearVelocity()
+            if force:Length() > 400
+                roo:QueueDelObj(itemB)
+            else
+                itemB:SetUnmovable()
+            end
         elseif itemA:GetName() = "objWoodenRectangle" and itemB:GetName() = "objStandardCannonBall"
-            roo:QueueDelObj(itemA)
+            force = itemB:GetLinearVelocity()
+            if force:Length() > 400
+                roo:QueueDelObj(itemA)
+            else
+                itemA:SetUnmovable()
+            end
         end
 
         if itemA:GetName() = "objHECannonBall" and itemB:GetName() = "objWoodenBox"
             itemB:SetUnmovable()
         elseif itemA:GetName() = "objWoodenBox" and itemB:GetName() = "objHECannonBall"
-            itemA:SetUnmovable()
-        end
-
-        if itemA:GetName() = "objHECannonBall" and itemB:GetName() = "objWoodenTriangle"
-            itemB:SetUnmovable()
-        elseif itemA:GetName() = "objWoodenTriangle" and itemB:GetName() = "objHECannonBall"
             itemA:SetUnmovable()
         end
 
@@ -48,39 +58,53 @@ class GameCollision is CollisionListener2D
         end
 
         if itemA:GetName() = "objStandardCannonBall" and itemB:GetName() = "objFish"
-            roo:QueueDelObj(itemB)
+            force = itemA:GetLinearVelocity()
+            if force:Length() > 400
+                roo:QueueDelObj(itemB)
+            end
         elseif itemA:GetName() = "objFish" and itemB:GetName() = "objStandardCannonBall"
-            roo:QueueDelObj(itemA)
+            force = itemB:GetLinearVelocity()
+            if force:Length() > 400
+                roo:QueueDelObj(itemA)
+            end
         end
-
+        //***************************************************************************************************************************************************************
         // High-Explosive(HE) cannon ball can ONLY destory brick stuff
         if itemA:GetName() = "objHECannonBall" and itemB:GetName() = "objBrickBox"
-            roo:QueueDelObj(itemB)
+            force = itemA:GetLinearVelocity()
+            if force:Length() > 400
+                roo:QueueDelObj(itemB)
+            else
+                itemB:SetUnmovable()
+            end
         elseif itemA:GetName() = "objBrickBox" and itemB:GetName() = "objHECannonBall"
-            roo:QueueDelObj(itemA)
-        end
-
-        if itemA:GetName() = "objHECannonBall" and itemB:GetName() = "objBrickTriangle"
-            roo:QueueDelObj(itemB)
-        elseif itemA:GetName() = "objBrickTriangle" and itemB:GetName() = "objHECannonBall"
-            roo:QueueDelObj(itemA)
+            force = itemB:GetLinearVelocity()
+            if force:Length() > 400
+                roo:QueueDelObj(itemA)
+            else
+                itemA:SetUnmovable()
+            end
         end
 
         if itemA:GetName() = "objHECannonBall" and itemB:GetName() = "objBrickRectangle"
-            roo:QueueDelObj(itemB)
+            force = itemA:GetLinearVelocity()
+            if force:Length() > 400
+                roo:QueueDelObj(itemB)
+            else
+                itemB:SetUnmovable()
+            end
         elseif itemA:GetName() = "objBrickRectangle" and itemB:GetName() = "objHECannonBall"
-            roo:QueueDelObj(itemA)
+            force = itemB:GetLinearVelocity()
+            if force:Length() > 400
+                roo:QueueDelObj(itemA)
+            else
+                itemA:SetUnmovable()
+            end
         end
 
         if itemA:GetName() = "objStandardCannonBall" and itemB:GetName() = "objBrickBox"
             itemB:SetUnmovable()
         elseif itemA:GetName() = "objBrickBox" and itemB:GetName() = "objStandardCannonBall"
-            itemA:SetUnmovable()
-        end
-
-        if itemA:GetName() = "objStandardCannonBall" and itemB:GetName() = "objBrickTriangle"
-            itemB:SetUnmovable()
-        elseif itemA:GetName() = "objBrickTriangle" and itemB:GetName() = "objStandardCannonBall"
             itemA:SetUnmovable()
         end
 
@@ -91,11 +115,17 @@ class GameCollision is CollisionListener2D
         end
        
         if itemA:GetName() = "objHECannonBall" and itemB:GetName() = "objFish"
-            roo:QueueDelObj(itemB)
+            force = itemA:GetLinearVelocity()
+            if force:Length() > 400
+                roo:QueueDelObj(itemB)
+            end
         elseif itemA:GetName() = "objFish" and itemB:GetName() = "objHECannonBall"
-            roo:QueueDelObj(itemA)
+            force = itemB:GetLinearVelocity()
+            if force:Length() > 400
+                roo:QueueDelObj(itemA)
+            end
         end
-
+        //*************************************************************************************************************************************************************
         // Armor-piercing(AP) cannon ball can ONLY destory steel stuff
     end
 end

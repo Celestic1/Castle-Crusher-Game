@@ -12,8 +12,6 @@ use Libraries.Game.InputMonitor
 
 class GameObject_Player is GameObject, GameKeyboard
     List<GameObject> myAmmo
-//    private number baseFX = 10000
-//    private number baseFY = 0
     private number ForceCap = 50000
     private number Force = 0
     private number velScaleFactor = 400
@@ -27,7 +25,6 @@ class GameObject_Player is GameObject, GameKeyboard
     Math MyMath
     InputMonitor monitor
     KeyboardEvent keys
-//    Game parentGame // I hate this hack and want it gone ASAP
     
     action FireCannon(integer AmmoRef)
         if not (AmmoRef < myAmmo:GetSize() and AmmoRef >= 0)
