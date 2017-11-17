@@ -25,7 +25,8 @@ class Main is Game
 
     action CreateGame
         XMLFileManager FileMan
-        XMLNode ReadRoot = FileMan:GetXMLFromFile("Definitions/TempCoreDefs.xml")
+//        XMLNode ReadRoot = FileMan:GetXMLFromFile("Definitions/TempCoreDefs.xml")
+        XMLNode ReadRoot = FileMan:GetXMLFromFile("Definitions/CoreDefs.xml")
 	CoreLibrary:LoadLibraryFromTree(ReadRoot)
 	CoreLibrary:OutputHashTableContents()
         camera = GetCamera2D()
@@ -36,8 +37,11 @@ class Main is Game
         RefRoom:pg_CamMaxXOffset = 200
 
         // get the maps
-        LoadMapFolder("./Maps")
-        RealRooms:GetFromFront():AddRoomToGame(me)
+//        LoadMapFolder("./Maps")
+//        RealRooms:GetFromFront():AddRoomToGame(me)
+	GameRoom TestRoom
+	TestRoom:LoadRoomFromFile("Maps/TestMap.xml",CoreLibrary)
+	TestRoom:AddRoomToGame(me)
 
         // Draw cursor
         Add(GameMouseListener)

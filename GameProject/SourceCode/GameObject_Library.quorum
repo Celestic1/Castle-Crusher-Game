@@ -14,7 +14,9 @@ class GameObject_Library
 	if not ObjectLibrary:HasKey(target)
 	    output "WARNING: Tried to find nonexistent object '" + target + "'"
 	end
-	return ObjectLibrary:GetValue(target):Copy()
+	GameObject ReturnObject = ObjectLibrary:GetValue(target):Copy()
+	ReturnObject:RefreshGameObject()
+	return ReturnObject
     end
 
     action LoadLibraryFromTree(XMLNode TargetTree)

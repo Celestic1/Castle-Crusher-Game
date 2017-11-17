@@ -7,13 +7,14 @@ use GameObject
 
 class GameRoom
     private GameObjects obj
-    private Array<GameObject> g_objs
+    private Array<Array<GameObject>> RoomLayers
 //    private Array<GameObject> g_deleted_objs_queue
 //    private Array<GameObject> g_added_objs_queue
     public integer pg_ScreenSizeX = 1000  // Default width of room
     public integer pg_ScreenSizeY = 320   // Default height of room
     private integer g_GridX = 40          // This is the width  of each 'grid' on map
     private integer g_GridY = 40          // This is the height of each 'grid' on map
+    XMLNode RefNode
 
     // Camera Variables
     public integer pg_CamXOffset = 0
@@ -28,8 +29,8 @@ class GameRoom
 
     action DequeueAddObj
         returns GameObject
-        g_objs:AddToEnd(g_added_objs_queue:RemoveFromFront())
-        return g_objs:GetFromEnd()
+        RoomLayers:AddToEnd(g_added_objs_queue:RemoveFromFront())
+        return RoomLayers:GetFromEnd()
     end
 
     action GetAddQueueSize
@@ -38,13 +39,13 @@ class GameRoom
     end
 
     action QueueDelObj (integer objIndex)
-        GameObject tmpObj = g_objs:Get(objIndex)
-        g_objs:RemoveAt(objIndex)
+        GameObject tmpObj = RoomLayers:Get(objIndex)
+        RoomLayers:RemoveAt(objIndex)
         g_deleted_objs_queue:AddToEnd(tmpObj)
     end
 
     action QueueDelObj (GameObject obj)
-        g_objs:RemoveAt(GetIndexOfObj(obj))
+        RoomLayers:RemoveAt(GetIndexOfObj(obj))
         g_deleted_objs_queue:AddToEnd(obj)
     end
 
@@ -58,19 +59,19 @@ class GameRoom
         return g_deleted_objs_queue:GetSize()
     end*/
 
-    action GetObjCount
+    action GetLayerCount
         returns integer
-        return g_objs:GetSize()
+        return RoomLayers:GetSize()
     end
 
     // returns the first index of obj found with name
     // if none are found, returns -1
-    action GetIndexOfObj (text objName)
+ /*   action GetIndexOfObj (text objName)
         returns integer
 
-        i = g_objs:GetSize()
+        i = RoomLayers:GetSize()
         repeat until i = 0
-            if (g_objs:Get(i-1):GetName():Contains(objName))
+            if (RoomLayers:Get(i-1):GetName():Contains(objName))
                 return i - 1 // obj found, return index
             end
             i = i - 1
@@ -84,9 +85,9 @@ class GameRoom
     // if non are found, returns -1
     action GetIndexOfObj (GameObject tmpObj)
         returns integer
-        i = g_objs:GetSize()
+        i = RoomLayers:GetSize()
         repeat until i = 0
-            if (g_objs:Get(i-1):Equals(tmpObj))
+            if (RoomLayers:Get(i-1):Equals(tmpObj))
                 return i - 1 // obj found, return index
             end
             i = i - 1
@@ -94,79 +95,103 @@ class GameRoom
 
         // returns -1 if obj not found
         return -1
-    end
+    end*/
 
-    action GetObjAtIndex (integer index)
+    action GetObjAtIndex (integer layer, integer index)
         returns GameObject
-        return g_objs:Get(index)
+        return RoomLayers:Get(layer):Get(index)
     end
 
-    action DeleteObjAtIndex (integer index)
-        g_objs:RemoveAt(index)
+    action DeleteObjAtIndex (integer layer, integer index)
+        RoomLayers:Get(layer):RemoveAt(index)
+    end
+
+    action DeleteLayerAtIndex (integer layer)
+	RoomLayers:RemoveAt(layer)
     end
 
     action AddRoomToGame(Game game)
         integer i = 0
-        repeat while i < g_objs:GetSize()
-	    g_objs:Get(i):AddToGame(game)
-            i = i + 1
+        repeat while i < RoomLayers:GetSize()
+	    Array<GameObject> CurrentLayer = RoomLayers:Get(i)
+	    integer j = 0
+	    repeat while j < RoomLayers:Get(i):GetSize()
+		CurrentLayer:Get(j):AddToGame(game)
+		j = j + 1
+	    end
+	    i = i + 1
         end
     end
 
     action RemoveRoomFromGame(Game game)
         integer i = 0
-        repeat while i < g_objs:GetSize()
-	    g_objs:Get(i):RemoveFromGame(game)
-            i = i + 1
+        repeat while i < RoomLayers:GetSize()
+	    Array<GameObject> CurrentLayer = RoomLayers:Get(i)
+	    integer j = 0
+	    repeat while j < RoomLayers:Get(i):GetSize()
+		CurrentLayer:Get(j):RemoveFromGame(game)
+		j = j + 1
+	    end
+	    i = i + 1
         end
     end
 
     action LoadRoomFromFile(text roomTextPath, GameObject_Library BlockLib)
-
-        // Open the map file find the line after [MAP] and place in readLine
-        File f  
-        f:SetPath(roomTextPath)
-        LoadRoomFromFile(f, BlockLib)
+        XMLFileManager FileMan
+	XMLNode RootNode = FileMan:GetXMLFromFile(roomTextPath)
+	LoadRoomFromTree(RootNode, BlockLib)
     end
 
     action LoadRoomFromFile(File TargetFile, GameObject_Library BlockLib)
-        text readLine = ""
-        number currentY = 0
+	XMLFileManager FileMan
+	XMLNode RootNode = FileMan:GetXMLFromFile(TargetFile)
+	LoadRoomFromTree(RootNode, BlockLib)
+    end
 
-        // Open the map file find the line after [MAP] and place in readLine
-//        File f  
-//        f:SetPath(roomTextPath)
-        FileReader reader
-        reader:OpenForRead(TargetFile)
-        repeat until readLine = "[MAP]" and not reader:IsAtEndOfFile()
-            readLine = reader:ReadLine()
-        end
-        readLine = reader:ReadLine()
+    action LoadRoomFromTree(XMLNode TargetTree, GameObject_Library BlockLib)
+	if TargetTree:GetName() not= RefNode:MAP
+	    output "ERROR: Invalid Map Format"
+	    return now
+	else
+	    integer i = 0
+	    repeat while i < TargetTree:Children:GetSize()
+		if TargetTree:Children:Get(i):GetName() = RefNode:LAYER
+		    LoadLayerFromTree(TargetTree:Children:Get(i),i,BlockLib)
+		else
+		    output "WARNING: Tried to read a '" + TargetTree:Children:Get(i):GetName() + "' when expecting a layer."
+		end
+		i = i + 1
+	    end
+	end
+    end
 
-        repeat until readLine = "[MAPEND]" and not reader:IsAtEndOfFile()
-            Array<text> tmpArray = readLine:Split(",")
-            i = 0
-            text myMap = ""
-            repeat until i = tmpArray:GetSize()
-                if tmpArray:Get(i) not= " "     // don't create a blank object
-		    GameObject NewObject = BlockLib:GetGameObject(tmpArray:Get(i))
-		    NewObject:SetStartPosition(i*g_GridX, pg_ScreenSizeY-(currentY*g_GridY)-g_GridY)
-		    NewObject:RefreshGameObject()
-		    g_objs:Add(NewObject)
-                end
-                myMap = myMap + tmpArray:Get(i)
-                i = i + 1
-            end
-            output myMap + " " + (pg_ScreenSizeY-(currentY*g_GridY)-g_GridY)
-            currentY = currentY + 1
+    action LoadLayerFromTree(XMLNode TargetTree, integer Layer, GameObject_Library BlockLib)
+	integer i = 0
+	Array<GameObject> NewLayer
+	RoomLayers:Add(NewLayer)
+	repeat while i < TargetTree:Children:GetSize()
+	    XMLNode NextChild = TargetTree:Children:Get(i)
+	    GameObject NextObject = BlockLib:GetGameObject(NextChild:GetName())
+	    integer j = 0
+	    repeat while j < NextChild:Children:GetSize()
+		XMLNode NextPart = NextChild:Children:Get(j)
+		if NextPart:GetName() = RefNode:XCOORD
+		    NextObject:SetPosition(cast(number,NextPart:GetValue()),NextObject:GetY())
+		elseif NextPart:GetName() = RefNode:YCOORD
+		    NextObject:SetPosition(NextObject:GetX(),cast(number,NextPart:GetValue()))
+		elseif NextPart:GetName() = RefNode:ROTATION
+		    NextObject:SetRotation(cast(number,NextPart:GetValue()))
+		end
+		j = j + 1
+	    end
 
-            readLine = reader:ReadLine()
-        end
-        reader:Close()
+	    RoomLayers:Get(Layer):Add(NextObject)
+	    i = i + 1
+	end
     end
 
     action UnloadRoom
-        g_objs:Empty()
+        RoomLayers:Empty()
     end
 
     action ResetCamera
