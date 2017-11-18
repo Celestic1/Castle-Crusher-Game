@@ -14,7 +14,7 @@ class Clickable is Drawable, MouseListener
 
     action LoadClick(GameFunction c)
         click = c
-    end
+    end 
 
     // When mouse is clicked, it acces the GameFunction class's run function
     action ClickedMouse(MouseEvent event)
