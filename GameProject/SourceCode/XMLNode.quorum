@@ -11,6 +11,7 @@ class XMLNode is Element
     public constant text MAP = "Map"
     public constant text LAYER = "Layer"
     public constant text OBJECT = "Object"
+    public constant text PLAYER = "Player"
     public constant text NAME = "Name"
     public constant text DISPLAYNAME = "DisplayName"
     public constant text SPRITEPATH = "SpritePath"

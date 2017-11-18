@@ -39,9 +39,12 @@ class Main is Game
         // get the maps
 //        LoadMapFolder("./Maps")
 //        RealRooms:GetFromFront():AddRoomToGame(me)
-	GameRoom TestRoom
-	TestRoom:LoadRoomFromFile("Maps/TestMap.xml",CoreLibrary)
-	TestRoom:AddRoomToGame(me)
+//	GameRoom_Level TestRoom
+//	TestRoom:LoadRoomFromFile("Maps/TestMap.xml",CoreLibrary)
+//	TestRoom:AddRoomToGame(me)
+        GameObject_ULTRA ULTRAZORD
+        ULTRAZORD:LoadAThing()
+        GameObject_Player TestPlayer
 
         // Draw cursor
         Add(GameMouseListener)
@@ -109,7 +112,7 @@ class Main is Game
         integer Next = 0
         repeat while Next < TargetMaps:GetSize()
             GameRoom NextRoom
-            NextRoom:LoadRoomFromFile(TargetMaps:Get(Next), CoreLibrary)
+//            NextRoom:LoadRoomFromFile(TargetMaps:Get(Next), CoreLibrary)
             RealRooms:Add(NextRoom)
             Next = Next + 1
         end

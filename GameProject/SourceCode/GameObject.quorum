@@ -5,6 +5,7 @@ use Libraries.Compute.Vector2
 class GameObject is Drawable
     private text SpritePath = "resources/sprFesh-Trimmed.png"
     private Vector2 StartPosition
+    private boolean IsPlayerSub = false
 
     // loads the things that aren't auto-loaded to begin with
 /*
@@ -32,7 +33,7 @@ class GameObject is Drawable
     on create
 	// constructor does some basic work to ensure we have an object at all
 	SetStartPosition(0,0)
-	RefreshGameObject()
+	me:RefreshGameObject()
     end
 
     // function to refresh object and make sure it's what and where we think it is
@@ -72,11 +73,33 @@ class GameObject is Drawable
 	return SpritePath
     end
 
+    action SetPlayerSub (boolean newPlay)
+        IsPlayerSub = true
+    end
+    action GetPlayerSub returns boolean
+        return IsPlayerSub
+    end
+
     action Copy returns GameObject
 	GameObject NewObject
 	NewObject:QuickCopy(me)
 	NewObject:SetStartPosition(me:GetStartPosition())
 	NewObject:SetSpritePath(me:GetSpritePath())
+        NewObject:SetPlayerSub(me:GetPlayerSub())
+
+        NewObject:SetName(me:GetName())
+        NewObject:EnablePhysics(me:IsPhysicsEnabled())
+        if me:IsUnmovable()
+            NewObject:SetUnmovable()
+        end
+        if me:IsResponsive()
+            NewObject:SetResponsive()
+        end
+        NewObject:SetCollidable(me:IsCollidable())
+        NewObject:SetMass(me:GetMass())
+        NewObject:SetFriction(me:GetFriction())
+        NewObject:SetRestitution(me:GetRestitution())
+
 	return NewObject
     end
 end

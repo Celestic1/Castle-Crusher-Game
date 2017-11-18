@@ -35,6 +35,14 @@ class GameObject_Library
 		    NewObject:SetName(NextChild:GetValue())
 		elseif NextChild:GetName() = RefNode:SPRITEPATH
 		    NewObject:SetSpritePath(NextChild:GetValue())
+                elseif NextChild:GetName() = RefNode:PLAYER
+                    if NextChild:GetValue():EqualsIgnoringCase("true")
+                        NewObject:SetPlayerSub(true)
+                    elseif NextChild:GetValue():EqualsIgnoringCase("false")
+                        NewObject:SetPlayerSub(false)
+                    else
+			output "WARNING: Encountered bad boolean value '" + NextChild:GetName() + "'"
+                    end
 		elseif NextChild:GetName() = RefNode:PHYSICSENABLED
 		    if NextChild:GetValue():EqualsIgnoringCase("true")
 			NewObject:EnablePhysics(true)
