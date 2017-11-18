@@ -121,14 +121,9 @@ class GameCollision is CollisionListener2D
         newGame:Add(Counter2) */
         integer count = score
         integer tmp = count mod 10
-        integer tmp2 = 0
-        if (tmp = 9)
-            tmp2 = tmp2 + 1
-        end
+        integer tmp2 = score / 10
         LoadCount(Counter1,tmp)
-        if (score > 0) and (tmp = 0)
-            LoadCount(Counter2, tmp2)
-        end
+        LoadCount(Counter2, tmp2)
         Counter1:SetPosition(70,200)
         Counter2:SetPosition(20,200)
         newGame:Add(Counter1)

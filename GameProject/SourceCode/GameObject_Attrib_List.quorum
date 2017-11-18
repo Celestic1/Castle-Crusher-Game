@@ -180,4 +180,12 @@ class GameObject_Attrib_List
 	newAttribs:SetBasePosition(posX, posY)
 	return newAttribs
     end
+
+    /*action GetNewNumber(number posX, number posY) returns GameObject_Attribs
+        GameObject_Attribs newAttribs
+        newAttribs:SetObjectName("counter")
+        newAttribs:SetSpritePath("resources/SYMB_0.png")
+        newAttribs:SetBasePosition(posX, posY)
+        return newAttribs
+    end*/
 end
