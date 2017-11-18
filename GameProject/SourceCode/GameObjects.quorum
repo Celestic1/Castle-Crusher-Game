@@ -11,7 +11,7 @@ class GameObjects
         //xxx = 0
         //yyy = 0
         if objName = "B"
-/*            tmpObj:SetName("objBlock")
+/*          tmpObj:SetName("objBlock")
             tmpObj:Load("resources/sprBrick_0.png")
             tmpObj:EnablePhysics(true)
             tmpObj:SetUnmovable()*/
@@ -88,6 +88,11 @@ class GameObjects
             tmpObj:Load("resources/score.png")
             xxx = 20*/
             tmpObj:InitGameObject(src:GetNewScoreAttribs(objX,objY))
+        elseif objName = "A"
+/*          tmpObj:SetName("objScoreNum")
+            tmpObj:Load("resources/1.png")
+            xxx = 20*/
+            tmpObj:InitGameObject(src:GetNewScoreNumAttribs(objX,objY))
         elseif objName = "O"
 /*            tmpObj:SetName("objGameMouseFollower")
             tmpObj:Load("resources/sprFesh-trimmed.png")*/

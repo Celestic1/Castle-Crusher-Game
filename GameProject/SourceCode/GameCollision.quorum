@@ -1,13 +1,20 @@
 use Libraries.Game.Graphics.Drawable
+use Libraries.Game.Graphics.Label
+use Libraries.Game.Game
+use Libraries.Interface.Item2D
 use Libraries.Interface.Events.CollisionListener2D
 use Libraries.Interface.Events.CollisionEvent2D
 use GameObject
 
-class GameCollision is CollisionListener2D
+class GameCollision is CollisionListener2D, Drawable 
     public GameRoom roo
     integer score = 0
 
     action BeginCollision(CollisionEvent2D event)
+        Label label
+        label:SetText("Hello world!")
+        label:SetPosition(300, 200)
+        Add(label)
         GameObject itemA = cast(GameObject, event:GetItemA())
         GameObject itemB = cast(GameObject, event:GetItemB())
 
@@ -34,9 +41,13 @@ class GameCollision is CollisionListener2D
         end
 
         if itemA:GetName() = "objBox" and itemB:GetName() = "objBlock"
-            //roo:QueueDelObj(itemA)
+           // roo:QueueDelObj(itemA)
             score = score + 5
             output score 
+         /*elseif itemA:GetName() = "objBlock" and itemB:GetName() = "objBox"
+            roo:QueueDelObj(itemB)
+            score = score + 5
+            output score */
         end
 
         if itemA:GetName() = "objKey" and itemB:GetName() = "objCat"
@@ -58,6 +69,10 @@ class GameCollision is CollisionListener2D
                 i = i - 1
             end
         end
+
+    end
+
+    action CreateGame
 
     end
 end

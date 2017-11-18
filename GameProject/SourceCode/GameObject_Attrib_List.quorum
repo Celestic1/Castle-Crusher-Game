@@ -83,6 +83,14 @@ class GameObject_Attrib_List
         return newAttribs
     end
 
+    action GetNewScoreNumAttribs(number posX, number posY) returns GameObject_Attribs
+        GameObject_Attribs newAttribs
+        newAttribs:SetObjectName("objScoreNum")
+        newAttribs:SetSpritePath("resources/1.png")
+        newAttribs:SetBasePosition(posX, posY)
+        return newAttribs
+    end
+
     action GetNewCannonBallAttribs(number posX, number posY) returns GameObject_Attribs        GameObject_Attribs newAttribs
         newAttribs:SetObjectName("objCannon")
         newAttribs:SetBasePosition(posX, posY)

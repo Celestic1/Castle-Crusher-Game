@@ -64,7 +64,7 @@ class Main is Game
             tmpDraw:RemoveFromGame(me)
         end
 
-        // Check if there are objs that need to be added
+         // Check if there are objs that need to be added
         repeat until roo:GetAddQueueSize() = 0
             GameObject tmpDraw = roo:DequeueAddObj()
             tmpDraw:AddToGame(me)        // Add standard Drawable
