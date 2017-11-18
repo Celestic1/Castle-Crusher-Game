@@ -50,10 +50,9 @@ class GameRoom
     action AddRoomToGame(Game game)
         integer i = 0
         repeat while i < RoomLayers:GetSize()
-	    Array<GameObject> CurrentLayer = RoomLayers:Get(i)
 	    integer j = 0
 	    repeat while j < RoomLayers:Get(i):GetSize()
-		CurrentLayer:Get(j):AddToGame(game)
+		RoomLayers:Get(i):Get(j):AddToGame(game)
 		j = j + 1
 	    end
 	    i = i + 1

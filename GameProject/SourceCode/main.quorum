@@ -39,12 +39,9 @@ class Main is Game
         // get the maps
 //        LoadMapFolder("./Maps")
 //        RealRooms:GetFromFront():AddRoomToGame(me)
-//	GameRoom_Level TestRoom
-//	TestRoom:LoadRoomFromFile("Maps/TestMap.xml",CoreLibrary)
-//	TestRoom:AddRoomToGame(me)
-        GameObject_ULTRA ULTRAZORD
-        ULTRAZORD:LoadAThing()
-        GameObject_Player TestPlayer
+	GameRoom_Level TestRoom
+	TestRoom:LoadRoomFromFile("Maps/TestMap.xml",CoreLibrary)
+	TestRoom:AddRoomToGame(me)
 
         // Draw cursor
         Add(GameMouseListener)

@@ -12,7 +12,6 @@ class GameRoom_Level is GameRoom
 
     action AddRoomToGame(Game game)
         parent:GameRoom:AddRoomToGame(game)
-        PCan:AddToGame(game)
         integer i = 0
         repeat while i < PAmmo:GetSize()
             PAmmo:Get(i):AddToGame(game)
@@ -22,7 +21,6 @@ class GameRoom_Level is GameRoom
 
     action RemoveRoomFromGame(Game game)
         parent:GameRoom:RemoveRoomFromGame(game)
-        PCan:RemoveFromGame(game)
         integer i = 0
         repeat while i < PAmmo:GetSize()
             PAmmo:Get(i):RemoveFromGame(game)
@@ -97,6 +95,7 @@ class GameRoom_Level is GameRoom
             if (NextObject:GetPlayerSub())
                 // if it's a player substitute marker, substitute!
                 NextObject = PCan
+                PCan:RefreshGameObject()
             end
 	    integer j = 0
 	    repeat while j < TargetTree:Children:GetSize()
