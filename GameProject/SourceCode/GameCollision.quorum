@@ -9,9 +9,9 @@ use GameObject
 class GameCollision is CollisionListener2D, Drawable 
     public GameRoom roo
     integer score = 0
+    Label label
 
     action BeginCollision(CollisionEvent2D event)
-        Label label
         label:SetText("Hello world!")
         label:SetPosition(300, 200)
         Add(label)
