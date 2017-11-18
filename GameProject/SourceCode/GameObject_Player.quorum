@@ -31,6 +31,9 @@ class GameObject_Player is GameObject, GameKeyboard
     Math MyMath
     InputMonitor monitor
     KeyboardEvent keys
+    Drawable Counter1
+    Drawable Counter2
+    integer currentCount = 0
 //    Game parentGame // I hate this hack and want it gone ASAP
     
     action FireCannon(integer AmmoRef)
@@ -47,6 +50,7 @@ class GameObject_Player is GameObject, GameKeyboard
         toFire:ApplyForceToCenter(MyForce)
         toFire:Show()
         myAmmo:RemoveAt(AmmoRef)
+        currentCount = myAmmo:GetSize()
         
         //Audio
         Audio cannonFire
@@ -90,6 +94,7 @@ class GameObject_Player is GameObject, GameKeyboard
         parent:GameObject:AddToGame(newGame)
 	AddKeyboardToGame(newGame)
 	SetupPowerBars(newGame)
+        SetupAmmoCount(newGame)
     end
 
     action SetupPowerBars (Game newGame)
@@ -104,7 +109,65 @@ class GameObject_Player is GameObject, GameKeyboard
     action UpdatePowerBar
 	PowerBar:LoadFilledRectangle(20,cast(integer,Force)/500)
     end
-
+    
+    action LoadCount (Drawable d, integer digit)
+        integer tmp = digit
+                if tmp = 0 
+                    d:Load("assets/UI/Symbols & Text/SYMB_0.png")
+                else if tmp = 1 
+                    d:Load("assets/UI/Symbols & Text/SYMB_1.png")
+                else if tmp = 2
+                    d:Load("assets/UI/Symbols & Text/SYMB_2.png")
+                else if tmp = 3
+                    d:Load("assets/UI/Symbols & Text/SYMB_3.png")
+                else if tmp = 4
+                    d:Load("assets/UI/Symbols & Text/SYMB_4.png")
+                else if tmp = 5
+                    d:Load("assets/UI/Symbols & Text/SYMB_5.png")
+                else if tmp = 6
+                    d:Load("assets/UI/Symbols & Text/SYMB_6.png")
+                else if tmp = 7
+                    d:Load("assets/UI/Symbols & Text/SYMB_7.png")
+                else if tmp = 8 
+                    d:Load("assets/UI/Symbols & Text/SYMB_8.png")
+                else if tmp = 9
+                    d:Load("assets/UI/Symbols & Text/SYMB_9.png")
+                    end 
+                    end
+                    end
+                    end
+                    end
+                    end
+                    end
+                    end
+                    end
+                    end
+    end
+    action SetupAmmoCount (Game newGame)
+            integer count = myAmmo:GetSize()
+            integer tmp = 0
+            currentCount = myAmmo:GetSize()
+            tmp = count mod 10
+            if (tmp = 0)
+                LoadCount(Counter2, count)
+            else LoadCount(Counter2, tmp)
+            end
+            count = count / 10
+            LoadCount(Counter1, count)
+        Counter1:SetPosition(20,200)
+        Counter2:SetPosition(70,200)
+        newGame:Add(Counter1)
+        newGame:Add(Counter2)
+    end
+    action UpdateAmmoCount 
+        integer tmp = myAmmo:GetSize()
+        currentCount = tmp
+        tmp = tmp mod 10
+        LoadCount(Counter2, tmp)
+        tmp = tmp / 10
+        LoadCount(Counter1, tmp)
+    end
+    
     action RemoveFromGame (Game newGame)
         parent:GameObject:RemoveFromGame(newGame)
         newGame:RemoveKeyboardListener(me)
@@ -125,7 +188,7 @@ class GameObject_Player is GameObject, GameKeyboard
     action GetVelocityY() returns number
         return -(MyMath:Sine(GetRotationInRadians()) * Force)
     end
-
+    
     action removeAmmo
  
     end
@@ -139,6 +202,7 @@ class GameObject_Player is GameObject, GameKeyboard
             FireCannon(0)
 	    ResetForce()
 	    UpdatePowerBar()
+            UpdateAmmoCount()
 	end
     end
 

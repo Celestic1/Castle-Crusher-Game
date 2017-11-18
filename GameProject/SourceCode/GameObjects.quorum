@@ -77,6 +77,8 @@ class GameObjects
             tmpObj:InitGameObject(src:GetNewMouseFollowerAttribs(objX,objY))
         elseif  objName = "BG"
             tmpObj:InitGameObject(src:GetNewBackgroundAttribs())
+        /*elseif objName = "Z"
+            tmpObj:InitGameObject(src:GetNewNumber(objX, objY))*/
         end
 
         //tmpObj:SetPosition(objX+xxx, objY+yyy)
