@@ -74,7 +74,7 @@ class GameObject is Drawable
     end
 
     action SetPlayerSub (boolean newPlay)
-        IsPlayerSub = true
+        IsPlayerSub = newPlay
     end
     action GetPlayerSub returns boolean
         return IsPlayerSub
