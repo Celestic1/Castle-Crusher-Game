@@ -62,9 +62,10 @@ class Main is Game
 
 	    if tmpDraw:GetAttributes():GetObjectName() = "objCannon"
                 // for reasons mysterious, you can't do this more than 31 times without a crash
-                    LoadStandardCannonBall (cast(GameObject_Player,tmpDraw), 20)
+                LoadStandardCannonBall (cast(GameObject_Player,tmpDraw), 20)
+                LoadHECannonBall (cast(GameObject_Player,tmpDraw), 20)
+                LoadAPCannonBall (cast(GameObject_Player,tmpDraw), 20)
 	    end
-            //end
         end
     end
 
@@ -72,11 +73,30 @@ class Main is Game
         repeat count times
             GameObject nextShot
             nextShot:InitGameObject(src:GetNewStandardCannonBallAttribs(0,0))
-            //nextShot:InitGameObject(src:GetNewHECannonBallAttribs(0,0))
-            //nextShot:InitGameObject(src:GetNewAPCannonBallAttribs(0,0))
             nextShot:AddToGame(me)
             PlayCan:LoadCannon(nextShot)
         end
+        output "Standard cannonball loaded!"
+    end
+
+    action LoadHECannonBall (GameObject_Player PlayCan, integer count)
+        repeat count times
+            GameObject nextShot
+            nextShot:InitGameObject(src:GetNewHECannonBallAttribs(0,0))
+            nextShot:AddToGame(me)
+            PlayCan:LoadCannon(nextShot)
+        end
+        output "HE cannonball loaded!"
+    end
+
+    action LoadAPCannonBall (GameObject_Player PlayCan, integer count)
+        repeat count times
+            GameObject nextShot
+            nextShot:InitGameObject(src:GetNewAPCannonBallAttribs(0,0))
+            nextShot:AddToGame(me)
+            PlayCan:LoadCannon(nextShot)
+        end
+        output "AP cannonball loaded!"
     end
 
 end

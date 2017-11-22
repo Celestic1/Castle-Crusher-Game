@@ -59,6 +59,7 @@ class GameObject_Attrib_List
 	newAttribs:SetPhysicsEnabled(true)   
 	newAttribs:SetResponsive(true)
         newAttribs:SetFriction(0.5)
+        newAttribs:SetMass(100)
 	newAttribs:SetBasePosition(posX, posY)
 	return newAttribs
     end
@@ -71,6 +72,7 @@ class GameObject_Attrib_List
 	newAttribs:SetPhysicsEnabled(true)
 	newAttribs:SetResponsive(true)
         newAttribs:SetFriction(0.5)
+        newAttribs:SetMass(100)
 	newAttribs:SetBasePosition(posX-40, posY)
 	return newAttribs
     end
@@ -83,6 +85,7 @@ class GameObject_Attrib_List
 	newAttribs:SetPhysicsEnabled(true)
 	newAttribs:SetResponsive(true)
         newAttribs:SetFriction(0.5)
+        newAttribs:SetMass(150)
 	newAttribs:SetBasePosition(posX, posY)
 	return newAttribs
     end
@@ -95,6 +98,7 @@ class GameObject_Attrib_List
 	newAttribs:SetPhysicsEnabled(true)
 	newAttribs:SetResponsive(true)
         newAttribs:SetFriction(0.5)
+        newAttribs:SetMass(150)
 	newAttribs:SetBasePosition(posX-40, posY)
 	return newAttribs
     end
@@ -137,7 +141,7 @@ class GameObject_Attrib_List
         newAttribs:SetTangible(true)
         newAttribs:SetPhysicsEnabled(true)
         newAttribs:SetMovable(true)
-        newAttribs:SetMass(10)
+        newAttribs:SetMass(50)
         newAttribs:SetRestitution(0.5)
         newAttribs:SetFriction(0.5)
         return newAttribs
@@ -150,7 +154,7 @@ class GameObject_Attrib_List
         newAttribs:SetTangible(true)
         newAttribs:SetPhysicsEnabled(true)
         newAttribs:SetMovable(true)
-        newAttribs:SetMass(10)
+        newAttribs:SetMass(30)
         newAttribs:SetRestitution(0.5)
         newAttribs:SetFriction(0.5)
         return newAttribs

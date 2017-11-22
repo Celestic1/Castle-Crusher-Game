@@ -81,31 +81,7 @@ class GameCollision is CollisionListener2D
                 itemA:SetUnmovable()
             end
         end
-        // Standard will do nothing to brick objects
-        if itemA:GetName() = "objStandardCannonBall" and itemB:GetName() = "objBrickBox"
-            itemB:SetUnmovable()
-        elseif itemA:GetName() = "objBrickBox" and itemB:GetName() = "objStandardCannonBall"
-            itemA:SetUnmovable()
-        end
-
-        if itemA:GetName() = "objStandardCannonBall" and itemB:GetName() = "objBrickRectangle"
-            itemB:SetUnmovable()
-        elseif itemA:GetName() = "objBrickRectangle" and itemB:GetName() = "objStandardCannonBall"
-            itemA:SetUnmovable()
-        end
-        // AP will do nothing to brick objects
-        if itemA:GetName() = "objAPCannonBall" and itemB:GetName() = "objBrickBox"
-            itemB:SetUnmovable()
-        elseif itemA:GetName() = "objBrickBox" and itemB:GetName() = "objAPCannonBall"
-            itemA:SetUnmovable()
-        end
-
-        if itemA:GetName() = "objAPCannonBall" and itemB:GetName() = "objBrickRectangle"
-            itemB:SetUnmovable()
-        elseif itemA:GetName() = "objBrickRectangle" and itemB:GetName() = "objAPCannonBall"
-            itemA:SetUnmovable()
-        end
-       
+            
         if itemA:GetName() = "objHECannonBall" and itemB:GetName() = "objFish"
             force = itemA:GetLinearVelocity()
             if force:Length() > 400
@@ -149,30 +125,6 @@ class GameCollision is CollisionListener2D
             else
                 itemA:SetUnmovable()
             end
-        end
-        // Standard will do nothing to steel objects
-        if itemA:GetName() = "objStandardCannonBall" and itemB:GetName() = "objSteelBox"
-            itemB:SetUnmovable()
-        elseif itemA:GetName() = "objSteelBox" and itemB:GetName() = "objStandardCannonBall"
-            itemA:SetUnmovable()
-        end
-
-        if itemA:GetName() = "objStandardCannonBall" and itemB:GetName() = "objSteelRectangle"
-            itemB:SetUnmovable()
-        elseif itemA:GetName() = "objSteelRectangle" and itemB:GetName() = "objStandardCannonBall"
-            itemA:SetUnmovable()
-        end
-        // HE will do nothing to wooden objects
-        if itemA:GetName() = "objHECannonBall" and itemB:GetName() = "objSteelBox"
-            itemB:SetUnmovable()
-        elseif itemA:GetName() = "objSteelBox" and itemB:GetName() = "objHECannonBall"
-            itemA:SetUnmovable()
-        end
-
-        if itemA:GetName() = "objHECannonBall" and itemB:GetName() = "objSteelRectangle"
-            itemB:SetUnmovable()
-        elseif itemA:GetName() = "objSteelRectangle" and itemB:GetName() = "objHECannonBall"
-            itemA:SetUnmovable()
         end
 
         if itemA:GetName() = "objAPCannonBall" and itemB:GetName() = "objFish"
