@@ -17,15 +17,11 @@ class GameCollision is CollisionListener2D
             force = itemA:GetLinearVelocity()
             if force:Length() > 400
                 roo:QueueDelObj(itemB)
-            else
-                itemB:SetUnmovable()
             end
         elseif itemA:GetName() = "objWoodenBox" and itemB:GetName() = "objStandardCannonBall"
             force = itemB:GetLinearVelocity()
             if force:Length() > 400
                 roo:QueueDelObj(itemA)
-            else
-                itemA:SetUnmovable()
             end
         end
 
@@ -33,28 +29,12 @@ class GameCollision is CollisionListener2D
             force = itemA:GetLinearVelocity()
             if force:Length() > 400
                 roo:QueueDelObj(itemB)
-            else
-                itemB:SetUnmovable()
             end
         elseif itemA:GetName() = "objWoodenRectangle" and itemB:GetName() = "objStandardCannonBall"
             force = itemB:GetLinearVelocity()
             if force:Length() > 400
                 roo:QueueDelObj(itemA)
-            else
-                itemA:SetUnmovable()
             end
-        end
-
-        if itemA:GetName() = "objHECannonBall" and itemB:GetName() = "objWoodenBox"
-            itemB:SetUnmovable()
-        elseif itemA:GetName() = "objWoodenBox" and itemB:GetName() = "objHECannonBall"
-            itemA:SetUnmovable()
-        end
-
-        if itemA:GetName() = "objHECannonBall" and itemB:GetName() = "objWoodenRectangle"
-            itemB:SetUnmovable()
-        elseif itemA:GetName() = "objWoodenRectangle" and itemB:GetName() = "objHECannonBall"
-            itemA:SetUnmovable()
         end
 
         if itemA:GetName() = "objStandardCannonBall" and itemB:GetName() = "objFish"
@@ -101,7 +81,7 @@ class GameCollision is CollisionListener2D
                 itemA:SetUnmovable()
             end
         end
-
+        // Standard will do nothing to brick objects
         if itemA:GetName() = "objStandardCannonBall" and itemB:GetName() = "objBrickBox"
             itemB:SetUnmovable()
         elseif itemA:GetName() = "objBrickBox" and itemB:GetName() = "objStandardCannonBall"
@@ -111,6 +91,18 @@ class GameCollision is CollisionListener2D
         if itemA:GetName() = "objStandardCannonBall" and itemB:GetName() = "objBrickRectangle"
             itemB:SetUnmovable()
         elseif itemA:GetName() = "objBrickRectangle" and itemB:GetName() = "objStandardCannonBall"
+            itemA:SetUnmovable()
+        end
+        // AP will do nothing to brick objects
+        if itemA:GetName() = "objAPCannonBall" and itemB:GetName() = "objBrickBox"
+            itemB:SetUnmovable()
+        elseif itemA:GetName() = "objBrickBox" and itemB:GetName() = "objAPCannonBall"
+            itemA:SetUnmovable()
+        end
+
+        if itemA:GetName() = "objAPCannonBall" and itemB:GetName() = "objBrickRectangle"
+            itemB:SetUnmovable()
+        elseif itemA:GetName() = "objBrickRectangle" and itemB:GetName() = "objAPCannonBall"
             itemA:SetUnmovable()
         end
        
@@ -127,5 +119,72 @@ class GameCollision is CollisionListener2D
         end
         //*************************************************************************************************************************************************************
         // Armor-piercing(AP) cannon ball can ONLY destory steel stuff
+        if itemA:GetName() = "objAPCannonBall" and itemB:GetName() = "objSteelBox"
+            force = itemA:GetLinearVelocity()
+            if force:Length() > 400
+                roo:QueueDelObj(itemB)
+            else
+                itemB:SetUnmovable()
+            end
+        elseif itemA:GetName() = "objSteelBox" and itemB:GetName() = "objAPCannonBall"
+            force = itemB:GetLinearVelocity()
+            if force:Length() > 400
+                roo:QueueDelObj(itemA)
+            else
+                itemA:SetUnmovable()
+            end
+        end
+
+        if itemA:GetName() = "objAPCannonBall" and itemB:GetName() = "objSteelRectangle"
+            force = itemA:GetLinearVelocity()
+            if force:Length() > 400
+                roo:QueueDelObj(itemB)
+            else
+                itemB:SetUnmovable()
+            end
+        elseif itemA:GetName() = "objSteelRectangle" and itemB:GetName() = "objAPCannonBall"
+            force = itemB:GetLinearVelocity()
+            if force:Length() > 400
+                roo:QueueDelObj(itemA)
+            else
+                itemA:SetUnmovable()
+            end
+        end
+        // Standard will do nothing to steel objects
+        if itemA:GetName() = "objStandardCannonBall" and itemB:GetName() = "objSteelBox"
+            itemB:SetUnmovable()
+        elseif itemA:GetName() = "objSteelBox" and itemB:GetName() = "objStandardCannonBall"
+            itemA:SetUnmovable()
+        end
+
+        if itemA:GetName() = "objStandardCannonBall" and itemB:GetName() = "objSteelRectangle"
+            itemB:SetUnmovable()
+        elseif itemA:GetName() = "objSteelRectangle" and itemB:GetName() = "objStandardCannonBall"
+            itemA:SetUnmovable()
+        end
+        // HE will do nothing to wooden objects
+        if itemA:GetName() = "objHECannonBall" and itemB:GetName() = "objSteelBox"
+            itemB:SetUnmovable()
+        elseif itemA:GetName() = "objSteelBox" and itemB:GetName() = "objHECannonBall"
+            itemA:SetUnmovable()
+        end
+
+        if itemA:GetName() = "objHECannonBall" and itemB:GetName() = "objSteelRectangle"
+            itemB:SetUnmovable()
+        elseif itemA:GetName() = "objSteelRectangle" and itemB:GetName() = "objHECannonBall"
+            itemA:SetUnmovable()
+        end
+
+        if itemA:GetName() = "objAPCannonBall" and itemB:GetName() = "objFish"
+            force = itemA:GetLinearVelocity()
+            if force:Length() > 400
+                roo:QueueDelObj(itemB)
+            end
+        elseif itemA:GetName() = "objFish" and itemB:GetName() = "objAPCannonBall"
+            force = itemB:GetLinearVelocity()
+            if force:Length() > 400
+                roo:QueueDelObj(itemA)
+            end
+        end
     end
 end

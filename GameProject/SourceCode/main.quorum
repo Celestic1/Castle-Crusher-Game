@@ -62,7 +62,7 @@ class Main is Game
 
 	    if tmpDraw:GetAttributes():GetObjectName() = "objCannon"
                 // for reasons mysterious, you can't do this more than 31 times without a crash
-                    LoadStandardCannonBall (cast(GameObject_Player,tmpDraw), 10)
+                    LoadStandardCannonBall (cast(GameObject_Player,tmpDraw), 20)
 	    end
             //end
         end
@@ -73,6 +73,7 @@ class Main is Game
             GameObject nextShot
             nextShot:InitGameObject(src:GetNewStandardCannonBallAttribs(0,0))
             //nextShot:InitGameObject(src:GetNewHECannonBallAttribs(0,0))
+            //nextShot:InitGameObject(src:GetNewAPCannonBallAttribs(0,0))
             nextShot:AddToGame(me)
             PlayCan:LoadCannon(nextShot)
         end

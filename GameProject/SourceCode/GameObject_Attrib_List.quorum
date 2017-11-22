@@ -20,6 +20,7 @@ class GameObject_Attrib_List
 	newAttribs:SetSpritePath("resources/sprBrick_0.png")
 	newAttribs:SetTangible(true)
 	newAttribs:SetPhysicsEnabled(true)
+        newAttribs:SetFriction(0.5)
 	newAttribs:SetBasePosition(posX, posY)
 	return newAttribs
     end
@@ -31,6 +32,8 @@ class GameObject_Attrib_List
 	newAttribs:SetTangible(true)
 	newAttribs:SetPhysicsEnabled(true)
 	newAttribs:SetResponsive(true)
+        newAttribs:SetFriction(0.5)
+        newAttribs:SetMass(50)
 	newAttribs:SetBasePosition(posX, posY)
 	return newAttribs
     end
@@ -42,6 +45,8 @@ class GameObject_Attrib_List
 	newAttribs:SetTangible(true)
 	newAttribs:SetPhysicsEnabled(true)
 	newAttribs:SetResponsive(true)
+        newAttribs:SetFriction(0.5)
+        newAttribs:SetMass(50)
 	newAttribs:SetBasePosition(posX-40, posY)
 	return newAttribs
     end
@@ -53,6 +58,7 @@ class GameObject_Attrib_List
 	newAttribs:SetTangible(true)
 	newAttribs:SetPhysicsEnabled(true)   
 	newAttribs:SetResponsive(true)
+        newAttribs:SetFriction(0.5)
 	newAttribs:SetBasePosition(posX, posY)
 	return newAttribs
     end
@@ -64,6 +70,7 @@ class GameObject_Attrib_List
 	newAttribs:SetTangible(true)
 	newAttribs:SetPhysicsEnabled(true)
 	newAttribs:SetResponsive(true)
+        newAttribs:SetFriction(0.5)
 	newAttribs:SetBasePosition(posX-40, posY)
 	return newAttribs
     end
@@ -74,8 +81,8 @@ class GameObject_Attrib_List
 	newAttribs:SetSpritePath("resources/steel_box.png")
 	newAttribs:SetTangible(true)
 	newAttribs:SetPhysicsEnabled(true)
-        
 	newAttribs:SetResponsive(true)
+        newAttribs:SetFriction(0.5)
 	newAttribs:SetBasePosition(posX, posY)
 	return newAttribs
     end
@@ -87,6 +94,7 @@ class GameObject_Attrib_List
 	newAttribs:SetTangible(true)
 	newAttribs:SetPhysicsEnabled(true)
 	newAttribs:SetResponsive(true)
+        newAttribs:SetFriction(0.5)
 	newAttribs:SetBasePosition(posX-40, posY)
 	return newAttribs
     end
@@ -115,6 +123,19 @@ class GameObject_Attrib_List
         newAttribs:SetBasePosition(posX, posY)
         newAttribs:SetTangible(true)
         newAttribs:SetPhysicsEnabled(true)
+        //newAttribs:SetMovable(true)
+        newAttribs:SetMass(10)
+        newAttribs:SetRestitution(0.5)
+        //newAttribs:SetFriction(0.5)
+        return newAttribs
+    end
+
+    action GetNewHECannonBallAttribs(number posX, number posY) returns GameObject_Attribs        
+        GameObject_Attribs newAttribs
+        newAttribs:SetObjectName("objHECannonBall")
+        newAttribs:SetBasePosition(posX, posY)
+        newAttribs:SetTangible(true)
+        newAttribs:SetPhysicsEnabled(true)
         newAttribs:SetMovable(true)
         newAttribs:SetMass(10)
         newAttribs:SetRestitution(0.5)
@@ -122,9 +143,9 @@ class GameObject_Attrib_List
         return newAttribs
     end
 
-    action GetNewHECannonBallAttribs(number posX, number posY) returns GameObject_Attribs        
+    action GetNewAPCannonBallAttribs(number posX, number posY) returns GameObject_Attribs        
         GameObject_Attribs newAttribs
-        newAttribs:SetObjectName("objHECannonBall")
+        newAttribs:SetObjectName("objAPCannonBall")
         newAttribs:SetBasePosition(posX, posY)
         newAttribs:SetTangible(true)
         newAttribs:SetPhysicsEnabled(true)
