@@ -5,20 +5,35 @@ use Libraries.Game.Game
 
 class Clickable is Drawable, MouseListener
     
-    private GameFunction click
+    Game game
+    GameRoom room
+    //MainMenu mainmenu
     
+
     // Ensures this object will receive mouse events when it is clicked
     on create
         AddMouseListener(me)
     end
-
+/*
     action LoadClick(GameFunction c)
         click = c
+    end*/
+
+    action setGameRoom(GameRoom r)
+        room = r
+    end
+
+    action setGame(Game g)
+        game = g
     end
 
     // When mouse is clicked, it acces the GameFunction class's run function
     action ClickedMouse(MouseEvent event)
-        click:run(event)
+        room:LoadRoom("testMap.txt")
+        game:Exit()
+        //mainmenu:DeleteMenu()
+        //Remove(me)
+        //click:run(event)
     end
 
 end

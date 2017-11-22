@@ -1,10 +1,7 @@
 use Libraries.Interface.Events.MouseEvent
-use Libraries.Game.Game
-use Libraries.Game.Graphics.Drawable
 
 class startFunction is GameFunction
     
-    Game game
     GameRoom room
     MainMenu mainmenu
 
@@ -19,10 +16,6 @@ class startFunction is GameFunction
 
     action setMainMenu(MainMenu m)
         mainmenu = m
-    end
-
-    action setGame(Game g)
-        game = g
     end
 
 end
