@@ -1,4 +1,4 @@
-use Libraries.Game.Game
+/*use Libraries.Game.Game
 use Libraries.Interface.Events.KeyboardListener
 use Libraries.Interface.Events.KeyboardEvent
 use Libraries.Game.Graphics.Drawable
@@ -15,7 +15,7 @@ class PlayerCannon is KeyboardListener, Drawable
     number velScaleFactor = 400
     number offSideScale = 4
     Drawable yBar
-/*
+
     action FireCannon(Drawable newProj)
         parentGame:Add(newProj)
 	newProj:SetPosition(me:GetGlobalX(),me:GetGlobalY())
@@ -26,16 +26,19 @@ class PlayerCannon is KeyboardListener, Drawable
         yVel = 10000
 	xBar:LoadFilledRectangle(cast(integer,xVel/velScaleFactor),cast(integer,me:GetHeight()/offSideScale))
 	yBar:LoadFilledRectangle(cast(integer,me:GetWidth()/offSideScale), cast(integer,yVel/velScaleFactor))
+
+
     end
-*/
-/*    action PressedKey(KeyboardEvent event)
+
+
+    action PressedKey(KeyboardEvent event)
         if event:keyCode = event:SPACE
             Drawable cannonBall
 	    cannonBall:LoadFilledCircle(8)
 	    cannonBall:EnablePhysics(true)
             cannonBall:SetResponsive()
             cannonBall:SetCollidable(true)
-            //FireCannon(cannonBall)
+            FireCannon(cannonBall)
 	elseif event:keyCode = event:A
 	    xVel = xVel - 4000
 	    if xVel < 0
@@ -54,7 +57,7 @@ class PlayerCannon is KeyboardListener, Drawable
 	xBar:LoadFilledRectangle(cast(integer,xVel/velScaleFactor),cast(integer,me:GetHeight()/offSideScale))
 	yBar:LoadFilledRectangle(cast(integer,me:GetWidth()/offSideScale), cast(integer,yVel/velScaleFactor))
     end
-  */  
+    
     on create
         xVel = 10000
         yVel = 10000
@@ -73,4 +76,9 @@ class PlayerCannon is KeyboardListener, Drawable
 	xBar:SetPosition(xPos, yPos)
 	yBar:SetPosition(xPos, yPos)
     end
+
+end
+*/
+
+class PlayerCannon
 end

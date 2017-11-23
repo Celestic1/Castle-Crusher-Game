@@ -1,62 +1,107 @@
-use Libraries.Game.Graphics.Drawable
-use GameObject_Attribs
 use Libraries.Game.Game
+use Libraries.Game.Graphics.Drawable
+use Libraries.Compute.Vector2
 
 class GameObject is Drawable
-    // myAttributes is the base state of an object (not necessarily the current one).
-    // Whenever we reset the object, or create a new one, we use its attributes.
-    GameObject_Attribs myAttribs
-    action SetAttributes (GameObject_Attribs newAttribs)
-	myAttribs = newAttribs
-    end
-    action GetAttributes returns GameObject_Attribs
-	return myAttribs
-    end
+    private text SpritePath = "resources/sprFesh-Trimmed.png"
+    private Vector2 StartPosition
+    private boolean IsPlayerSub = false
 
-    // Here, we use the attributes to set our GameObject the way we want it.
-    // We have a varient that also sets up our attributes for us!
-    action InitGameObject(GameObject_Attribs NewObjAtr)
-	SetAttributes(NewObjAtr)
-	me:InitGameObject()
-    end
+    // loads the things that aren't auto-loaded to begin with
+/*
     action InitGameObject
-	me:SetName(myAttribs:GetObjectName())
-	if myAttribs:CheckForSpritePath()
-	    me:Load(myAttribs:GetSpritePath())
-        else
-            me:LoadFilledCircle(5)
+	if HasSpritePath
+	    me:Load(SpritePath)
+	else
+	    me:LoadFilledCircle(5)  // just so we load SOMEthing
 	end
-        if not IsLoaded()
-            output me:GetName()
-            output "did not load"
-        end
-	// if it's not tangible, it doesn't have physics; skip the other steps
-	if myAttribs:GetTangible()
-	    if myAttribs:GetPhysicsEnabled()
-		me:EnablePhysics(true)
-                if not myAttribs:GetMovable()
-                    me:SetUnmovable()
-                end
-                me:SetMass(myAttribs:GetMass())
-                me:SetFriction(myAttribs:GetFriction())
-                me:SetRestitution(myAttribs:GetRestitution())
-	    end
-	    if myAttribs:GetResponsive()
-		me:SetResponsive()
-	    end
-	    if myAttribs:GetCollidable()
-		me:SetCollidable(true)
-	    end
-	end
-	// do set up position though
-	me:SetPosition(myAttribs:GetBasePositionX(), myAttribs:GetBasePositionY())
+	me:SetPosition(GetStartPositionX(), GetStartPositionY())
     end
+*/
 
+    // AddToGame and RemoveFromGame give you a place to do special behavior
+    // when you get added or removed.
     action AddToGame (Game newGame)
         newGame:Add(me)
     end
 
     action RemoveFromGame (Game newGame)
         newGame:Remove(me)
+    end
+
+    on create
+	// constructor does some basic work to ensure we have an object at all
+	SetStartPosition(0,0)
+//	me:RefreshGameObject()
+    end
+
+    // function to refresh object and make sure it's what and where we think it is
+    action RefreshGameObject
+	Load(SpritePath)
+	SetPosition(GetStartPositionX(),GetStartPositionY())
+    end
+
+    // Some getters and setter
+    action SetStartPosition (Vector2 newPos)
+	StartPosition:Set(newPos)
+    end
+    action SetStartPosition (number newX, number newY)
+	StartPosition:Set(newX, newY)
+    end
+    action SetStartPositionX (number newX)
+	StartPosition:SetX(newX)
+    end
+    action SetStartPositionY (number newY)
+	StartPosition:SetY(newY)
+    end
+    action GetStartPosition returns Vector2
+	return StartPosition
+    end
+    action GetStartPositionX returns number
+	return StartPosition:GetX()
+    end
+    action GetStartPositionY returns number
+	return StartPosition:GetY()
+    end
+
+    action SetSpritePath (text newPath)
+	SpritePath = newPath
+	HasSpritePath = true
+    end
+    action GetSpritePath returns text
+	return SpritePath
+    end
+
+    action SetPlayerSub (boolean newPlay)
+        IsPlayerSub = newPlay
+    end
+    action GetPlayerSub returns boolean
+        return IsPlayerSub
+    end
+
+    action Copy returns GameObject
+	GameObject NewObject
+	NewObject:QuickCopy(me)
+	NewObject:SetStartPosition(me:GetStartPosition())
+	NewObject:SetSpritePath(me:GetSpritePath())
+        NewObject:SetPlayerSub(me:GetPlayerSub())
+
+        NewObject:SetName(me:GetName())
+        if me:IsPhysicsEnabled()
+            NewObject:EnablePhysics(true)
+            if me:IsUnmovable()
+                NewObject:SetUnmovable()
+            end
+            if me:IsResponsive()
+                NewObject:SetResponsive()
+            end
+            NewObject:SetMass(me:GetMass())
+            NewObject:SetFriction(me:GetFriction())
+            NewObject:SetRestitution(me:GetRestitution())
+        end
+        NewObject:SetCollidable(me:IsCollidable())
+
+        NewObject:RefreshGameObject()
+	return NewObject
     end
 end
