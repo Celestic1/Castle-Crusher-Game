@@ -13,16 +13,6 @@ class GameObject_Attribs
     action GetObjectName returns text
 	return ObjectName
     end
-    
-    //Hit Points of an object
-    private integer HP = 0
-    action GetHealth returns integer
-        return HP
-    end
-    
-    action SetHealth (integer hp)
-        HP = hp
-    end
 
     // SpritePath is a path for a sprite. THIS MAY NOT BE ADEQUATE.
     // If we try to have animations or more than one sprite, we may need

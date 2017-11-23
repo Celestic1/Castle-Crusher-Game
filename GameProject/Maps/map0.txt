@@ -1,0 +1,10 @@
+[MAP]
+B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B
+B, ,L,F,L,L,F,L,L,F,L,L,F,L,L,F,L,L,F,L,L,F,L, ,B,F,F,L
+B, , ,L, , ,L, , ,L, , ,L, , ,L, , ,L, , ,L, , ,B,L,L,L
+B, , ,C, , , , , , , , , , , , , , , , , , , , ,B, ,F, , , , , ,F,F,F,F,F, , , , ,F, ,
+B, , , , , , , , , ,SB, , , , , , , , , , , , , ,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B
+B, , ,X, , , , , , , , , , , , , , , , , , , , ,B
+B, ,X,X,X, , , , , , , , , , , , , , , , , ,K, ,B
+B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B
+[MAPEND]
