@@ -1,0 +1,31 @@
+use Libraries.Game.Graphics.Drawable
+use Libraries.Containers.List
+use Libraries.Game.Game
+
+class LevelSelector is Drawable
+
+    levelOneFunction lvlone
+    public Clickable first
+    GameRoom room
+    Drawable selectScreen
+    List<text> levelList
+
+    action constructor(Drawable s,List<text> l,GameRoom r)
+        selectScreen = s
+        levelList = l
+        room = r
+        Load("/assets/snowBackground.png")
+        first:Load("/assets/images.png")
+    end
+
+    action Render()
+        selectScreen:Add(me)
+        first:SetPosition(100,100)
+        Add(first)
+    end
+
+    action RemoveMenu()
+        selectScreen:Remove(me)
+    end
+
+end
