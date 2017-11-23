@@ -31,9 +31,15 @@ class GameObject_Player is GameObject, GameKeyboard
     Math MyMath
     InputMonitor monitor
     KeyboardEvent keys
-    Drawable Counter1
-    Drawable Counter2
+    Drawable Counter1 //10s place 
+    Drawable Counter2   // 0th place
     integer currentCount = 0
+    integer currentScore = 0
+    Drawable Score0
+    Drawable Score1
+    Drawable Score2
+    Drawable Score3
+
 //    Game parentGame // I hate this hack and want it gone ASAP
     
     action FireCannon(integer AmmoRef)
@@ -43,12 +49,11 @@ class GameObject_Player is GameObject, GameKeyboard
         end
         GameObject toFire = myAmmo:Get(AmmoRef)
         toFire:SetPosition(GetBarrelX()-toFire:GetWidth()/2,GetBarrelY()-toFire:GetHeight()/2)
-        //output "(" + me:GetGlobalX() + " + " + me:GetWidth()/1.1 + "," + me:GetGlobalY() + " - " + me:GetRotation() + ") = (" + (me:GetGlobalX()+me:GetWidth()/1.1) + "," + (me:GetGlobalY()-me:GetRotation()) + ")"
         MyForce:Set(GetVelocityX(),GetVelocityY())
-        //output "(" + MyForce:GetX() + "," + MyForce:GetY() + ") vs (" + ThisLanguageSucks:GetX() + "," + ThisLanguageSucks:GetY() + ")"
         toFire:SetResponsive()
         toFire:ApplyForceToCenter(MyForce)
         toFire:Show()
+        output toFire:IsCollidable()
         myAmmo:RemoveAt(AmmoRef)
         currentCount = myAmmo:GetSize()
         
@@ -95,6 +100,7 @@ class GameObject_Player is GameObject, GameKeyboard
 	AddKeyboardToGame(newGame)
 	SetupPowerBars(newGame)
         SetupAmmoCount(newGame)
+        SetupScore(newGame)
     end
 
     action SetupPowerBars (Game newGame)
@@ -114,51 +120,78 @@ class GameObject_Player is GameObject, GameKeyboard
         integer tmp = digit
                 if tmp = 0 
                     d:Load("assets/UI/Symbols & Text/SYMB_0.png")
-                else if tmp = 1 
+                elseif tmp = 1 
                     d:Load("assets/UI/Symbols & Text/SYMB_1.png")
-                else if tmp = 2
+                elseif tmp = 2
                     d:Load("assets/UI/Symbols & Text/SYMB_2.png")
-                else if tmp = 3
+                elseif tmp = 3
                     d:Load("assets/UI/Symbols & Text/SYMB_3.png")
-                else if tmp = 4
+                elseif tmp = 4
                     d:Load("assets/UI/Symbols & Text/SYMB_4.png")
-                else if tmp = 5
+                elseif tmp = 5
                     d:Load("assets/UI/Symbols & Text/SYMB_5.png")
-                else if tmp = 6
+                elseif tmp = 6
                     d:Load("assets/UI/Symbols & Text/SYMB_6.png")
-                else if tmp = 7
+                elseif tmp = 7
                     d:Load("assets/UI/Symbols & Text/SYMB_7.png")
-                else if tmp = 8 
+                elseif tmp = 8 
                     d:Load("assets/UI/Symbols & Text/SYMB_8.png")
-                else if tmp = 9
+                elseif tmp = 9
                     d:Load("assets/UI/Symbols & Text/SYMB_9.png")
-                    end 
-                    end
-                    end
-                    end
-                    end
-                    end
-                    end
-                    end
-                    end
-                    end
+                end 
     end
+
+    action SetupScore (Game newGame)
+        integer score = currentScore
+        integer tmp = 0
+        tmp = score mod 10
+        LoadCount(Score3, tmp)
+        score = score / 10
+        tmp = score mod 10
+        LoadCount(Score2, tmp)
+        score = score / 10
+        tmp = score mod 10
+        LoadCount(Score1, tmp)
+        score = score / 10
+        LoadCount(Score0, score)
+        Score3:SetPosition(20,300)
+        Score2:SetPosition(70,300)
+        Score1:SetPosition(120, 300)
+        Score0:SetPosition(170, 300)
+        newGame:Add(Score3)
+        newGame:Add(Score2)
+        newGame:Add(Score1)
+        newGame:Add(Score0)
+    end
+    
+    action UpdateScore 
+        integer score = currentScore
+        integer tmp = score mod 10
+        LoadCount(Score3, tmp)
+        score = score / 10
+        tmp = score mod 10
+        LoadCount(Score2, tmp)
+        score = score / 10
+        tmp = score mod 10
+        LoadCount(Score1, tmp)
+        score = score / 10
+        LoadCount(Score0, score)
+    end    
+    
     action SetupAmmoCount (Game newGame)
-            integer count = myAmmo:GetSize()
-            integer tmp = 0
-            currentCount = myAmmo:GetSize()
-            tmp = count mod 10
-            if (tmp = 0)
-                LoadCount(Counter2, count)
-            else LoadCount(Counter2, tmp)
-            end
-            count = count / 10
-            LoadCount(Counter1, count)
+        integer count = myAmmo:GetSize()
+        integer tmp = count
+        currentCount = myAmmo:GetSize()
+        tmp = count mod 10
+        LoadCount(Counter2, tmp)
+        count = count / 10
+        LoadCount(Counter1, count)
         Counter1:SetPosition(20,200)
         Counter2:SetPosition(70,200)
         newGame:Add(Counter1)
         newGame:Add(Counter2)
     end
+    
     action UpdateAmmoCount 
         integer tmp = myAmmo:GetSize()
         currentCount = tmp
@@ -203,6 +236,7 @@ class GameObject_Player is GameObject, GameKeyboard
 	    ResetForce()
 	    UpdatePowerBar()
             UpdateAmmoCount()
+            UpdateScore()
 	end
     end
 

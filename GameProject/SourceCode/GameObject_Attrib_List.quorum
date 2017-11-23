@@ -50,18 +50,19 @@ class GameObject_Attrib_List
     action GetNewCannonAttribs(number posX, number posY) returns GameObject_Attribs
         GameObject_Attribs newAttribs
         newAttribs:SetObjectName("objCannon")
-        newAttribs:SetSpritePath("resources/can.png")
+        newAttribs:SetSpritePath("assets/Player/player.png")
         newAttribs:SetBasePosition(posX, posY)
         return newAttribs
     end
 
     action GetNewCannonBallAttribs(number posX, number posY) returns GameObject_Attribs        GameObject_Attribs newAttribs
-        newAttribs:SetObjectName("objCannon")
-        newAttribs:SetSpritePath("resources/normalBall.png")
+        newAttribs:SetObjectName("objCannonball")
+        newAttribs:SetSpritePath("assets/Player/cannonball.png")
         newAttribs:SetBasePosition(posX, posY)
         newAttribs:SetTangible(true)
         newAttribs:SetPhysicsEnabled(true)
         newAttribs:SetMovable(true)
+        newAttribs:SetCollidable(true)
 //        newAttribs:SetResponsive(true)
         newAttribs:SetMass(100)
         newAttribs:SetRestitution(0.5)
@@ -159,11 +160,24 @@ class GameObject_Attrib_List
         newAttribs:SetBasePosition(posX, posY)
         return newAttribs
     end
-    /*action GetNewNumber(number posX, number posY) returns GameObject_Attribs
+    action GetPauseButton (number posX, number posY) returns GameObject_Attribs
         GameObject_Attribs newAttribs
-        newAttribs:SetObjectName("counter")
-        newAttribs:SetSpritePath("assets/UI/Symbols & Text/SYMB_0.png")
+        newAttribs:SetObjectName("pauseButton")
+        newAttribs:SetSpritePath("assets/UI/Symbols & Text/SYMB_PAUSE.png")
         newAttribs:SetBasePosition(posX, posY)
         return newAttribs
-    end*/
+    end
+    
+    action GetKnight (number posX, number posY) returns GameObject_Attribs
+        GameObject_Attribs newAttribs
+        newAttribs:SetObjectName("Knight")
+        newAttribs:SetSpritePath("assets/Mtn/mtn_knight.png")
+        newAttribs:SetCollidable(true)
+	newAttribs:SetTangible(true)
+	newAttribs:SetPhysicsEnabled(true)
+	newAttribs:SetResponsive(true)
+        newAttribs:SetHealth(3)
+        newAttribs:SetBasePosition(posX, posY)
+        return newAttribs
+    end
 end

@@ -2,6 +2,7 @@ use Libraries.Containers.Array
 use Libraries.Game.Game
 use Libraries.Game.Graphics.Camera
 use Libraries.Game.Graphics.Drawable
+use Libraries.Game.ScreenResolution
 use GameObject
 use GameObject_Attrib_List
 use GameObject_Player
@@ -12,6 +13,7 @@ class Main is Game
     GameCollision GameCollisionListener
     GameObject_Attrib_List src
     Camera camera = undefined
+    integer score = 0
     Drawable mainScreen
     MainMenu mainmenu
     MainMenuDisplay mainmenudisplay
@@ -20,7 +22,16 @@ class Main is Game
         GameMouseListener:roo = roo
         GameCollisionListener:roo = roo
         // Fixed screensize / gamename
-
+        /*Array<ScreenResolution> resolutions = GetAvailableResolutions()
+        integer counter =0
+        repeat while counter < resolutions:GetSize()
+            ScreenResolution resolution = resolutions:Get(counter)
+            if resolution:IsFullscreen()
+                roo:pg_ScreenSizeX = resolution:GetWidth()
+                roo:pg_ScreenSizeY = resolution:GetHeight()
+            end
+            counter = counter + 1
+        end*/
         SetScreenSize(roo:pg_ScreenSizeX , roo:pg_ScreenSizeY, false)
         SetGameName("Castle Crusher")
         StartGame()
@@ -41,10 +52,12 @@ class Main is Game
         Add(mainScreen)
         createMainMenu()
         
-        Add(GameMouseListener)
+        Add(GameMouseListener)        
     end
 
     action Update(number seconds)
+        score = GameCollisionListener:getScore()
+        
         // Scrolling Update
 
         if GameMouseListener:pg_Scrolling > 0 or roo:pg_CamReset = 1
@@ -71,7 +84,9 @@ class Main is Game
 
 	    if tmpDraw:GetAttributes():GetObjectName() = "objCannon"
                 // for reasons mysterious, you can't do this more than 31 times without a crash
-                    HackedTogetherCannonLoad (cast(GameObject_Player,tmpDraw), 10)
+                    GameObject_Player cannon = cast(GameObject_Player,tmpDraw)
+                    cannon:currentScore = score
+                    HackedTogetherCannonLoad (cannon, 10)
 	    end
             //end
         end

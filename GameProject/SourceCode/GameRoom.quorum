@@ -147,8 +147,8 @@ class GameRoom
             text myMap = ""
             repeat until i = tmpArray:GetSize()
                 if tmpArray:Get(i) = " "     // don't create a blank object
-                elseif tmpArray:Get(i) = "C" // make cannon object first object on list
-                    g_added_objs_queue:AddToFront(obj:CreateObj(tmpArray:Get(i), i*g_GridX, pg_ScreenSizeY-(currentY*g_GridY)-g_GridY))
+                //elseif tmpArray:Get(i) = "C" // make cannon object first object on list
+                    //g_added_objs_queue:AddToFront(obj:CreateObj(tmpArray:Get(i), i*g_GridX, pg_ScreenSizeY-(currentY*g_GridY)-g_GridY))
                 else
                     g_added_objs_queue:AddToEnd(obj:CreateObj(tmpArray:Get(i), i*g_GridX, pg_ScreenSizeY-(currentY*g_GridY)-g_GridY))
                 end

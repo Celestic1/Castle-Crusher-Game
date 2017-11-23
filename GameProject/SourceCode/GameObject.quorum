@@ -2,7 +2,7 @@ use Libraries.Game.Graphics.Drawable
 use GameObject_Attribs
 use Libraries.Game.Game
 
-class GameObject is Drawable
+class GameObject is Drawable, Clickable
     // myAttributes is the base state of an object (not necessarily the current one).
     // Whenever we reset the object, or create a new one, we use its attributes.
     GameObject_Attribs myAttribs

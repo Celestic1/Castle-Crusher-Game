@@ -2,10 +2,16 @@ use Libraries.Game.Graphics.Drawable
 use Libraries.Interface.Events.CollisionListener2D
 use Libraries.Interface.Events.CollisionEvent2D
 use GameObject
-
+use Libraries.Containers.HashTable
 class GameCollision is CollisionListener2D
     public GameRoom roo
-
+    //store all the scores of a collision 
+    private integer score = 0
+  
+    action getScore returns integer
+        return score
+    end
+    
     action BeginCollision(CollisionEvent2D event)
         GameObject itemA = cast(GameObject, event:GetItemA())
         GameObject itemB = cast(GameObject, event:GetItemB())
@@ -15,7 +21,12 @@ class GameCollision is CollisionListener2D
         elseif itemA:GetName() = "objCat" and itemB:GetName() = "objFish"
             roo:QueueDelObj(itemB)
         end
-
+        
+        if itemA:GetName() = "objCannonball" and itemB:GetName() = "Knight"
+            roo:QueueDelObj(itemB)
+            score = score + 1
+        end
+        
         if itemA:GetName() = "objExit1" and itemB:GetName() = "objCat"
             roo:QueueDelObj(itemA)
             roo:LoadRoom("./map2.txt")
