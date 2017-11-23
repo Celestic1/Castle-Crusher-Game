@@ -1,0 +1,18 @@
+use Libraries.Interface.Events.MouseEvent
+
+class Clickable_LevelLoader is Clickable
+    text LevelString = ""
+
+    action ClickedMouse(MouseEvent event)
+        GameRoom_Level NewRoom
+        NewRoom:LoadRoomFromFile(LevelString,parent:Clickable:ParentGame:GetCoreLibrary())
+        parent:Clickable:ParentGame:PushRoomStack(NewRoom)
+    end
+
+    action SetLevelString(text NewString)
+        LevelString = NewString
+    end
+    action GetLevelString returns text
+        return LevelString
+    end
+end
