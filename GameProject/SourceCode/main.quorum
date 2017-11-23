@@ -63,8 +63,8 @@ class Main is Game
 	    if tmpDraw:GetAttributes():GetObjectName() = "objCannon"
                 // for reasons mysterious, you can't do this more than 31 times without a crash
                 LoadStandardCannonBall (cast(GameObject_Player,tmpDraw), 20)
-                LoadHECannonBall (cast(GameObject_Player,tmpDraw), 20)
-                LoadAPCannonBall (cast(GameObject_Player,tmpDraw), 20)
+                //LoadHECannonBall (cast(GameObject_Player,tmpDraw), 20)
+                //LoadAPCannonBall (cast(GameObject_Player,tmpDraw), 20)
 	    end
         end
     end
