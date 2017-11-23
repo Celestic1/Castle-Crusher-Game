@@ -1,9 +1,9 @@
 //A hopefully very, very temporary solution to listing the types of objects
 //we need for our game.
 
-use GameObject_Attribs
+//use GameObject_Attribs
 
-class GameObject_Attrib_List
+/*class GameObject_Attrib_List
     // template action
     action GetNew_Attribs (number posX, number posY) returns GameObject_Attribs
 	GameObject_Attribs newAttribs
@@ -18,26 +18,6 @@ class GameObject_Attrib_List
 	GameObject_Attribs newAttribs
 	newAttribs:SetObjectName("objBlock")
 	newAttribs:SetSpritePath("resources/sprBrick_0.png")
-	newAttribs:SetTangible(true)
-	newAttribs:SetPhysicsEnabled(true)
-	newAttribs:SetBasePosition(posX, posY)
-	return newAttribs
-    end
-
-        action GetNewBoxDAttribs (number posX, number posY) returns GameObject_Attribs
-	GameObject_Attribs newAttribs
-	newAttribs:SetObjectName("objDBox")
-	newAttribs:SetSpritePath("resources/sprBrick_0-d.png")
-	newAttribs:SetTangible(true)
-	newAttribs:SetPhysicsEnabled(true)
-	newAttribs:SetBasePosition(posX, posY)
-	return newAttribs
-    end
-
-        action GetNewBoxTAttribs (number posX, number posY) returns GameObject_Attribs
-	GameObject_Attribs newAttribs
-	newAttribs:SetObjectName("objTBox")
-	newAttribs:SetSpritePath("resources/sprBrick_0-tall.png")
 	newAttribs:SetTangible(true)
 	newAttribs:SetPhysicsEnabled(true)
 	newAttribs:SetBasePosition(posX, posY)
@@ -71,22 +51,6 @@ class GameObject_Attrib_List
         GameObject_Attribs newAttribs
         newAttribs:SetObjectName("objCannon")
         newAttribs:SetSpritePath("resources/TrashCannon.png")
-        newAttribs:SetBasePosition(posX, posY)
-        return newAttribs
-    end
-
-    action GetNewScoreAttribs(number posX, number posY) returns GameObject_Attribs
-        GameObject_Attribs newAttribs
-        newAttribs:SetObjectName("objScore")
-        newAttribs:SetSpritePath("resources/score.png")
-        newAttribs:SetBasePosition(posX, posY)
-        return newAttribs
-    end
-
-    action GetNewScoreNumAttribs(number posX, number posY) returns GameObject_Attribs
-        GameObject_Attribs newAttribs
-        newAttribs:SetObjectName("objScoreNum")
-        newAttribs:SetSpritePath("resources/1.png")
         newAttribs:SetBasePosition(posX, posY)
         return newAttribs
     end
@@ -180,12 +144,7 @@ class GameObject_Attrib_List
 	newAttribs:SetBasePosition(posX, posY)
 	return newAttribs
     end
+end*/
 
-    /*action GetNewNumber(number posX, number posY) returns GameObject_Attribs
-        GameObject_Attribs newAttribs
-        newAttribs:SetObjectName("counter")
-        newAttribs:SetSpritePath("resources/SYMB_0.png")
-        newAttribs:SetBasePosition(posX, posY)
-        return newAttribs
-    end*/
+class GameObject_Attrib_List
 end
