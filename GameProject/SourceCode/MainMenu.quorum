@@ -1,7 +1,36 @@
+<<<<<<< HEAD
 class MainMenu is Clickable
     public Clickable logo
+=======
+use Libraries.Game.Graphics.Drawable
+
+// This class displays the main menu
+// Functionality is added through startFunction and exitFunction
+class MainMenu is Drawable
+
+>>>>>>> 521de5159f2677ab38fc70c9cc2c0ee4cf83e57c
     public Clickable startMenu
     public Clickable loadMenu
     public Clickable exitMenu
+    Drawable screen
+    
+    action Create(Drawable l)
+        screen = l
+        Load("/assets/newBackground.png")
+        startMenu:Load("/assets/start.png")
+        exitMenu:Load("/assets/exit.png")
+    end
+
+    action Render()
+        screen:Add(me)
+        startMenu:SetPosition(450,250)
+        Add(startMenu)
+        exitMenu:SetPosition(450,50)
+        Add(exitMenu)
+    end
+
+    action DeleteMenu()
+        screen:Remove(me)
+    end
 
 end

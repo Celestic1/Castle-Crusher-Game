@@ -14,7 +14,9 @@ class GameObject_Library
 	if not ObjectLibrary:HasKey(target)
 	    output "WARNING: Tried to find nonexistent object '" + target + "'"
 	end
-	return ObjectLibrary:GetValue(target):Copy()
+	GameObject ReturnObject = ObjectLibrary:GetValue(target):Copy()
+	ReturnObject:RefreshGameObject()
+	return ReturnObject
     end
 
     action LoadLibraryFromTree(XMLNode TargetTree)
@@ -23,6 +25,7 @@ class GameObject_Library
 	    //all the relevant information.
 	    integer i = 0
 	    GameObject NewObject
+            NewObject:RefreshGameObject()
 	    text NewKey = ""
 	    repeat while i < TargetTree:Children:GetSize()
 		XMLNode NextChild = TargetTree:Children:Get(i)
@@ -33,6 +36,14 @@ class GameObject_Library
 		    NewObject:SetName(NextChild:GetValue())
 		elseif NextChild:GetName() = RefNode:SPRITEPATH
 		    NewObject:SetSpritePath(NextChild:GetValue())
+                elseif NextChild:GetName() = RefNode:PLAYER
+                    if NextChild:GetValue():EqualsIgnoringCase("true")
+                        NewObject:SetPlayerSub(true)
+                    elseif NextChild:GetValue():EqualsIgnoringCase("false")
+                        NewObject:SetPlayerSub(false)
+                    else
+			output "WARNING: Encountered bad boolean value '" + NextChild:GetName() + "'"
+                    end
 		elseif NextChild:GetName() = RefNode:PHYSICSENABLED
 		    if NextChild:GetValue():EqualsIgnoringCase("true")
 			NewObject:EnablePhysics(true)

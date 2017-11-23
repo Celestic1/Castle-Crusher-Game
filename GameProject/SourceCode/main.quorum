@@ -14,6 +14,11 @@ class Main is Game
     GameObject_Attrib_List src
     Camera camera = undefined
     GameObject_Library CoreLibrary
+<<<<<<< HEAD
+=======
+    Drawable mainScreen
+    MainMenu mainmenu
+>>>>>>> 521de5159f2677ab38fc70c9cc2c0ee4cf83e57c
 
     action Main
         GameMouseListener:RefRoom = RefRoom
@@ -25,7 +30,8 @@ class Main is Game
 
     action CreateGame
         XMLFileManager FileMan
-        XMLNode ReadRoot = FileMan:GetXMLFromFile("Definitions/TempCoreDefs.xml")
+//        XMLNode ReadRoot = FileMan:GetXMLFromFile("Definitions/TempCoreDefs.xml")
+        XMLNode ReadRoot = FileMan:GetXMLFromFile("Definitions/CoreDefs.xml")
 	CoreLibrary:LoadLibraryFromTree(ReadRoot)
 	CoreLibrary:OutputHashTableContents()
         camera = GetCamera2D()
@@ -34,10 +40,16 @@ class Main is Game
         AddMouseListener(GameMouseListener)
         AddMouseMovementListener(GameMouseListener)
         RefRoom:pg_CamMaxXOffset = 200
+<<<<<<< HEAD
 
         // get the maps
         LoadMapFolder("./Maps")
         RealRooms:GetFromFront():AddRoomToGame(me)
+=======
+        Add(mainScreen)
+        createMainMenu()
+        
+>>>>>>> 521de5159f2677ab38fc70c9cc2c0ee4cf83e57c
 
         // Draw cursor
         Add(GameMouseListener)
@@ -105,11 +117,29 @@ class Main is Game
         integer Next = 0
         repeat while Next < TargetMaps:GetSize()
             GameRoom NextRoom
-            NextRoom:LoadRoomFromFile(TargetMaps:Get(Next), CoreLibrary)
+//            NextRoom:LoadRoomFromFile(TargetMaps:Get(Next), CoreLibrary)
             RealRooms:Add(NextRoom)
             Next = Next + 1
         end
         return 0
     end
 
+<<<<<<< HEAD
+=======
+    action createMainMenu
+    
+        exitFunction exit
+        startFunction start
+        mainmenu:Create(mainScreen)
+        exit:setGame(me)
+        start:setMainMenu(mainmenu)
+        start:setGameRoom(roo)
+        start:setGame(me)
+        mainmenu:startMenu:LoadClick(start)
+        mainmenu:exitMenu:LoadClick(exit)
+        mainmenu:Render()
+
+    end
+
+>>>>>>> 521de5159f2677ab38fc70c9cc2c0ee4cf83e57c
 end
