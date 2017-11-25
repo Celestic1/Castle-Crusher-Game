@@ -13,6 +13,8 @@ class Main is Game
     Array<File> MapFiles
     text MapFolder = "Maps"
     text XmlFolder = "XmlMaps"
+    integer g_GridX = 40          // This is the width  of each 'grid' on map
+    integer g_GridY = 40          // This is the height of each 'grid' on map
 
     action Main
         // Load the maps into MapFiles Array
@@ -36,6 +38,23 @@ class Main is Game
             writer:WriteLine("<Map>")
             writer:WriteLine("    <Layer>")
 
+            // this first bit is to calculate how tall the room is...
+            // we could always just manually specify how tall the room is
+            pg_ScreenSizeY = 0
+            readLine = ""
+            repeat until readLine = "[MAP]" and not reader:IsAtEndOfFile()
+                readLine = reader:ReadLine()
+            end
+            readLine = reader:ReadLine()
+            repeat until readLine = "[MAPEND]" and not reader:IsAtEndOfFile()
+                pg_ScreenSizeY = pg_ScreenSizeY + g_GridY
+                readLine = reader:ReadLine()
+            end
+            reader:Close()
+            // DONE, now reopen the file
+
+            // Now we get to the fun stuff ..
+            reader:OpenForRead(MapFiles:Get(currentMapIndex))
             readLine = ""
             repeat until readLine = "[MAP]" and not reader:IsAtEndOfFile()
                 readLine = reader:ReadLine()
@@ -44,19 +63,48 @@ class Main is Game
             // Read the first line after [MAP]
             readLine = reader:ReadLine()
             
+            integer currentY = 0
             repeat until readLine = "[MAPEND]" and not reader:IsAtEndOfFile()
                 Array<text> tmpArray = readLine:Split(",")
                 i = 0
                 text myMap = ""
                 repeat until i = tmpArray:GetSize()
                     if tmpArray:Get(i) not= " "     // don't create a blank object
-
+                        text objName = ""
+                        if tmpArray:Get(i) = "X"
+                            objName = "BasicBox"
+                        elseif tmpArray:Get(i) = "B"
+                            objName = "BasicBlock"
+                        elseif tmpArray:Get(i) = "C"
+                            objName = "Cannon"
+                        elseif tmpArray:Get(i) = "SB"
+                            objName = "StartButton"
+                        elseif tmpArray:Get(i) = "F"
+                            objName = "Fish"
+                        elseif tmpArray:Get(i) = "L"
+                            objName = "Lock"
+                        elseif tmpArray:Get(i) = "K"
+                            objName = "Key"
+                        elseif tmpArray:Get(i) = "U"
+                            objName = "Star"
+                        elseif tmpArray:Get(i) = "W"
+                            objName = "Water"
+                        else
+                            objName = "BasicBlock"
+                        end
+                        
+                        integer tmpY = pg_ScreenSizeY-(currentY*g_GridY)-g_GridY
+                        writer:WriteLine("	<" + objName + ">")
+                        writer:WriteLine("	    <X>" + i*g_GridX + "</X>")
+                        writer:WriteLine("	    <Y>" + tmpY + "</Y>")
+                        writer:WriteLine("	</" + objName + ">")
                     end
                     myMap = myMap + tmpArray:Get(i)
                     i = i + 1
                 end
                 output myMap
 
+                currentY = currentY + 1
                 readLine = reader:ReadLine()
             end
 

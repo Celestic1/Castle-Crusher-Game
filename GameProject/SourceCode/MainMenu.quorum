@@ -22,7 +22,7 @@ class MainMenu is GameRoom
         AddEmptyLayer()
         Clickable_LevelLoader StartButton
         StartButton:SetParentGame(game)
-        StartButton:SetLevelString("Maps/TestMap.xml")
+        StartButton:SetLevelString("Maps/map0.xml")
         StartButton:SetSpritePath("assets/start.png")
         StartButton:SetStartPosition(450,250)
         StartButton:RefreshGameObject()
