@@ -16,13 +16,35 @@ class GameMouse is Drawable, MouseListener, MouseMovementListener
         pg_LastMouseY = event:GetY()
         
         if pg_LastMouseX < 80
-            Load("resources/sprCursorLeft.png")
+            if pg_LastMouseY < 80
+                Load("resources/sprCursor225.png")
+                pg_Scrolling = 5
+            elseif pg_LastMouseY > (RefRoom:pg_ScreenSizeY - 80)
+                Load("resources/sprCursor135.png")
+                pg_Scrolling = 6
+            else
+                Load("resources/sprCursorLeft.png")
                 pg_Scrolling = 1
+            end
         elseif pg_LastMouseX > (RefRoom:pg_ScreenSizeX - 80)
+            if pg_LastMouseY < 80
+                Load("resources/sprCursor315.png")
+                pg_Scrolling = 7
+            elseif pg_LastMouseY > (RefRoom:pg_ScreenSizeY - 80)
+                Load("resources/sprCursor45.png")
+                pg_Scrolling = 8
+            else
+                Load("resources/sprCursorRight.png")
                 pg_Scrolling = 2
-            Load("resources/sprCursorRight.png")
+            end
+        elseif pg_LastMouseY < 80
+            Load("resources/sprCursorDown.png")
+            pg_Scrolling = 3
+        elseif pg_LastMouseY > (RefRoom:pg_ScreenSizeY - 80)
+            Load("resources/sprCursorUp.png")
+            pg_Scrolling = 4
         else
-                pg_Scrolling = 0
+            pg_Scrolling = 0
             Load("resources/sprFesh-Trimmed.png")
         end
 

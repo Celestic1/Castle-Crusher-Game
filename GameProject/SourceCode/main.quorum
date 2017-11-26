@@ -53,10 +53,26 @@ class Main is Game
         // Scrolling Update
         if GameMouseListener:pg_Scrolling > 0 or RefRoom:pg_CamReset = 1
             RefRoom:pg_CamReset = 0
-            if GameMouseListener:pg_Scrolling = 1
+            if GameMouseListener:pg_Scrolling = 1       // 180
                 RefRoom:pg_CamXOffset = RefRoom:pg_CamXOffset - GameMouseListener:pg_ScrollSpeed
-            elseif GameMouseListener:pg_Scrolling = 2
+            elseif GameMouseListener:pg_Scrolling = 2   // 0
                 RefRoom:pg_CamXOffset = RefRoom:pg_CamXOffset + GameMouseListener:pg_ScrollSpeed
+            elseif GameMouseListener:pg_Scrolling = 3   // 270
+                RefRoom:pg_CamYOffset = RefRoom:pg_CamYOffset - GameMouseListener:pg_ScrollSpeed
+            elseif GameMouseListener:pg_Scrolling = 4   // 90
+                RefRoom:pg_CamYOffset = RefRoom:pg_CamYOffset + GameMouseListener:pg_ScrollSpeed
+            elseif GameMouseListener:pg_Scrolling = 5   // 225
+                RefRoom:pg_CamXOffset = RefRoom:pg_CamXOffset - GameMouseListener:pg_ScrollSpeed
+                RefRoom:pg_CamYOffset = RefRoom:pg_CamYOffset - GameMouseListener:pg_ScrollSpeed
+            elseif GameMouseListener:pg_Scrolling = 6   // 135
+                RefRoom:pg_CamXOffset = RefRoom:pg_CamXOffset - GameMouseListener:pg_ScrollSpeed
+                RefRoom:pg_CamYOffset = RefRoom:pg_CamYOffset + GameMouseListener:pg_ScrollSpeed
+            elseif GameMouseListener:pg_Scrolling = 7   // 315
+                RefRoom:pg_CamXOffset = RefRoom:pg_CamXOffset + GameMouseListener:pg_ScrollSpeed
+                RefRoom:pg_CamYOffset = RefRoom:pg_CamYOffset - GameMouseListener:pg_ScrollSpeed
+            elseif GameMouseListener:pg_Scrolling = 8   // 45
+                RefRoom:pg_CamXOffset = RefRoom:pg_CamXOffset + GameMouseListener:pg_ScrollSpeed
+                RefRoom:pg_CamYOffset = RefRoom:pg_CamYOffset + GameMouseListener:pg_ScrollSpeed
             end
             camera:SetPosition(RefRoom:pg_CamXOffset + RefRoom:pg_ScreenSizeX/2, RefRoom:pg_CamYOffset + RefRoom:pg_ScreenSizeY/2, 0)
             GameMouseListener:SetCenter(RefRoom:pg_CamXOffset + GameMouseListener:pg_LastMouseX, RefRoom:pg_CamYOffset + GameMouseListener:pg_LastMouseY)
