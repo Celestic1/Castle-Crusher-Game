@@ -5,45 +5,12 @@ use Libraries.Game.Game
 
 class Clickable is GameObject, MouseListener
     
-<<<<<<< HEAD
-    Game game
-    GameRoom room
-    //MainMenu mainmenu
-=======
     private Main ParentGame
->>>>>>> 340da0fc2ce806ccea79665de6a4bd09330cda98
-    
 
     // Ensures this object will receive mouse events when it is clicked
     on create
         AddMouseListener(me)
     end
-<<<<<<< HEAD
-/*
-    action LoadClick(GameFunction c)
-        click = c
-<<<<<<< HEAD
-    end*/
-
-    action setGameRoom(GameRoom r)
-        room = r
-    end
-
-    action setGame(Game g)
-        game = g
-    end
-=======
-    end 
->>>>>>> bc99cb6dd480747d613ce0dc764bf68a972a82a0
-
-    // When mouse is clicked, it acces the GameFunction class's run function
-    action ClickedMouse(MouseEvent event)
-        room:LoadRoom("testMap.txt")
-        game:Exit()
-        //mainmenu:DeleteMenu()
-        //Remove(me)
-        //click:run(event)
-=======
 
     action SetParentGame (Main NewGame)
         ParentGame = NewGame
@@ -52,7 +19,6 @@ class Clickable is GameObject, MouseListener
     // When mouse is clicked, it acces the GameFunction class's run function
     action ClickedMouse(MouseEvent event)
         ParentGame:PopRoomStack()
->>>>>>> 340da0fc2ce806ccea79665de6a4bd09330cda98
     end
 
 end

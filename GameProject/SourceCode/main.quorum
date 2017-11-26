@@ -68,17 +68,8 @@ class Main is Game
     end
 
     action createMainMenu
-<<<<<<< HEAD
 
-        Clickable startmenu
-        Clickable exitmenu
-        mainmenu:Create(mainScreen)
-        mainmenu:startMenu:setGameRoom(roo)
-        mainmenu:exitMenu:setGame(me)
-    /*
-=======
-/*    
->>>>>>> 340da0fc2ce806ccea79665de6a4bd09330cda98
+/*
         exitFunction exit
         startFunction start
         mainmenu:Create(mainScreen)
@@ -87,7 +78,7 @@ class Main is Game
 //        start:setGameRoom(roo)
         start:setGame(me)
         mainmenu:startMenu:LoadClick(start)
-        mainmenu:exitMenu:LoadClick(exit)*/
+        mainmenu:exitMenu:LoadClick(exit)
         mainmenu:Render()
 */
     end
