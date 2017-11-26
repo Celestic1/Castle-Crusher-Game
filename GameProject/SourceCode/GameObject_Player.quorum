@@ -1,9 +1,9 @@
 use GameObject
-use GameObject_Attribs
 use GameObject_Attrib_List
 use GameKeyboard
 use Libraries.Game.Game
 use Libraries.Containers.List
+use Libraries.Containers.Array
 use Libraries.Game.Graphics.Drawable
 use Libraries.Compute.Vector2
 use Libraries.Interface.Events.KeyboardEvent
@@ -24,7 +24,7 @@ class GameObject_Player is GameObject, GameKeyboard
     Drawable barY
     Drawable PowerBar
     Drawable PowerBarBackground
-    Drawable Cannon
+//    Drawable Cannon
     Math MyMath
     InputMonitor monitor
     KeyboardEvent keys
@@ -49,15 +49,30 @@ class GameObject_Player is GameObject, GameKeyboard
         ResetForce()
     end
 
+    action LoadCannon(Array<GameObject> newAmmo)
+        integer i = 0
+        repeat while i < newAmmo:GetSize()
+            LoadCannon(newAmmo:Get(i))
+            i = i + 1
+        end
+    end
+
     action LoadCannon(GameObject newAmmo)
             newAmmo:Hide()
             myAmmo:Add(newAmmo)
     end
 
-    action InitGameObject
-        parent:GameObject:InitGameObject()
+    on create
+//	SetStartPosition(0,0)
+//	RefreshGameObject()
+    end
+
+    action RefreshGameObject
+        parent:GameObject:RefreshGameObject()
+	//me:LoadFilledRectangle(80,20)
+        //SetPosition(GetStartPositionX(),GetStartPositionY())
         ResetForce()
-	me:LoadFilledRectangle(80,20)
+        me:LoadFilledRectangle(80,20)
     end
 
     // resets Force after we released Space Bar

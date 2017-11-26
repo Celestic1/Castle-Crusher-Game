@@ -1,4 +1,4 @@
-use Libraries.Game.Game
+/*use Libraries.Game.Game
 use Libraries.Interface.Events.KeyboardListener
 use Libraries.Interface.Events.KeyboardEvent
 use Libraries.Game.Graphics.Drawable
@@ -77,4 +77,8 @@ class PlayerCannon is KeyboardListener, Drawable
 	yBar:SetPosition(xPos, yPos)
     end
 
+end
+*/
+
+class PlayerCannon
 end
