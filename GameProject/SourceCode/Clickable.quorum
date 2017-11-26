@@ -17,6 +17,7 @@ class Clickable is Drawable, MouseListener
 /*
     action LoadClick(GameFunction c)
         click = c
+<<<<<<< HEAD
     end*/
 
     action setGameRoom(GameRoom r)
@@ -26,6 +27,9 @@ class Clickable is Drawable, MouseListener
     action setGame(Game g)
         game = g
     end
+=======
+    end 
+>>>>>>> bc99cb6dd480747d613ce0dc764bf68a972a82a0
 
     // When mouse is clicked, it acces the GameFunction class's run function
     action ClickedMouse(MouseEvent event)

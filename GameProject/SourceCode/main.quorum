@@ -31,11 +31,7 @@ class Main is Game
         AddCollisionListener(GameCollisionListener)
         AddMouseListener(GameMouseListener)
         AddMouseMovementListener(GameMouseListener)
-        //roo:LoadRoom("./testMap.txt")
         roo:pg_CamMaxXOffset = 200
-        mainScreen:SetName("screen")
-        //mainScreen:LoadFilledRectangle(me:GetScreenWidth(), me:GetScreenHeight())
-        //mainScreen:Load("/assets/newBackground.png")
         Add(mainScreen)
         createMainMenu()
         
@@ -99,6 +95,7 @@ class Main is Game
         exit:setGame(me)
         start:setMainMenu(mainmenu)
         start:setGameRoom(roo)
+        start:setGame(me)
         mainmenu:startMenu:LoadClick(start)
         mainmenu:exitMenu:LoadClick(exit)*/
         mainmenu:Render()
