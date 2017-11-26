@@ -1,31 +1,57 @@
 use Libraries.Game.Graphics.Drawable
+use Libraries.Game.Game
 
 // This class displays the main menu
 // Functionality is added through startFunction and exitFunction
-class MainMenu is Drawable
+class MainMenu is GameRoom
 
-    public Clickable startMenu
-    public Clickable loadMenu
-    public Clickable exitMenu
-    Drawable screen
-    
-    action Create(Drawable l)
-        screen = l
-        Load("/assets/newBackground.png")
-        startMenu:Load("/assets/start.png")
-        exitMenu:Load("/assets/exit.png")
+//    public Clickable startMenu
+//    public Clickable loadMenu
+//   public Clickable exitMenu
+//    Drawable screen
+
+    action InitMainMenu (Main game)
+        // Background layer!
+        AddEmptyLayer()
+        GameObject BackGround
+        BackGround:SetSpritePath("assets/newBackground.png")
+        BackGround:RefreshGameObject()
+        AddObj(BackGround)
+
+        // Button layer!
+        AddEmptyLayer()
+        Clickable_LevelLoader StartButton
+        StartButton:SetParentGame(game)
+        StartButton:SetLevelString("Maps/TestMap.xml")
+        StartButton:SetSpritePath("assets/start.png")
+        StartButton:SetStartPosition(450,250)
+        StartButton:RefreshGameObject()
+        AddObj(StartButton)
+
+        Clickable ExitButton
+        ExitButton:SetParentGame(game)
+        ExitButton:SetSpritePath("assets/exit.png")
+        ExitButton:SetStartPosition(450,50)
+        ExitButton:RefreshGameObject()
+        AddObj(ExitButton)
     end
+/*    action Create(Drawable l)
+//        screen = l
+//        Load("/assets/newBackground.png")
+//        startMenu:Load("/assets/start.png")
+//        exitMenu:Load("/assets/exit.png")
+    end*/
 
-    action Render()
+/*    action Render()
         screen:Add(me)
         startMenu:SetPosition(450,250)
         Add(startMenu)
         exitMenu:SetPosition(450,50)
         Add(exitMenu)
-    end
+    end*/
 
-    action DeleteMenu()
+/*    action DeleteMenu()
         screen:Remove(me)
-    end
+    end*/
 
 end
