@@ -10,8 +10,9 @@ use GameObject_Player
 class Main is Game
     GameRoom RefRoom
     Array<GameRoom> RealRooms
+    Array<GameObject> ammo
     GameMouse GameMouseListener
-    GameObject_Attrib_List src
+    GameObject_Player player
     Camera camera = undefined
     GameObject_Library CoreLibrary
 
@@ -39,8 +40,9 @@ class Main is Game
         // get the maps
 //        LoadMapFolder("./Maps")
 //        RealRooms:GetFromFront():AddRoomToGame(me)
+
 	GameRoom_Level TestRoom
-	TestRoom:LoadRoomFromFile("Maps/map0.xml",CoreLibrary)
+	TestRoom:LoadRoomFromFile("Maps/map0.xml",CoreLibrary,player,LoadStandardCannonBall(20))
 	TestRoom:AddRoomToGame(me)
 
         // Draw cursor
@@ -80,14 +82,16 @@ class Main is Game
         end*/
     end
 
-    action LoadStandardCannonBall (GameObject_Player PlayCan, integer count)
-/*        repeat count times
-            GameObject nextShot
-            nextShot:InitGameObject(src:GetNewStandardCannonBallAttribs(0,0))
-            nextShot:AddToGame(me)
-            PlayCan:LoadCannon(nextShot)
-			 output "Standard cannonball loaded!"
-        end*/
+    action LoadStandardCannonBall (integer count) returns Array<GameObject>
+        Array<GameObject> standardCannonBalls
+        GameObject standardCannonBall 
+        integer i = 0
+        repeat count times
+            standardCannonBall = CoreLibrary:GetGameObject("StandardCannonBall")
+            standardCannonBalls:Add(standardCannonBall)
+            output "Standard cannonball loaded!"
+        end
+        return standardCannonBalls
     end
 
     action LoadMapFolder (text MapPath) returns integer
