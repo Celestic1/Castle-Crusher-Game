@@ -38,8 +38,8 @@ class Main is Game
         camera = GetCamera2D()
         EnablePhysics2D(true)
         SetGravity2D(0, -200)
-        //AddMouseListener(GameMouseListener)
-        //AddMouseMovementListener(GameMouseListener)
+        AddMouseListener(GameMouseListener)
+        AddMouseMovementListener(GameMouseListener)
         //RefRoom:pg_CamMaxXOffset = 200
         mainmenu:InitMainMenu(me)
         PushRoomStack(mainmenu)
@@ -47,7 +47,7 @@ class Main is Game
         MenuTable:Add("LevelSelector",ls)
         
 
-        //Add(GameMouseListener)
+        Add(GameMouseListener)
     end
 
     action Update(number seconds)
