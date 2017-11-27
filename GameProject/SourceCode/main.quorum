@@ -40,7 +40,7 @@ class Main is Game
 //        LoadMapFolder("./Maps")
 //        RealRooms:GetFromFront():AddRoomToGame(me)
 	GameRoom_Level TestRoom
-	TestRoom:LoadRoomFromFile("Maps/TestMap.xml",CoreLibrary)
+	TestRoom:LoadRoomFromFile("Maps/map0.xml",CoreLibrary)
 	TestRoom:AddRoomToGame(me)
 
         // Draw cursor
@@ -117,7 +117,7 @@ class Main is Game
         end
         return 0
     end
-
+/*
     action LoadHECannonBall (GameObject_Player PlayCan, integer count)
         repeat count times
             GameObject nextShot
@@ -137,5 +137,5 @@ class Main is Game
         end
         output "AP cannonball loaded!"
     end
-
+*/
 end

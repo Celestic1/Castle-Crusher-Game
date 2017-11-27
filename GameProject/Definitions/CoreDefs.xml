@@ -12,19 +12,43 @@ and open the template in the editor.
 	<SpritePath>resources/sprBrick_0.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Unmovable>true</Unmovable>
-	<Restitution>0.5</Restitution>
 	<Friction>0.5</Friction>
+    </Object>
+    <Object>
+	<Name>WoodenBox</Name>
+	<SpritePath>resources/wooden_box.png</SpritePath>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Responsive>true</Responsive>
+        <Friction>0.5</Friction>
+        <Mass>50</Mass>
+    </Object>
+    <Object>
+	<Name>WoodenRectangle</Name>
+	<SpritePath>resources/wooden_rectangle.png</SpritePath>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Responsive>true</Responsive>
+        <Friction>0.5</Friction>
+        <Mass>150</Mass>
+    </Object>
+    <Object>
+	<Name>BrickBox</Name>
+	<SpritePath>resources/brick_box.png</SpritePath>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Responsive>true</Responsive>
+        <Friction>0.5</Friction>
+        <Mass>100</Mass>
+    </Object>
+    <Object>
+	<Name>BrickRectangle</Name>
+	<SpritePath>resources/brick_rectangle.png</SpritePath>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Responsive>true</Responsive>
+        <Friction>0.5</Friction>
+        <Mass>100</Mass>
     </Object>
     <Object>
 	<Name>Fish</Name>
 	<SpritePath>resources/sprFesh-trimmed.png</SpritePath>
-	<Collidable>true</Collidable>
-    </Object>
-    <Object>
-	<Name>Cat</Name>
-	<SpritePath>resources/sprCatR-trimmed.png</SpritePath>
-	<PhysicsEnabled>true</PhysicsEnabled>
-	<Responsive>true</Responsive>
 	<Collidable>true</Collidable>
     </Object>
     <Object>
@@ -33,44 +57,11 @@ and open the template in the editor.
         <Player>true</Player>
     </Object>
     <Object>
-	<Name>CannonBall</Name>
+	<Name>StandardCannonBall</Name>
 	<PhysicsEnabled>true</PhysicsEnabled>
-	<Mass>100</Mass>
+	<Mass>10</Mass>
 	<Restitution>0.5</Restitution>
-	<Friction>0.5</Friction>
-    </Object>
-    <Object>
-	<Name>Lock</Name>
-	<SpritePath>resources/sprLock_0.png</SpritePath>
-	<PhysicsEnabled>true</PhysicsEnabled>
-	<Unmovable>true</Unmovable>
-    </Object>
-    <Object>
-	<Name>Key</Name>
-	<SpritePath>resources/sprKey-trimmed.png</SpritePath>
-	<Collidable>true</Collidable>
-    </Object>
-    <Object>
-	<Name>Exit1</Name>
-	<SpritePath>resources/sprMouseHole_0.png</SpritePath>
-	<Collidable>true</Collidable>
-    </Object>
-    <Object>
-	<Name>Exit2</Name>
-	<SpritePath>resources/sprMouseHole_0.png</SpritePath>
-	<Collidable>true</Collidable>
-    </Object>
-    <Object>
-	<Name>Exit3</Name>
-	<SpritePath>resources/sprMouseHole_0.png</SpritePath>
-	<Collidable>true</Collidable>
-    </Object>
-    <Object>
-	<Name>BasicBox</Name>
-	<SpritePath>resources/sprBrick_0.png</SpritePath>
-	<PhysicsEnabled>true</PhysicsEnabled>
-	<Responsive>true</Responsive>
-    </Object>
+    </Object>    
     <Object>
 	<Name>StartButton</Name>
 	<SpritePath>resources/sprStartButton.png</SpritePath>

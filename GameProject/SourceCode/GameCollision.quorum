@@ -16,36 +16,36 @@ class GameCollision is CollisionListener2D
         if itemA:GetName() = "objStandardCannonBall" and itemB:GetName() = "objWoodenBox"
             force = itemA:GetLinearVelocity()
             if force:Length() > 400
-                roo:QueueDelObj(itemB)
+                //roo:QueueDelObj(itemB)
             end
         elseif itemA:GetName() = "objWoodenBox" and itemB:GetName() = "objStandardCannonBall"
             force = itemB:GetLinearVelocity()
             if force:Length() > 400
-                roo:QueueDelObj(itemA)
+                //roo:QueueDelObj(itemA)
             end
         end
 
         if itemA:GetName() = "objStandardCannonBall" and itemB:GetName() = "objWoodenRectangle"
             force = itemA:GetLinearVelocity()
             if force:Length() > 400
-                roo:QueueDelObj(itemB)
+                //roo:QueueDelObj(itemB)
             end
         elseif itemA:GetName() = "objWoodenRectangle" and itemB:GetName() = "objStandardCannonBall"
             force = itemB:GetLinearVelocity()
             if force:Length() > 400
-                roo:QueueDelObj(itemA)
+                //roo:QueueDelObj(itemA)
             end
         end
 
         if itemA:GetName() = "objStandardCannonBall" and itemB:GetName() = "objFish"
             force = itemA:GetLinearVelocity()
             if force:Length() > 400
-                roo:QueueDelObj(itemB)
+                //roo:QueueDelObj(itemB)
             end
         elseif itemA:GetName() = "objFish" and itemB:GetName() = "objStandardCannonBall"
             force = itemB:GetLinearVelocity()
             if force:Length() > 400
-                roo:QueueDelObj(itemA)
+                //roo:QueueDelObj(itemA)
             end
         end
         //***************************************************************************************************************************************************************
@@ -53,44 +53,38 @@ class GameCollision is CollisionListener2D
         if itemA:GetName() = "objHECannonBall" and itemB:GetName() = "objBrickBox"
             force = itemA:GetLinearVelocity()
             if force:Length() > 400
-                roo:QueueDelObj(itemB)
+                //roo:QueueDelObj(itemB)
             else
                 itemB:SetUnmovable()
             end
         elseif itemA:GetName() = "objBrickBox" and itemB:GetName() = "objHECannonBall"
             force = itemB:GetLinearVelocity()
             if force:Length() > 400
-                roo:QueueDelObj(itemA)
-            else
-                itemA:SetUnmovable()
+                //roo:QueueDelObj(itemA)
             end
         end
 
         if itemA:GetName() = "objHECannonBall" and itemB:GetName() = "objBrickRectangle"
             force = itemA:GetLinearVelocity()
             if force:Length() > 400
-                roo:QueueDelObj(itemB)
-            else
-                itemB:SetUnmovable()
+                //roo:QueueDelObj(itemB)           
             end
         elseif itemA:GetName() = "objBrickRectangle" and itemB:GetName() = "objHECannonBall"
             force = itemB:GetLinearVelocity()
             if force:Length() > 400
-                roo:QueueDelObj(itemA)
-            else
-                itemA:SetUnmovable()
+                //roo:QueueDelObj(itemA)            
             end
         end
             
         if itemA:GetName() = "objHECannonBall" and itemB:GetName() = "objFish"
             force = itemA:GetLinearVelocity()
             if force:Length() > 400
-                roo:QueueDelObj(itemB)
+                //roo:QueueDelObj(itemB)
             end
         elseif itemA:GetName() = "objFish" and itemB:GetName() = "objHECannonBall"
             force = itemB:GetLinearVelocity()
             if force:Length() > 400
-                roo:QueueDelObj(itemA)
+                //roo:QueueDelObj(itemA)
             end
         end
         //*************************************************************************************************************************************************************
@@ -98,44 +92,36 @@ class GameCollision is CollisionListener2D
         if itemA:GetName() = "objAPCannonBall" and itemB:GetName() = "objSteelBox"
             force = itemA:GetLinearVelocity()
             if force:Length() > 400
-                roo:QueueDelObj(itemB)
-            else
-                itemB:SetUnmovable()
+                //roo:QueueDelObj(itemB)            
             end
         elseif itemA:GetName() = "objSteelBox" and itemB:GetName() = "objAPCannonBall"
             force = itemB:GetLinearVelocity()
             if force:Length() > 400
-                roo:QueueDelObj(itemA)
-            else
-                itemA:SetUnmovable()
+                //roo:QueueDelObj(itemA)           
             end
         end
 
         if itemA:GetName() = "objAPCannonBall" and itemB:GetName() = "objSteelRectangle"
             force = itemA:GetLinearVelocity()
             if force:Length() > 400
-                roo:QueueDelObj(itemB)
-            else
-                itemB:SetUnmovable()
+                //roo:QueueDelObj(itemB)           
             end
         elseif itemA:GetName() = "objSteelRectangle" and itemB:GetName() = "objAPCannonBall"
             force = itemB:GetLinearVelocity()
             if force:Length() > 400
-                roo:QueueDelObj(itemA)
-            else
-                itemA:SetUnmovable()
+                //roo:QueueDelObj(itemA)
             end
         end
 
         if itemA:GetName() = "objAPCannonBall" and itemB:GetName() = "objFish"
             force = itemA:GetLinearVelocity()
             if force:Length() > 400
-                roo:QueueDelObj(itemB)
+                //roo:QueueDelObj(itemB)
             end
         elseif itemA:GetName() = "objFish" and itemB:GetName() = "objAPCannonBall"
             force = itemB:GetLinearVelocity()
             if force:Length() > 400
-                roo:QueueDelObj(itemA)
+                //roo:QueueDelObj(itemA)
             end
         end
     end
