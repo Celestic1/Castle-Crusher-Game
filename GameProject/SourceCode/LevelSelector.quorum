@@ -24,7 +24,7 @@ class LevelSelector is GameRoom
 
         Clickable_LevelLoader levelTwo
         levelTwo:SetParentGame(game)
-        levelTwo:SetLevelString("Maps/TestMap.xml")
+        levelTwo:SetLevelString("Maps/map1.xml")
         levelTwo:SetSpritePath("assets/SYMB_2.png")
         levelTwo:SetStartPosition(500,150)
         levelTwo:RefreshGameObject()

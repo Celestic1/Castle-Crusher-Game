@@ -1,45 +1,15 @@
-/* This map is too big? Seems to crash the game ...
-Error: Location Invalid: Attempted to reference a location in a data structure that does not exist.
-   file: /Libraries/Containers/Array.quorum,  class: Libraries.Containers.Array,  action: Get,  line: 83 
-   file: CollisionSolver2D.quorum,  class: Libraries.Game.Physics.CollisionSolver2D,  action: Initialize,  line: 92 
-   file: /Libraries/Game/Physics/CollisionGroup2D.quorum,  class: Libraries.Game.Physics.CollisionGroup2D,  action: Solve,  line: 114 
-   file: /Libraries/Game/Layer2D.quorum,  class: Libraries.Game.Layer2D,  action: SolvePhysics,  line: 1813 
-   file: /Libraries/Game/Layer2D.quorum,  class: Libraries.Game.Layer2D,  action: StepPhysics,  line: 1626 
-   file: /Libraries/Game/Layer2D.quorum,  class: Libraries.Game.Layer2D,  action: TestForCollisions,  line: 1534 
-   file: /Libraries/Game/Game.quorum,  class: Libraries.Game.Game,  action: TestForCollisions,  line: 1501 
-   file: main.quorum,  class: Main,  action: TestForCollisions,  line: -1 
-   file: /Libraries/Game/Game.quorum,  class: Libraries.Game.Game,  action: ContinueGame,  line: 418 
-   file: main.quorum,  class: Main,  action: ContinueGame,  line: -1 
-   file: /Libraries/Game/DesktopApplication.quorum,  class: Libraries.Game.DesktopApplication,  action: MainLoop,  line: 122 
-   file: /Libraries/Game/DesktopApplication.quorum,  class: Libraries.Game.DesktopApplication,  action: Setup,  line: 29 
-   file: /Libraries/Game/Game.quorum,  class: Libraries.Game.Game,  action: StartGame,  line: 215 
-   file: main.quorum,  class: Main,  action: StartGame,  line: -1 
-   file: main.quorum,  class: Main,  action: Main,  line: 28 
-*/
-
 [MAP]
  , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 
  , , , , , , , , , , , , , , , , , , , ,X, , ,X, ,X, ,X, ,X, ,X, , ,X, , , , , , , , , , , , 
  , , , , , , , , , , , , , , , , , , , ,X,X,X,X,X,X,X,X,X,X,X,X,X,X,X, , , , , , , , , , , , 
- , , , , , , , , , , , , , , , , , , , , ,X,X, , ,X, , , ,X, , ,X,X, , , , , , , , , , , , , 
- , , , , , , , , , , , , , , , , , , , , ,X,X, ,X, , , , , ,X, ,X,X, , , , , , , , , , , , ,
- , , , , , , , , , , , , , , , , , , , , ,X,X,X, , , , , , , ,X,X,X, , , , , , , , , , , , ,
- , , , , , , , ,X, , ,X, , , , , , , , , ,X,X, , ,U, , , ,U, , ,X,X, , , , , , , , , ,X, , ,X
+ , , , , , , , ,X, , ,X, , , , , , , , ,B,X,X,B,B,B,B,B,B,B,B,B,X,X,B, , , , , , , , ,X, , ,X
  , , , , , , , ,X,X,X,X, , , , ,U, , , , ,X,X, , , , , , , , , ,X,X, , , , ,U, , , , ,X,X,X,X
- , , , , , , , , ,X,X, , , , , , , , , , ,X,X,X,X,X,X,X,X,X,X,X,X,X, , , , , , , , , , ,X,X,
+ , , , , , , , ,B,X,X,B, , , , , , , , , ,X,X, , ,U, , , ,U, , ,X,X, , , , , , , , , ,B,X,X,B
  , , , , , , , , ,X,X,X,X,X,X,X,X,X,X,X,X,X,X, , , , , , , , , ,X,X,X,X,X,X,X,X,X,X,X,X,X,X,
+ , , , , , , , , ,X,X,B,B,X,X,B,B,X,X,B,B,X,X, , , , , , , , , ,X,X,B,B,X,X,B,B,X,X,B,B,X,X,
  , , , , , , , , ,X,X, , ,X,X, , ,X,X, , ,X,X, , , , , , , , , ,X,X, , ,X,X, , ,X,X, , ,X,X,
- , , , , , , , , ,X,X, , ,X,X, , ,X,X, , ,X,X,X,X,X,X,X,X,X,X,X,X,X, , ,X,X, , ,X,X, , ,X,X,
  , , , , , , , , ,X,X, , ,X,X, , ,X,X, , ,X,X, , , , , , , , , ,X,X, , ,X,X, , ,X,X, , ,X,X,
- , , , , , , , , ,X,X, , ,X,X, , ,X,X, , ,X,X, , , , , , , , , ,X,X, , ,X,X, , ,X,X, , ,X,X,
- , , , , , , , , ,X,X, , ,X,X, , ,X,X, , ,X,X,X, , , , , , , ,X,X,X, , ,X,X, , ,X,X, , ,X,X,
- , , , , , , , , ,X,X, , ,X,X, , ,X,X, , ,X,X, ,X, , , , , ,X, ,X,X, , ,X,X, , ,X,X, , ,X,X,
- ,C, , , , , , , ,X,X,U,U,X,X,U,U,X,X, , ,X,X, , ,X, , , ,X, , ,X,X, , ,X,X,U,U,X,X,U,U,X,X,
+ ,C, , , , , , , ,X,X,U,U,X,X,U,U,X,X, , ,X,X, , , , , , , , , ,X,X, , ,X,X,U,U,X,X,U,U,X,X,
 B,B,B,W,W,W,W,W,W,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,U,U,U,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,W,W,W,W,W,W,B,B,B,B,B,B,B
-B,B,B,W,W,W,W,W,W,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,U,U,U,U,U,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,W,W,W,W,W,W,B,B,B,B,B,B,B
-B,B,B,W,W,W,W,W,W,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,U,U,U,U,U,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,W,W,W,W,W,W,B,B,B,B,B,B,B
-B,B,B,W,W,W,W,W,W,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,U,U,U,U,U,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,W,W,W,W,W,W,B,B,B,B,B,B,B
-B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,U,U,U,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B
-B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B
-B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B
+B,B,B,W,W,W,W,W,W,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,W,W,W,W,W,W,B,B,B,B,B,B,B
 [MAPEND]
