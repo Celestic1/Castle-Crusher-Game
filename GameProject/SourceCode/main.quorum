@@ -1,4 +1,6 @@
 use Libraries.Containers.Array
+use Libraries.Containers.Stack
+use Libraries.Containers.HashTable
 use Libraries.Game.Game
 use Libraries.Game.Graphics.Camera
 use Libraries.Game.Graphics.Drawable
@@ -9,19 +11,18 @@ use GameObject_Player
 
 class Main is Game
     GameRoom RefRoom
-    Array<GameRoom> RealRooms
+    Stack<GameRoom> RoomStack
+    HashTable<text,GameRoom> MenuTable
     GameMouse GameMouseListener
     GameObject_Attrib_List src
     Camera camera = undefined
     GameObject_Library CoreLibrary
-<<<<<<< HEAD
-=======
-    Drawable mainScreen
+//    Drawable mainScreen
     MainMenu mainmenu
->>>>>>> 521de5159f2677ab38fc70c9cc2c0ee4cf83e57c
+    LevelSelector ls
 
     action Main
-        GameMouseListener:RefRoom = RefRoom
+        //GameMouseListener:RefRoom = RefRoom
         // Fixed screensize / gamename
         SetScreenSize(RefRoom:pg_ScreenSizeX , RefRoom:pg_ScreenSizeY)
         SetGameName("Castle Crusher")
@@ -39,15 +40,11 @@ class Main is Game
         SetGravity2D(0, -200)
         AddMouseListener(GameMouseListener)
         AddMouseMovementListener(GameMouseListener)
-        RefRoom:pg_CamMaxXOffset = 200
-<<<<<<< HEAD
-
-        // get the maps
-        LoadMapFolder("./Maps")
-        RealRooms:GetFromFront():AddRoomToGame(me)
-=======
-        Add(mainScreen)
-        createMainMenu()
+        //RefRoom:pg_CamMaxXOffset = 200
+        mainmenu:InitMainMenu(me)
+        PushRoomStack(mainmenu)
+        ls:CreateScreen(me)
+        MenuTable:Add("LevelSelector",ls)
         
 >>>>>>> 521de5159f2677ab38fc70c9cc2c0ee4cf83e57c
 
@@ -57,89 +54,73 @@ class Main is Game
 
     action Update(number seconds)
         // Scrolling Update
-        if GameMouseListener:pg_Scrolling > 0 or RefRoom:pg_CamReset = 1
+        if GameMouseListener:pg_HScrolling not= 0 or GameMouseListener:pg_VScrolling not= 0 or RefRoom:pg_CamReset = 1
             RefRoom:pg_CamReset = 0
-            if GameMouseListener:pg_Scrolling = 1
+
+            if GameMouseListener:pg_HScrolling = -1
                 RefRoom:pg_CamXOffset = RefRoom:pg_CamXOffset - GameMouseListener:pg_ScrollSpeed
-            elseif GameMouseListener:pg_Scrolling = 2
+            elseif GameMouseListener:pg_HScrolling = 1
                 RefRoom:pg_CamXOffset = RefRoom:pg_CamXOffset + GameMouseListener:pg_ScrollSpeed
             end
+
+            if GameMouseListener:pg_VScrolling = -1
+                RefRoom:pg_CamYOffset = RefRoom:pg_CamYOffset - GameMouseListener:pg_ScrollSpeed
+            elseif GameMouseListener:pg_VScrolling = 1
+                RefRoom:pg_CamYOffset = RefRoom:pg_CamYOffset + GameMouseListener:pg_ScrollSpeed
+            end
+
             camera:SetPosition(RefRoom:pg_CamXOffset + RefRoom:pg_ScreenSizeX/2, RefRoom:pg_CamYOffset + RefRoom:pg_ScreenSizeY/2, 0)
             GameMouseListener:SetCenter(RefRoom:pg_CamXOffset + GameMouseListener:pg_LastMouseX, RefRoom:pg_CamYOffset + GameMouseListener:pg_LastMouseY)
         end
-
-/*        // Check if there are objs that need to be removed
-        repeat until RefRoom:GetDelQueueSize() = 0
-            GameObject tmpDraw = RefRoom:DequeueDelObj()
-            tmpDraw:RemoveFromGame(me)
-        end
-
-        // Check if there are objs that need to be added
-        repeat until RefRoom:GetAddQueueSize() = 0
-            GameObject tmpDraw = RefRoom:DequeueAddObj()
-            tmpDraw:AddToGame(me)        // Add standard Drawable
-
-	    if tmpDraw:GetAttributes():GetObjectName() = "objCannon"
-                // for reasons mysterious, you can't do this more than 31 times without a crash
-                    HackedTogetherCannonLoad (cast(GameObject_Player,tmpDraw), 10)
-	    end
-            //end
-        end*/
     end
 
-    action HackedTogetherCannonLoad (GameObject_Player PlayCan, integer count)
-/*        repeat count times
-            GameObject nextShot
-            nextShot:InitGameObject(src:GetNewCannonBallAttribs(0,0))
-            nextShot:AddToGame(me)
-            PlayCan:LoadCannon(nextShot)
-        end*/
+    action GetCoreLibrary returns GameObject_Library
+        return CoreLibrary
     end
 
-    action LoadMapFolder (text MapPath) returns integer
-        File Dir
-        Dir:SetPath(MapPath)    // apparently we can't just open for read from a path
-        Dir:OpenForRead()
-
-        // bugchecking
-        if not Dir:IsDirectory()
-            output "You fucked up, " + Dir:GetAbsolutePath() + " isn't a dir"
-            return -1
-        end
-
-        // we got it open, now get a listing
-        Array<File> TargetMaps = Dir:GetDirectoryListing()
-        if TargetMaps:GetSize() <= 0
-            output "Didn't read any files, RIP"
-            return -1
-        end
-
-        integer Next = 0
-        repeat while Next < TargetMaps:GetSize()
-            GameRoom NextRoom
-//            NextRoom:LoadRoomFromFile(TargetMaps:Get(Next), CoreLibrary)
-            RealRooms:Add(NextRoom)
-            Next = Next + 1
-        end
-        return 0
-    end
-
-<<<<<<< HEAD
-=======
     action createMainMenu
-    
+
+/*
         exitFunction exit
         startFunction start
         mainmenu:Create(mainScreen)
         exit:setGame(me)
         start:setMainMenu(mainmenu)
-        start:setGameRoom(roo)
+//        start:setGameRoom(roo)
         start:setGame(me)
         mainmenu:startMenu:LoadClick(start)
         mainmenu:exitMenu:LoadClick(exit)
         mainmenu:Render()
-
+*/
     end
 
->>>>>>> 521de5159f2677ab38fc70c9cc2c0ee4cf83e57c
+    // ROOM AND STACK MANAGEMENT
+    // PRETTY FRIGGIN IMPORTANT
+
+    action PushRoomStack (GameRoom NewRoom)
+        if RoomStack:GetSize() > 0
+            RoomStack:Peek():RemoveRoomFromGame(me)
+        end
+        RoomStack:Push(NewRoom)
+        RoomStack:Peek():AddRoomToGame(me)
+    end
+
+    action MenuOntoRoomStack (text NextMenu)
+        PushRoomStack(MenuTable:GetValue(NextMenu))
+    end
+
+    action PopRoomStack
+        if RoomStack:GetSize() <= 0
+            Exit()
+        else
+            RoomStack:Peek():RemoveRoomFromGame(me)
+            RoomStack:Pop()
+            if RoomStack:GetSize() > 0
+                RoomStack:Peek():AddRoomToGame(me)
+            else
+                Exit()
+            end
+        end
+    end
+
 end

@@ -1,0 +1,16 @@
+use Libraries.Interface.Events.MouseEvent
+
+class Clickable_MenuLoader is Clickable
+    private text MenuString = ""
+    
+    action ClickedMouse(MouseEvent event)
+        parent:Clickable:ParentGame:MenuOntoRoomStack(MenuString)
+    end
+
+    action SetMenuString (text NewString)
+        MenuString = NewString
+    end
+    action GetMenuString returns text
+        return MenuString
+    end
+end

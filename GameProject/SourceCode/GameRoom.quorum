@@ -40,8 +40,16 @@ class GameRoom
         return RoomLayers:Get(layer)
     end
 
+    action AddObj(GameObject obj)
+        RoomLayers:GetFromEnd():Add(obj)
+    end
+
     action AddObjAtIndex (integer layer, integer index, GameObject obj)
         RoomLayers:Get(layer):Add(index, obj)
+    end
+
+    action AddObjToLayer (integer layer, GameObject obj)
+        RoomLayers:Get(layer):Add(obj)
     end
 
     action DeleteObjAtIndex (integer layer, integer index)
@@ -50,6 +58,11 @@ class GameRoom
 
     action DeleteLayerAtIndex (integer layer)
 	RoomLayers:RemoveAt(layer)
+    end
+
+    action AddEmptyLayer
+        Array<GameObject> EmptyLayer
+        RoomLayers:Add(EmptyLayer)
     end
 
     action AddRoomToGame(Game game)

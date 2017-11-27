@@ -1,7 +1,7 @@
 use Libraries.Interface.Events.MouseEvent
 
 class levelOneFunction is GameFunction
-
+/*
     GameRoom room
 
     action run(MouseEvent e)
@@ -11,5 +11,5 @@ class levelOneFunction is GameFunction
     action getGameRoom(GameRoom r)
         room = r
     end
-
+*/
 end

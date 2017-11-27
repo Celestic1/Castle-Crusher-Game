@@ -5,6 +5,7 @@ use Libraries.Containers.List
 
 class startFunction is GameFunction
     
+/*    
     Game game
     GameRoom room
     MainMenu mainmenu
@@ -42,4 +43,5 @@ class startFunction is GameFunction
         ls:first:LoadClick(lvlonefunc)
         ls:Render()
     end
+*/
 end

@@ -27,6 +27,7 @@ class GameObject_Player is GameObject, GameKeyboard
     Drawable barY
     Drawable PowerBar
     Drawable PowerBarBackground
+    Drawable CannonBase
 //    Drawable Cannon
     Math MyMath
     InputMonitor monitor
@@ -90,9 +91,8 @@ class GameObject_Player is GameObject, GameKeyboard
 	//me:LoadFilledRectangle(80,20)
         //SetPosition(GetStartPositionX(),GetStartPositionY())
         ResetForce()
-<<<<<<< HEAD
-=======
-        me:LoadFilledRectangle(80,20)
+        //me:LoadFilledRectangle(80,20)
+        me:Load("resources/cannon.png")
 >>>>>>> 521de5159f2677ab38fc70c9cc2c0ee4cf83e57c
     end
 
