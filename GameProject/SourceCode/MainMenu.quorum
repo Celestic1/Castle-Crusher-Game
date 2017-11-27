@@ -4,11 +4,8 @@ use Libraries.Game.Game
 // This class displays the main menu
 // Functionality is added through startFunction and exitFunction
 class MainMenu is GameRoom
-
-//    public Clickable startMenu
-//    public Clickable loadMenu
-//   public Clickable exitMenu
-//    Drawable screen
+    
+    LevelSelector ls
 
     action InitMainMenu (Main game)
         // Background layer!
@@ -20,9 +17,10 @@ class MainMenu is GameRoom
 
         // Button layer!
         AddEmptyLayer()
-        Clickable_LevelLoader StartButton
-        StartButton:SetParentGame(game)
-        StartButton:SetLevelString("Maps/TestMap.xml")
+        Clickable_Start StartButton
+        //StartButton:SetParentGame(game)
+        StartButton:SetGame(game)
+        //StartButton:SetLevelString("Maps/TestMap.xml")
         StartButton:SetSpritePath("assets/start.png")
         StartButton:SetStartPosition(450,250)
         StartButton:RefreshGameObject()
@@ -35,23 +33,5 @@ class MainMenu is GameRoom
         ExitButton:RefreshGameObject()
         AddObj(ExitButton)
     end
-/*    action Create(Drawable l)
-//        screen = l
-//        Load("/assets/newBackground.png")
-//        startMenu:Load("/assets/start.png")
-//        exitMenu:Load("/assets/exit.png")
-    end*/
-
-/*    action Render()
-        screen:Add(me)
-        startMenu:SetPosition(450,250)
-        Add(startMenu)
-        exitMenu:SetPosition(450,50)
-        Add(exitMenu)
-    end*/
-
-/*    action DeleteMenu()
-        screen:Remove(me)
-    end*/
 
 end

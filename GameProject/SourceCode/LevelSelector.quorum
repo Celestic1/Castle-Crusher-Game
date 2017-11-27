@@ -2,30 +2,34 @@ use Libraries.Game.Graphics.Drawable
 use Libraries.Containers.List
 use Libraries.Game.Game
 
-class LevelSelector is Drawable
+class LevelSelector is GameRoom
 
-    levelOneFunction lvlone
-    public Clickable first
-    GameRoom room
-    Drawable selectScreen
-    List<text> levelList
+    action CreateScreen(Main game)
 
-    action constructor(Drawable s,List<text> l,GameRoom r)
-        selectScreen = s
-        levelList = l
-        room = r
-        Load("/assets/snowBackground.png")
-        first:Load("/assets/images.png")
+        AddEmptyLayer()
+        GameObject BackGround
+        BackGround:SetSpritePath("assets/snowBackground.png")
+        BackGround:RefreshGameObject()
+        AddObj(BackGround)
+
+        AddEmptyLayer()
+        Clickable_LevelLoader levelOne
+        levelOne:SetParentGame(game)
+        levelOne:SetLevelString("Maps/TestMap.xml")
+        levelOne:SetSpritePath("assets/SYMB_1.png")
+        levelOne:SetPosition(100,100)
+        levelOne:RefreshGameObject()
+        AddObj(levelOne)
+
+        Clickable_LevelLoader levelTwo
+        levelTwo:SetParentGame(game)
+        levelTwo:SetLevelString("Maps/TestMap.xml")
+        levelTwo:SetSpritePath("assets/SYMB_2.png")
+        levelTwo:SetPosition(200,100)
+        levelTwo:RefreshGameObject()
+        AddObj(levelTwo)
+
     end
 
-    action Render()
-        selectScreen:Add(me)
-        first:SetPosition(100,100)
-        Add(first)
-    end
-
-    action RemoveMenu()
-        selectScreen:Remove(me)
-    end
 
 end

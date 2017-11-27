@@ -1,0 +1,16 @@
+use Libraries.Interface.Events.MouseEvent
+
+class Clickable_Start is Clickable
+
+    LevelSelector ls
+    Main game
+
+    action ClickedMouse(MouseEvent event)
+        ls:CreateScreen(game)
+    end
+
+    action SetGame(Main g)
+        game = g
+    end
+
+end

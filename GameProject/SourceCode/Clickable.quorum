@@ -16,6 +16,10 @@ class Clickable is GameObject, MouseListener
         ParentGame = NewGame
     end
 
+    action getParentGame() returns Main
+        return ParentGame
+    end
+
     // When mouse is clicked, it acces the GameFunction class's run function
     action ClickedMouse(MouseEvent event)
         ParentGame:PopRoomStack()
