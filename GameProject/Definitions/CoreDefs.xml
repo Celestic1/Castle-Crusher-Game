@@ -73,6 +73,20 @@ and open the template in the editor.
         <Friction>0.5</Friction>
     </Object>
     <Object>
+	<Name>BasicBox2</Name>
+	<SpritePath>resources/sprBrick_2.png</SpritePath>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Responsive>true</Responsive>
+        <Friction>0.5</Friction>
+    </Object>
+    <Object>
+	<Name>BasicBox3</Name>
+	<SpritePath>resources/sprBrick_3.png</SpritePath>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Responsive>true</Responsive>
+        <Friction>0.5</Friction>
+    </Object>
+    <Object>
 	<Name>StartButton</Name>
 	<SpritePath>resources/sprStartButton.png</SpritePath>
     </Object>
