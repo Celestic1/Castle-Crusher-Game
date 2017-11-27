@@ -17,10 +17,9 @@ class MainMenu is GameRoom
 
         // Button layer!
         AddEmptyLayer()
-        Clickable_Start StartButton
-        //StartButton:SetParentGame(game)
-        StartButton:SetGame(game)
-        //StartButton:SetLevelString("Maps/TestMap.xml")
+        Clickable_MenuLoader StartButton
+        StartButton:SetParentGame(game)
+        StartButton:SetMenuString("LevelSelect")
         StartButton:SetSpritePath("assets/start.png")
         StartButton:SetStartPosition(450,250)
         StartButton:RefreshGameObject()

@@ -19,6 +19,7 @@ class Main is Game
     GameObject_Library CoreLibrary
 //    Drawable mainScreen
     MainMenu mainmenu
+    LevelSelector ls
 
     action Main
         GameMouseListener:RefRoom = RefRoom
@@ -40,13 +41,11 @@ class Main is Game
         AddMouseListener(GameMouseListener)
         AddMouseMovementListener(GameMouseListener)
         RefRoom:pg_CamMaxXOffset = 200
-//        Add(mainScreen)
-//        createMainMenu()
         mainmenu:InitMainMenu(me)
         PushRoomStack(mainmenu)
         
 
-        Add(GameMouseListener)
+        //Add(GameMouseListener)
     end
 
     action Update(number seconds)
