@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-class MainMenu is Clickable
-    public Clickable logo
-=======
-use Libraries.Game.Graphics.Drawable
+//use Libraries.Game.Graphics.Drawable
 use Libraries.Game.Game
 
 // This class displays the main menu

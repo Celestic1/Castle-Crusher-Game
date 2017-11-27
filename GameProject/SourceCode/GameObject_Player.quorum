@@ -93,7 +93,6 @@ class GameObject_Player is GameObject, GameKeyboard
         ResetForce()
         //me:LoadFilledRectangle(80,20)
         me:Load("resources/cannon.png")
->>>>>>> 521de5159f2677ab38fc70c9cc2c0ee4cf83e57c
     end
 
     // resets Force after we released Space Bar

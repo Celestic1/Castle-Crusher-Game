@@ -12,12 +12,8 @@ class GameRoom
     public integer pg_ScreenSizeY = 320   // Default height of room
     private integer g_GridX = 40          // This is the width  of each 'grid' on map
     private integer g_GridY = 40          // This is the height of each 'grid' on map
-<<<<<<< HEAD
-    
-=======
-    XMLNode RefNode
 
->>>>>>> 521de5159f2677ab38fc70c9cc2c0ee4cf83e57c
+    XMLNode RefNode
     // Camera Variables
     public integer pg_CamXOffset = 0
     public integer pg_CamYOffset = 0

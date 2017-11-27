@@ -45,8 +45,6 @@ class Main is Game
         PushRoomStack(mainmenu)
         ls:CreateScreen(me)
         MenuTable:Add("LevelSelector",ls)
-        
->>>>>>> 521de5159f2677ab38fc70c9cc2c0ee4cf83e57c
 
         // Draw cursor
         Add(GameMouseListener)

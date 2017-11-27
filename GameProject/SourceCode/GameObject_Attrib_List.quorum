@@ -3,7 +3,7 @@
 
 //use GameObject_Attribs
 
-/*class GameObject_Attrib_List
+class GameObject_Attrib_List
     // template action
     action GetNew_Attribs (number posX, number posY) returns GameObject_Attribs
 	GameObject_Attribs newAttribs
