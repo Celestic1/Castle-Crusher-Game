@@ -19,9 +19,10 @@ class Main is Game
     GameObject_Library CoreLibrary
 //    Drawable mainScreen
     MainMenu mainmenu
+    LevelSelector ls
 
     action Main
-        GameMouseListener:RefRoom = RefRoom
+        //GameMouseListener:RefRoom = RefRoom
         // Fixed screensize / gamename
         SetScreenSize(RefRoom:pg_ScreenSizeX , RefRoom:pg_ScreenSizeY)
         SetGameName("Castle Crusher")
@@ -37,16 +38,16 @@ class Main is Game
         camera = GetCamera2D()
         EnablePhysics2D(true)
         SetGravity2D(0, -200)
-        AddMouseListener(GameMouseListener)
-        AddMouseMovementListener(GameMouseListener)
-        RefRoom:pg_CamMaxXOffset = 200
-//        Add(mainScreen)
-//        createMainMenu()
+        //AddMouseListener(GameMouseListener)
+        //AddMouseMovementListener(GameMouseListener)
+        //RefRoom:pg_CamMaxXOffset = 200
         mainmenu:InitMainMenu(me)
         PushRoomStack(mainmenu)
+        ls:CreateScreen(me)
+        MenuTable:Add("LevelSelector",ls)
         
 
-        Add(GameMouseListener)
+        //Add(GameMouseListener)
     end
 
     action Update(number seconds)
@@ -76,7 +77,8 @@ class Main is Game
     end
 
     action createMainMenu
-/*    
+
+/*
         exitFunction exit
         startFunction start
         mainmenu:Create(mainScreen)

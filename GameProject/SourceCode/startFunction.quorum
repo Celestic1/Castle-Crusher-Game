@@ -4,6 +4,7 @@ use Libraries.Game.Graphics.Drawable
 use Libraries.Containers.List
 
 class startFunction is GameFunction
+    
 /*    
     Game game
     GameRoom room

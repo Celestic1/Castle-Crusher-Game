@@ -6,7 +6,7 @@ use Libraries.Game.Game
 class Clickable is GameObject, MouseListener
     
     private Main ParentGame
-    
+
     // Ensures this object will receive mouse events when it is clicked
     on create
         AddMouseListener(me)
@@ -14,6 +14,10 @@ class Clickable is GameObject, MouseListener
 
     action SetParentGame (Main NewGame)
         ParentGame = NewGame
+    end
+
+    action getParentGame() returns Main
+        return ParentGame
     end
 
     // When mouse is clicked, it acces the GameFunction class's run function
