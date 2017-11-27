@@ -43,9 +43,11 @@ class Main is Game
         RefRoom:pg_CamMaxXOffset = 200
         mainmenu:InitMainMenu(me)
         PushRoomStack(mainmenu)
+        ls:CreateScreen(me)
+        MenuTable:Add("LevelSelector",ls)
         
 
-        //Add(GameMouseListener)
+        Add(GameMouseListener)
     end
 
     action Update(number seconds)
