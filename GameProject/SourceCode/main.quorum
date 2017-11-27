@@ -22,7 +22,7 @@ class Main is Game
     LevelSelector ls
 
     action Main
-        GameMouseListener:RefRoom = RefRoom
+        //GameMouseListener:RefRoom = RefRoom
         // Fixed screensize / gamename
         SetScreenSize(RefRoom:pg_ScreenSizeX , RefRoom:pg_ScreenSizeY)
         SetGameName("Castle Crusher")
@@ -38,20 +38,21 @@ class Main is Game
         camera = GetCamera2D()
         EnablePhysics2D(true)
         SetGravity2D(0, -200)
-        AddMouseListener(GameMouseListener)
-        AddMouseMovementListener(GameMouseListener)
-        RefRoom:pg_CamMaxXOffset = 200
+        //AddMouseListener(GameMouseListener)
+        //AddMouseMovementListener(GameMouseListener)
+        //RefRoom:pg_CamMaxXOffset = 200
         mainmenu:InitMainMenu(me)
         PushRoomStack(mainmenu)
         ls:CreateScreen(me)
         MenuTable:Add("LevelSelector",ls)
         
 
-        Add(GameMouseListener)
+        //Add(GameMouseListener)
     end
 
     action Update(number seconds)
         // Scrolling Update
+/*
         if GameMouseListener:pg_Scrolling > 0 or RefRoom:pg_CamReset = 1
             RefRoom:pg_CamReset = 0
             if GameMouseListener:pg_Scrolling = 1
@@ -61,7 +62,7 @@ class Main is Game
             end
             camera:SetPosition(RefRoom:pg_CamXOffset + RefRoom:pg_ScreenSizeX/2, RefRoom:pg_CamYOffset + RefRoom:pg_ScreenSizeY/2, 0)
             GameMouseListener:SetCenter(RefRoom:pg_CamXOffset + GameMouseListener:pg_LastMouseX, RefRoom:pg_CamYOffset + GameMouseListener:pg_LastMouseY)
-        end
+        end*/
     end
 
     action GetCoreLibrary returns GameObject_Library

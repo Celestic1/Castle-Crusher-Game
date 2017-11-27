@@ -4,6 +4,7 @@ use Libraries.Interface.Events.MouseEvent
 use Libraries.Game.Graphics.Drawable
 
 class GameMouse is Drawable, MouseListener, MouseMovementListener
+/*
     public GameRoom RefRoom
     public integer pg_Scrolling = 0 // 0->NotScrolling:1->Left:2->Right
     public integer pg_ScrollSpeed = 3
@@ -28,5 +29,5 @@ class GameMouse is Drawable, MouseListener, MouseMovementListener
 
         // Update Cursor Location
         SetCenter(RefRoom:pg_CamXOffset + pg_LastMouseX, RefRoom:pg_CamYOffset + pg_LastMouseY)
-    end
+    end*/
 end

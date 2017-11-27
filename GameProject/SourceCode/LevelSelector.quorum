@@ -18,7 +18,7 @@ class LevelSelector is GameRoom
         levelOne:SetParentGame(game)
         levelOne:SetLevelString("Maps/TestMap.xml")
         levelOne:SetSpritePath("assets/SYMB_1.png")
-        levelOne:SetStartPosition(250,100)
+        levelOne:SetStartPosition(250,150)
         levelOne:RefreshGameObject()
         AddObj(levelOne)
 
@@ -26,14 +26,22 @@ class LevelSelector is GameRoom
         levelTwo:SetParentGame(game)
         levelTwo:SetLevelString("Maps/TestMap.xml")
         levelTwo:SetSpritePath("assets/SYMB_2.png")
-        levelTwo:SetStartPosition(500,100)
+        levelTwo:SetStartPosition(500,150)
         levelTwo:RefreshGameObject()
         AddObj(levelTwo)
+
+        Clickable_LevelLoader levelThree
+        levelThree:SetParentGame(game)
+        levelThree:SetLevelString("Maps/TestMap.xml")
+        levelThree:SetSpritePath("assets/SYMB_3.png")
+        levelThree:SetStartPosition(750,150)
+        levelThree:RefreshGameObject()
+        AddObj(levelThree)
 
         Clickable MainScreen
         MainScreen:SetParentGame(game)
         MainScreen:SetSpritePath("assets/exit.png")
-        MainScreen:SetStartPosition(700,250)
+        MainScreen:SetStartPosition(895,255)
         MainScreen:RefreshGameObject()
         AddObj(MainScreen)
 
