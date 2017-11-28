@@ -29,8 +29,8 @@ and open the template in the editor.
             <Y>0</Y>
         </BasicBlock>
         <Cannon>
-            <X>50</X>
-            <Y>200</Y>
+            <X>30</X>
+            <Y>100</Y>
         </Cannon>
     </Layer>
 </Map>

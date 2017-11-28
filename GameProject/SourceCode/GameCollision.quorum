@@ -20,36 +20,38 @@ class GameCollision is CollisionListener2D
         GameObject itemB = cast(GameObject, event:GetItemB())
 
         // Standard cannon ball can ONLY destory wooden stuff
-        if itemA:GetName() = "StandardCannonBall" and itemB:GetName() = "WoodenBox"
+        if itemA:GetName() = "CannonBall" and itemB:GetName() = "BasicBox"
+            force = itemA:GetLinearVelocity()
+            output "Velocity = " + force:Length()
+            if force:Length() > 400
+                itemB:RemoveFromGame(main)
+            end
+        elseif itemA:GetName() = "BasicBox" and itemB:GetName() = "CannonBall"
+            force = itemB:GetLinearVelocity()
+            output "Velocity = " + force:Length()
+            if force:Length() > 400
+                itemA:RemoveFromGame(main)
+            end
+        end
+/*
+        if itemA:GetName() = "CannonBall" and itemB:GetName() = "WoodenRectangle"
             force = itemA:GetLinearVelocity()
             if force:Length() > 400
                 itemB:RemoveFromGame(main)
             end
-        elseif itemA:GetName() = "WoodenBox" and itemB:GetName() = "StandardCannonBall"
+        elseif itemA:GetName() = "WoodenRectangle" and itemB:GetName() = "CannonBall"
             force = itemB:GetLinearVelocity()
             if force:Length() > 400
                 itemA:RemoveFromGame(main)
             end
         end
 
-        if itemA:GetName() = "StandardCannonBall" and itemB:GetName() = "WoodenRectangle"
+        if itemA:GetName() = "CannonBall" and itemB:GetName() = "Fish"
             force = itemA:GetLinearVelocity()
             if force:Length() > 400
                 itemB:RemoveFromGame(main)
             end
-        elseif itemA:GetName() = "WoodenRectangle" and itemB:GetName() = "StandardCannonBall"
-            force = itemB:GetLinearVelocity()
-            if force:Length() > 400
-                itemA:RemoveFromGame(main)
-            end
-        end
-
-        if itemA:GetName() = "StandardCannonBall" and itemB:GetName() = "Fish"
-            force = itemA:GetLinearVelocity()
-            if force:Length() > 400
-                itemB:RemoveFromGame(main)
-            end
-        elseif itemA:GetName() = "Fish" and itemB:GetName() = "StandardCannonBall"
+        elseif itemA:GetName() = "Fish" and itemB:GetName() = "CannonBall"
             force = itemB:GetLinearVelocity()
             if force:Length() > 400
                 itemA:RemoveFromGame(main)

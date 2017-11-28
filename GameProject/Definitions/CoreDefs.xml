@@ -12,10 +12,11 @@ and open the template in the editor.
 	<SpritePath>resources/sprBrick_0.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Unmovable>true</Unmovable>
+	<Restitution>0.5</Restitution>
 	<Friction>0.5</Friction>
     </Object>
     <Object>
-	<Name>WoodenBox</Name>
+        <Name>WoodenBox</Name>
 	<SpritePath>resources/wooden_box.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
@@ -23,12 +24,24 @@ and open the template in the editor.
         <Mass>50</Mass>
     </Object>
     <Object>
-	<Name>WoodenRectangle</Name>
+        <Name>WoodenRectangle</Name>
 	<SpritePath>resources/wooden_rectangle.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
         <Friction>0.5</Friction>
         <Mass>150</Mass>
+    </Object>
+    <Object>
+	<Name>Fish</Name>
+	<SpritePath>resources/sprFesh-trimmed.png</SpritePath>
+	<Collidable>true</Collidable>
+    </Object>
+    <Object>
+	<Name>Cat</Name>
+	<SpritePath>resources/sprCatR-trimmed.png</SpritePath>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Responsive>true</Responsive>
+	<Collidable>true</Collidable>
     </Object>
     <Object>
 	<Name>Cannon</Name>
@@ -43,37 +56,38 @@ and open the template in the editor.
 	<Friction>0.5</Friction>
     </Object>
     <Object>
-	<Name>BrickBox</Name>
-	<SpritePath>resources/brick_box.png</SpritePath>
+	<Name>Lock</Name>
+	<SpritePath>resources/sprLock_0.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
-	<Responsive>true</Responsive>
-        <Friction>0.5</Friction>
-        <Mass>100</Mass>
+	<Unmovable>true</Unmovable>
     </Object>
     <Object>
-	<Name>BrickRectangle</Name>
-	<SpritePath>resources/brick_rectangle.png</SpritePath>
-	<PhysicsEnabled>true</PhysicsEnabled>
-	<Responsive>true</Responsive>
-        <Friction>0.5</Friction>
-        <Mass>100</Mass>
-    </Object>
-    <Object>
-	<Name>Fish</Name>
-	<SpritePath>resources/sprFesh-trimmed.png</SpritePath>
+	<Name>Key</Name>
+	<SpritePath>resources/sprKey-trimmed.png</SpritePath>
 	<Collidable>true</Collidable>
     </Object>
     <Object>
-	<Name>Cannon</Name>
-	<SpritePath>resources/TrashCannon.png</SpritePath>
-        <Player>true</Player>
-    </Object> 
+	<Name>Exit1</Name>
+	<SpritePath>resources/sprMouseHole_0.png</SpritePath>
+	<Collidable>true</Collidable>
+    </Object>
+    <Object>
+	<Name>Exit2</Name>
+	<SpritePath>resources/sprMouseHole_0.png</SpritePath>
+	<Collidable>true</Collidable>
+    </Object>
+    <Object>
+	<Name>Exit3</Name>
+	<SpritePath>resources/sprMouseHole_0.png</SpritePath>
+	<Collidable>true</Collidable>
+    </Object>
     <Object>
 	<Name>BasicBox</Name>
 	<SpritePath>resources/sprBrick_1.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
         <Friction>0.5</Friction>
+    </Object>
     <Object>
 	<Name>BasicBox2</Name>
 	<SpritePath>resources/sprBrick_2.png</SpritePath>
