@@ -22,7 +22,7 @@ class Main is Game
     LevelSelector ls
 
     action Main
-        //GameMouseListener:RefRoom = RefRoom
+        GameMouseListener:RefRoom = RefRoom
         // Fixed screensize / gamename
         SetScreenSize(RefRoom:pg_ScreenSizeX , RefRoom:pg_ScreenSizeY)
         SetGameName("Castle Crusher")
@@ -49,14 +49,14 @@ class Main is Game
         Add(GameMouseListener)
         //AddMouseListener(GameMouseListener)
         //AddMouseMovementListener(GameMouseListener)
-        //RefRoom:pg_CamMaxXOffset = 200
+        RefRoom:pg_CamMaxXOffset = 200
         mainmenu:InitMainMenu(me)
         PushRoomStack(mainmenu)
         ls:CreateScreen(me)
         MenuTable:Add("LevelSelector",ls)
         
 
-        //Add(GameMouseListener)
+        Add(GameMouseListener)
     end
 
     action Update(number seconds)

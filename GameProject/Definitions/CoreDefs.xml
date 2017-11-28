@@ -9,7 +9,7 @@ and open the template in the editor.
 <ObjectLibrary>
     <Object>
 	<Name>BasicBlock</Name>
-	<SpritePath>resources/sprBrick_0.png</SpritePath>
+	<SpritePath>assets/metalBlockSmall.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Unmovable>true</Unmovable>
 	<Restitution>0.5</Restitution>
@@ -67,21 +67,21 @@ and open the template in the editor.
     </Object>
     <Object>
 	<Name>BasicBox</Name>
-	<SpritePath>resources/sprBrick_1.png</SpritePath>
+	<SpritePath>assets/WoodBlockSmall.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
         <Friction>0.5</Friction>
     </Object>
     <Object>
 	<Name>BasicBox2</Name>
-	<SpritePath>resources/sprBrick_2.png</SpritePath>
+	<SpritePath>assets/WoodBlockMed.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
         <Friction>0.5</Friction>
     </Object>
     <Object>
 	<Name>BasicBox3</Name>
-	<SpritePath>resources/sprBrick_3.png</SpritePath>
+	<SpritePath>assets/WoodBlockLong.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
         <Friction>0.5</Friction>
