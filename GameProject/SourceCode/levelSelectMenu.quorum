@@ -1,7 +1,0 @@
-class levelSelectMenu 
-    Clickable One
-    Clickable Two
-    Clickable Three
-    Clickable Four
-    Clickable Five
-end

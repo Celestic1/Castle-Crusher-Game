@@ -24,8 +24,4 @@ class Clickable is GameObject, MouseListener
     action ClickedMouse(MouseEvent event)
         ParentGame:PopRoomStack()
     end
-    
-    action isClicked returns boolean
-        return clicked
-    end
 end

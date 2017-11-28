@@ -2,7 +2,7 @@ use Libraries.Game.Game
 use Libraries.Game.Graphics.Drawable
 use Libraries.Compute.Vector2
 
-class GameObject is Drawable, Clickable
+class GameObject is Drawable
     private text SpritePath = "resources/sprFesh-Trimmed.png"
     private Vector2 StartPosition
     private boolean IsPlayerSub = false

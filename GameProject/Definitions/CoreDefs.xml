@@ -29,7 +29,7 @@ and open the template in the editor.
     </Object>
     <Object>
 	<Name>Cannon</Name>
-	<SpritePath>resources/TrashCannon.png</SpritePath>
+	<SpritePath>assets/Player/player.png</SpritePath>
         <Player>true</Player>
     </Object>
     <Object>

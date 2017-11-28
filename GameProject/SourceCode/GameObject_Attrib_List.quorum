@@ -176,7 +176,6 @@ class GameObject_Attrib_List
 	newAttribs:SetTangible(true)
 	newAttribs:SetPhysicsEnabled(true)
 	newAttribs:SetResponsive(true)
-        newAttribs:SetHealth(3)
         newAttribs:SetBasePosition(posX, posY)
         return newAttribs
     end

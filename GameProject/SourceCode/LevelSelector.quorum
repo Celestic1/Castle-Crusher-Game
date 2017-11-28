@@ -40,7 +40,7 @@ class LevelSelector is GameRoom
 
         Clickable MainScreen
         MainScreen:SetParentGame(game)
-        MainScreen:SetSpritePath("assets/exit.png")
+        MainScreen:SetSpritePath("assets/exit_1.png")
         MainScreen:SetStartPosition(895,255)
         MainScreen:RefreshGameObject()
         AddObj(MainScreen)

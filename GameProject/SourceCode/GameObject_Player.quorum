@@ -41,8 +41,6 @@ class GameObject_Player is GameObject, GameKeyboard
     Drawable Score2
     Drawable Score3
 
-//    Game parentGame // I hate this hack and want it gone ASAP
-    
     action FireCannon(integer AmmoRef)
         if not (AmmoRef < myAmmo:GetSize() and AmmoRef >= 0)
             output "Cannon is out of ammo!"
@@ -92,7 +90,7 @@ class GameObject_Player is GameObject, GameKeyboard
         //SetPosition(GetStartPositionX(),GetStartPositionY())
         ResetForce()
         //me:LoadFilledRectangle(80,20)
-        me:Load("resources/cannon.png")
+        me:Load("assets/Player/player.png")
     end
 
     // resets Force after we released Space Bar
