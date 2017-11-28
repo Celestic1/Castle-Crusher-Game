@@ -36,6 +36,13 @@ and open the template in the editor.
         <Player>true</Player>
     </Object>
     <Object>
+	<Name>CannonBall</Name>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Mass>100</Mass>
+	<Restitution>0.5</Restitution>
+	<Friction>0.5</Friction>
+    </Object>
+    <Object>
 	<Name>BrickBox</Name>
 	<SpritePath>resources/brick_box.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
