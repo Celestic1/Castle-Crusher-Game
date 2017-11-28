@@ -58,7 +58,6 @@ and open the template in the editor.
     </Object>
     <Object>
 	<Name>StandardCannonBall</Name>
-        <SpritePath>resources/smallball.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Mass>10</Mass>
 	<Restitution>0.5</Restitution>

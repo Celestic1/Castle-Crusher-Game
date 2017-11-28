@@ -4,8 +4,9 @@ use Libraries.Interface.Events.CollisionEvent2D
 use Libraries.Compute.Vector2
 use GameObject
 
+
 class GameCollision is CollisionListener2D
-    public GameRoom roo
+    public Main main
     Vector2 force
 
     action BeginCollision(CollisionEvent2D event)
@@ -13,41 +14,42 @@ class GameCollision is CollisionListener2D
         GameObject itemB = cast(GameObject, event:GetItemB())
 
         // Standard cannon ball can ONLY destory wooden stuff
-        if itemA:GetName() = "objStandardCannonBall" and itemB:GetName() = "objWoodenBox"
+        if itemA:GetName() = "StandardCannonBall" and itemB:GetName() = "WoodenBox"
             force = itemA:GetLinearVelocity()
             if force:Length() > 400
-                //roo:QueueDelObj(itemB)
+                itemB:RemoveFromGame(main)
             end
-        elseif itemA:GetName() = "objWoodenBox" and itemB:GetName() = "objStandardCannonBall"
+        elseif itemA:GetName() = "WoodenBox" and itemB:GetName() = "StandardCannonBall"
             force = itemB:GetLinearVelocity()
             if force:Length() > 400
-                //roo:QueueDelObj(itemA)
+                itemA:RemoveFromGame(main)
             end
         end
 
-        if itemA:GetName() = "objStandardCannonBall" and itemB:GetName() = "objWoodenRectangle"
+        if itemA:GetName() = "StandardCannonBall" and itemB:GetName() = "WoodenRectangle"
             force = itemA:GetLinearVelocity()
             if force:Length() > 400
-                //roo:QueueDelObj(itemB)
+                itemB:RemoveFromGame(main)
             end
-        elseif itemA:GetName() = "objWoodenRectangle" and itemB:GetName() = "objStandardCannonBall"
+        elseif itemA:GetName() = "WoodenRectangle" and itemB:GetName() = "StandardCannonBall"
             force = itemB:GetLinearVelocity()
             if force:Length() > 400
-                //roo:QueueDelObj(itemA)
+                itemA:RemoveFromGame(main)
             end
         end
 
-        if itemA:GetName() = "objStandardCannonBall" and itemB:GetName() = "objFish"
+        if itemA:GetName() = "StandardCannonBall" and itemB:GetName() = "Fish"
             force = itemA:GetLinearVelocity()
             if force:Length() > 400
-                //roo:QueueDelObj(itemB)
+                itemB:RemoveFromGame(main)
             end
-        elseif itemA:GetName() = "objFish" and itemB:GetName() = "objStandardCannonBall"
+        elseif itemA:GetName() = "Fish" and itemB:GetName() = "StandardCannonBall"
             force = itemB:GetLinearVelocity()
             if force:Length() > 400
-                //roo:QueueDelObj(itemA)
+                itemA:RemoveFromGame(main)
             end
         end
+        /*
         //***************************************************************************************************************************************************************
         // High-Explosive(HE) cannon ball can ONLY destory brick stuff
         if itemA:GetName() = "objHECannonBall" and itemB:GetName() = "objBrickBox"
@@ -124,5 +126,6 @@ class GameCollision is CollisionListener2D
                 //roo:QueueDelObj(itemA)
             end
         end
+        */
     end
 end
