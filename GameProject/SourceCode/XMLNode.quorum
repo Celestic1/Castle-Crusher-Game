@@ -25,7 +25,7 @@ class XMLNode is Element
     public constant text XCOORD = "X"
     public constant text YCOORD = "Y"
     public constant text ROTATION = "ROT"
-
+    public constant text AUDIO = "Audio"
     action OutputNode (integer depth)
         text OutputTarget = ""
         integer i = 0
