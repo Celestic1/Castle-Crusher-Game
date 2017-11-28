@@ -34,6 +34,7 @@ and open the template in the editor.
     </Object>
     <Object>
 	<Name>CannonBall</Name>
+        <SpritePath>assets/Player/cannonball.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Mass>100</Mass>
 	<Restitution>0.5</Restitution>
@@ -101,5 +102,17 @@ and open the template in the editor.
     <Object>
 	<Name>Water</Name>
 	<SpritePath>resources/sprWater.png</SpritePath>
+    </Object>
+    <Object>
+        <Name>MistySky</Name>
+        <SpritePath>assets/Misty/layer-1-sky.png</SpritePath>
+    </Object>
+    <Object>
+        <Name>MistyTree</Name>
+        <SpritePath>assets/Misty/layer-2-tree.png</SpritePath>
+    </Object>
+    <Object>
+        <Name>MistyTheme</Name>
+        <SpritePath>assets/Sounds/mistyTheme.wav</SpritePath>
     </Object>
 </ObjectLibrary>

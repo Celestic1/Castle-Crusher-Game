@@ -15,6 +15,11 @@ class MainMenu is GameRoom
         BackGround:RefreshGameObject()
         AddObj(BackGround)
 
+        GameObject Logo 
+        Logo:SetSpritePath("assets/castlecrushers3.png")
+        Logo:RefreshGameObject()
+        AddObj(Logo)
+        
         // Button layer!
         AddEmptyLayer()
         Clickable_MenuLoader StartButton

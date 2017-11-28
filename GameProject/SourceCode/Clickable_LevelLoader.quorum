@@ -11,6 +11,7 @@ class Clickable_LevelLoader is Clickable
         MakeSpecialAmmo()
         NewRoom:LoadRoomFromFile(LevelString,parent:Clickable:ParentGame:GetCoreLibrary(),NewCannon,TempAmmo,parent:Clickable:GetParentGame())
         parent:Clickable:ParentGame:PushRoomStack(NewRoom)
+        parent:Clickable:ParentGame:SwitchAudio(LevelString)
     end
 
     action MakeSpecialAmmo()
@@ -19,7 +20,6 @@ class Clickable_LevelLoader is Clickable
             GameObject NewShot = parent:Clickable:ParentGame:GetCoreLib():GetGameObject("CannonBall")
             NewShot:FastMoving(true)
             NewShot:RefreshGameObject()
-            NewShot:LoadFilledCircle(10)
             TempAmmo:Add(NewShot)
             i = i + 1
         end

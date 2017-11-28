@@ -5,8 +5,9 @@ use Libraries.Game.Game
 use Libraries.Game.Graphics.Camera
 use Libraries.Game.Graphics.Drawable
 use Libraries.System.File
+use Libraries.Game.ScreenResolution
+use Libraries.Sound.Audio
 use GameObject
-//use GameObject_Attrib_List
 use GameObject_Player
 
 class Main is Game
@@ -14,15 +15,18 @@ class Main is Game
     Stack<GameRoom> RoomStack
     HashTable<text,GameRoom> MenuTable
     GameMouse GameMouseListener
-//    GameObject_Attrib_List src
     Camera camera = undefined
     GameObject_Library CoreLibrary
-//    Drawable mainScreen
     MainMenu mainmenu
     LevelSelector ls
+    
+    Audio Theme
+    HashTable <text, text> AudioSelector
+    text themePath = "assets/Sounds/medieval_loop.wav"
 
     action Main
         GameMouseListener:RefRoom = RefRoom
+
         // Fixed screensize / gamename
         SetScreenSize(RefRoom:pg_ScreenSizeX , RefRoom:pg_ScreenSizeY)
         SetGameName("Castle Crusher")
@@ -44,7 +48,9 @@ class Main is Game
 	/*GameRoom_Level TestRoom
 	TestRoom:LoadRoomFromFile("Maps/TestMap.xml",CoreLibrary)
 	TestRoom:AddRoomToGame(me)*/
-
+        
+        Theme:LoadToStream(themePath)
+        Theme:Play()
         // Draw cursor
         Add(GameMouseListener)
         //AddMouseListener(GameMouseListener)
@@ -55,11 +61,12 @@ class Main is Game
         ls:CreateScreen(me)
         MenuTable:Add("LevelSelector",ls)
         
-
+        
         Add(GameMouseListener)
     end
 
     action Update(number seconds)
+    Theme:Stream()
 /*
         if GameMouseListener:pg_HScrolling not= 0 or GameMouseListener:pg_VScrolling not= 0 or RefRoom:pg_CamReset = 1
             RefRoom:pg_CamReset = 0
@@ -84,7 +91,30 @@ class Main is Game
     action GetCoreLibrary returns GameObject_Library
         return CoreLibrary
     end
-
+    
+    action SwitchAudio (text level)
+        if Theme:IsPlaying()
+            Theme:Stop()
+            Theme:Dispose()
+        end
+        if AudioSelector:HasKey(level)
+            themePath = AudioSelector:GetValue(level)
+        else
+            if level:Equals("map0.xml")
+                AudioSelector:Add(level, "assets/Sounds/desertTheme.wav")
+                themePath = "assets/Sounds/desertTheme.wav"
+            elseif level:Equals("map1.xml")
+                AudioSelector:Add(level, "assets/Sounds/mistyTheme.wav")
+                themePath = "assets/Sounds/mistyTheme.wav"
+            elseif level:Equals("TestMap.xml")
+                AudioSelector:Add(level, "assets/Sounds/winter.wav")
+                themePath = "assets/Sounds/winter.wav"
+            end        
+        end
+        Theme:LoadToStream(themePath)
+        Theme:Play()
+    end
+    
 
     // ROOM AND STACK MANAGEMENT
     // PRETTY FRIGGIN IMPORTANT
