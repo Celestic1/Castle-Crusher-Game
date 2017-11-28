@@ -60,6 +60,7 @@ class Main is Game
     end
 
     action Update(number seconds)
+/*
         if GameMouseListener:pg_HScrolling not= 0 or GameMouseListener:pg_VScrolling not= 0 or RefRoom:pg_CamReset = 1
             RefRoom:pg_CamReset = 0
 
@@ -77,28 +78,13 @@ class Main is Game
 
             camera:SetPosition(RefRoom:pg_CamXOffset + RefRoom:pg_ScreenSizeX/2, RefRoom:pg_CamYOffset + RefRoom:pg_ScreenSizeY/2, 0)
             GameMouseListener:SetCenter(RefRoom:pg_CamXOffset + GameMouseListener:pg_LastMouseX, RefRoom:pg_CamYOffset + GameMouseListener:pg_LastMouseY)
-        end
+        end*/
     end
 
     action GetCoreLibrary returns GameObject_Library
         return CoreLibrary
     end
 
-    action createMainMenu
-
-/*
-        exitFunction exit
-        startFunction start
-        mainmenu:Create(mainScreen)
-        exit:setGame(me)
-        start:setMainMenu(mainmenu)
-//        start:setGameRoom(roo)
-        start:setGame(me)
-        mainmenu:startMenu:LoadClick(start)
-        mainmenu:exitMenu:LoadClick(exit)
-        mainmenu:Render()
-*/
-    end
 
     // ROOM AND STACK MANAGEMENT
     // PRETTY FRIGGIN IMPORTANT

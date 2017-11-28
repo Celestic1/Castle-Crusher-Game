@@ -16,7 +16,7 @@ class Clickable is GameObject, MouseListener
         ParentGame = NewGame
     end
 
-    action getParentGame() returns Main
+    action GetParentGame() returns Main
         return ParentGame
     end
 

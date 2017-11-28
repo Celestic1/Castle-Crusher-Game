@@ -30,10 +30,17 @@ class GameRoom_Level is GameRoom
 
     // helper functions so we don't have to juggle XML before gettin ghere
     // we can just load from a known file
-    action LoadRoomFromFile(text roomTextPath, GameObject_Library BlockLib, GameObject_Player Cannon, Array<GameObject> Ammo)
+    action LoadRoomFromFile(text roomTextPath, GameObject_Library BlockLib, GameObject_Player Cannon, Array<GameObject> Ammo, Main game)
         XMLFileManager FileMan
 	XMLNode RootNode = FileMan:GetXMLFromFile(roomTextPath)
 	LoadRoomFromTree(RootNode, BlockLib, Cannon, Ammo)
+        AddEmptyLayer()
+        Clickable exit
+        exit:SetParentGame(game)
+        exit:SetSpritePath("assets/exit_1.png")
+        exit:SetStartPosition(100,230)
+        exit:RefreshGameObject()
+        AddObj(exit)
     end
 
     action LoadRoomFromFile(File TargetFile, GameObject_Library BlockLib, GameObject_Player Cannon, Array<GameObject> Ammo)
@@ -96,7 +103,7 @@ class GameRoom_Level is GameRoom
                 // if it's a player substitute marker, substitute!
                 NextObject = PCan
                 PCan:RefreshGameObject()
-                output "Found a cannon sub!"
+                //output "Found a cannon sub!"
             end
 	    integer j = 0
 	    repeat while j < TargetTree:Children:GetSize()
