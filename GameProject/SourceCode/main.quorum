@@ -6,7 +6,7 @@ use Libraries.Game.Graphics.Camera
 use Libraries.Game.Graphics.Drawable
 use Libraries.System.File
 use GameObject
-use GameObject_Attrib_List
+//use GameObject_Attrib_List
 use GameObject_Player
 
 class Main is Game
@@ -14,7 +14,7 @@ class Main is Game
     Stack<GameRoom> RoomStack
     HashTable<text,GameRoom> MenuTable
     GameMouse GameMouseListener
-    GameObject_Attrib_List src
+//    GameObject_Attrib_List src
     Camera camera = undefined
     GameObject_Library CoreLibrary
 //    Drawable mainScreen
@@ -41,9 +41,9 @@ class Main is Game
         AddMouseListener(GameMouseListener)
         AddMouseMovementListener(GameMouseListener)
         RefRoom:pg_CamMaxXOffset = 200
-	GameRoom_Level TestRoom
+	/*GameRoom_Level TestRoom
 	TestRoom:LoadRoomFromFile("Maps/TestMap.xml",CoreLibrary)
-	TestRoom:AddRoomToGame(me)
+	TestRoom:AddRoomToGame(me)*/
 
         // Draw cursor
         Add(GameMouseListener)

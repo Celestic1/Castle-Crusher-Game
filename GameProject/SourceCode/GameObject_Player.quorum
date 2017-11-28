@@ -1,5 +1,5 @@
 use GameObject
-use GameObject_Attrib_List
+//use GameObject_Attrib_List
 use GameKeyboard
 use Libraries.Game.Game
 use Libraries.Containers.List
@@ -17,10 +17,10 @@ class GameObject_Player is GameObject, GameKeyboard
     List<GameObject> myAmmo
 //    private number baseFX = 10000
 //    private number baseFY = 0
-    private number ForceCap = 50000
+    private number ForceCap = 100000
     private number Force = 0
     boolean reachedCap = false
-    private number velScaleFactor = 400
+    private number velScaleFactor = 800
     private number offSideScale = 4
     Vector2 MyForce
     Drawable barX
@@ -120,16 +120,16 @@ class GameObject_Player is GameObject, GameKeyboard
     end
 
     action SetupPowerBars (Game newGame)
-	PowerBar:LoadFilledRectangle(20,cast(integer,Force)/500)
+	PowerBar:LoadFilledRectangle(20,cast(integer,Force/velScaleFactor))
 	PowerBar:SetPosition(20,40)
-	PowerBarBackground:LoadRectangle(20,cast(integer,ForceCap)/500)
+	PowerBarBackground:LoadRectangle(20,cast(integer,ForceCap/velScaleFactor))
 	PowerBarBackground:SetPosition(20,40)
 	newGame:Add(PowerBar)
 	newGame:Add(PowerBarBackground)
     end
 
     action UpdatePowerBar
-	PowerBar:LoadFilledRectangle(20,cast(integer,Force)/500)
+	PowerBar:LoadFilledRectangle(20,cast(integer,Force/velScaleFactor))
     end
     
     action LoadCount (Drawable d, integer digit)
@@ -271,13 +271,13 @@ class GameObject_Player is GameObject, GameKeyboard
 
 	if event:keyCode = event:SPACE
             if (Force <= ForceCap and not reachedCap)
-                Force = Force + 500
+                Force = Force + velScaleFactor
                 if (Force = ForceCap)
                      reachedCap = true
                 end
             end
             if (reachedCap)
-                Force = Force - 500
+                Force = Force - velScaleFactor
                 if (Force < 0)
                    Force = 0
                    reachedCap = false
