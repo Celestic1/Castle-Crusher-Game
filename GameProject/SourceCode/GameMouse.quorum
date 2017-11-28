@@ -6,29 +6,63 @@ use Libraries.Game.Graphics.Drawable
 class GameMouse is Drawable, MouseListener, MouseMovementListener
 
     public GameRoom RefRoom
-    public integer pg_Scrolling = 0 // 0->NotScrolling:1->Left:2->Right
+    public integer pg_HScrolling = 0 // -1 -> left | 0 -> none | 1 -> right
+    public integer pg_VScrolling = 0 // -1 -> down | 0 -> none | 1 -> up
     public integer pg_ScrollSpeed = 3
     public integer pg_LastMouseX = 0
     public integer pg_LastMouseY = 0
+    integer zoomBorder = 25
 
     action MovedMouse(MouseEvent event)
         // get the x and y coords of mouse
         pg_LastMouseX = event:GetX()
         pg_LastMouseY = event:GetY()
-        
-        if pg_LastMouseX < 80
-            Load("resources/sprCursorLeft.png")
-                pg_Scrolling = 1
-        elseif pg_LastMouseX > (RefRoom:pg_ScreenSizeX - 80)
-                pg_Scrolling = 2
-            Load("resources/sprCursorRight.png")
+        me:SetAlpha(1)
+
+        if pg_LastMouseX < zoomBorder
+            if pg_LastMouseY < zoomBorder
+                Load("resources/sprCursor225.png")
+                pg_HScrolling = -1
+                pg_VScrolling = -1
+            elseif pg_LastMouseY > (RefRoom:pg_ScreenSizeY - zoomBorder)
+                Load("resources/sprCursor135.png")
+                pg_HScrolling = -1
+                pg_VScrolling = 1
+            else
+                Load("resources/sprCursorLeft.png")
+                pg_HScrolling = -1
+                pg_VScrolling = 0
+            end
+        elseif pg_LastMouseX > (RefRoom:pg_ScreenSizeX - zoomBorder)
+            if pg_LastMouseY < zoomBorder
+                Load("resources/sprCursor315.png")
+                pg_HScrolling = 1
+                pg_VScrolling = -1
+            elseif pg_LastMouseY > (RefRoom:pg_ScreenSizeY - zoomBorder)
+                Load("resources/sprCursor45.png")
+                pg_HScrolling = 1
+                pg_VScrolling = 1
+            else
+                Load("resources/sprCursorRight.png")
+                pg_HScrolling = 1
+                pg_VScrolling = 0
+            end
+        elseif pg_LastMouseY < zoomBorder
+            Load("resources/sprCursorDown.png")
+            pg_HScrolling = 0
+            pg_VScrolling = -1
+        elseif pg_LastMouseY > (RefRoom:pg_ScreenSizeY - zoomBorder)
+            Load("resources/sprCursorUp.png")
+            pg_HScrolling = 0
+            pg_VScrolling = 1
         else
-                pg_Scrolling = 0
+            pg_HScrolling = 0
+            pg_VScrolling = 0
             Load("resources/sprFesh-Trimmed.png")
+            me:SetAlpha(0)
         end
 
         // Update Cursor Location
         SetCenter(RefRoom:pg_CamXOffset + pg_LastMouseX, RefRoom:pg_CamYOffset + pg_LastMouseY)
-
     end
 end
