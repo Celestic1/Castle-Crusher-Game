@@ -51,7 +51,7 @@ class GameObject_Player is GameObject, GameKeyboard
         toFire:SetResponsive()
         toFire:ApplyForceToCenter(MyForce)
         toFire:Show()
-        output toFire:IsCollidable()
+        //output toFire:IsCollidable()
         myAmmo:RemoveAt(AmmoRef)
         currentCount = myAmmo:GetSize()
         
