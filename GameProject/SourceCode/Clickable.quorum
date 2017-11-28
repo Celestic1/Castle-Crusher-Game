@@ -1,24 +1,27 @@
 use Libraries.Interface.Events.MouseListener
 use Libraries.Interface.Events.MouseEvent
 use Libraries.Game.Graphics.Drawable
+use Libraries.Game.Game
 
-class Clickable is Drawable, MouseListener
+class Clickable is GameObject, MouseListener
     
-
-    private GameFunction mouseClick
+    private Main ParentGame
 
     // Ensures this object will receive mouse events when it is clicked
     on create
         AddMouseListener(me)
     end
 
+    action SetParentGame (Main NewGame)
+        ParentGame = NewGame
+    end
+
+    action getParentGame() returns Main
+        return ParentGame
+    end
+
     // When mouse is clicked, it acces the GameFunction class's run function
     action ClickedMouse(MouseEvent event)
-        mouseClick:run(event)
+        ParentGame:PopRoomStack()
     end
-
-    action ReleasedMouse(MouseEvent event)
- 
-    end
-
 end

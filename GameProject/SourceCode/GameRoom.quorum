@@ -5,14 +5,15 @@ use Libraries.System.FileReader
 use Libraries.Game.Graphics.Drawable
 use GameObject
 
+
 class GameRoom
     private Array<Array<GameObject>> RoomLayers
     public integer pg_ScreenSizeX = 1000  // Default width of room
     public integer pg_ScreenSizeY = 320   // Default height of room
     private integer g_GridX = 40          // This is the width  of each 'grid' on map
     private integer g_GridY = 40          // This is the height of each 'grid' on map
-    XMLNode RefNode
 
+    XMLNode RefNode
     // Camera Variables
     public integer pg_CamXOffset = 0
     public integer pg_CamYOffset = 0
@@ -35,8 +36,16 @@ class GameRoom
         return RoomLayers:Get(layer)
     end
 
+    action AddObj(GameObject obj)
+        RoomLayers:GetFromEnd():Add(obj)
+    end
+
     action AddObjAtIndex (integer layer, integer index, GameObject obj)
         RoomLayers:Get(layer):Add(index, obj)
+    end
+
+    action AddObjToLayer (integer layer, GameObject obj)
+        RoomLayers:Get(layer):Add(obj)
     end
 
     action DeleteObjAtIndex (integer layer, integer index)
@@ -45,6 +54,11 @@ class GameRoom
 
     action DeleteLayerAtIndex (integer layer)
 	RoomLayers:RemoveAt(layer)
+    end
+
+    action AddEmptyLayer
+        Array<GameObject> EmptyLayer
+        RoomLayers:Add(EmptyLayer)
     end
 
     action AddRoomToGame(Game game)

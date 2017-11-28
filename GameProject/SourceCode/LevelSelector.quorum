@@ -1,0 +1,51 @@
+use Libraries.Game.Graphics.Drawable
+use Libraries.Containers.List
+use Libraries.Game.Game
+
+class LevelSelector is GameRoom
+
+
+    action CreateScreen(Main game)
+
+        AddEmptyLayer()
+        GameObject BackGround
+        BackGround:SetSpritePath("assets/snowBackground.png")
+        BackGround:RefreshGameObject()
+        AddObj(BackGround)
+
+        AddEmptyLayer()
+        Clickable_LevelLoader levelOne
+        levelOne:SetParentGame(game)
+        levelOne:SetLevelString("Maps/map0.xml")
+        levelOne:SetSpritePath("assets/SYMB_1.png")
+        levelOne:SetStartPosition(250,150)
+        levelOne:RefreshGameObject()
+        AddObj(levelOne)
+
+        Clickable_LevelLoader levelTwo
+        levelTwo:SetParentGame(game)
+        levelTwo:SetLevelString("Maps/map1.xml")
+        levelTwo:SetSpritePath("assets/SYMB_2.png")
+        levelTwo:SetStartPosition(500,150)
+        levelTwo:RefreshGameObject()
+        AddObj(levelTwo)
+
+        Clickable_LevelLoader levelThree
+        levelThree:SetParentGame(game)
+        levelThree:SetLevelString("Maps/TestMap.xml")
+        levelThree:SetSpritePath("assets/SYMB_3.png")
+        levelThree:SetStartPosition(750,150)
+        levelThree:RefreshGameObject()
+        AddObj(levelThree)
+
+        Clickable MainScreen
+        MainScreen:SetParentGame(game)
+        MainScreen:SetSpritePath("assets/exit_1.png")
+        MainScreen:SetStartPosition(895,255)
+        MainScreen:RefreshGameObject()
+        AddObj(MainScreen)
+
+    end
+
+
+end

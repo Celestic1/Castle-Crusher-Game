@@ -96,6 +96,7 @@ class GameRoom_Level is GameRoom
                 // if it's a player substitute marker, substitute!
                 NextObject = PCan
                 PCan:RefreshGameObject()
+                output "Found a cannon sub!"
             end
 	    integer j = 0
 	    repeat while j < TargetTree:Children:GetSize()

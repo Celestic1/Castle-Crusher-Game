@@ -23,7 +23,8 @@ class XMLFileManager
         XMLReader:Read(TargetFile)
         TargetFile:Close()
 
-        Parser:OutputTopLevelStack()
+        //This lags large levels from loading
+        //Parser:OutputTopLevelStack()
 	return Parser:GetRoot()
     end
 end

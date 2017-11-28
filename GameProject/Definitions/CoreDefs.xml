@@ -31,6 +31,11 @@ and open the template in the editor.
         <Mass>150</Mass>
     </Object>
     <Object>
+	<Name>Cannon</Name>
+	<SpritePath>assets/Player/player.png</SpritePath>
+        <Player>true</Player>
+    </Object>
+    <Object>
 	<Name>BrickBox</Name>
 	<SpritePath>resources/brick_box.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
@@ -55,13 +60,27 @@ and open the template in the editor.
 	<Name>Cannon</Name>
 	<SpritePath>resources/TrashCannon.png</SpritePath>
         <Player>true</Player>
+    </Object> 
+    <Object>
+	<Name>BasicBox</Name>
+	<SpritePath>resources/sprBrick_1.png</SpritePath>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Responsive>true</Responsive>
+        <Friction>0.5</Friction>
+    <Object>
+	<Name>BasicBox2</Name>
+	<SpritePath>resources/sprBrick_2.png</SpritePath>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Responsive>true</Responsive>
+        <Friction>0.5</Friction>
     </Object>
     <Object>
-	<Name>StandardCannonBall</Name>
+	<Name>BasicBox3</Name>
+	<SpritePath>resources/sprBrick_3.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
-	<Mass>10</Mass>
-	<Restitution>0.5</Restitution>
-    </Object>    
+	<Responsive>true</Responsive>
+        <Friction>0.5</Friction>
+    </Object>
     <Object>
 	<Name>StartButton</Name>
 	<SpritePath>resources/sprStartButton.png</SpritePath>
@@ -69,5 +88,13 @@ and open the template in the editor.
     <Object>
 	<Name>MouseFollower</Name>
 	<SpritePath>resources/sprFesh-trimmed.png</SpritePath>
+    </Object>
+    <Object>
+	<Name>Star</Name>
+	<SpritePath>resources/sprYouTriedStar.png</SpritePath>
+    </Object>
+    <Object>
+	<Name>Water</Name>
+	<SpritePath>resources/sprWater.png</SpritePath>
     </Object>
 </ObjectLibrary>
