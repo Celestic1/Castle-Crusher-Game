@@ -8,18 +8,15 @@ use GameObject
 use Libraries.Compute.Vector2
 
 class GameCollision is CollisionListener2D
-    public GameRoom roo
+    public Game main
     integer score = 0
     Drawable Counter1
     Drawable Counter2 
-    public Main main
     Vector2 force
 
     action BeginCollision(CollisionEvent2D event)
         GameObject itemA = cast(GameObject, event:GetItemA())
         GameObject itemB = cast(GameObject, event:GetItemB())
-        output "itemA:" + itemA:GetName()
-        output "itemB:" + itemB:GetName()
 
         // Standard cannon ball can ONLY destory wooden stuff
         if itemA:GetName() = "CannonBall" and itemB:GetName() = "BasicBox"
