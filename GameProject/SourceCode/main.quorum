@@ -14,6 +14,7 @@ class Main is Game
     Stack<GameRoom> RoomStack
     HashTable<text,GameRoom> MenuTable
     GameMouse GameMouseListener
+    GameCollision GameCollisionListener
 //    GameObject_Attrib_List src
     Camera camera = undefined
     GameObject_Library CoreLibrary
@@ -40,6 +41,7 @@ class Main is Game
         SetGravity2D(0, -200)
         AddMouseListener(GameMouseListener)
         AddMouseMovementListener(GameMouseListener)
+        AddCollisionListener(GameCollisionListener)
         RefRoom:pg_CamMaxXOffset = 200
 	/*GameRoom_Level TestRoom
 	TestRoom:LoadRoomFromFile("Maps/TestMap.xml",CoreLibrary)
