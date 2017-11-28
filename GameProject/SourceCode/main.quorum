@@ -13,7 +13,6 @@ class Main is Game
     GameRoom RefRoom
     Stack<GameRoom> RoomStack
     HashTable<text,GameRoom> MenuTable
-    Array<GameObject> ammo
     GameMouse GameMouseListener
 //    GameObject_Attrib_List src
     Camera camera = undefined
@@ -43,13 +42,7 @@ class Main is Game
         AddMouseMovementListener(GameMouseListener)
         RefRoom:pg_CamMaxXOffset = 200
 	/*GameRoom_Level TestRoom
-
-        // get the maps
-//        LoadMapFolder("./Maps")
-//        RealRooms:GetFromFront():AddRoomToGame(me)
-
-	GameRoom_Level TestRoom
-	TestRoom:LoadRoomFromFile("Maps/map0.xml",CoreLibrary,player,LoadStandardCannonBall(20))
+	TestRoom:LoadRoomFromFile("Maps/TestMap.xml",CoreLibrary)
 	TestRoom:AddRoomToGame(me)*/
 
         // Draw cursor
