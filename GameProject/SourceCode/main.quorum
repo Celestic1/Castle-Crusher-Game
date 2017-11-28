@@ -112,4 +112,7 @@ class Main is Game
         end
     end
 
+    action GetCoreLib returns GameObject_Library
+        return CoreLibrary
+    end
 end

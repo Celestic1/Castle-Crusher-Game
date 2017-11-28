@@ -1,12 +1,28 @@
 use Libraries.Interface.Events.MouseEvent
+use Libraries.Containers.Array
 
 class Clickable_LevelLoader is Clickable
     text LevelString = ""
     GameRoom_Level NewRoom
+    GameObject_Player NewCannon
+    Array<GameObject> TempAmmo
 
     action ClickedMouse(MouseEvent event)
-        NewRoom:LoadRoomFromFile(LevelString,parent:Clickable:ParentGame:GetCoreLibrary())
+        MakeSpecialAmmo()
+//        NewCannon:RefreshGameObject()
+        NewRoom:LoadRoomFromFile(LevelString,parent:Clickable:ParentGame:GetCoreLibrary(),NewCannon,TempAmmo)
         parent:Clickable:ParentGame:PushRoomStack(NewRoom)
+    end
+
+    action MakeSpecialAmmo()
+        integer i = 0
+        repeat while i < 10
+            GameObject NewShot = parent:Clickable:ParentGame:GetCoreLib():GetGameObject("CannonBall")
+            NewShot:RefreshGameObject()
+            NewShot:LoadFilledCircle(10)
+            TempAmmo:Add(NewShot)
+            i = i + 1
+        end
     end
 
     action SetLevelString(text NewString)
