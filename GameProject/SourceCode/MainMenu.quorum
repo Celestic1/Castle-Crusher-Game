@@ -21,7 +21,7 @@ class MainMenu is GameRoom
         StartButton:SetParentGame(game)
         StartButton:SetMenuString("LevelSelector")
         StartButton:SetSpritePath("assets/buttonStart.png")
-        StartButton:SetStartPosition(450,250)
+        StartButton:SetStartPosition(450,200)
         StartButton:RefreshGameObject()
         AddObj(StartButton)
 

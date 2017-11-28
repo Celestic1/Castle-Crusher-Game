@@ -1,8 +1,0 @@
-use Libraries.Interface.Events.MouseEvent
-use Libraries.Game.Game
-use Libraries.Game.Graphics.Drawable
-use Libraries.Containers.List
-
-class startFunction is GameFunction
-    
-end
