@@ -21,11 +21,10 @@ class Main is Game
 //    Drawable mainScreen
     MainMenu mainmenu
     LevelSelector ls
-    Game main
 
     action Main
         //GameMouseListener:RefRoom = RefRoom
-        GameCollisionListener:main = main
+        GameCollisionListener:main = me
         // Fixed screensize / gamename
         SetScreenSize(RefRoom:pg_ScreenSizeX , RefRoom:pg_ScreenSizeY)
         SetGameName("Castle Crusher")
