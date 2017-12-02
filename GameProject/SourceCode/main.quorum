@@ -22,7 +22,6 @@ class Main is Game
     LevelSelector ls
 
     action Main
-        //GameMouseListener:RefRoom = RefRoom
         // Fixed screensize / gamename
         SetScreenSize(RefRoom:pg_ScreenSizeX , RefRoom:pg_ScreenSizeY)
         SetGameName("Castle Crusher")
@@ -31,16 +30,14 @@ class Main is Game
 
     action CreateGame
         XMLFileManager FileMan
-//        XMLNode ReadRoot = FileMan:GetXMLFromFile("Definitions/TempCoreDefs.xml")
         XMLNode ReadRoot = FileMan:GetXMLFromFile("Definitions/CoreDefs.xml")
 	CoreLibrary:LoadLibraryFromTree(ReadRoot)
 	CoreLibrary:OutputHashTableContents()
         camera = GetCamera2D()
         EnablePhysics2D(true)
-        SetGravity2D(0, -200)
+        SetGravity2D(0, -10)
         AddMouseListener(GameMouseListener)
         AddMouseMovementListener(GameMouseListener)
-        //RefRoom:pg_CamMaxXOffset = 200
         mainmenu:InitMainMenu(me)
         PushRoomStack(mainmenu)
         ls:CreateScreen(me)
@@ -74,22 +71,6 @@ class Main is Game
 
     action GetCoreLibrary returns GameObject_Library
         return CoreLibrary
-    end
-
-    action createMainMenu
-
-/*
-        exitFunction exit
-        startFunction start
-        mainmenu:Create(mainScreen)
-        exit:setGame(me)
-        start:setMainMenu(mainmenu)
-//        start:setGameRoom(roo)
-        start:setGame(me)
-        mainmenu:startMenu:LoadClick(start)
-        mainmenu:exitMenu:LoadClick(exit)
-        mainmenu:Render()
-*/
     end
 
     // ROOM AND STACK MANAGEMENT

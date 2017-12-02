@@ -16,6 +16,14 @@ and open the template in the editor.
 	<Friction>0.5</Friction>
     </Object>
     <Object>
+    	<Name>MiniBasicBlock</Name>
+	<SpritePath>resources/sprMiniBrick_0.png</SpritePath>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Unmovable>true</Unmovable>
+	<Restitution>0.5</Restitution>
+	<Friction>0.5</Friction>
+    </Object>
+    <Object>
 	<Name>Fish</Name>
 	<SpritePath>resources/sprFesh-trimmed.png</SpritePath>
 	<Collidable>true</Collidable>
@@ -68,6 +76,13 @@ and open the template in the editor.
     <Object>
 	<Name>BasicBox</Name>
 	<SpritePath>resources/sprBrick_1.png</SpritePath>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Responsive>true</Responsive>
+        <Friction>0.5</Friction>
+    </Object>
+    <Object>
+	<Name>MiniBasicBox</Name>
+	<SpritePath>resources/sprMiniBrick_0.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
         <Friction>0.5</Friction>

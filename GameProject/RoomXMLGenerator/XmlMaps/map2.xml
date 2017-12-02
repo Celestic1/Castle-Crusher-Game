@@ -1,249 +1,249 @@
 <Map>
     <Layer>
-	<BasicBox>
+	<MiniBasicBox>
 	    <X>400</X>
 	    <Y>220</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>460</X>
 	    <Y>220</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>500</X>
 	    <Y>220</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>540</X>
 	    <Y>220</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>580</X>
 	    <Y>220</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>620</X>
 	    <Y>220</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>680</X>
 	    <Y>220</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>400</X>
 	    <Y>200</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>420</X>
 	    <Y>200</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>440</X>
 	    <Y>200</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>460</X>
 	    <Y>200</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>480</X>
 	    <Y>200</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>500</X>
 	    <Y>200</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>520</X>
 	    <Y>200</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>540</X>
 	    <Y>200</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>560</X>
 	    <Y>200</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>580</X>
 	    <Y>200</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>600</X>
 	    <Y>200</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>620</X>
 	    <Y>200</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>640</X>
 	    <Y>200</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>660</X>
 	    <Y>200</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>680</X>
 	    <Y>200</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>160</X>
 	    <Y>180</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>220</X>
 	    <Y>180</Y>
-	</BasicBox>
-	<BasicBlock>
+	</MiniBasicBox>
+	<MiniBasicBlock>
 	    <X>400</X>
 	    <Y>180</Y>
-	</BasicBlock>
-	<BasicBox>
+	</MiniBasicBlock>
+	<MiniBasicBox>
 	    <X>420</X>
 	    <Y>180</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>440</X>
 	    <Y>180</Y>
-	</BasicBox>
-	<BasicBlock>
+	</MiniBasicBox>
+	<MiniBasicBlock>
 	    <X>460</X>
 	    <Y>180</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>480</X>
 	    <Y>180</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>500</X>
 	    <Y>180</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>520</X>
 	    <Y>180</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>540</X>
 	    <Y>180</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>560</X>
 	    <Y>180</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>580</X>
 	    <Y>180</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>600</X>
 	    <Y>180</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>620</X>
 	    <Y>180</Y>
-	</BasicBlock>
-	<BasicBox>
+	</MiniBasicBlock>
+	<MiniBasicBox>
 	    <X>640</X>
 	    <Y>180</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>660</X>
 	    <Y>180</Y>
-	</BasicBox>
-	<BasicBlock>
+	</MiniBasicBox>
+	<MiniBasicBlock>
 	    <X>680</X>
 	    <Y>180</Y>
-	</BasicBlock>
-	<BasicBox>
+	</MiniBasicBlock>
+	<MiniBasicBox>
 	    <X>860</X>
 	    <Y>180</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>920</X>
 	    <Y>180</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>160</X>
 	    <Y>160</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>180</X>
 	    <Y>160</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>200</X>
 	    <Y>160</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>220</X>
 	    <Y>160</Y>
-	</BasicBox>
+	</MiniBasicBox>
 	<Star>
 	    <X>320</X>
 	    <Y>160</Y>
 	</Star>
-	<BasicBox>
+	<MiniBasicBox>
 	    <X>420</X>
 	    <Y>160</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>440</X>
 	    <Y>160</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>640</X>
 	    <Y>160</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>660</X>
 	    <Y>160</Y>
-	</BasicBox>
+	</MiniBasicBox>
 	<Star>
 	    <X>760</X>
 	    <Y>160</Y>
 	</Star>
-	<BasicBox>
+	<MiniBasicBox>
 	    <X>860</X>
 	    <Y>160</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>880</X>
 	    <Y>160</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>900</X>
 	    <Y>160</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>920</X>
 	    <Y>160</Y>
-	</BasicBox>
-	<BasicBlock>
+	</MiniBasicBox>
+	<MiniBasicBlock>
 	    <X>160</X>
 	    <Y>140</Y>
-	</BasicBlock>
-	<BasicBox>
+	</MiniBasicBlock>
+	<MiniBasicBox>
 	    <X>180</X>
 	    <Y>140</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>200</X>
 	    <Y>140</Y>
-	</BasicBox>
-	<BasicBlock>
+	</MiniBasicBox>
+	<MiniBasicBlock>
 	    <X>220</X>
 	    <Y>140</Y>
-	</BasicBlock>
-	<BasicBox>
+	</MiniBasicBlock>
+	<MiniBasicBox>
 	    <X>420</X>
 	    <Y>140</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>440</X>
 	    <Y>140</Y>
-	</BasicBox>
+	</MiniBasicBox>
 	<Star>
 	    <X>500</X>
 	    <Y>140</Y>
@@ -252,394 +252,394 @@
 	    <X>580</X>
 	    <Y>140</Y>
 	</Star>
-	<BasicBox>
+	<MiniBasicBox>
 	    <X>640</X>
 	    <Y>140</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>660</X>
 	    <Y>140</Y>
-	</BasicBox>
-	<BasicBlock>
+	</MiniBasicBox>
+	<MiniBasicBlock>
 	    <X>860</X>
 	    <Y>140</Y>
-	</BasicBlock>
-	<BasicBox>
+	</MiniBasicBlock>
+	<MiniBasicBox>
 	    <X>880</X>
 	    <Y>140</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>900</X>
 	    <Y>140</Y>
-	</BasicBox>
-	<BasicBlock>
+	</MiniBasicBox>
+	<MiniBasicBlock>
 	    <X>920</X>
 	    <Y>140</Y>
-	</BasicBlock>
-	<BasicBox>
+	</MiniBasicBlock>
+	<MiniBasicBox>
 	    <X>180</X>
 	    <Y>120</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>200</X>
 	    <Y>120</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>220</X>
 	    <Y>120</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>240</X>
 	    <Y>120</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>260</X>
 	    <Y>120</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>280</X>
 	    <Y>120</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>300</X>
 	    <Y>120</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>320</X>
 	    <Y>120</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>340</X>
 	    <Y>120</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>360</X>
 	    <Y>120</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>380</X>
 	    <Y>120</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>400</X>
 	    <Y>120</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>420</X>
 	    <Y>120</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>440</X>
 	    <Y>120</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>640</X>
 	    <Y>120</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>660</X>
 	    <Y>120</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>680</X>
 	    <Y>120</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>700</X>
 	    <Y>120</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>720</X>
 	    <Y>120</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>740</X>
 	    <Y>120</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>760</X>
 	    <Y>120</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>780</X>
 	    <Y>120</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>800</X>
 	    <Y>120</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>820</X>
 	    <Y>120</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>840</X>
 	    <Y>120</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>860</X>
 	    <Y>120</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>880</X>
 	    <Y>120</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>900</X>
 	    <Y>120</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>180</X>
 	    <Y>100</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>200</X>
 	    <Y>100</Y>
-	</BasicBox>
-	<BasicBlock>
+	</MiniBasicBox>
+	<MiniBasicBlock>
 	    <X>220</X>
 	    <Y>100</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>240</X>
 	    <Y>100</Y>
-	</BasicBlock>
-	<BasicBox>
+	</MiniBasicBlock>
+	<MiniBasicBox>
 	    <X>260</X>
 	    <Y>100</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>280</X>
 	    <Y>100</Y>
-	</BasicBox>
-	<BasicBlock>
+	</MiniBasicBox>
+	<MiniBasicBlock>
 	    <X>300</X>
 	    <Y>100</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>320</X>
 	    <Y>100</Y>
-	</BasicBlock>
-	<BasicBox>
+	</MiniBasicBlock>
+	<MiniBasicBox>
 	    <X>340</X>
 	    <Y>100</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>360</X>
 	    <Y>100</Y>
-	</BasicBox>
-	<BasicBlock>
+	</MiniBasicBox>
+	<MiniBasicBlock>
 	    <X>380</X>
 	    <Y>100</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>400</X>
 	    <Y>100</Y>
-	</BasicBlock>
-	<BasicBox>
+	</MiniBasicBlock>
+	<MiniBasicBox>
 	    <X>420</X>
 	    <Y>100</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>440</X>
 	    <Y>100</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>640</X>
 	    <Y>100</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>660</X>
 	    <Y>100</Y>
-	</BasicBox>
-	<BasicBlock>
+	</MiniBasicBox>
+	<MiniBasicBlock>
 	    <X>680</X>
 	    <Y>100</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>700</X>
 	    <Y>100</Y>
-	</BasicBlock>
-	<BasicBox>
+	</MiniBasicBlock>
+	<MiniBasicBox>
 	    <X>720</X>
 	    <Y>100</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>740</X>
 	    <Y>100</Y>
-	</BasicBox>
-	<BasicBlock>
+	</MiniBasicBox>
+	<MiniBasicBlock>
 	    <X>760</X>
 	    <Y>100</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>780</X>
 	    <Y>100</Y>
-	</BasicBlock>
-	<BasicBox>
+	</MiniBasicBlock>
+	<MiniBasicBox>
 	    <X>800</X>
 	    <Y>100</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>820</X>
 	    <Y>100</Y>
-	</BasicBox>
-	<BasicBlock>
+	</MiniBasicBox>
+	<MiniBasicBlock>
 	    <X>840</X>
 	    <Y>100</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>860</X>
 	    <Y>100</Y>
-	</BasicBlock>
-	<BasicBox>
+	</MiniBasicBlock>
+	<MiniBasicBox>
 	    <X>880</X>
 	    <Y>100</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>900</X>
 	    <Y>100</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>180</X>
 	    <Y>80</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>200</X>
 	    <Y>80</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>260</X>
 	    <Y>80</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>280</X>
 	    <Y>80</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>340</X>
 	    <Y>80</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>360</X>
 	    <Y>80</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>420</X>
 	    <Y>80</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>440</X>
 	    <Y>80</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>640</X>
 	    <Y>80</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>660</X>
 	    <Y>80</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>720</X>
 	    <Y>80</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>740</X>
 	    <Y>80</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>800</X>
 	    <Y>80</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>820</X>
 	    <Y>80</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>880</X>
 	    <Y>80</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>900</X>
 	    <Y>80</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>180</X>
 	    <Y>60</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>200</X>
 	    <Y>60</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>260</X>
 	    <Y>60</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>280</X>
 	    <Y>60</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>340</X>
 	    <Y>60</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>360</X>
 	    <Y>60</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>420</X>
 	    <Y>60</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>440</X>
 	    <Y>60</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>640</X>
 	    <Y>60</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>660</X>
 	    <Y>60</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>720</X>
 	    <Y>60</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>740</X>
 	    <Y>60</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>800</X>
 	    <Y>60</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>820</X>
 	    <Y>60</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>880</X>
 	    <Y>60</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>900</X>
 	    <Y>60</Y>
-	</BasicBox>
+	</MiniBasicBox>
 	<Cannon>
 	    <X>20</X>
 	    <Y>40</Y>
 	</Cannon>
-	<BasicBox>
+	<MiniBasicBox>
 	    <X>180</X>
 	    <Y>40</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>200</X>
 	    <Y>40</Y>
-	</BasicBox>
+	</MiniBasicBox>
 	<Star>
 	    <X>220</X>
 	    <Y>40</Y>
@@ -648,14 +648,14 @@
 	    <X>240</X>
 	    <Y>40</Y>
 	</Star>
-	<BasicBox>
+	<MiniBasicBox>
 	    <X>260</X>
 	    <Y>40</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>280</X>
 	    <Y>40</Y>
-	</BasicBox>
+	</MiniBasicBox>
 	<Star>
 	    <X>300</X>
 	    <Y>40</Y>
@@ -664,38 +664,38 @@
 	    <X>320</X>
 	    <Y>40</Y>
 	</Star>
-	<BasicBox>
+	<MiniBasicBox>
 	    <X>340</X>
 	    <Y>40</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>360</X>
 	    <Y>40</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>420</X>
 	    <Y>40</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>440</X>
 	    <Y>40</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>640</X>
 	    <Y>40</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>660</X>
 	    <Y>40</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>720</X>
 	    <Y>40</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>740</X>
 	    <Y>40</Y>
-	</BasicBox>
+	</MiniBasicBox>
 	<Star>
 	    <X>760</X>
 	    <Y>40</Y>
@@ -704,14 +704,14 @@
 	    <X>780</X>
 	    <Y>40</Y>
 	</Star>
-	<BasicBox>
+	<MiniBasicBox>
 	    <X>800</X>
 	    <Y>40</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>820</X>
 	    <Y>40</Y>
-	</BasicBox>
+	</MiniBasicBox>
 	<Star>
 	    <X>840</X>
 	    <Y>40</Y>
@@ -720,26 +720,26 @@
 	    <X>860</X>
 	    <Y>40</Y>
 	</Star>
-	<BasicBox>
+	<MiniBasicBox>
 	    <X>880</X>
 	    <Y>40</Y>
-	</BasicBox>
-	<BasicBox>
+	</MiniBasicBox>
+	<MiniBasicBox>
 	    <X>900</X>
 	    <Y>40</Y>
-	</BasicBox>
-	<BasicBlock>
+	</MiniBasicBox>
+	<MiniBasicBlock>
 	    <X>0</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>20</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>40</X>
 	    <Y>20</Y>
-	</BasicBlock>
+	</MiniBasicBlock>
 	<Water>
 	    <X>60</X>
 	    <Y>20</Y>
@@ -764,74 +764,74 @@
 	    <X>160</X>
 	    <Y>20</Y>
 	</Water>
-	<BasicBlock>
+	<MiniBasicBlock>
 	    <X>180</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>200</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>220</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>240</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>260</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>280</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>300</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>320</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>340</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>360</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>380</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>400</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>420</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>440</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>460</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>480</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>500</X>
 	    <Y>20</Y>
-	</BasicBlock>
+	</MiniBasicBlock>
 	<Star>
 	    <X>520</X>
 	    <Y>20</Y>
@@ -844,74 +844,74 @@
 	    <X>560</X>
 	    <Y>20</Y>
 	</Star>
-	<BasicBlock>
+	<MiniBasicBlock>
 	    <X>580</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>600</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>620</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>640</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>660</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>680</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>700</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>720</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>740</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>760</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>780</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>800</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>820</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>840</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>860</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>880</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>900</X>
 	    <Y>20</Y>
-	</BasicBlock>
+	</MiniBasicBlock>
 	<Water>
 	    <X>920</X>
 	    <Y>20</Y>
@@ -936,46 +936,46 @@
 	    <X>1020</X>
 	    <Y>20</Y>
 	</Water>
-	<BasicBlock>
+	<MiniBasicBlock>
 	    <X>1040</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>1060</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>1080</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>1100</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>1120</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>1140</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>1160</X>
 	    <Y>20</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>0</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>20</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>40</X>
 	    <Y>0</Y>
-	</BasicBlock>
+	</MiniBasicBlock>
 	<Water>
 	    <X>60</X>
 	    <Y>0</Y>
@@ -1000,154 +1000,154 @@
 	    <X>160</X>
 	    <Y>0</Y>
 	</Water>
-	<BasicBlock>
+	<MiniBasicBlock>
 	    <X>180</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>200</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>220</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>240</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>260</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>280</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>300</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>320</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>340</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>360</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>380</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>400</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>420</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>440</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>460</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>480</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>500</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>520</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>540</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>560</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>580</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>600</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>620</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>640</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>660</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>680</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>700</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>720</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>740</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>760</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>780</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>800</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>820</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>840</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>860</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>880</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>900</X>
 	    <Y>0</Y>
-	</BasicBlock>
+	</MiniBasicBlock>
 	<Water>
 	    <X>920</X>
 	    <Y>0</Y>
@@ -1172,33 +1172,33 @@
 	    <X>1020</X>
 	    <Y>0</Y>
 	</Water>
-	<BasicBlock>
+	<MiniBasicBlock>
 	    <X>1040</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>1060</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>1080</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>1100</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>1120</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>1140</X>
 	    <Y>0</Y>
-	</BasicBlock>
-	<BasicBlock>
+	</MiniBasicBlock>
+	<MiniBasicBlock>
 	    <X>1160</X>
 	    <Y>0</Y>
-	</BasicBlock>
+	</MiniBasicBlock>
     </Layer>
 </Map>
