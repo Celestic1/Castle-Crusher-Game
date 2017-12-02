@@ -219,6 +219,7 @@ class GameObject_Player is GameObject, GameKeyboard
     action RemoveFromGame (Game newGame)
         parent:GameObject:RemoveFromGame(newGame)
         newGame:RemoveKeyboardListener(me)
+        newGame:Remove(me)
     end
 
     action GetBarrelX returns number

@@ -5,16 +5,22 @@ class Clickable_LevelLoader is Clickable
     text LevelString = ""
     GameRoom_Level NewRoom
     GameObject_Player NewCannon
-    Array<GameObject> TempAmmo
+    text oldLevel = LevelString
+    //Array<GameObject> TempAmmo
 
     action ClickedMouse(MouseEvent event)
-        MakeSpecialAmmo()
-        NewRoom:LoadRoomFromFile(LevelString,parent:Clickable:ParentGame:GetCoreLibrary(),NewCannon,TempAmmo,parent:Clickable:GetParentGame())
+        //MakeSpecialAmmo()
+        boolean hasSwitched = false
+        if not oldLevel:Equals(LevelString) 
+            hasSwitched = true
+        end
+        NewRoom:LoadRoomFromFile(LevelString,parent:Clickable:ParentGame:GetCoreLibrary(),NewCannon, MakeSpecialAmmo(),parent:Clickable:GetParentGame())
+        parent:Clickable:ParentGame:SwitchAudio(LevelString, hasSwitched)
         parent:Clickable:ParentGame:PushRoomStack(NewRoom)
-        parent:Clickable:ParentGame:SwitchAudio(LevelString)
     end
 
-    action MakeSpecialAmmo()
+    action MakeSpecialAmmo() returns Array<GameObject>
+        Array<GameObject> TempAmmo
         integer i = 0
         repeat while i < 10
             GameObject NewShot = parent:Clickable:ParentGame:GetCoreLib():GetGameObject("CannonBall")
@@ -23,6 +29,7 @@ class Clickable_LevelLoader is Clickable
             TempAmmo:Add(NewShot)
             i = i + 1
         end
+        return TempAmmo
     end
 
     action SetLevelString(text NewString)
