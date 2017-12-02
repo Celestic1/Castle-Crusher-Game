@@ -19,7 +19,7 @@ class Clickable_LevelLoader is Clickable
         repeat while i < 10
             GameObject NewShot = parent:Clickable:ParentGame:GetCoreLib():GetGameObject("CannonBall")
             //output "NewShot: " + NewShot:GetName()
-            NewShot:SetName("CannonBall")
+            //NewShot:SetName("CannonBall")
             NewShot:RefreshGameObject()
             NewShot:LoadFilledCircle(10)
             //output "NewShot: " + NewShot:GetName()

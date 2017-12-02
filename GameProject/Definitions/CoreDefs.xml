@@ -50,6 +50,7 @@ and open the template in the editor.
     </Object>
     <Object>
 	<Name>CannonBall</Name>
+        <DisplayName>CannonBall</DisplayName>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Mass>100</Mass>
 	<Restitution>0.5</Restitution>
@@ -83,6 +84,7 @@ and open the template in the editor.
     </Object>
     <Object>
 	<Name>BasicBox</Name>
+        <DisplayName>BasicBox</DisplayName>
 	<SpritePath>resources/sprBrick_1.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
@@ -90,6 +92,7 @@ and open the template in the editor.
     </Object>
     <Object>
 	<Name>BasicBox2</Name>
+        <DisplayName>BasicBox2</DisplayName>
 	<SpritePath>resources/sprBrick_2.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
@@ -97,6 +100,7 @@ and open the template in the editor.
     </Object>
     <Object>
 	<Name>BasicBox3</Name>
+        <DisplayName>BasicBox3</DisplayName>
 	<SpritePath>resources/sprBrick_3.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
@@ -112,7 +116,9 @@ and open the template in the editor.
     </Object>
     <Object>
 	<Name>Star</Name>
+        <DisplayName>Star</DisplayName>
 	<SpritePath>resources/sprYouTriedStar.png</SpritePath>
+        <Collidable>true</Collidable>
     </Object>
     <Object>
 	<Name>Water</Name>
