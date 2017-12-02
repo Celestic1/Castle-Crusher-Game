@@ -16,6 +16,22 @@ and open the template in the editor.
 	<Friction>0.5</Friction>
     </Object>
     <Object>
+        <Name>WoodenBox</Name>
+	<SpritePath>resources/wooden_box.png</SpritePath>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Responsive>true</Responsive>
+        <Friction>0.5</Friction>
+        <Mass>50</Mass>
+    </Object>
+    <Object>
+        <Name>WoodenRectangle</Name>
+	<SpritePath>resources/wooden_rectangle.png</SpritePath>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Responsive>true</Responsive>
+        <Friction>0.5</Friction>
+        <Mass>150</Mass>
+    </Object>
+    <Object>
 	<Name>Fish</Name>
 	<SpritePath>resources/sprFesh-trimmed.png</SpritePath>
 	<Collidable>true</Collidable>

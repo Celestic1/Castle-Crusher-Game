@@ -22,7 +22,6 @@ class GameObject is Drawable
     // AddToGame and RemoveFromGame give you a place to do special behavior
     // when you get added or removed.
     action AddToGame (Game newGame)
-        //output "Adding object " + me:GetName() + " (" + me:GetX() + "," + me:GetY() + ") to game."
         newGame:Add(me)
     end
 

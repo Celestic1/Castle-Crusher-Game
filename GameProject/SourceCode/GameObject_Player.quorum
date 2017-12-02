@@ -15,8 +15,6 @@ use Libraries.System.File
 
 class GameObject_Player is GameObject, GameKeyboard
     List<GameObject> myAmmo
-//    private number baseFX = 10000
-//    private number baseFY = 0
     private number ForceCap = 100000
     private number Force = 0
     boolean reachedCap = false
@@ -46,6 +44,7 @@ class GameObject_Player is GameObject, GameKeyboard
             output "Cannon is out of ammo!"
             return now
         end
+
         GameObject toFire = myAmmo:Get(AmmoRef)
         toFire:SetPosition(GetBarrelX()-toFire:GetWidth()/2,GetBarrelY()-toFire:GetHeight()/2)
         MyForce:Set(GetVelocityX(),GetVelocityY())
