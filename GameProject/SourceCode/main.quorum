@@ -6,7 +6,7 @@ use Libraries.Game.Graphics.Camera
 use Libraries.Game.Graphics.Drawable
 use Libraries.System.File
 use GameObject
-use GameObject_Attrib_List
+//use GameObject_Attrib_List
 use GameObject_Player
 
 class Main is Game
@@ -14,7 +14,7 @@ class Main is Game
     Stack<GameRoom> RoomStack
     HashTable<text,GameRoom> MenuTable
     GameMouse GameMouseListener
-    GameObject_Attrib_List src
+//    GameObject_Attrib_List src
     Camera camera = undefined
     GameObject_Library CoreLibrary
 //    Drawable mainScreen
@@ -22,6 +22,7 @@ class Main is Game
     LevelSelector ls
 
     action Main
+        GameMouseListener:RefRoom = RefRoom
         // Fixed screensize / gamename
         SetScreenSize(RefRoom:pg_ScreenSizeX , RefRoom:pg_ScreenSizeY)
         SetGameName("Castle Crusher")
@@ -35,9 +36,20 @@ class Main is Game
 	CoreLibrary:OutputHashTableContents()
         camera = GetCamera2D()
         EnablePhysics2D(true)
-        SetGravity2D(0, -10)
+        SetGravity2D(0, -75)
         AddMouseListener(GameMouseListener)
         AddMouseMovementListener(GameMouseListener)
+
+        RefRoom:pg_CamMaxXOffset = 200
+	/*GameRoom_Level TestRoom
+	TestRoom:LoadRoomFromFile("Maps/TestMap.xml",CoreLibrary)
+	TestRoom:AddRoomToGame(me)*/
+
+        // Draw cursor
+        Add(GameMouseListener)
+        //AddMouseListener(GameMouseListener)
+        //AddMouseMovementListener(GameMouseListener)
+        RefRoom:pg_CamMaxXOffset = 200
         mainmenu:InitMainMenu(me)
         PushRoomStack(mainmenu)
         ls:CreateScreen(me)
@@ -48,7 +60,7 @@ class Main is Game
     end
 
     action Update(number seconds)
-        // Scrolling Update
+/*
         if GameMouseListener:pg_HScrolling not= 0 or GameMouseListener:pg_VScrolling not= 0 or RefRoom:pg_CamReset = 1
             RefRoom:pg_CamReset = 0
 
@@ -66,7 +78,7 @@ class Main is Game
 
             camera:SetPosition(RefRoom:pg_CamXOffset + RefRoom:pg_ScreenSizeX/2, RefRoom:pg_CamYOffset + RefRoom:pg_ScreenSizeY/2, 0)
             GameMouseListener:SetCenter(RefRoom:pg_CamXOffset + GameMouseListener:pg_LastMouseX, RefRoom:pg_CamYOffset + GameMouseListener:pg_LastMouseY)
-        end
+        end*/
     end
 
     action GetCoreLibrary returns GameObject_Library
@@ -102,4 +114,7 @@ class Main is Game
         end
     end
 
+    action GetCoreLib returns GameObject_Library
+        return CoreLibrary
+    end
 end

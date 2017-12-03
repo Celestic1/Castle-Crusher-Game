@@ -107,11 +107,11 @@ class GameObject_Library
 	Array<text> KeyList = ObjectLibrary:CopyToKeyArray()
 	integer i = 0
 	text RefText = ""
-	
+	/*
 	output "Library Contents:"
 	repeat while i < KeyList:GetSize()
 	    output RefText:GetTab() + KeyList:Get(i) + " - " + ObjectLibrary:GetValue(KeyList:Get(i)):GetSpritePath()
 	    i = i + 1
-	end
+	end*/
     end
 end

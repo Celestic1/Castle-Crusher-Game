@@ -4,6 +4,7 @@ use Libraries.Interface.Events.MouseEvent
 use Libraries.Game.Graphics.Drawable
 
 class GameMouse is Drawable, MouseListener, MouseMovementListener
+
     public GameRoom RefRoom
     public integer pg_HScrolling = 0 // -1 -> left | 0 -> none | 1 -> right
     public integer pg_VScrolling = 0 // -1 -> down | 0 -> none | 1 -> up
