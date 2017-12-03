@@ -18,8 +18,9 @@ class GameObject_Player is GameObject, GameKeyboard
     private number ForceCap = 100000
     private number Force = 0
     boolean reachedCap = false
-    private number velScaleFactor = 800
+    private number velScaleFactor = 1000
     private number offSideScale = 4
+    GameObject toFire
     Vector2 MyForce
     Drawable barX
     Drawable barY
@@ -38,14 +39,19 @@ class GameObject_Player is GameObject, GameKeyboard
     Drawable Score1
     Drawable Score2
     Drawable Score3
+    private integer origSize = 0
 
     action FireCannon(integer AmmoRef)
         if not (AmmoRef < myAmmo:GetSize() and AmmoRef >= 0)
             output "Cannon is out of ammo!"
             return now
         end
+<<<<<<< HEAD
 
         GameObject toFire = myAmmo:Get(AmmoRef)
+=======
+        toFire = myAmmo:Get(AmmoRef)
+>>>>>>> bf8fb9d5a3a113912fe230207dc026270df3017a
         toFire:SetPosition(GetBarrelX()-toFire:GetWidth()/2,GetBarrelY()-toFire:GetHeight()/2)
         MyForce:Set(GetVelocityX(),GetVelocityY())
         toFire:SetResponsive()
@@ -53,7 +59,7 @@ class GameObject_Player is GameObject, GameKeyboard
         toFire:Show()
         myAmmo:RemoveAt(AmmoRef)
         currentCount = myAmmo:GetSize()
-        
+
         //Audio
         Audio cannonFire
         cannonFire:Load("resources/cannonfire.wav")
@@ -64,17 +70,27 @@ class GameObject_Player is GameObject, GameKeyboard
         ResetForce()
     end
 
+    action RemoveAmmoFromGame
+        integer i = 0
+        repeat while i < origSize
+            Remove(toFire)
+        end
+        myAmmo:Empty()
+    end
+
+
     action LoadCannon(Array<GameObject> newAmmo)
         integer i = 0
         repeat while i < newAmmo:GetSize()
             LoadCannon(newAmmo:Get(i))
             i = i + 1
         end
+        origSize = myAmmo:GetSize()
     end
 
-    action LoadCannon(GameObject newAmmo)
-            newAmmo:Hide()
-            myAmmo:Add(newAmmo)
+    action LoadCannon(GameObject newAmmo) 
+        newAmmo:Hide()
+        myAmmo:Add(newAmmo)
     end
 
     on create
@@ -237,10 +253,6 @@ class GameObject_Player is GameObject, GameKeyboard
         return -(MyMath:Sine(GetRotationInRadians()) * Force)
     end
     
-    action removeAmmo
- 
-    end
-
     // Keyboard Managers
     action StartKey(KeyboardEvent event)
     end
