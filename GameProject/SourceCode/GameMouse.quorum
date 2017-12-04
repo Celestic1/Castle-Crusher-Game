@@ -8,7 +8,7 @@ class GameMouse is Drawable, MouseListener, MouseMovementListener
     public GameRoom RefRoom
     public integer pg_HScrolling = 0 // -1 -> left | 0 -> none | 1 -> right
     public integer pg_VScrolling = 0 // -1 -> down | 0 -> none | 1 -> up
-    public integer pg_ScrollSpeed = 3
+    public integer pg_ScrollSpeed = 5
     public integer pg_LastMouseX = 0
     public integer pg_LastMouseY = 0
     integer zoomBorder = 25

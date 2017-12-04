@@ -66,13 +66,13 @@ class Main is Game
             if GameMouseListener:pg_HScrolling not= 0 or GameMouseListener:pg_VScrolling not= 0 or RefRoom:pg_CamReset = 1
                 RefRoom:pg_CamReset = 0
 
-                if GameMouseListener:pg_HScrolling = -1
+                if GameMouseListener:pg_HScrolling = -1 and RefRoom:pg_CamXOffset > GameMouseListener:pg_ScrollSpeed
                     RefRoom:pg_CamXOffset = RefRoom:pg_CamXOffset - GameMouseListener:pg_ScrollSpeed
                 elseif GameMouseListener:pg_HScrolling = 1
                     RefRoom:pg_CamXOffset = RefRoom:pg_CamXOffset + GameMouseListener:pg_ScrollSpeed
                 end
 
-                if GameMouseListener:pg_VScrolling = -1
+                if GameMouseListener:pg_VScrolling = -1 and RefRoom:pg_CamYOffset > GameMouseListener:pg_ScrollSpeed
                     RefRoom:pg_CamYOffset = RefRoom:pg_CamYOffset - GameMouseListener:pg_ScrollSpeed
                 elseif GameMouseListener:pg_VScrolling = 1
                     RefRoom:pg_CamYOffset = RefRoom:pg_CamYOffset + GameMouseListener:pg_ScrollSpeed
