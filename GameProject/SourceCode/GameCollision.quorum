@@ -17,19 +17,19 @@ class GameCollision is CollisionListener2D
     action BeginCollision(CollisionEvent2D event)
         GameObject itemA = cast(GameObject, event:GetItemA())
         GameObject itemB = cast(GameObject, event:GetItemB())
-        //output "itemA: " + itemA:GetName()
-        //output "itemB: " + itemB:GetName()
+        output "itemA: " + itemA:GetName()
+        output "itemB: " + itemB:GetName()
         // BasicBox
         // Standard cannon ball can ONLY destory wooden stuff
-        if itemA:GetName() = "CannonBall" and itemB:GetName() = "Unnamed"
+        if itemA:GetName() = "cannonball" and itemB:GetName() = "BasicBlock"
             force = itemA:GetLinearVelocity()
-            output "Velocity = " + force:Length()
+            //output "Velocity = " + force:Length()
             if force:Length() > 800
                 itemB:RemoveFromGame(main)
             end
-        elseif itemA:GetName() = "Unnamed" and itemB:GetName() = "CannonBall"
+        elseif itemA:GetName() = "BasicBlock" and itemB:GetName() = "cannonball"
             force = itemB:GetLinearVelocity()
-            output "Velocity = " + force:Length()
+            //output "Velocity = " + force:Length()
             if force:Length() > 800
                 itemA:RemoveFromGame(main)
             end

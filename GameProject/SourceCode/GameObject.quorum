@@ -40,7 +40,6 @@ class GameObject is Drawable
 	Load(SpritePath)
 	SetPosition(GetStartPositionX(),GetStartPositionY())
     end
-
     // Some getters and setter
     action SetStartPosition (Vector2 newPos)
 	StartPosition:Set(newPos)

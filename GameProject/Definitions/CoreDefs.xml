@@ -9,6 +9,7 @@ and open the template in the editor.
 <ObjectLibrary>
     <Object>
 	<Name>BasicBlock</Name>
+        <DisplayName>BasicBlock</DisplayName>
 	<SpritePath>assets/metalBlockSmall.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Unmovable>true</Unmovable>
@@ -50,6 +51,7 @@ and open the template in the editor.
     </Object>
     <Object>
 	<Name>CannonBall</Name>
+        <DisplayName>cannonball</DisplayName>
         <SpritePath>assets/Player/cannonball.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Mass>100</Mass>
