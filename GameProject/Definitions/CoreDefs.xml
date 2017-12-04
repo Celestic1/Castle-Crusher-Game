@@ -17,7 +17,7 @@ and open the template in the editor.
     </Object>
     <Object>
     	<Name>MiniBasicBlock</Name>
-	<SpritePath>resources/sprMiniBrick_0.png</SpritePath>
+	<SpritePath>assets/MetalBlockTiny.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Unmovable>true</Unmovable>
 	<Restitution>0.5</Restitution>
@@ -43,7 +43,7 @@ and open the template in the editor.
     <Object>
 	<Name>CannonBall</Name>
 	<PhysicsEnabled>true</PhysicsEnabled>
-	<Mass>100</Mass>
+	<Mass>500</Mass>
 	<Restitution>0.5</Restitution>
 	<Friction>0.5</Friction>
     </Object>
@@ -82,7 +82,7 @@ and open the template in the editor.
     </Object>
     <Object>
 	<Name>MiniBasicBox</Name>
-	<SpritePath>resources/sprMiniBrick_0.png</SpritePath>
+	<SpritePath>assets/WoodBlockTiny.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
         <Friction>0.5</Friction>
@@ -111,10 +111,10 @@ and open the template in the editor.
     </Object>
     <Object>
 	<Name>Star</Name>
-	<SpritePath>resources/sprYouTriedStar.png</SpritePath>
+	<SpritePath>assets/summoner.png</SpritePath>
     </Object>
     <Object>
 	<Name>Water</Name>
-	<SpritePath>resources/sprWater.png</SpritePath>
+	<SpritePath>assets/NewWater.png</SpritePath>
     </Object>
 </ObjectLibrary>

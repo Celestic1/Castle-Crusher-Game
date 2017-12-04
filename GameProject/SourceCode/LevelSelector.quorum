@@ -34,6 +34,7 @@ class LevelSelector is GameRoom
 
         Clickable_LevelLoader levelThree
         levelThree:SetParentGame(game)
+        levelThree:SetAmmoCount(15)
         levelThree:SetLevelString("Maps/map2.xml")
         levelThree:SetSpritePath("assets/SYMB_3.png")
         levelThree:SetStartPosition(750,150)
