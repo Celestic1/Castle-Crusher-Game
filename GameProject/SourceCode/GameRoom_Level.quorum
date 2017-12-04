@@ -40,6 +40,7 @@ class GameRoom_Level is GameRoom
         exit:SetSpritePath("assets/exit_1.png")
         exit:SetStartPosition(100,230)
         exit:RefreshGameObject()
+        exit:SetStopScroll()
         AddObj(exit)
     end
 

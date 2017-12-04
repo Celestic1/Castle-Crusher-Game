@@ -7,8 +7,10 @@ class Clickable_LevelLoader is Clickable
     GameObject_Player NewCannon
     Array<GameObject> TempAmmo
     integer ammoCount = 0
+    integer level = 0 // if zero, not a scrollable level
 
     action ClickedMouse(MouseEvent event)
+        SetCurrentLevel(level)
         TempAmmo:Empty()
         MakeSpecialAmmo()
         output TempAmmo:GetSize()
@@ -32,6 +34,10 @@ class Clickable_LevelLoader is Clickable
 
     action SetAmmoCount(integer a)
         ammoCount = a
+    end
+
+    action SetLevel(integer a)
+        level = a
     end
 
     action SetLevelString(text NewString)

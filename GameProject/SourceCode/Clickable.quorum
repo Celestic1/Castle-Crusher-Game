@@ -4,8 +4,9 @@ use Libraries.Game.Graphics.Drawable
 use Libraries.Game.Game
 
 class Clickable is GameObject, MouseListener
-    
     private Main ParentGame
+
+    stopScroll = 0
 
     // Ensures this object will receive mouse events when it is clicked
     on create
@@ -20,8 +21,20 @@ class Clickable is GameObject, MouseListener
         return ParentGame
     end
 
+    action SetCurrentLevel (integer level)
+        ParentGame:currentLevel = level
+    end
+
+    action SetStopScroll ()
+        stopScroll = 1
+    end
+
     // When mouse is clicked, it acces the GameFunction class's run function
     action ClickedMouse(MouseEvent event)
+        if stopScroll = 1
+            SetCurrentLevel(0)
+        end
+
         ParentGame:PopRoomStack()
     end
 end
