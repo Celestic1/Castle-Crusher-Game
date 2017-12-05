@@ -76,6 +76,7 @@ class GameObject_Player is GameObject, GameKeyboard
 
     action LoadCannon(Array<GameObject> newAmmo)
         integer i = 0
+        myAmmo:Empty()
         repeat while i < newAmmo:GetSize()
             LoadCannon(newAmmo:Get(i))
             i = i + 1
