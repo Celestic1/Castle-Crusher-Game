@@ -76,6 +76,7 @@ class GameObject_Player is GameObject, GameKeyboard
 
     action LoadCannon(Array<GameObject> newAmmo)
         integer i = 0
+        myAmmo:Empty()
         repeat while i < newAmmo:GetSize()
             LoadCannon(newAmmo:Get(i))
             i = i + 1
@@ -130,9 +131,9 @@ class GameObject_Player is GameObject, GameKeyboard
 
     action SetupPowerBars (Game newGame)
 	PowerBar:LoadFilledRectangle(20,cast(integer,Force/velScaleFactor))
-	PowerBar:SetPosition(20,40)
+	PowerBar:SetPosition(0,40)
 	PowerBarBackground:LoadRectangle(20,cast(integer,ForceCap/velScaleFactor))
-	PowerBarBackground:SetPosition(20,40)
+	PowerBarBackground:SetPosition(0,40)
 	newGame:Add(PowerBar)
 	newGame:Add(PowerBarBackground)
     end

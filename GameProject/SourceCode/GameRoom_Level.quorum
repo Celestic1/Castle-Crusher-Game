@@ -43,7 +43,7 @@ class GameRoom_Level is GameRoom
         Clickable exit
         exit:SetParentGame(game)
         exit:SetSpritePath("assets/exit_1.png")
-        exit:SetStartPosition(100,230)
+        exit:SetStartPosition(1280,650)
         exit:RefreshGameObject()
         AddObj(exit)
 

@@ -56,14 +56,10 @@ class GameCollision is CollisionListener2D
  
         if itemA:GetName() = "CannonBall" and itemB:GetName() = "Star"
             force = itemA:GetLinearVelocity()
-            if force:Length() > 800
-                itemB:RemoveFromGame(main)
-            end
+            itemB:RemoveFromGame(main)
         elseif itemA:GetName() = "Star" and itemB:GetName() = "CannonBall"
             force = itemB:GetLinearVelocity()
-            if force:Length() > 800
-                itemA:RemoveFromGame(main)
-            end
+            itemA:RemoveFromGame(main)
         end
     end
 
