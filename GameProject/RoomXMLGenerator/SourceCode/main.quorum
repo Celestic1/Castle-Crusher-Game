@@ -13,8 +13,8 @@ class Main is Game
     Array<File> MapFiles
     text MapFolder = "Maps"
     text XmlFolder = "XmlMaps"
-    integer g_GridX = 40          // This is the width  of each 'grid' on map
-    integer g_GridY = 40          // This is the height of each 'grid' on map
+    integer g_GridX = 20          // This is the width  of each 'grid' on map
+    integer g_GridY = 20          // This is the height of each 'grid' on map
 
     action Main
         // Load the maps into MapFiles Array
@@ -77,8 +77,12 @@ class Main is Game
                             objName = "MiniBasicBox"
                         elseif tmpArray:Get(i) = "X2"
                             objName = "BasicBox2"
+                        elseif tmpArray:Get(i) = "x2"
+                            objName = "MiniBasicBox2"
                         elseif tmpArray:Get(i) = "X3"
                             objName = "BasicBox3"
+                        elseif tmpArray:Get(i) = "x3"
+                            objName = "MiniBasicBox3"
                         elseif tmpArray:Get(i) = "B"
                             objName = "BasicBlock"
                         elseif tmpArray:Get(i) = "b"
@@ -97,6 +101,8 @@ class Main is Game
                             objName = "Star"
                         elseif tmpArray:Get(i) = "W"
                             objName = "Water"
+                        elseif tmpArray:Get(i) = "w"
+                            objName = "MiniWater"
                         else
                             objName = "BasicBlock"
                         end
@@ -124,6 +130,7 @@ class Main is Game
             currentMapIndex = currentMapIndex + 1
         end
 
+        Exit()
         StartGame()
     end
 
