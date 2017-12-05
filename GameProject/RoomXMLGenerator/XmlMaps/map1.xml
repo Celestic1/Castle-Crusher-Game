@@ -333,7 +333,7 @@
 	    <Y>120</Y>
 	</BasicBox>
 	<BasicBox>
-	    <X>640</X>
+	    <X>460</X>
 	    <Y>120</Y>
 	</BasicBox>
 	<BasicBox>
@@ -386,6 +386,10 @@
 	</BasicBox>
 	<BasicBox>
 	    <X>900</X>
+	    <Y>120</Y>
+	</BasicBox>
+	<BasicBox>
+	    <X>920</X>
 	    <Y>120</Y>
 	</BasicBox>
 	<BasicBox>
@@ -428,76 +432,80 @@
 	    <X>360</X>
 	    <Y>100</Y>
 	</BasicBox>
-	<BasicBlock>
+	<BasicBox>
 	    <X>380</X>
 	    <Y>100</Y>
-	</BasicBlock>
+	</BasicBox>
 	<BasicBlock>
 	    <X>400</X>
 	    <Y>100</Y>
 	</BasicBlock>
-	<BasicBox>
+	<BasicBlock>
 	    <X>420</X>
 	    <Y>100</Y>
-	</BasicBox>
+	</BasicBlock>
 	<BasicBox>
 	    <X>440</X>
 	    <Y>100</Y>
 	</BasicBox>
 	<BasicBox>
-	    <X>640</X>
+	    <X>460</X>
 	    <Y>100</Y>
 	</BasicBox>
 	<BasicBox>
 	    <X>660</X>
 	    <Y>100</Y>
 	</BasicBox>
-	<BasicBlock>
+	<BasicBox>
 	    <X>680</X>
 	    <Y>100</Y>
-	</BasicBlock>
+	</BasicBox>
 	<BasicBlock>
 	    <X>700</X>
 	    <Y>100</Y>
 	</BasicBlock>
-	<BasicBox>
+	<BasicBlock>
 	    <X>720</X>
 	    <Y>100</Y>
-	</BasicBox>
+	</BasicBlock>
 	<BasicBox>
 	    <X>740</X>
 	    <Y>100</Y>
 	</BasicBox>
-	<BasicBlock>
+	<BasicBox>
 	    <X>760</X>
 	    <Y>100</Y>
-	</BasicBlock>
+	</BasicBox>
 	<BasicBlock>
 	    <X>780</X>
 	    <Y>100</Y>
 	</BasicBlock>
-	<BasicBox>
+	<BasicBlock>
 	    <X>800</X>
 	    <Y>100</Y>
-	</BasicBox>
+	</BasicBlock>
 	<BasicBox>
 	    <X>820</X>
 	    <Y>100</Y>
 	</BasicBox>
-	<BasicBlock>
+	<BasicBox>
 	    <X>840</X>
 	    <Y>100</Y>
-	</BasicBlock>
+	</BasicBox>
 	<BasicBlock>
 	    <X>860</X>
 	    <Y>100</Y>
 	</BasicBlock>
-	<BasicBox>
+	<BasicBlock>
 	    <X>880</X>
+	    <Y>100</Y>
+	</BasicBlock>
+	<BasicBox>
+	    <X>900</X>
 	    <Y>100</Y>
 	</BasicBox>
 	<BasicBox>
-	    <X>900</X>
+	    <X>920</X>
 	    <Y>100</Y>
 	</BasicBox>
 	<BasicBox>
@@ -509,19 +517,11 @@
 	    <Y>80</Y>
 	</BasicBox>
 	<BasicBox>
-	    <X>260</X>
+	    <X>300</X>
 	    <Y>80</Y>
 	</BasicBox>
 	<BasicBox>
-	    <X>280</X>
-	    <Y>80</Y>
-	</BasicBox>
-	<BasicBox>
-	    <X>340</X>
-	    <Y>80</Y>
-	</BasicBox>
-	<BasicBox>
-	    <X>360</X>
+	    <X>320</X>
 	    <Y>80</Y>
 	</BasicBox>
 	<BasicBox>
@@ -533,11 +533,11 @@
 	    <Y>80</Y>
 	</BasicBox>
 	<BasicBox>
-	    <X>640</X>
+	    <X>500</X>
 	    <Y>80</Y>
 	</BasicBox>
 	<BasicBox>
-	    <X>660</X>
+	    <X>520</X>
 	    <Y>80</Y>
 	</BasicBox>
 	<BasicBox>
@@ -564,6 +564,10 @@
 	    <X>900</X>
 	    <Y>80</Y>
 	</BasicBox>
+	<BasicBlock>
+	    <X>920</X>
+	    <Y>80</Y>
+	</BasicBlock>
 	<BasicBox>
 	    <X>180</X>
 	    <Y>60</Y>
@@ -573,19 +577,11 @@
 	    <Y>60</Y>
 	</BasicBox>
 	<BasicBox>
-	    <X>260</X>
+	    <X>300</X>
 	    <Y>60</Y>
 	</BasicBox>
 	<BasicBox>
-	    <X>280</X>
-	    <Y>60</Y>
-	</BasicBox>
-	<BasicBox>
-	    <X>340</X>
-	    <Y>60</Y>
-	</BasicBox>
-	<BasicBox>
-	    <X>360</X>
+	    <X>320</X>
 	    <Y>60</Y>
 	</BasicBox>
 	<BasicBox>
@@ -597,11 +593,11 @@
 	    <Y>60</Y>
 	</BasicBox>
 	<BasicBox>
-	    <X>640</X>
+	    <X>500</X>
 	    <Y>60</Y>
 	</BasicBox>
 	<BasicBox>
-	    <X>660</X>
+	    <X>520</X>
 	    <Y>60</Y>
 	</BasicBox>
 	<BasicBox>
@@ -641,37 +637,29 @@
 	    <Y>40</Y>
 	</BasicBox>
 	<Star>
-	    <X>220</X>
-	    <Y>40</Y>
-	</Star>
-	<Star>
 	    <X>240</X>
 	    <Y>40</Y>
 	</Star>
-	<BasicBox>
+	<Star>
 	    <X>260</X>
 	    <Y>40</Y>
-	</BasicBox>
+	</Star>
 	<BasicBox>
-	    <X>280</X>
-	    <Y>40</Y>
-	</BasicBox>
-	<Star>
 	    <X>300</X>
 	    <Y>40</Y>
-	</Star>
-	<Star>
+	</BasicBox>
+	<BasicBox>
 	    <X>320</X>
 	    <Y>40</Y>
-	</Star>
-	<BasicBox>
-	    <X>340</X>
-	    <Y>40</Y>
 	</BasicBox>
-	<BasicBox>
+	<Star>
 	    <X>360</X>
 	    <Y>40</Y>
-	</BasicBox>
+	</Star>
+	<Star>
+	    <X>380</X>
+	    <Y>40</Y>
+	</Star>
 	<BasicBox>
 	    <X>420</X>
 	    <Y>40</Y>
@@ -681,11 +669,11 @@
 	    <Y>40</Y>
 	</BasicBox>
 	<BasicBox>
-	    <X>640</X>
+	    <X>500</X>
 	    <Y>40</Y>
 	</BasicBox>
 	<BasicBox>
-	    <X>660</X>
+	    <X>520</X>
 	    <Y>40</Y>
 	</BasicBox>
 	<BasicBox>
@@ -696,14 +684,6 @@
 	    <X>740</X>
 	    <Y>40</Y>
 	</BasicBox>
-	<Star>
-	    <X>760</X>
-	    <Y>40</Y>
-	</Star>
-	<Star>
-	    <X>780</X>
-	    <Y>40</Y>
-	</Star>
 	<BasicBox>
 	    <X>800</X>
 	    <Y>40</Y>
@@ -728,6 +708,10 @@
 	    <X>900</X>
 	    <Y>40</Y>
 	</BasicBox>
+	<Star>
+	    <X>920</X>
+	    <Y>40</Y>
+	</Star>
 	<BasicBlock>
 	    <X>0</X>
 	    <Y>20</Y>

@@ -131,9 +131,9 @@ class GameObject_Player is GameObject, GameKeyboard
 
     action SetupPowerBars (Game newGame)
 	PowerBar:LoadFilledRectangle(20,cast(integer,Force/velScaleFactor))
-	PowerBar:SetPosition(0,40)
+	PowerBar:SetPosition(0,80)
 	PowerBarBackground:LoadRectangle(20,cast(integer,ForceCap/velScaleFactor))
-	PowerBarBackground:SetPosition(0,40)
+	PowerBarBackground:SetPosition(0,80)
 	newGame:Add(PowerBar)
 	newGame:Add(PowerBarBackground)
     end
