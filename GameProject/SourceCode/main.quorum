@@ -40,9 +40,8 @@ class Main is Game
         EnablePhysics2D(true)
         SetGravity2D(0, -75)
         AddMouseListener(GameMouseListener)
-        //AddMouseMovementListener(GameMouseListener)
+        AddMouseMovementListener(GameMouseListener)
         AddCollisionListener(GameCollisionListener)
-
         RefRoom:pg_CamMaxXOffset = 200
 	/*GameRoom_Level TestRoom
 	TestRoom:LoadRoomFromFile("Maps/TestMap.xml",CoreLibrary)
