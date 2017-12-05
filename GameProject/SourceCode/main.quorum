@@ -27,6 +27,7 @@ class Main is Game
         //GameMouseListener:RefRoom = RefRoom
         GameCollisionListener:main = me
         // Fixed screensize / gamename
+        EnableResizing(true)
         SetScreenSize(RefRoom:pg_ScreenSizeX , RefRoom:pg_ScreenSizeY)
         SetGameName("Castle Crusher")
         StartGame()
