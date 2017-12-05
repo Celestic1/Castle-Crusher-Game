@@ -16,6 +16,20 @@ and open the template in the editor.
 	<Friction>0.5</Friction>
     </Object>
     <Object>
+	<Name>MiniBasicBox2</Name>
+	<SpritePath>resources/sprMiniBrick_2.png</SpritePath>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Responsive>true</Responsive>
+        <Friction>0.5</Friction>
+    </Object>
+    <Object>
+	<Name>MiniBasicBox3</Name>
+	<SpritePath>resources/sprMiniBrick_3.png</SpritePath>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Responsive>true</Responsive>
+        <Friction>0.5</Friction>
+    </Object>
+    <Object>
 	<Name>MiniBasicBox</Name>
         <DisplayName>MiniBasicBox</DisplayName>
 	<SpritePath>assets/WoodBlockTiny.png</SpritePath>
@@ -141,5 +155,9 @@ and open the template in the editor.
     <Object>
 	<Name>Water</Name>
 	<SpritePath>assets/NewWater.png</SpritePath>
+    </Object>
+    <Object>
+	<Name>MiniWater</Name>
+	<SpritePath>resources/newMiniWater.png</SpritePath>
     </Object>
 </ObjectLibrary>

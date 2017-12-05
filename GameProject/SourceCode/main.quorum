@@ -31,6 +31,7 @@ class Main is Game
         GameCollisionListener:main = me
 
         // Fixed screensize / gamename
+        EnableResizing(true)
         SetScreenSize(RefRoom:pg_ScreenSizeX , RefRoom:pg_ScreenSizeY)
         SetGameName("Castle Crusher")
         StartGame()
@@ -44,8 +45,8 @@ class Main is Game
         camera = GetCamera2D()
         EnablePhysics2D(true)
         SetGravity2D(0, -75)
-        AddMouseListener(GameMouseListener)
-        AddMouseMovementListener(GameMouseListener)
+        //AddMouseListener(GameMouseListener)
+        //AddMouseMovementListener(GameMouseListener)
         AddCollisionListener(GameCollisionListener)
         RefRoom:pg_CamMaxXOffset = 200
 	/*GameRoom_Level TestRoom
@@ -53,7 +54,7 @@ class Main is Game
 	TestRoom:AddRoomToGame(me)*/
 
         // Draw cursor
-        Add(GameMouseListener)
+        //Add(GameMouseListener)
         //AddMouseListener(GameMouseListener)
         //AddMouseMovementListener(GameMouseListener)
         //RefRoom:pg_CamMaxXOffset = 200

@@ -11,7 +11,7 @@ class MainMenu is GameRoom
         // Background layer!
         AddEmptyLayer()
         GameObject BackGround
-        BackGround:SetSpritePath("assets/newBackground.png")
+        BackGround:SetSpritePath("assets/MainBackground.png")
         BackGround:RefreshGameObject()
         AddObj(BackGround)
 
@@ -26,14 +26,14 @@ class MainMenu is GameRoom
         StartButton:SetParentGame(game)
         StartButton:SetMenuString("LevelSelector")
         StartButton:SetSpritePath("assets/buttonStart.png")
-        StartButton:SetStartPosition(450,160)
+        StartButton:SetStartPosition(630,400)
         StartButton:RefreshGameObject()
         AddObj(StartButton)
 
         Clickable ExitButton
         ExitButton:SetParentGame(game)
         ExitButton:SetSpritePath("assets/exit_1.png")
-        ExitButton:SetStartPosition(895,235)
+        ExitButton:SetStartPosition(1280,650)
         ExitButton:RefreshGameObject()
         AddObj(ExitButton)
     end

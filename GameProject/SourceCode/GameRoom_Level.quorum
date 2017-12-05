@@ -48,7 +48,7 @@ class GameRoom_Level is GameRoom
         exit:SetParentGame(game)
         //exit:SetMenuString("MainMenu")
         exit:SetSpritePath("assets/exit_1.png")
-        exit:SetStartPosition(900,220)
+        exit:SetStartPosition(1280,650)
         exit:RefreshGameObject()
         AddObj(exit)
 
