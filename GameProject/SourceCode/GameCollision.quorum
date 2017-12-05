@@ -24,52 +24,34 @@ class GameCollision is CollisionListener2D
 
         if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox"
             force = itemA:GetLinearVelocity()
-            output "Velocity = " + force:Length()
-                itemA:RemoveFromGame(main)
+            itemA:RemoveFromGame(main)
         elseif itemA:GetName() = "BasicBox" and itemB:GetName() = "Star"
             force = itemB:GetLinearVelocity()
-            output "Velocity = " + force:Length()
-                itemB:RemoveFromGame(main)
-        end
-
-        if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox"
-            force = itemA:GetLinearVelocity()
-            output "Velocity = " + force:Length()
-                itemA:RemoveFromGame(main)
-        elseif itemA:GetName() = "BasicBox" and itemB:GetName() = "Star"
-            force = itemB:GetLinearVelocity()
-            output "Velocity = " + force:Length()
-                itemB:RemoveFromGame(main)
+            itemB:RemoveFromGame(main)
         end
 
         if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox2"
             force = itemA:GetLinearVelocity()
-            output "Velocity = " + force:Length()
-                itemA:RemoveFromGame(main)
+            itemA:RemoveFromGame(main)
         elseif itemA:GetName() = "BasicBox2" and itemB:GetName() = "Star"
             force = itemB:GetLinearVelocity()
-            output "Velocity = " + force:Length()
-                itemB:RemoveFromGame(main)
+            itemB:RemoveFromGame(main)
         end
 
         if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox3"
             force = itemA:GetLinearVelocity()
-            output "Velocity = " + force:Length()
-                itemA:RemoveFromGame(main)
+            itemA:RemoveFromGame(main)
         elseif itemA:GetName() = "BasicBox3" and itemB:GetName() = "Star"
             force = itemB:GetLinearVelocity()
-            output "Velocity = " + force:Length()
-                itemB:RemoveFromGame(main)
+            itemB:RemoveFromGame(main)
         end
 
         if itemA:GetName() = "MiniBasicBox" and itemB:GetName() = "Star"
             force = itemA:GetLinearVelocity()
-            output "Velocity = " + force:Length()
-                itemB:RemoveFromGame(main)
+            itemB:RemoveFromGame(main)
         elseif itemA:GetName() = "Star" and itemB:GetName() = "MiniBasicBox"
             force = itemB:GetLinearVelocity()
-            output "Velocity = " + force:Length()
-                itemA:RemoveFromGame(main)
+            itemA:RemoveFromGame(main)
         end
 
          if itemA:GetName() = "CannonBall" and itemB:GetName() = "DisBlockSmall"
@@ -94,13 +76,11 @@ class GameCollision is CollisionListener2D
 
         if itemA:GetName() = "CannonBall" and itemB:GetName() = "Star"
             force = itemA:GetLinearVelocity()
-            output "Velocity = " + force:Length()
             if force:Length() > 800
                 itemB:RemoveFromGame(main)
             end
         elseif itemA:GetName() = "Star" and itemB:GetName() = "CannonBall"
             force = itemB:GetLinearVelocity()
-            output "Velocity = " + force:Length()
             if force:Length() > 800
                 itemA:RemoveFromGame(main)
             end
