@@ -40,7 +40,7 @@ class Main is Game
 	CoreLibrary:OutputHashTableContents()
         camera = GetCamera2D()
         EnablePhysics2D(true)
-        SetGravity2D(0, -75)
+        SetGravity2D(0, -100)
         //AddMouseListener(GameMouseListener)
         //AddMouseMovementListener(GameMouseListener)
         AddCollisionListener(GameCollisionListener)
