@@ -33,16 +33,19 @@ class Main is Game
 
     action CreateGame
         XMLFileManager FileMan
-//        XMLNode ReadRoot = FileMan:GetXMLFromFile("Definitions/TempCoreDefs.xml")
         XMLNode ReadRoot = FileMan:GetXMLFromFile("Definitions/CoreDefs.xml")
 	CoreLibrary:LoadLibraryFromTree(ReadRoot)
 	CoreLibrary:OutputHashTableContents()
         camera = GetCamera2D()
         EnablePhysics2D(true)
-        SetGravity2D(0, -200)
+        SetGravity2D(0, -75)
         AddMouseListener(GameMouseListener)
         AddMouseMovementListener(GameMouseListener)
+<<<<<<< HEAD
         AddCollisionListener(GameCollisionListener)
+=======
+
+>>>>>>> 3d0561edc2fa08fd4c8ed15053aba20445d3ef57
         RefRoom:pg_CamMaxXOffset = 200
 	/*GameRoom_Level TestRoom
 	TestRoom:LoadRoomFromFile("Maps/TestMap.xml",CoreLibrary)
@@ -70,6 +73,7 @@ class Main is Game
         return CoreLibrary
     end
 
+<<<<<<< HEAD
     action createMainMenu
 
 /*
@@ -86,6 +90,8 @@ class Main is Game
 */
     end
 
+=======
+>>>>>>> 3d0561edc2fa08fd4c8ed15053aba20445d3ef57
     // ROOM AND STACK MANAGEMENT
     // PRETTY FRIGGIN IMPORTANT
 
