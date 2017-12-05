@@ -1,17 +1,5 @@
 <Map>
     <Layer>
-        <MistySky>
-            <X>100</X>
-            <Y>100</Y>
-        </MistySky>
-    </Layer>
-    <Layer>
-        <MistyTree>
-            <X>100</X>
-            <Y>100</Y>
-        </MistyTree>
-    </Layer>
-    <Layer>
 	<BasicBox>
 	    <X>820</X>
 	    <Y>451</Y>

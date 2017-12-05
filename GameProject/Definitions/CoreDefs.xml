@@ -7,9 +7,24 @@ and open the template in the editor.
 
 
 <ObjectLibrary>
+     <Object>
+    	<Name>MiniBasicBlock</Name>
+	<SpritePath>assets/MetalBlockTiny.png</SpritePath>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Unmovable>true</Unmovable>
+	<Restitution>0.5</Restitution>
+	<Friction>0.5</Friction>
+    </Object>
+    <Object>
+	<Name>MiniBasicBox</Name>
+	<SpritePath>assets/WoodBlockTiny.png</SpritePath>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Responsive>true</Responsive>
+        <Friction>0.5</Friction>
+    </Object>
     <Object>
 	<Name>BasicBlock</Name>
-	<SpritePath>resources/sprBrick_0.png</SpritePath>
+	<SpritePath>assets/metalBlockSmall.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Unmovable>true</Unmovable>
 	<Restitution>0.5</Restitution>
@@ -84,51 +99,24 @@ and open the template in the editor.
     </Object>
     <Object>
 	<Name>BasicBox</Name>
-<<<<<<< HEAD
-<<<<<<< HEAD
+        <DisplayName>BasicBox</DisplayName>
 	<SpritePath>assets/WoodBlockSmall.png</SpritePath>
-=======
-        <DisplayName>BasicBox</DisplayName>
-	<SpritePath>resources/sprBrick_1.png</SpritePath>
->>>>>>> 9b2ce31c0c871ae3c68e0e937c36bd1c464e46d1
-=======
-        <DisplayName>BasicBox</DisplayName>
-	<SpritePath>resources/sprBrick_1.png</SpritePath>
->>>>>>> 596119d9b1da5ad1c19aa08c3ca3d350cf2c40cb
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
         <Friction>0.5</Friction>
     </Object>
     <Object>
 	<Name>BasicBox2</Name>
-<<<<<<< HEAD
-<<<<<<< HEAD
+        <DisplayName>BasicBox2</DisplayName>
 	<SpritePath>assets/WoodBlockMed.png</SpritePath>
-=======
-        <DisplayName>BasicBox2</DisplayName>
-	<SpritePath>resources/sprBrick_2.png</SpritePath>
->>>>>>> 9b2ce31c0c871ae3c68e0e937c36bd1c464e46d1
-=======
-        <DisplayName>BasicBox2</DisplayName>
-	<SpritePath>resources/sprBrick_2.png</SpritePath>
->>>>>>> 596119d9b1da5ad1c19aa08c3ca3d350cf2c40cb
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
         <Friction>0.5</Friction>
     </Object>
     <Object>
 	<Name>BasicBox3</Name>
-<<<<<<< HEAD
-<<<<<<< HEAD
+        <DisplayName>BasicBox3</DisplayName>
 	<SpritePath>assets/WoodBlockLong.png</SpritePath>
-=======
-        <DisplayName>BasicBox3</DisplayName>
-	<SpritePath>resources/sprBrick_3.png</SpritePath>
->>>>>>> 9b2ce31c0c871ae3c68e0e937c36bd1c464e46d1
-=======
-        <DisplayName>BasicBox3</DisplayName>
-	<SpritePath>resources/sprBrick_3.png</SpritePath>
->>>>>>> 596119d9b1da5ad1c19aa08c3ca3d350cf2c40cb
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
         <Friction>0.5</Friction>
@@ -144,11 +132,11 @@ and open the template in the editor.
     <Object>
 	<Name>Star</Name>
         <DisplayName>Star</DisplayName>
-	<SpritePath>resources/sprYouTriedStar.png</SpritePath>
+	<SpritePath>assets/summoner.png</SpritePath>
         <Collidable>true</Collidable>
     </Object>
     <Object>
 	<Name>Water</Name>
-	<SpritePath>resources/sprWater.png</SpritePath>
+	<SpritePath>assets/NewWater.png</SpritePath>
     </Object>
 </ObjectLibrary>
