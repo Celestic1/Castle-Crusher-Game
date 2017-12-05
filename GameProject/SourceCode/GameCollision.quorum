@@ -35,26 +35,34 @@ class GameCollision is CollisionListener2D
         end
 
         if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox"
-            force = itemA:GetLinearVelocity()
                 itemA:RemoveFromGame(main)
             //starCount = starCount - 1
+            itemA:Load("assets/blood.png")
+            itemA:AddToGame(main)
+            itemA:EnablePhysics(false)
         elseif itemA:GetName() = "BasicBox" and itemB:GetName() = "Star"
-            force = itemB:GetLinearVelocity()
                 score = score + 5
                 itemB:RemoveFromGame(main)
             //starCount = starCount - 1
+            itemB:Load("assets/blood.png")
+            itemB:AddToGame(main)
+            itemB:EnablePhysics(false)
         end
 
         if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox2"
-            force = itemA:GetLinearVelocity()
                 score = score + 5
                 itemA:RemoveFromGame(main)
             //starCount = starCount - 1
+            itemA:Load("assets/blood.png")
+            itemA:AddToGame(main)
+            itemA:EnablePhysics(false)
         elseif itemA:GetName() = "BasicBox2" and itemB:GetName() = "Star"
-            force = itemB:GetLinearVelocity()
                 score = score + 5
                 itemB:RemoveFromGame(main)
             //starCount = starCount - 1
+            itemB:Load("assets/blood.png")
+            itemB:AddToGame(main)
+            itemB:EnablePhysics(false)
         end
 
         if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox3"
@@ -62,39 +70,55 @@ class GameCollision is CollisionListener2D
                 score = score + 5
                 itemA:RemoveFromGame(main)
             //starCount = starCount - 1
+            itemA:Load("assets/blood.png")
+            itemA:AddToGame(main)
+            itemA:EnablePhysics(false)
         elseif itemA:GetName() = "BasicBox3" and itemB:GetName() = "Star"
             force = itemB:GetLinearVelocity()
                 score = score + 5
                 itemB:RemoveFromGame(main)
             //starCount = starCount - 1
+            itemB:Load("assets/blood.png")
+            itemB:AddToGame(main)
+            itemB:EnablePhysics(false)
         end
 
-        if itemA:GetName() = "MiniBasicBox" and itemB:GetName() = "Star"
+        if itemA:GetName() = "Star" and itemB:GetName() = "Roof"
             force = itemA:GetLinearVelocity()
-                score = score + 5
-                itemB:RemoveFromGame(main)
-            //starCount = starCount - 1
-        elseif itemA:GetName() = "Star" and itemB:GetName() = "MiniBasicBox"
+            itemA:RemoveFromGame(main)
+            itemA:Load("assets/blood.png")
+            itemA:AddToGame(main)
+            itemA:EnablePhysics(false)
+        elseif itemA:GetName() = "Roof" and itemB:GetName() = "Star"
             force = itemB:GetLinearVelocity()
-                score = score + 5
-                itemA:RemoveFromGame(main)
-            //starCount = starCount - 1
-        end*/
- 
+            itemB:RemoveFromGame(main)
+            itemB:Load("assets/blood.png")
+            itemB:AddToGame(main)
+            itemB:EnablePhysics(false)
+        end
+
         if itemA:GetName() = "CannonBall" and itemB:GetName() = "Star"
-            force = itemA:GetLinearVelocity()
+            //force = itemA:GetLinearVelocity()
             if force:Length() > 800
                 score = score + 5
                 itemB:RemoveFromGame(main)
                 starCount = starCount - 1
             end
+            itemB:Load("assets/blood.png")
+            itemB:AddToGame(main)
+            itemB:EnablePhysics(false)
+
         elseif itemA:GetName() = "Star" and itemB:GetName() = "CannonBall"
-            force = itemB:GetLinearVelocity()
+            //force = itemB:GetLinearVelocity()
             if force:Length() > 800
                 score = score + 5
                 itemA:RemoveFromGame(main)
             starCount = starCount - 1
             end
+            itemA:Load("assets/blood.png")
+            itemA:AddToGame(main)
+            itemA:EnablePhysics(false)
+
         end
         if starCount = 0
             victory = true

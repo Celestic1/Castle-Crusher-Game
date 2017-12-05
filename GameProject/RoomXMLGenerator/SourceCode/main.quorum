@@ -103,6 +103,8 @@ class Main is Game
                             objName = "Water"
                         elseif tmpArray:Get(i) = "w"
                             objName = "MiniWater"
+                        elseif tmpArray:Get(i) = "R"
+                            objName = "Roof"
                         else
                             objName = "BasicBlock"
                         end
