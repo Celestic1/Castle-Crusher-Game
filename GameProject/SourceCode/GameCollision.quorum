@@ -13,7 +13,10 @@ class GameCollision is CollisionListener2D
     Drawable Counter2 
 
     action BeginCollision(CollisionEvent2D event)
+<<<<<<< dev
 /*
+=======
+>>>>>>> local
         GameObject itemA = cast(GameObject, event:GetItemA())
         GameObject itemB = cast(GameObject, event:GetItemB())
 
@@ -46,7 +49,11 @@ class GameCollision is CollisionListener2D
          /*elseif itemA:GetName() = "objBlock" and itemB:GetName() = "objBox"
             roo:QueueDelObj(itemB)
             score = score + 5
+<<<<<<< dev
             output score 
+=======
+            output score */
+>>>>>>> local
         end
 
         if itemA:GetName() = "objKey" and itemB:GetName() = "objCat"
@@ -66,11 +73,20 @@ class GameCollision is CollisionListener2D
                     roo:QueueDelObj(roo:GetObjAtIndex(i-1))
                 end
                 i = i - 1
+<<<<<<< dev
             end*/
         end
 
 
     action LoadCount(Drawable d, integer digit)
+=======
+            end
+        end
+
+    end
+
+    action LoadCount (Drawable d, integer digit)
+>>>>>>> local
         integer tmp = digit
                 if tmp = 0 
                     d:Load("resources/SYMB_0.png")

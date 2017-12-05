@@ -5,4 +5,51 @@ use Libraries.Containers.List
 
 class startFunction is GameFunction
     
+<<<<<<< dev
+=======
+/*    
+    Game game
+    GameRoom room
+    MainMenu mainmenu
+    LevelSelector ls
+    List<text> lst
+    Drawable levelScreen
+
+<<<<<<< HEAD
+    action run(MouseEvent e)
+        goToLevelScreen()
+        //room:LoadRoom("/testMap.txt")
+=======
+    action run(MouseEvent e)  
+        room:LoadRoom("/testMap2.txt")
+>>>>>>> gupta
+        mainmenu:DeleteMenu()
+    end
+
+    action setGameRoom(GameRoom r)
+        room = r
+    end
+
+    action getLevelList(List<text> lst)
+
+    end
+
+    action setGame(Game g)
+        game = g
+    end
+
+    action setMainMenu(MainMenu m)
+        mainmenu = m
+    end
+
+    action goToLevelScreen()
+        levelOneFunction lvlonefunc
+        game:Add(levelScreen)
+        ls:constructor(levelScreen,lst, room)
+        lvlonefunc:getGameRoom(room)
+        ls:first:LoadClick(lvlonefunc)
+        ls:Render()
+    end
+*/
+>>>>>>> local
 end
