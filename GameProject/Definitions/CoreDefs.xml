@@ -18,6 +18,7 @@ and open the template in the editor.
     </Object>
     <Object>
         <Name>WoodenBox</Name>
+        <DisplayName>WoodenBox</DisplayName>
 	<SpritePath>resources/wooden_box.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
@@ -26,6 +27,7 @@ and open the template in the editor.
     </Object>
     <Object>
         <Name>WoodenRectangle</Name>
+        <DisplayName>WoodenRectangle</DisplayName>
 	<SpritePath>resources/wooden_rectangle.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>

@@ -39,11 +39,14 @@ class GameRoom_Level is GameRoom
             parent:GameRoom:setLevelName(roomTextPath)
         end
         LoadRoomFromTree(RootNode, BlockLib, Cannon, Ammo)
+        //After Loading all the drawn objects; add the clickables
+        
         AddEmptyLayer()
-        Clickable exit
+        Clickable_MenuLoader exit
         exit:SetParentGame(game)
+        exit:SetMenuString("InGameMenu")
         exit:SetSpritePath("assets/exit_1.png")
-        exit:SetStartPosition(100,230)
+        exit:SetStartPosition(900,220)
         exit:RefreshGameObject()
         AddObj(exit)
 
@@ -127,7 +130,6 @@ class GameRoom_Level is GameRoom
 		end
 		j = j + 1
 	    end
-
 	    Layer:Add(NextObject)
     end
 end

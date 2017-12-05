@@ -10,8 +10,7 @@ class Clickable_LevelLoader is Clickable
     action ClickedMouse(MouseEvent event)
         MakeSpecialAmmo()
 //        NewCannon:RefreshGameObject()
-        NewRoom:LoadRoomFromFile(LevelString,parent:Clickable:ParentGame:GetCoreLibrary(),NewCannon,TempAmmo
-                                    ,parent:Clickable:GetParentGame())
+        NewRoom:LoadRoomFromFile(LevelString,parent:Clickable:ParentGame:GetCoreLibrary(),NewCannon,TempAmmo, parent:Clickable:GetParentGame())
         parent:Clickable:ParentGame:PushRoomStack(NewRoom)
     end
 

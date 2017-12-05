@@ -22,6 +22,12 @@ class GameRoom
     public integer pg_CamMaxYOffset = 0
     public integer pg_CamReset = 0        // Set to one so main knows to reset cam
 
+    boolean isEmpty = true 
+    /*action isEmpty returns boolean
+        return isEmpty
+    end*/
+    //no way of telling if room is completely empty
+    
     action GetLayerCount
         returns integer
         return RoomLayers:GetSize()
@@ -38,10 +44,12 @@ class GameRoom
     end
 
     action AddObj(GameObject obj)
+        isEmpty = false
         RoomLayers:GetFromEnd():Add(obj)
     end
 
     action AddObjAtIndex (integer layer, integer index, GameObject obj)
+        isEmpty = false
         RoomLayers:Get(layer):Add(index, obj)
     end
 
@@ -58,6 +66,7 @@ class GameRoom
     end
 
     action AddEmptyLayer
+        isEmpty = false
         Array<GameObject> EmptyLayer
         RoomLayers:Add(EmptyLayer)
     end

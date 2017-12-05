@@ -133,25 +133,25 @@ class GameObject_Player is GameObject, GameKeyboard
     action LoadCount (Drawable d, integer digit)
         integer tmp = digit
                 if tmp = 0 
-                    d:Load("assets/UI/Symbols & Text/SYMB_0.png")
+                    d:Load("assets/UI/SymbolsText/SYMB_0.png")
                 elseif tmp = 1 
-                    d:Load("assets/UI/Symbols & Text/SYMB_1.png")
+                    d:Load("assets/UI/SymbolsText/SYMB_1.png")
                 elseif tmp = 2
-                    d:Load("assets/UI/Symbols & Text/SYMB_2.png")
+                    d:Load("assets/UI/SymbolsText/SYMB_2.png")
                 elseif tmp = 3
-                    d:Load("assets/UI/Symbols & Text/SYMB_3.png")
+                    d:Load("assets/UI/SymbolsText/SYMB_3.png")
                 elseif tmp = 4
-                    d:Load("assets/UI/Symbols & Text/SYMB_4.png")
+                    d:Load("assets/UI/SymbolsText/SYMB_4.png")
                 elseif tmp = 5
-                    d:Load("assets/UI/Symbols & Text/SYMB_5.png")
+                    d:Load("assets/UI/SymbolsText/SYMB_5.png")
                 elseif tmp = 6
-                    d:Load("assets/UI/Symbols & Text/SYMB_6.png")
+                    d:Load("assets/UI/SymbolsText/SYMB_6.png")
                 elseif tmp = 7
-                    d:Load("assets/UI/Symbols & Text/SYMB_7.png")
+                    d:Load("assets/UI/SymbolsText/SYMB_7.png")
                 elseif tmp = 8 
-                    d:Load("assets/UI/Symbols & Text/SYMB_8.png")
+                    d:Load("assets/UI/SymbolsText/SYMB_8.png")
                 elseif tmp = 9
-                    d:Load("assets/UI/Symbols & Text/SYMB_9.png")
+                    d:Load("assets/UI/SymbolsText/SYMB_9.png")
                 end 
     end
 
@@ -217,6 +217,12 @@ class GameObject_Player is GameObject, GameKeyboard
     
     action RemoveFromGame (Game newGame)
         parent:GameObject:RemoveFromGame(newGame)
+        newGame:Remove(Counter1)
+        newGame:Remove(Counter2)
+        newGame:Remove(Score0)
+        newGame:Remove(Score1)
+        newGame:Remove(Score2)
+        newGame:Remove(Score3)
         newGame:RemoveKeyboardListener(me)
         newGame:Remove(me)
     end

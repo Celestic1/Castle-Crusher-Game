@@ -21,6 +21,7 @@ class Main is Game
 //    Drawable mainScreen
     MainMenu mainmenu
     LevelSelector ls
+    inGameMenu igm
 
     action Main
         //GameMouseListener:RefRoom = RefRoom
@@ -57,13 +58,14 @@ class Main is Game
         PushRoomStack(mainmenu)
         ls:CreateScreen(me)
         MenuTable:Add("LevelSelector",ls)
-        
+        igm:createScreen(me)
+        MenuTable:Add("InGameMenu",igm)
 
         //Add(GameMouseListener)
     end
 
     action Update(number seconds)
-
+        
     end
 
     action GetCoreLibrary returns GameObject_Library
