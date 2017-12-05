@@ -23,6 +23,7 @@ class Main is Game
     LevelSelector ls
     inGameMenu igm
 
+    public text currentRoomName = ""
     action Main
         //GameMouseListener:RefRoom = RefRoom
         GameCollisionListener:main = me
@@ -96,6 +97,7 @@ class Main is Game
             RoomStack:Peek():RemoveRoomFromGame(me)
         end
         RoomStack:Push(NewRoom)
+        currentRoomName = RoomStack:Peek():getLevelName()
         RoomStack:Peek():AddRoomToGame(me)
     end
 
@@ -110,7 +112,7 @@ class Main is Game
             RoomStack:Peek():RemoveRoomFromGame(me)
             RoomStack:Pop()
             if RoomStack:GetSize() > 0
-                //RoomStack:Peek():AddRoomToGame(me)
+                RoomStack:Peek():AddRoomToGame(me)
             else
                 Exit()
             end
