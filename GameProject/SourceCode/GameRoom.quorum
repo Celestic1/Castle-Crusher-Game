@@ -12,7 +12,8 @@ class GameRoom
     public integer pg_ScreenSizeY = 320   // Default height of room
     private integer g_GridX = 40          // This is the width  of each 'grid' on map
     private integer g_GridY = 40          // This is the height of each 'grid' on map
-
+    private text levelName = ""
+    
     XMLNode RefNode
     // Camera Variables
     public integer pg_CamXOffset = 0
@@ -105,5 +106,11 @@ class GameRoom
         pg_CamMaxYOffset = 0
         pg_CamReset = 1
     end
-
+    action getLevelName () returns text
+        return levelName
+    end
+    
+    action setLevelName(text name) 
+        levelName = name
+    end
 end

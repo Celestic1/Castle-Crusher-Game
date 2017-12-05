@@ -9,6 +9,7 @@ class GameRoom_Level is GameRoom
     private GameObject_Player PCan
     private Array<GameObject> PAmmo
     XMLNode RefNode
+    private text currentLevelName = ""
 
     action AddRoomToGame(Game game)
         parent:GameRoom:AddRoomToGame(game)
@@ -33,7 +34,11 @@ class GameRoom_Level is GameRoom
     action LoadRoomFromFile(text roomTextPath, GameObject_Library BlockLib, GameObject_Player Cannon, Array<GameObject> Ammo, Main game)
         XMLFileManager FileMan
 	XMLNode RootNode = FileMan:GetXMLFromFile(roomTextPath)
-	LoadRoomFromTree(RootNode, BlockLib, Cannon, Ammo)
+	if not currentLevelName:Equals(roomTextPath)
+            currentLevelName = roomTextPath
+            parent:GameRoom:setLevelName(roomTextPath)
+        end
+        LoadRoomFromTree(RootNode, BlockLib, Cannon, Ammo)
         AddEmptyLayer()
         Clickable exit
         exit:SetParentGame(game)
@@ -41,6 +46,7 @@ class GameRoom_Level is GameRoom
         exit:SetStartPosition(100,230)
         exit:RefreshGameObject()
         AddObj(exit)
+
     end
 
     action LoadRoomFromFile(File TargetFile, GameObject_Library BlockLib, GameObject_Player Cannon, Array<GameObject> Ammo)
@@ -52,6 +58,10 @@ class GameRoom_Level is GameRoom
     action LoadRoomFromFile(text roomTextPath, GameObject_Library BlockLib)
         XMLFileManager FileMan
 	XMLNode RootNode = FileMan:GetXMLFromFile(roomTextPath)
+        if not currentLevelName:Equals(roomTextPath)
+            currentLevelName = roomTextPath
+            parent:GameRoom:setLevelName(roomTextPath)
+        end
 	LoadRoomFromTree(RootNode, BlockLib)
     end
 

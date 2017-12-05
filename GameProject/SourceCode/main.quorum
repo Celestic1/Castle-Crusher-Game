@@ -24,11 +24,16 @@ class Main is Game
 
     action Main
 <<<<<<< HEAD
+<<<<<<< HEAD
         GameMouseListener:RefRoom = RefRoom
 =======
         //GameMouseListener:RefRoom = RefRoom
         GameCollisionListener:main = me
 >>>>>>> 9b2ce31c0c871ae3c68e0e937c36bd1c464e46d1
+=======
+        //GameMouseListener:RefRoom = RefRoom
+        GameCollisionListener:main = me
+>>>>>>> 596119d9b1da5ad1c19aa08c3ca3d350cf2c40cb
         // Fixed screensize / gamename
         SetScreenSize(RefRoom:pg_ScreenSizeX , RefRoom:pg_ScreenSizeY)
         SetGameName("Castle Crusher")
@@ -56,42 +61,39 @@ class Main is Game
         Add(GameMouseListener)
         //AddMouseListener(GameMouseListener)
         //AddMouseMovementListener(GameMouseListener)
-        RefRoom:pg_CamMaxXOffset = 200
+        //RefRoom:pg_CamMaxXOffset = 200
         mainmenu:InitMainMenu(me)
         PushRoomStack(mainmenu)
         ls:CreateScreen(me)
         MenuTable:Add("LevelSelector",ls)
         
 
-        Add(GameMouseListener)
+        //Add(GameMouseListener)
     end
 
     action Update(number seconds)
-/*
-        if GameMouseListener:pg_HScrolling not= 0 or GameMouseListener:pg_VScrolling not= 0 or RefRoom:pg_CamReset = 1
-            RefRoom:pg_CamReset = 0
 
-            if GameMouseListener:pg_HScrolling = -1
-                RefRoom:pg_CamXOffset = RefRoom:pg_CamXOffset - GameMouseListener:pg_ScrollSpeed
-            elseif GameMouseListener:pg_HScrolling = 1
-                RefRoom:pg_CamXOffset = RefRoom:pg_CamXOffset + GameMouseListener:pg_ScrollSpeed
-            end
-
-            if GameMouseListener:pg_VScrolling = -1
-                RefRoom:pg_CamYOffset = RefRoom:pg_CamYOffset - GameMouseListener:pg_ScrollSpeed
-            elseif GameMouseListener:pg_VScrolling = 1
-                RefRoom:pg_CamYOffset = RefRoom:pg_CamYOffset + GameMouseListener:pg_ScrollSpeed
-            end
-
-            camera:SetPosition(RefRoom:pg_CamXOffset + RefRoom:pg_ScreenSizeX/2, RefRoom:pg_CamYOffset + RefRoom:pg_ScreenSizeY/2, 0)
-            GameMouseListener:SetCenter(RefRoom:pg_CamXOffset + GameMouseListener:pg_LastMouseX, RefRoom:pg_CamYOffset + GameMouseListener:pg_LastMouseY)
-        end*/
     end
 
     action GetCoreLibrary returns GameObject_Library
         return CoreLibrary
     end
 
+    action createMainMenu
+
+/*
+        exitFunction exit
+        startFunction start
+        mainmenu:Create(mainScreen)
+        exit:setGame(me)
+        start:setMainMenu(mainmenu)
+//        start:setGameRoom(roo)
+        start:setGame(me)
+        mainmenu:startMenu:LoadClick(start)
+        mainmenu:exitMenu:LoadClick(exit)
+        mainmenu:Render()
+*/
+    end
 
     // ROOM AND STACK MANAGEMENT
     // PRETTY FRIGGIN IMPORTANT
