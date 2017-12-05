@@ -14,6 +14,7 @@ class Main is Game
     Stack<GameRoom> RoomStack
     HashTable<text,GameRoom> MenuTable
     GameMouse GameMouseListener
+    GameCollision GameCollisionListener
 //    GameObject_Attrib_List src
     Camera camera = undefined
     GameObject_Library CoreLibrary
@@ -22,7 +23,12 @@ class Main is Game
     LevelSelector ls
 
     action Main
+<<<<<<< HEAD
         GameMouseListener:RefRoom = RefRoom
+=======
+        //GameMouseListener:RefRoom = RefRoom
+        GameCollisionListener:main = me
+>>>>>>> 9b2ce31c0c871ae3c68e0e937c36bd1c464e46d1
         // Fixed screensize / gamename
         SetScreenSize(RefRoom:pg_ScreenSizeX , RefRoom:pg_ScreenSizeY)
         SetGameName("Castle Crusher")
@@ -40,6 +46,7 @@ class Main is Game
         SetGravity2D(0, -200)
         AddMouseListener(GameMouseListener)
         AddMouseMovementListener(GameMouseListener)
+        AddCollisionListener(GameCollisionListener)
         RefRoom:pg_CamMaxXOffset = 200
 	/*GameRoom_Level TestRoom
 	TestRoom:LoadRoomFromFile("Maps/TestMap.xml",CoreLibrary)

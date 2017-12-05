@@ -5,70 +5,180 @@ use Libraries.Interface.Item2D
 use Libraries.Interface.Events.CollisionListener2D
 use Libraries.Interface.Events.CollisionEvent2D
 use GameObject
+use Libraries.Compute.Vector2
 
 class GameCollision is CollisionListener2D
-    public GameRoom roo
+    private Game main
     integer score = 0
     Drawable Counter1
     Drawable Counter2 
+    Vector2 force
 
     action BeginCollision(CollisionEvent2D event)
-/*
         GameObject itemA = cast(GameObject, event:GetItemA())
         GameObject itemB = cast(GameObject, event:GetItemB())
-
-        if itemA:GetName() = "objFish" and itemB:GetName() = "objCat"
-            roo:QueueDelObj(itemA)
-        elseif itemA:GetName() = "objCat" and itemB:GetName() = "objFish"
-            roo:QueueDelObj(itemB)
-        end
-
-        if itemA:GetName() = "objExit1" and itemB:GetName() = "objCat"
-            roo:QueueDelObj(itemA)
-            roo:LoadRoom("./map2.txt")
-        elseif itemA:GetName() = "objCat" and itemB:GetName() = "objExit1"
-            roo:QueueDelObj(itemB)
-            roo:LoadRoom("./map2.txt")
-        end
-
-        if itemA:GetName() = "objExit2" and itemB:GetName() = "objCat"
-            roo:QueueDelObj(itemA)
-            roo:LoadRoom("./map0.txt")
-        elseif itemA:GetName() = "objCat" and itemB:GetName() = "objExit2"
-            roo:QueueDelObj(itemB)
-            roo:LoadRoom("./map0.txt")
-        end
-
-        if itemA:GetName() = "objBox" and itemB:GetName() = "objBlock"
-           // roo:QueueDelObj(itemA)
-            score = score + 1
-            output score 
-         /*elseif itemA:GetName() = "objBlock" and itemB:GetName() = "objBox"
-            roo:QueueDelObj(itemB)
-            score = score + 5
-            output score 
-        end
-
-        if itemA:GetName() = "objKey" and itemB:GetName() = "objCat"
-            roo:QueueDelObj(itemA)
-            integer i = roo:GetObjCount()
-            repeat until i = 0
-                if (roo:GetObjAtIndex(i-1):GetName() = "objLock")
-                    roo:QueueDelObj(roo:GetObjAtIndex(i-1))
-                end
-                i = i - 1
+        //output "itemA: " + itemA:GetName()
+        //output "itemB: " + itemB:GetName()
+        // BasicBox
+        // Standard cannon ball can ONLY destory wooden stuff
+        if itemA:GetName() = "CannonBall" and itemB:GetName() = "BasicBox"
+            force = itemA:GetLinearVelocity()
+            output "Velocity = " + force:Length()
+            if force:Length() > 800
+                itemB:RemoveFromGame(main)
             end
-        elseif itemA:GetName() = "objCat" and itemB:GetName() = "objKey"
-            roo:QueueDelObj(itemB)
-            integer i = roo:GetObjCount()
-            repeat until i = 0
-                if (roo:GetObjAtIndex(i-1):GetName() = "objLock")
-                    roo:QueueDelObj(roo:GetObjAtIndex(i-1))
-                end
-                i = i - 1
-            end*/
+        elseif itemA:GetName() = "BasicBox" and itemB:GetName() = "CannonBall"
+            force = itemB:GetLinearVelocity()
+            output "Velocity = " + force:Length()
+            if force:Length() > 800
+                itemA:RemoveFromGame(main)
+            end
         end
 
+        if itemA:GetName() = "CannonBall" and itemB:GetName() = "BasicBox2"
+            force = itemA:GetLinearVelocity()
+            output "Velocity = " + force:Length()
+            if force:Length() > 800
+                itemB:RemoveFromGame(main)
+            end
+        elseif itemA:GetName() = "BasicBox2" and itemB:GetName() = "CannonBall"
+            force = itemB:GetLinearVelocity()
+            output "Velocity = " + force:Length()
+            if force:Length() > 800
+                itemA:RemoveFromGame(main)
+            end
+        end
+
+        if itemA:GetName() = "CannonBall" and itemB:GetName() = "BasicBox3"
+            force = itemA:GetLinearVelocity()
+            output "Velocity = " + force:Length()
+            if force:Length() > 800
+                itemB:RemoveFromGame(main)
+            end
+        elseif itemA:GetName() = "BasicBox3" and itemB:GetName() = "CannonBall"
+            force = itemB:GetLinearVelocity()
+            output "Velocity = " + force:Length()
+            if force:Length() > 800
+                itemA:RemoveFromGame(main)
+            end
+        end
+
+        if itemA:GetName() = "CannonBall" and itemB:GetName() = "Star"
+            force = itemA:GetLinearVelocity()
+            output "Velocity = " + force:Length()
+            if force:Length() > 800
+                itemB:RemoveFromGame(main)
+            end
+        elseif itemA:GetName() = "Star" and itemB:GetName() = "CannonBall"
+            force = itemB:GetLinearVelocity()
+            output "Velocity = " + force:Length()
+            if force:Length() > 800
+                itemA:RemoveFromGame(main)
+            end
+        end
+/*
+        if itemA:GetName() = "CannonBall" and itemB:GetName() = "WoodenRectangle"
+            force = itemA:GetLinearVelocity()
+            if force:Length() > 400
+                itemB:RemoveFromGame(main)
+            end
+        elseif itemA:GetName() = "WoodenRectangle" and itemB:GetName() = "CannonBall"
+            force = itemB:GetLinearVelocity()
+            if force:Length() > 400
+                itemA:RemoveFromGame(main)
+            end
+        end
+
+        if itemA:GetName() = "CannonBall" and itemB:GetName() = "Fish"
+            force = itemA:GetLinearVelocity()
+            if force:Length() > 400
+                itemB:RemoveFromGame(main)
+            end
+        elseif itemA:GetName() = "Fish" and itemB:GetName() = "CannonBall"
+            force = itemB:GetLinearVelocity()
+            if force:Length() > 400
+                itemA:RemoveFromGame(main)
+            end
+        end
+        /*
+        //***************************************************************************************************************************************************************
+        // High-Explosive(HE) cannon ball can ONLY destory brick stuff
+        if itemA:GetName() = "objHECannonBall" and itemB:GetName() = "objBrickBox"
+            force = itemA:GetLinearVelocity()
+            if force:Length() > 400
+                //roo:QueueDelObj(itemB)
+            else
+                itemB:SetUnmovable()
+            end
+        elseif itemA:GetName() = "objBrickBox" and itemB:GetName() = "objHECannonBall"
+            force = itemB:GetLinearVelocity()
+            if force:Length() > 400
+                //roo:QueueDelObj(itemA)
+            end
+        end
+
+        if itemA:GetName() = "objHECannonBall" and itemB:GetName() = "objBrickRectangle"
+            force = itemA:GetLinearVelocity()
+            if force:Length() > 400
+                //roo:QueueDelObj(itemB)           
+            end
+        elseif itemA:GetName() = "objBrickRectangle" and itemB:GetName() = "objHECannonBall"
+            force = itemB:GetLinearVelocity()
+            if force:Length() > 400
+                //roo:QueueDelObj(itemA)            
+            end
+        end
+            
+        if itemA:GetName() = "objHECannonBall" and itemB:GetName() = "objFish"
+            force = itemA:GetLinearVelocity()
+            if force:Length() > 400
+                //roo:QueueDelObj(itemB)
+            end
+        elseif itemA:GetName() = "objFish" and itemB:GetName() = "objHECannonBall"
+            force = itemB:GetLinearVelocity()
+            if force:Length() > 400
+                //roo:QueueDelObj(itemA)
+            end
+        end
+        //*************************************************************************************************************************************************************
+        // Armor-piercing(AP) cannon ball can ONLY destory steel stuff
+        if itemA:GetName() = "objAPCannonBall" and itemB:GetName() = "objSteelBox"
+            force = itemA:GetLinearVelocity()
+            if force:Length() > 400
+                //roo:QueueDelObj(itemB)            
+            end
+        elseif itemA:GetName() = "objSteelBox" and itemB:GetName() = "objAPCannonBall"
+            force = itemB:GetLinearVelocity()
+            if force:Length() > 400
+                //roo:QueueDelObj(itemA)           
+            end
+        end
+
+        if itemA:GetName() = "objAPCannonBall" and itemB:GetName() = "objSteelRectangle"
+            force = itemA:GetLinearVelocity()
+            if force:Length() > 400
+                //roo:QueueDelObj(itemB)           
+            end
+        elseif itemA:GetName() = "objSteelRectangle" and itemB:GetName() = "objAPCannonBall"
+            force = itemB:GetLinearVelocity()
+            if force:Length() > 400
+                //roo:QueueDelObj(itemA)
+            end
+        end
+
+        if itemA:GetName() = "objAPCannonBall" and itemB:GetName() = "objFish"
+            force = itemA:GetLinearVelocity()
+            if force:Length() > 400
+                //roo:QueueDelObj(itemB)
+            end
+        elseif itemA:GetName() = "objFish" and itemB:GetName() = "objAPCannonBall"
+            force = itemB:GetLinearVelocity()
+            if force:Length() > 400
+                //roo:QueueDelObj(itemA)
+            end
+        end
+        */
+    end
 
     action LoadCount(Drawable d, integer digit)
         integer tmp = digit

@@ -16,6 +16,22 @@ and open the template in the editor.
 	<Friction>0.5</Friction>
     </Object>
     <Object>
+        <Name>WoodenBox</Name>
+	<SpritePath>resources/wooden_box.png</SpritePath>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Responsive>true</Responsive>
+        <Friction>0.5</Friction>
+        <Mass>50</Mass>
+    </Object>
+    <Object>
+        <Name>WoodenRectangle</Name>
+	<SpritePath>resources/wooden_rectangle.png</SpritePath>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Responsive>true</Responsive>
+        <Friction>0.5</Friction>
+        <Mass>150</Mass>
+    </Object>
+    <Object>
 	<Name>Fish</Name>
 	<SpritePath>resources/sprFesh-trimmed.png</SpritePath>
 	<Collidable>true</Collidable>
@@ -34,6 +50,7 @@ and open the template in the editor.
     </Object>
     <Object>
 	<Name>CannonBall</Name>
+        <DisplayName>CannonBall</DisplayName>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Mass>100</Mass>
 	<Restitution>0.5</Restitution>
@@ -67,21 +84,36 @@ and open the template in the editor.
     </Object>
     <Object>
 	<Name>BasicBox</Name>
+<<<<<<< HEAD
 	<SpritePath>assets/WoodBlockSmall.png</SpritePath>
+=======
+        <DisplayName>BasicBox</DisplayName>
+	<SpritePath>resources/sprBrick_1.png</SpritePath>
+>>>>>>> 9b2ce31c0c871ae3c68e0e937c36bd1c464e46d1
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
         <Friction>0.5</Friction>
     </Object>
     <Object>
 	<Name>BasicBox2</Name>
+<<<<<<< HEAD
 	<SpritePath>assets/WoodBlockMed.png</SpritePath>
+=======
+        <DisplayName>BasicBox2</DisplayName>
+	<SpritePath>resources/sprBrick_2.png</SpritePath>
+>>>>>>> 9b2ce31c0c871ae3c68e0e937c36bd1c464e46d1
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
         <Friction>0.5</Friction>
     </Object>
     <Object>
 	<Name>BasicBox3</Name>
+<<<<<<< HEAD
 	<SpritePath>assets/WoodBlockLong.png</SpritePath>
+=======
+        <DisplayName>BasicBox3</DisplayName>
+	<SpritePath>resources/sprBrick_3.png</SpritePath>
+>>>>>>> 9b2ce31c0c871ae3c68e0e937c36bd1c464e46d1
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
         <Friction>0.5</Friction>
@@ -96,7 +128,9 @@ and open the template in the editor.
     </Object>
     <Object>
 	<Name>Star</Name>
+        <DisplayName>Star</DisplayName>
 	<SpritePath>resources/sprYouTriedStar.png</SpritePath>
+        <Collidable>true</Collidable>
     </Object>
     <Object>
 	<Name>Water</Name>
