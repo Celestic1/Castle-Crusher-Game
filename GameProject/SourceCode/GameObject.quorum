@@ -6,7 +6,6 @@ class GameObject is Drawable
     private text SpritePath = "resources/sprFesh-Trimmed.png"
     private Vector2 StartPosition
     private boolean IsPlayerSub = false
-
     // loads the things that aren't auto-loaded to begin with
 /*
     action InitGameObject

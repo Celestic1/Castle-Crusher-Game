@@ -21,7 +21,8 @@ class GameRoom
     public integer pg_CamMaxXOffset = 0
     public integer pg_CamMaxYOffset = 0
     public integer pg_CamReset = 0        // Set to one so main knows to reset cam
-    
+    public integer starCount = -9999
+
     action isEmpty returns boolean
         return RoomLayers:IsEmpty()
     end
@@ -119,5 +120,8 @@ class GameRoom
     
     action setLevelName(text name) 
         levelName = name
+    end
+    action getDudes returns integer
+        return starCount
     end
 end

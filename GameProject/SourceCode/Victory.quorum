@@ -1,0 +1,22 @@
+class Victory is GameRoom
+    action createScreen(Main game)
+        // Background layer!
+        AddEmptyLayer()
+        GameObject BackGround
+        BackGround:SetSpritePath("assets/newBackground.png")
+        BackGround:RefreshGameObject()
+        AddObj(BackGround)
+        //x = 744 ; y = 280
+        
+        GameObject Logo 
+        Logo:SetSpritePath("assets/UI/SymbolsText/TEXT_MENU.png")
+        Logo:SetStartPosition(450, 280)
+        Logo:RefreshGameObject()
+        AddObj(Logo)
+        
+        // Button layer!
+        AddEmptyLayer()
+        
+        
+    end
+end

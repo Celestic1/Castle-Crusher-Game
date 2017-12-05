@@ -7,9 +7,9 @@ class Clickable_LevelLoader is Clickable
     GameObject_Player NewCannon
     Array<GameObject> TempAmmo
     integer ammoCount = 0
-
     action ClickedMouse(MouseEvent event)
         NewRoom:DumpRoom()
+        //integer i = TempAmmo:GetSize()
         TempAmmo:Empty()
         MakeSpecialAmmo()
         NewRoom:LoadRoomFromFile(LevelString,parent:Clickable:ParentGame:GetCoreLibrary(),NewCannon,TempAmmo,parent:Clickable:GetParentGame())
@@ -22,7 +22,6 @@ class Clickable_LevelLoader is Clickable
             GameObject NewShot = parent:Clickable:ParentGame:GetCoreLib():GetGameObject("CannonBall")
             NewShot:FastMoving(true)
             NewShot:RefreshGameObject()
-            NewShot:LoadFilledCircle(10)
             TempAmmo:Add(NewShot)
             i = i + 1
         end

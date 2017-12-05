@@ -22,12 +22,14 @@ class Main is Game
     MainMenu mainmenu
     LevelSelector ls
     inGameMenu igm
+    Victory VictoryRoom
+    boolean isLoaded = false
 
-    public text currentRoomName = ""
     action Main
 
         //GameMouseListener:RefRoom = RefRoom
         GameCollisionListener:main = me
+
         // Fixed screensize / gamename
         SetScreenSize(RefRoom:pg_ScreenSizeX , RefRoom:pg_ScreenSizeY)
         SetGameName("Castle Crusher")
@@ -56,37 +58,36 @@ class Main is Game
         //AddMouseMovementListener(GameMouseListener)
         //RefRoom:pg_CamMaxXOffset = 200
         mainmenu:InitMainMenu(me)
+        MenuTable:Add("MainMenu",mainmenu)
         PushRoomStack(mainmenu)
+        
         ls:CreateScreen(me)
         MenuTable:Add("LevelSelector",ls)
+        VictoryRoom:createScreen(me)
+        MenuTable:Add("Victory", VictoryRoom)
         //igm:createScreen(me)
         //MenuTable:Add("InGameMenu",igm)
-
+        
         //Add(GameMouseListener)
     end
 
     action Update(number seconds)
-        
+        if (RoomStack:Peek():getDudes() > 0 and not isLoaded)
+           isLoaded = true
+           GameCollisionListener:setStarCount(RoomStack:Peek():getDudes())
+           //output GameCollisionListener:getStarCount()
+           //isLoaded = true
+        end
+        if isLoaded 
+            if (GameCollisionListener:getStarCount() <= 0)
+                isLoaded = false
+                PushRoomStack(VictoryRoom)
+            end
+        end
     end
 
     action GetCoreLibrary returns GameObject_Library
         return CoreLibrary
-    end
-
-    action createMainMenu
-
-/*
-        exitFunction exit
-        startFunction start
-        mainmenu:Create(mainScreen)
-        exit:setGame(me)
-        start:setMainMenu(mainmenu)
-//        start:setGameRoom(roo)
-        start:setGame(me)
-        mainmenu:startMenu:LoadClick(start)
-        mainmenu:exitMenu:LoadClick(exit)
-        mainmenu:Render()
-*/
     end
 
     // ROOM AND STACK MANAGEMENT
@@ -118,8 +119,14 @@ class Main is Game
             end
         end
     end
+    action Top returns GameRoom
+        return RoomStack:Peek()
+    end
 
     action GetCoreLib returns GameObject_Library
         return CoreLibrary
+    end
+    action victory 
+        PushRoomStack(VictoryRoom)
     end
 end

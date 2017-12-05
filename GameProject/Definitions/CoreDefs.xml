@@ -67,6 +67,7 @@ and open the template in the editor.
     <Object>
 	<Name>CannonBall</Name>
         <DisplayName>CannonBall</DisplayName>
+        <SpritePath>assets/Player/cannonball.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Mass>100</Mass>
 	<Restitution>0.5</Restitution>
