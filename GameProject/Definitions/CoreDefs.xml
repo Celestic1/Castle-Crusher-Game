@@ -43,7 +43,7 @@ and open the template in the editor.
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Unmovable>true</Unmovable>
 	<Restitution>0.5</Restitution>
-	<Friction>0.5</Friction>
+	<Friction>10000</Friction>
     </Object>
     <Object>
         <Name>WoodenBox</Name>
@@ -118,7 +118,7 @@ and open the template in the editor.
 	<SpritePath>assets/WoodBlockSmall.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
-        <Friction>0.5</Friction>
+        <Friction>100</Friction>
     </Object>
     <Object>
 	<Name>BasicBox2</Name>
@@ -126,7 +126,7 @@ and open the template in the editor.
 	<SpritePath>assets/WoodBlockMed.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
-        <Friction>0.5</Friction>
+        <Friction>100</Friction>
     </Object>
     <Object>
 	<Name>BasicBox3</Name>
@@ -134,7 +134,7 @@ and open the template in the editor.
 	<SpritePath>assets/WoodBlockLong.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
-        <Friction>0.5</Friction>
+        <Friction>100</Friction>
     </Object>
     <Object>
 	<Name>StartButton</Name>
@@ -147,7 +147,7 @@ and open the template in the editor.
     <Object>
 	<Name>Star</Name>
         <DisplayName>Star</DisplayName>
-	<SpritePath>assets/summoner.png</SpritePath>
+	<SpritePath>assets/dude.png</SpritePath>
         <PhysicsEnabled>true</PhysicsEnabled>
         <Collidable>true</Collidable>
     </Object>
@@ -158,5 +158,13 @@ and open the template in the editor.
     <Object>
 	<Name>MiniWater</Name>
 	<SpritePath>resources/newMiniWater.png</SpritePath>
+    </Object>
+    <Object>
+        <Name>Roof</Name>
+        <DisplayName>Roof</DisplayName>
+        <SpritePath>assets/BigTriangle.png</SpritePath>
+        <PhysicsEnabled>true</PhysicsEnabled>
+	<Responsive>true</Responsive>
+        <Friction>100</Friction>
     </Object>
 </ObjectLibrary>

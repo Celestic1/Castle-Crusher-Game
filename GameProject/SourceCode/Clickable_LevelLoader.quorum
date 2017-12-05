@@ -22,7 +22,8 @@ class Clickable_LevelLoader is Clickable
             GameObject NewShot = parent:Clickable:ParentGame:GetCoreLib():GetGameObject("CannonBall")
             NewShot:FastMoving(true)
             NewShot:RefreshGameObject()
-            NewShot:LoadFilledCircle(10)
+            NewShot:Load("assets/Player/cannonball.png")
+            //NewShot:LoadFilledCircle(10)
             TempAmmo:Add(NewShot)
             i = i + 1
         end
