@@ -21,12 +21,10 @@ class GameRoom
     public integer pg_CamMaxXOffset = 0
     public integer pg_CamMaxYOffset = 0
     public integer pg_CamReset = 0        // Set to one so main knows to reset cam
-
-    boolean isEmpty = true 
-    /*action isEmpty returns boolean
-        return isEmpty
-    end*/
-    //no way of telling if room is completely empty
+ 
+    action isEmpty returns boolean
+        return RoomLayers:IsEmpty()
+    end
     
     action GetLayerCount
         returns integer

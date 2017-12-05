@@ -5,17 +5,21 @@ class Clickable_LevelLoader is Clickable
     text LevelString = ""
     GameRoom_Level NewRoom
     GameObject_Player NewCannon
-    Array<GameObject> TempAmmo
 
     action ClickedMouse(MouseEvent event)
-        MakeSpecialAmmo()
 //        NewCannon:RefreshGameObject()
-        NewRoom:LoadRoomFromFile(LevelString,parent:Clickable:ParentGame:GetCoreLibrary(),NewCannon,TempAmmo, parent:Clickable:GetParentGame())
+        if not NewRoom:isEmpty()
+           NewRoom:DumpRoom()
+        end
+        
+        NewRoom:LoadRoomFromFile(LevelString,parent:Clickable:ParentGame:GetCoreLibrary(),NewCannon, MakeSpecialAmmo(), parent:Clickable:GetParentGame())
         parent:Clickable:ParentGame:PushRoomStack(NewRoom)
     end
 
-    action MakeSpecialAmmo()
+    action MakeSpecialAmmo() returns Array<GameObject>
+        Array<GameObject> TempAmmo
         integer i = 0
+
         repeat while i < 10
             GameObject NewShot = parent:Clickable:ParentGame:GetCoreLib():GetGameObject("CannonBall")
             //output "NewShot: " + NewShot:GetName()
@@ -26,6 +30,7 @@ class Clickable_LevelLoader is Clickable
             TempAmmo:Add(NewShot)
             i = i + 1
         end
+        return TempAmmo
     end
 
     action SetLevelString(text NewString)

@@ -58,8 +58,8 @@ class Main is Game
         PushRoomStack(mainmenu)
         ls:CreateScreen(me)
         MenuTable:Add("LevelSelector",ls)
-        igm:createScreen(me)
-        MenuTable:Add("InGameMenu",igm)
+        //igm:createScreen(me)
+        //MenuTable:Add("InGameMenu",igm)
 
         //Add(GameMouseListener)
     end

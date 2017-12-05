@@ -42,9 +42,9 @@ class GameRoom_Level is GameRoom
         //After Loading all the drawn objects; add the clickables
         
         AddEmptyLayer()
-        Clickable_MenuLoader exit
+        Clickable exit
         exit:SetParentGame(game)
-        exit:SetMenuString("InGameMenu")
+        //exit:SetMenuString("MainMenu")
         exit:SetSpritePath("assets/exit_1.png")
         exit:SetStartPosition(900,220)
         exit:RefreshGameObject()
