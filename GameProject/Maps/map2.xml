@@ -181,7 +181,7 @@
 	    <Y>160</Y>
 	</MiniBasicBox>
 	<Star>
-	    <X>310</X>
+	    <X>320</X>
 	    <Y>160</Y>
 	</Star>
 	<MiniBasicBox>
@@ -201,11 +201,11 @@
 	    <Y>160</Y>
 	</MiniBasicBox>
 	<Star>
-	    <X>750</X>
+	    <X>760</X>
 	    <Y>160</Y>
 	</Star>
 	<MiniBasicBox>
-	    <X>850</X>
+	    <X>860</X>
 	    <Y>160</Y>
 	</MiniBasicBox>
 	<MiniBasicBox>
@@ -245,11 +245,11 @@
 	    <Y>140</Y>
 	</MiniBasicBox>
 	<Star>
-	    <X>490</X>
+	    <X>500</X>
 	    <Y>140</Y>
 	</Star>
 	<Star>
-	    <X>570</X>
+	    <X>580</X>
 	    <Y>140</Y>
 	</Star>
 	<MiniBasicBox>
@@ -641,10 +641,13 @@
 	    <Y>40</Y>
 	</MiniBasicBox>
 	<Star>
-	    <X>210</X>
+	    <X>220</X>
 	    <Y>40</Y>
 	</Star>
-
+	<Star>
+	    <X>240</X>
+	    <Y>40</Y>
+	</Star>
 	<MiniBasicBox>
 	    <X>260</X>
 	    <Y>40</Y>
@@ -654,10 +657,13 @@
 	    <Y>40</Y>
 	</MiniBasicBox>
 	<Star>
-	    <X>290</X>
+	    <X>300</X>
 	    <Y>40</Y>
 	</Star>
-
+	<Star>
+	    <X>320</X>
+	    <Y>40</Y>
+	</Star>
 	<MiniBasicBox>
 	    <X>340</X>
 	    <Y>40</Y>
@@ -691,10 +697,13 @@
 	    <Y>40</Y>
 	</MiniBasicBox>
 	<Star>
-	    <X>750</X>
+	    <X>760</X>
 	    <Y>40</Y>
 	</Star>
-
+	<Star>
+	    <X>780</X>
+	    <Y>40</Y>
+	</Star>
 	<MiniBasicBox>
 	    <X>800</X>
 	    <Y>40</Y>
@@ -704,10 +713,13 @@
 	    <Y>40</Y>
 	</MiniBasicBox>
 	<Star>
-	    <X>830</X>
+	    <X>840</X>
 	    <Y>40</Y>
 	</Star>
-
+	<Star>
+	    <X>860</X>
+	    <Y>40</Y>
+	</Star>
 	<MiniBasicBox>
 	    <X>880</X>
 	    <Y>40</Y>
@@ -728,10 +740,30 @@
 	    <X>40</X>
 	    <Y>20</Y>
 	</MiniBasicBlock>
-            <MiniBasicBlock>
-	    <X>160</X>
+	<MiniBasicBlock>
+	    <X>60</X>
 	    <Y>20</Y>
 	</MiniBasicBlock>
+	<MiniWater>
+	    <X>80</X>
+	    <Y>20</Y>
+	</MiniWater>
+	<MiniWater>
+	    <X>100</X>
+	    <Y>20</Y>
+	</MiniWater>
+	<MiniWater>
+	    <X>120</X>
+	    <Y>20</Y>
+	</MiniWater>
+	<MiniWater>
+	    <X>140</X>
+	    <Y>20</Y>
+	</MiniWater>
+	<MiniWater>
+	    <X>160</X>
+	    <Y>20</Y>
+	</MiniWater>
 	<MiniBasicBlock>
 	    <X>180</X>
 	    <Y>20</Y>
@@ -740,14 +772,14 @@
 	    <X>200</X>
 	    <Y>20</Y>
 	</MiniBasicBlock>
-	<MiniBasicBlock>
+	<MiniWater>
 	    <X>220</X>
 	    <Y>20</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</MiniWater>
+	<MiniWater>
 	    <X>240</X>
 	    <Y>20</Y>
-	</MiniBasicBlock>
+	</MiniWater>
 	<MiniBasicBlock>
 	    <X>260</X>
 	    <Y>20</Y>
@@ -756,14 +788,14 @@
 	    <X>280</X>
 	    <Y>20</Y>
 	</MiniBasicBlock>
-	<MiniBasicBlock>
+	<MiniWater>
 	    <X>300</X>
 	    <Y>20</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</MiniWater>
+	<MiniWater>
 	    <X>320</X>
 	    <Y>20</Y>
-	</MiniBasicBlock>
+	</MiniWater>
 	<MiniBasicBlock>
 	    <X>340</X>
 	    <Y>20</Y>
@@ -772,14 +804,14 @@
 	    <X>360</X>
 	    <Y>20</Y>
 	</MiniBasicBlock>
-	<MiniBasicBlock>
+	<MiniWater>
 	    <X>380</X>
 	    <Y>20</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</MiniWater>
+	<MiniWater>
 	    <X>400</X>
 	    <Y>20</Y>
-	</MiniBasicBlock>
+	</MiniWater>
 	<MiniBasicBlock>
 	    <X>420</X>
 	    <Y>20</Y>
@@ -800,12 +832,18 @@
 	    <X>500</X>
 	    <Y>20</Y>
 	</MiniBasicBlock>
-
 	<Star>
 	    <X>520</X>
 	    <Y>20</Y>
 	</Star>
-
+	<Star>
+	    <X>540</X>
+	    <Y>20</Y>
+	</Star>
+	<Star>
+	    <X>560</X>
+	    <Y>20</Y>
+	</Star>
 	<MiniBasicBlock>
 	    <X>580</X>
 	    <Y>20</Y>
@@ -826,14 +864,14 @@
 	    <X>660</X>
 	    <Y>20</Y>
 	</MiniBasicBlock>
-	<MiniBasicBlock>
+	<MiniWater>
 	    <X>680</X>
 	    <Y>20</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</MiniWater>
+	<MiniWater>
 	    <X>700</X>
 	    <Y>20</Y>
-	</MiniBasicBlock>
+	</MiniWater>
 	<MiniBasicBlock>
 	    <X>720</X>
 	    <Y>20</Y>
@@ -842,14 +880,14 @@
 	    <X>740</X>
 	    <Y>20</Y>
 	</MiniBasicBlock>
-	<MiniBasicBlock>
+	<MiniWater>
 	    <X>760</X>
 	    <Y>20</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</MiniWater>
+	<MiniWater>
 	    <X>780</X>
 	    <Y>20</Y>
-	</MiniBasicBlock>
+	</MiniWater>
 	<MiniBasicBlock>
 	    <X>800</X>
 	    <Y>20</Y>
@@ -858,14 +896,14 @@
 	    <X>820</X>
 	    <Y>20</Y>
 	</MiniBasicBlock>
-	<MiniBasicBlock>
+	<MiniWater>
 	    <X>840</X>
 	    <Y>20</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</MiniWater>
+	<MiniWater>
 	    <X>860</X>
 	    <Y>20</Y>
-	</MiniBasicBlock>
+	</MiniWater>
 	<MiniBasicBlock>
 	    <X>880</X>
 	    <Y>20</Y>
@@ -874,7 +912,30 @@
 	    <X>900</X>
 	    <Y>20</Y>
 	</MiniBasicBlock>
-
+	<MiniWater>
+	    <X>920</X>
+	    <Y>20</Y>
+	</MiniWater>
+	<MiniWater>
+	    <X>940</X>
+	    <Y>20</Y>
+	</MiniWater>
+	<MiniWater>
+	    <X>960</X>
+	    <Y>20</Y>
+	</MiniWater>
+	<MiniWater>
+	    <X>980</X>
+	    <Y>20</Y>
+	</MiniWater>
+	<MiniWater>
+	    <X>1000</X>
+	    <Y>20</Y>
+	</MiniWater>
+	<MiniBasicBlock>
+	    <X>1020</X>
+	    <Y>20</Y>
+	</MiniBasicBlock>
 	<MiniBasicBlock>
 	    <X>1040</X>
 	    <Y>20</Y>
@@ -915,26 +976,30 @@
 	    <X>40</X>
 	    <Y>0</Y>
 	</MiniBasicBlock>
-	<Water>
+	<MiniBasicBlock>
 	    <X>60</X>
 	    <Y>0</Y>
-	</Water>
-	<Water>
+	</MiniBasicBlock>
+	<MiniWater>
 	    <X>80</X>
 	    <Y>0</Y>
-	</Water>
-	<Water>
+	</MiniWater>
+	<MiniWater>
 	    <X>100</X>
 	    <Y>0</Y>
-	</Water>
-	<Water>
+	</MiniWater>
+	<MiniWater>
 	    <X>120</X>
 	    <Y>0</Y>
-	</Water>
-        <MiniBasicBlock>
+	</MiniWater>
+	<MiniWater>
+	    <X>140</X>
+	    <Y>0</Y>
+	</MiniWater>
+	<MiniWater>
 	    <X>160</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
+	</MiniWater>
 	<MiniBasicBlock>
 	    <X>180</X>
 	    <Y>0</Y>
@@ -943,14 +1008,14 @@
 	    <X>200</X>
 	    <Y>0</Y>
 	</MiniBasicBlock>
-	<MiniBasicBlock>
+	<MiniWater>
 	    <X>220</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</MiniWater>
+	<MiniWater>
 	    <X>240</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
+	</MiniWater>
 	<MiniBasicBlock>
 	    <X>260</X>
 	    <Y>0</Y>
@@ -959,14 +1024,14 @@
 	    <X>280</X>
 	    <Y>0</Y>
 	</MiniBasicBlock>
-	<MiniBasicBlock>
+	<MiniWater>
 	    <X>300</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</MiniWater>
+	<MiniWater>
 	    <X>320</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
+	</MiniWater>
 	<MiniBasicBlock>
 	    <X>340</X>
 	    <Y>0</Y>
@@ -975,14 +1040,14 @@
 	    <X>360</X>
 	    <Y>0</Y>
 	</MiniBasicBlock>
-	<MiniBasicBlock>
+	<MiniWater>
 	    <X>380</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</MiniWater>
+	<MiniWater>
 	    <X>400</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
+	</MiniWater>
 	<MiniBasicBlock>
 	    <X>420</X>
 	    <Y>0</Y>
@@ -1035,14 +1100,14 @@
 	    <X>660</X>
 	    <Y>0</Y>
 	</MiniBasicBlock>
-	<MiniBasicBlock>
+	<MiniWater>
 	    <X>680</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</MiniWater>
+	<MiniWater>
 	    <X>700</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
+	</MiniWater>
 	<MiniBasicBlock>
 	    <X>720</X>
 	    <Y>0</Y>
@@ -1051,14 +1116,14 @@
 	    <X>740</X>
 	    <Y>0</Y>
 	</MiniBasicBlock>
-	<MiniBasicBlock>
+	<MiniWater>
 	    <X>760</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</MiniWater>
+	<MiniWater>
 	    <X>780</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
+	</MiniWater>
 	<MiniBasicBlock>
 	    <X>800</X>
 	    <Y>0</Y>
@@ -1067,14 +1132,14 @@
 	    <X>820</X>
 	    <Y>0</Y>
 	</MiniBasicBlock>
-	<MiniBasicBlock>
+	<MiniWater>
 	    <X>840</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</MiniWater>
+	<MiniWater>
 	    <X>860</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
+	</MiniWater>
 	<MiniBasicBlock>
 	    <X>880</X>
 	    <Y>0</Y>
@@ -1083,30 +1148,30 @@
 	    <X>900</X>
 	    <Y>0</Y>
 	</MiniBasicBlock>
-	<Water>
+	<MiniWater>
 	    <X>920</X>
 	    <Y>0</Y>
-	</Water>
-	<Water>
+	</MiniWater>
+	<MiniWater>
 	    <X>940</X>
 	    <Y>0</Y>
-	</Water>
-	<Water>
+	</MiniWater>
+	<MiniWater>
 	    <X>960</X>
 	    <Y>0</Y>
-	</Water>
-	<Water>
+	</MiniWater>
+	<MiniWater>
 	    <X>980</X>
 	    <Y>0</Y>
-	</Water>
-	<Water>
+	</MiniWater>
+	<MiniWater>
 	    <X>1000</X>
 	    <Y>0</Y>
-	</Water>
-	<Water>
+	</MiniWater>
+	<MiniBasicBlock>
 	    <X>1020</X>
 	    <Y>0</Y>
-	</Water>
+	</MiniBasicBlock>
 	<MiniBasicBlock>
 	    <X>1040</X>
 	    <Y>0</Y>

@@ -155,4 +155,8 @@ and open the template in the editor.
 	<Name>Water</Name>
 	<SpritePath>assets/NewWater.png</SpritePath>
     </Object>
+    <Object>
+	<Name>MiniWater</Name>
+	<SpritePath>resources/newMiniWater.png</SpritePath>
+    </Object>
 </ObjectLibrary>
