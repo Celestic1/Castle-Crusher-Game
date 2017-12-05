@@ -17,6 +17,7 @@ and open the template in the editor.
     </Object>
     <Object>
 	<Name>MiniBasicBox</Name>
+        <DisplayName>MiniBasicBox</DisplayName>
 	<SpritePath>assets/WoodBlockTiny.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
@@ -133,6 +134,7 @@ and open the template in the editor.
 	<Name>Star</Name>
         <DisplayName>Star</DisplayName>
 	<SpritePath>assets/summoner.png</SpritePath>
+        <PhysicsEnabled>true</PhysicsEnabled>
         <Collidable>true</Collidable>
     </Object>
     <Object>

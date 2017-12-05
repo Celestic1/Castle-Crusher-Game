@@ -21,48 +21,57 @@ class GameCollision is CollisionListener2D
         //output "itemB: " + itemB:GetName()
         // BasicBox
         // Standard cannon ball can ONLY destory wooden stuff
-        if itemA:GetName() = "CannonBall" and itemB:GetName() = "BasicBox"
+
+        if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox"
             force = itemA:GetLinearVelocity()
             output "Velocity = " + force:Length()
-            if force:Length() > 800
-                itemB:RemoveFromGame(main)
-            end
-        elseif itemA:GetName() = "BasicBox" and itemB:GetName() = "CannonBall"
+                itemA:RemoveFromGame(main)
+        elseif itemA:GetName() = "BasicBox" and itemB:GetName() = "Star"
             force = itemB:GetLinearVelocity()
             output "Velocity = " + force:Length()
-            if force:Length() > 800
-                itemA:RemoveFromGame(main)
-            end
+                itemB:RemoveFromGame(main)
         end
 
-        if itemA:GetName() = "CannonBall" and itemB:GetName() = "BasicBox2"
+        if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox"
             force = itemA:GetLinearVelocity()
             output "Velocity = " + force:Length()
-            if force:Length() > 800
-                itemB:RemoveFromGame(main)
-            end
-        elseif itemA:GetName() = "BasicBox2" and itemB:GetName() = "CannonBall"
+                itemA:RemoveFromGame(main)
+        elseif itemA:GetName() = "BasicBox" and itemB:GetName() = "Star"
             force = itemB:GetLinearVelocity()
             output "Velocity = " + force:Length()
-            if force:Length() > 800
-                itemA:RemoveFromGame(main)
-            end
+                itemB:RemoveFromGame(main)
         end
 
-        if itemA:GetName() = "CannonBall" and itemB:GetName() = "BasicBox3"
+        if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox2"
             force = itemA:GetLinearVelocity()
             output "Velocity = " + force:Length()
-            if force:Length() > 800
-                itemB:RemoveFromGame(main)
-            end
-        elseif itemA:GetName() = "BasicBox3" and itemB:GetName() = "CannonBall"
+                itemA:RemoveFromGame(main)
+        elseif itemA:GetName() = "BasicBox2" and itemB:GetName() = "Star"
             force = itemB:GetLinearVelocity()
             output "Velocity = " + force:Length()
-            if force:Length() > 800
-                itemA:RemoveFromGame(main)
-            end
+                itemB:RemoveFromGame(main)
         end
 
+        if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox3"
+            force = itemA:GetLinearVelocity()
+            output "Velocity = " + force:Length()
+                itemA:RemoveFromGame(main)
+        elseif itemA:GetName() = "BasicBox3" and itemB:GetName() = "Star"
+            force = itemB:GetLinearVelocity()
+            output "Velocity = " + force:Length()
+                itemB:RemoveFromGame(main)
+        end
+
+        if itemA:GetName() = "MiniBasicBox" and itemB:GetName() = "Star"
+            force = itemA:GetLinearVelocity()
+            output "Velocity = " + force:Length()
+                itemB:RemoveFromGame(main)
+        elseif itemA:GetName() = "Star" and itemB:GetName() = "MiniBasicBox"
+            force = itemB:GetLinearVelocity()
+            output "Velocity = " + force:Length()
+                itemA:RemoveFromGame(main)
+        end
+ 
         if itemA:GetName() = "CannonBall" and itemB:GetName() = "Star"
             force = itemA:GetLinearVelocity()
             output "Velocity = " + force:Length()
