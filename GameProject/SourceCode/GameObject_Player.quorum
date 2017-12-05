@@ -15,8 +15,6 @@ use Libraries.System.File
 
 class GameObject_Player is GameObject, GameKeyboard
     List<GameObject> myAmmo
-//    private number baseFX = 10000
-//    private number baseFY = 0
     private number ForceCap = 100000
     private number Force = 0
     boolean reachedCap = false
@@ -231,6 +229,7 @@ class GameObject_Player is GameObject, GameKeyboard
     action RemoveFromGame (Game newGame)
         parent:GameObject:RemoveFromGame(newGame)
         newGame:RemoveKeyboardListener(me)
+        newGame:Remove(me)
     end
 
     action GetBarrelX returns number
