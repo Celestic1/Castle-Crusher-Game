@@ -25,6 +25,7 @@ class Main is Game
 
     public text currentRoomName = ""
     action Main
+
         //GameMouseListener:RefRoom = RefRoom
         GameCollisionListener:main = me
         // Fixed screensize / gamename
@@ -35,13 +36,12 @@ class Main is Game
 
     action CreateGame
         XMLFileManager FileMan
-//        XMLNode ReadRoot = FileMan:GetXMLFromFile("Definitions/TempCoreDefs.xml")
         XMLNode ReadRoot = FileMan:GetXMLFromFile("Definitions/CoreDefs.xml")
 	CoreLibrary:LoadLibraryFromTree(ReadRoot)
 	CoreLibrary:OutputHashTableContents()
         camera = GetCamera2D()
         EnablePhysics2D(true)
-        SetGravity2D(0, -200)
+        SetGravity2D(0, -75)
         AddMouseListener(GameMouseListener)
         AddMouseMovementListener(GameMouseListener)
         AddCollisionListener(GameCollisionListener)

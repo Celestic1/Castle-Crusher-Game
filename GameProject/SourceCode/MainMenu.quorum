@@ -26,14 +26,14 @@ class MainMenu is GameRoom
         StartButton:SetParentGame(game)
         StartButton:SetMenuString("LevelSelector")
         StartButton:SetSpritePath("assets/buttonStart.png")
-        StartButton:SetStartPosition(450,200)
+        StartButton:SetStartPosition(450,160)
         StartButton:RefreshGameObject()
         AddObj(StartButton)
 
         Clickable ExitButton
         ExitButton:SetParentGame(game)
         ExitButton:SetSpritePath("assets/exit_1.png")
-        ExitButton:SetStartPosition(450,50)
+        ExitButton:SetStartPosition(895,235)
         ExitButton:RefreshGameObject()
         AddObj(ExitButton)
     end

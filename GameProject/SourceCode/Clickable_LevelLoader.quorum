@@ -5,35 +5,33 @@ class Clickable_LevelLoader is Clickable
     text LevelString = ""
     GameRoom_Level NewRoom
     GameObject_Player NewCannon
-    integer cap = 10
-    integer oldCap = cap
+    Array<GameObject> TempAmmo
+    integer ammoCount = 0
+
     action ClickedMouse(MouseEvent event)
-//        NewCannon:RefreshGameObject()
-        if not NewRoom:isEmpty()
-            NewRoom:DumpRoom()
-            if parent:Clickable:ParentGame:currentRoomName:Equals(LevelString)
-                cap = oldCap
-            end
-        end
-        
-        NewRoom:LoadRoomFromFile(LevelString,parent:Clickable:ParentGame:GetCoreLibrary(),NewCannon, MakeSpecialAmmo(), parent:Clickable:GetParentGame())
+        NewRoom:DumpRoom()
+        TempAmmo:Empty()
+        MakeSpecialAmmo()
+        NewRoom:LoadRoomFromFile(LevelString,parent:Clickable:ParentGame:GetCoreLibrary(),NewCannon,TempAmmo,parent:Clickable:GetParentGame())
         parent:Clickable:ParentGame:PushRoomStack(NewRoom)
     end
 
-    action MakeSpecialAmmo() returns Array<GameObject>
-        Array<GameObject> TempAmmo
+    action MakeSpecialAmmo()
         integer i = 0
-
-        repeat while i < cap
+        repeat while i < ammoCount
             GameObject NewShot = parent:Clickable:ParentGame:GetCoreLib():GetGameObject("CannonBall")
-            //output "NewShot: " + NewShot:GetName()
-            //NewShot:SetName("CannonBall")
+            NewShot:FastMoving(true)
             NewShot:RefreshGameObject()
-            //output "NewShot: " + NewShot:GetName()
+            NewShot:LoadFilledCircle(10)
             TempAmmo:Add(NewShot)
             i = i + 1
         end
-        return TempAmmo
+    end
+
+    
+
+    action SetAmmoCount(integer a)
+        ammoCount = a
     end
 
     action SetLevelString(text NewString)

@@ -7,9 +7,23 @@ and open the template in the editor.
 
 
 <ObjectLibrary>
+     <Object>
+    	<Name>MiniBasicBlock</Name>
+	<SpritePath>assets/MetalBlockTiny.png</SpritePath>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Unmovable>true</Unmovable>
+	<Restitution>0.5</Restitution>
+	<Friction>0.5</Friction>
+    </Object>
+    <Object>
+	<Name>MiniBasicBox</Name>
+	<SpritePath>assets/WoodBlockTiny.png</SpritePath>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Responsive>true</Responsive>
+        <Friction>0.5</Friction>
+    </Object>
     <Object>
 	<Name>BasicBlock</Name>
-        <DisplayName>BasicBlock</DisplayName>
 	<SpritePath>assets/metalBlockSmall.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Unmovable>true</Unmovable>
@@ -18,7 +32,6 @@ and open the template in the editor.
     </Object>
     <Object>
         <Name>WoodenBox</Name>
-        <DisplayName>WoodenBox</DisplayName>
 	<SpritePath>resources/wooden_box.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
@@ -27,7 +40,6 @@ and open the template in the editor.
     </Object>
     <Object>
         <Name>WoodenRectangle</Name>
-        <DisplayName>WoodenRectangle</DisplayName>
 	<SpritePath>resources/wooden_rectangle.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
@@ -54,7 +66,6 @@ and open the template in the editor.
     <Object>
 	<Name>CannonBall</Name>
         <DisplayName>CannonBall</DisplayName>
-        <SpritePath>assets/Player/cannonball.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Mass>100</Mass>
 	<Restitution>0.5</Restitution>
@@ -89,7 +100,7 @@ and open the template in the editor.
     <Object>
 	<Name>BasicBox</Name>
         <DisplayName>BasicBox</DisplayName>
-	<SpritePath>resources/sprBrick_1.png</SpritePath>
+	<SpritePath>assets/WoodBlockSmall.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
         <Friction>0.5</Friction>
@@ -97,7 +108,7 @@ and open the template in the editor.
     <Object>
 	<Name>BasicBox2</Name>
         <DisplayName>BasicBox2</DisplayName>
-	<SpritePath>resources/sprBrick_2.png</SpritePath>
+	<SpritePath>assets/WoodBlockMed.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
         <Friction>0.5</Friction>
@@ -105,7 +116,7 @@ and open the template in the editor.
     <Object>
 	<Name>BasicBox3</Name>
         <DisplayName>BasicBox3</DisplayName>
-	<SpritePath>resources/sprBrick_3.png</SpritePath>
+	<SpritePath>assets/WoodBlockLong.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
         <Friction>0.5</Friction>
@@ -121,23 +132,11 @@ and open the template in the editor.
     <Object>
 	<Name>Star</Name>
         <DisplayName>Star</DisplayName>
-	<SpritePath>resources/sprYouTriedStar.png</SpritePath>
+	<SpritePath>assets/summoner.png</SpritePath>
         <Collidable>true</Collidable>
     </Object>
     <Object>
 	<Name>Water</Name>
-	<SpritePath>resources/sprWater.png</SpritePath>
-    </Object>
-    <Object>
-        <Name>MistySky</Name>
-        <SpritePath>assets/Misty/layer-1-sky.png</SpritePath>
-    </Object>
-    <Object>
-        <Name>MistyTree</Name>
-        <SpritePath>assets/Misty/layer-2-tree.png</SpritePath>
-    </Object>
-    <Object>
-        <Name>MistyTheme</Name>
-        <SpritePath>assets/Sounds/mistyTheme.wav</SpritePath>
+	<SpritePath>assets/NewWater.png</SpritePath>
     </Object>
 </ObjectLibrary>

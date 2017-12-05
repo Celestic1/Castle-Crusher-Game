@@ -46,6 +46,6 @@ class XMLBuilder is MarkupListener
     end
 
     action OutputTopLevelStack
-        RootNode:OutputNode(0)
+        //RootNode:OutputNode(0)
     end
 end
