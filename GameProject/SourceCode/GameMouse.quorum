@@ -17,7 +17,9 @@ class GameMouse is Drawable, MouseListener, MouseMovementListener
         // get the x and y coords of mouse
         pg_LastMouseX = event:GetX()
         pg_LastMouseY = event:GetY()
-        me:SetAlpha(1)
+        
+        //hide the cursor
+        me:SetAlpha(0)
 
         if pg_LastMouseX < zoomBorder
             if pg_LastMouseY < zoomBorder
