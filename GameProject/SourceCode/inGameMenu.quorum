@@ -16,7 +16,7 @@ class inGameMenu is GameRoom
         
         // Button layer!
         AddEmptyLayer()
-        Clickable_MenuLoader StartButton //resume
+        Clickable StartButton //resume
         StartButton:SetParentGame(game)
         StartButton:SetSpritePath("assets/UI/SymbolsText/SYMB_PLAY.png")
         StartButton:SetStartPosition(250,150)
@@ -26,6 +26,7 @@ class inGameMenu is GameRoom
         Clickable_LevelLoader ReplayButton
         ReplayButton:SetParentGame(game)
         //Level String should be the same
+        ReplayButton:SetLevelString(ReplayButton:GetLevelString())
         ReplayButton:SetSpritePath("assets/UI/SymbolsText/SYMB_REPLAY.png")
         ReplayButton:SetStartPosition(500,150)
         ReplayButton:RefreshGameObject()

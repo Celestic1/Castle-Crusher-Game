@@ -89,6 +89,7 @@ class GameRoom
 	    Array<GameObject> CurrentLayer = RoomLayers:Get(i)
 	    integer j = 0
 	    repeat while j < RoomLayers:Get(i):GetSize()
+                output "REMOVING"
 		CurrentLayer:Get(j):RemoveFromGame(game)
 		j = j + 1
 	    end
