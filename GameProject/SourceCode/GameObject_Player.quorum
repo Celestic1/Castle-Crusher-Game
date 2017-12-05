@@ -46,12 +46,7 @@ class GameObject_Player is GameObject, GameKeyboard
             output "Cannon is out of ammo!"
             return now
         end
-<<<<<<< HEAD
-
-        GameObject toFire = myAmmo:Get(AmmoRef)
-=======
         toFire = myAmmo:Get(AmmoRef)
->>>>>>> bf8fb9d5a3a113912fe230207dc026270df3017a
         toFire:SetPosition(GetBarrelX()-toFire:GetWidth()/2,GetBarrelY()-toFire:GetHeight()/2)
         MyForce:Set(GetVelocityX(),GetVelocityY())
         toFire:SetResponsive()
