@@ -23,6 +23,13 @@ and open the template in the editor.
 	<Restitution>0.5</Restitution>
 	<Friction>0.5</Friction>
     </Object>
+        <Object>
+    	<Name>DisBasicBlock</Name>
+	<SpritePath>assets/DisBlockSmall.png</SpritePath>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Responsive>true</Responsive>
+	<Friction>0.5</Friction>
+    </Object>
     <Object>
 	<Name>Fish</Name>
 	<SpritePath>resources/sprFesh-trimmed.png</SpritePath>
