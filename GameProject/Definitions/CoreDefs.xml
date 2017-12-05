@@ -9,7 +9,7 @@ and open the template in the editor.
 <ObjectLibrary>
     <Object>
 	<Name>BasicBlock</Name>
-	<SpritePath>assets/metalBlockSmall.png</SpritePath>
+	<SpritePath>resources/sprBrick_0.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Unmovable>true</Unmovable>
 	<Restitution>0.5</Restitution>
@@ -50,7 +50,7 @@ and open the template in the editor.
     </Object>
     <Object>
 	<Name>CannonBall</Name>
-        <SpritePath>assets/Player/cannonball.png</SpritePath>
+        <DisplayName>CannonBall</DisplayName>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Mass>100</Mass>
 	<Restitution>0.5</Restitution>
@@ -84,21 +84,24 @@ and open the template in the editor.
     </Object>
     <Object>
 	<Name>BasicBox</Name>
-	<SpritePath>assets/WoodBlockSmall.png</SpritePath>
+        <DisplayName>BasicBox</DisplayName>
+	<SpritePath>resources/sprBrick_1.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
         <Friction>0.5</Friction>
     </Object>
     <Object>
 	<Name>BasicBox2</Name>
-	<SpritePath>assets/WoodBlockMed.png</SpritePath>
+        <DisplayName>BasicBox2</DisplayName>
+	<SpritePath>resources/sprBrick_2.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
         <Friction>0.5</Friction>
     </Object>
     <Object>
 	<Name>BasicBox3</Name>
-	<SpritePath>assets/WoodBlockLong.png</SpritePath>
+        <DisplayName>BasicBox3</DisplayName>
+	<SpritePath>resources/sprBrick_3.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
         <Friction>0.5</Friction>
@@ -113,22 +116,12 @@ and open the template in the editor.
     </Object>
     <Object>
 	<Name>Star</Name>
+        <DisplayName>Star</DisplayName>
 	<SpritePath>resources/sprYouTriedStar.png</SpritePath>
+        <Collidable>true</Collidable>
     </Object>
     <Object>
 	<Name>Water</Name>
 	<SpritePath>resources/sprWater.png</SpritePath>
-    </Object>
-    <Object>
-        <Name>MistySky</Name>
-        <SpritePath>assets/Misty/layer-1-sky.png</SpritePath>
-    </Object>
-    <Object>
-        <Name>MistyTree</Name>
-        <SpritePath>assets/Misty/layer-2-tree.png</SpritePath>
-    </Object>
-    <Object>
-        <Name>MistyTheme</Name>
-        <SpritePath>assets/Sounds/mistyTheme.wav</SpritePath>
     </Object>
 </ObjectLibrary>
