@@ -35,8 +35,6 @@ and open the template in the editor.
     	<Name>DisBasicBlock</Name>
 	<SpritePath>assets/DisBlockSmall.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
-	<Responsive>true</Responsive>
-        <Unmovable>true</Unmovable>
 	<Friction>0.5</Friction>
     </Object>
     <Object>
@@ -126,6 +124,14 @@ and open the template in the editor.
 	<Name>BasicBox3</Name>
         <DisplayName>BasicBox3</DisplayName>
 	<SpritePath>assets/WoodBlockLong.png</SpritePath>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Responsive>true</Responsive>
+        <Friction>0.5</Friction>
+    </Object>
+    <Object>
+	<Name>VertBox</Name>
+        <DisplayName>VertBox</DisplayName>
+	<SpritePath>assets/WoodBlockTinyVertical.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
         <Friction>0.5</Friction>

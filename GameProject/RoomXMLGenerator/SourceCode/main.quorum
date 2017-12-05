@@ -81,6 +81,8 @@ class Main is Game
                             objName = "BasicBox3"
                         elseif tmpArray:Get(i) = "B"
                             objName = "BasicBlock"
+                        elseif tmpArray:Get(i) = "V"
+                            objName = "VertBox"
                         elseif tmpArray:Get(i) = "D"
                             objName = "DisBasicBlock"
                         elseif tmpArray:Get(i) = "b"
