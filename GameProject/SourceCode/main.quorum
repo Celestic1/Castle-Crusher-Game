@@ -23,17 +23,9 @@ class Main is Game
     LevelSelector ls
 
     action Main
-<<<<<<< HEAD
-<<<<<<< HEAD
-        GameMouseListener:RefRoom = RefRoom
-=======
+
         //GameMouseListener:RefRoom = RefRoom
         GameCollisionListener:main = me
->>>>>>> 9b2ce31c0c871ae3c68e0e937c36bd1c464e46d1
-=======
-        //GameMouseListener:RefRoom = RefRoom
-        GameCollisionListener:main = me
->>>>>>> 596119d9b1da5ad1c19aa08c3ca3d350cf2c40cb
         // Fixed screensize / gamename
         SetScreenSize(RefRoom:pg_ScreenSizeX , RefRoom:pg_ScreenSizeY)
         SetGameName("Castle Crusher")
