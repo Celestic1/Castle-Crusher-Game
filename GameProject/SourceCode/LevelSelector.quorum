@@ -16,7 +16,8 @@ class LevelSelector is GameRoom
         AddEmptyLayer()
         Clickable_LevelLoader levelOne
         levelOne:SetParentGame(game)
-        levelOne:SetLevelString("Maps/TestMap.xml")
+        levelOne:SetAmmoCount(10)
+        levelOne:SetLevelString("Maps/map0.xml")
         levelOne:SetSpritePath("assets/SYMB_1.png")
         levelOne:SetStartPosition(250,150)
         levelOne:RefreshGameObject()
@@ -24,7 +25,8 @@ class LevelSelector is GameRoom
 
         Clickable_LevelLoader levelTwo
         levelTwo:SetParentGame(game)
-        levelTwo:SetLevelString("Maps/TestMap.xml")
+        levelTwo:SetAmmoCount(15)
+        levelTwo:SetLevelString("Maps/map1.xml")
         levelTwo:SetSpritePath("assets/SYMB_2.png")
         levelTwo:SetStartPosition(500,150)
         levelTwo:RefreshGameObject()
@@ -32,7 +34,8 @@ class LevelSelector is GameRoom
 
         Clickable_LevelLoader levelThree
         levelThree:SetParentGame(game)
-        levelThree:SetLevelString("Maps/TestMap.xml")
+        levelThree:SetAmmoCount(15)
+        levelThree:SetLevelString("Maps/map2.xml")
         levelThree:SetSpritePath("assets/SYMB_3.png")
         levelThree:SetStartPosition(750,150)
         levelThree:RefreshGameObject()
@@ -40,8 +43,8 @@ class LevelSelector is GameRoom
 
         Clickable MainScreen
         MainScreen:SetParentGame(game)
-        MainScreen:SetSpritePath("assets/exit.png")
-        MainScreen:SetStartPosition(895,255)
+        MainScreen:SetSpritePath("assets/exit_1.png")
+        MainScreen:SetStartPosition(895,235)
         MainScreen:RefreshGameObject()
         AddObj(MainScreen)
 

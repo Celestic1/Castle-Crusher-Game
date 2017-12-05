@@ -1,5 +1,5 @@
 use GameObject
-use GameObject_Attrib_List
+//use GameObject_Attrib_List
 use GameKeyboard
 use Libraries.Game.Game
 use Libraries.Containers.List
@@ -10,15 +10,17 @@ use Libraries.Interface.Events.KeyboardEvent
 use Libraries.Compute.Math
 use Libraries.Game.InputMonitor
 
+use Libraries.Sound.Audio
+use Libraries.System.File
+
 class GameObject_Player is GameObject, GameKeyboard
     List<GameObject> myAmmo
-//    private number baseFX = 10000
-//    private number baseFY = 0
-    private number ForceCap = 50000
+    private number ForceCap = 100000
     private number Force = 0
     boolean reachedCap = false
-    private number velScaleFactor = 400
+    private number velScaleFactor = 1000
     private number offSideScale = 4
+    GameObject toFire
     Vector2 MyForce
     Drawable barX
     Drawable barY
@@ -29,26 +31,48 @@ class GameObject_Player is GameObject, GameKeyboard
     Math MyMath
     InputMonitor monitor
     KeyboardEvent keys
-//    Game parentGame // I hate this hack and want it gone ASAP
-    
+    Drawable Counter1 //10s place 
+    Drawable Counter2   // 0th place
+    integer currentCount = 0
+    integer currentScore = 0
+    Drawable Score0
+    Drawable Score1
+    Drawable Score2
+    Drawable Score3
+    private integer origSize = 0
+
     action FireCannon(integer AmmoRef)
         if not (AmmoRef < myAmmo:GetSize() and AmmoRef >= 0)
             output "Cannon is out of ammo!"
             return now
         end
-        GameObject toFire = myAmmo:Get(AmmoRef)
+        toFire = myAmmo:Get(AmmoRef)
         toFire:SetPosition(GetBarrelX()-toFire:GetWidth()/2,GetBarrelY()-toFire:GetHeight()/2)
-        //output "(" + me:GetGlobalX() + " + " + me:GetWidth()/1.1 + "," + me:GetGlobalY() + " - " + me:GetRotation() + ") = (" + (me:GetGlobalX()+me:GetWidth()/1.1) + "," + (me:GetGlobalY()-me:GetRotation()) + ")"
         MyForce:Set(GetVelocityX(),GetVelocityY())
-        //output "(" + MyForce:GetX() + "," + MyForce:GetY() + ") vs (" + ThisLanguageSucks:GetX() + "," + ThisLanguageSucks:GetY() + ")"
         toFire:SetResponsive()
         toFire:ApplyForceToCenter(MyForce)
         toFire:Show()
         myAmmo:RemoveAt(AmmoRef)
+        currentCount = myAmmo:GetSize()
+
+        //Audio
+        Audio cannonFire
+        cannonFire:Load("resources/cannonfire.wav")
+        cannonFire:Play()
+        
         //output "Force: " + Force
         output "Shot fired! " + myAmmo:GetSize() + " ammo left."
         ResetForce()
     end
+
+    action RemoveAmmoFromGame
+        integer i = 0
+        repeat while i < origSize
+            Remove(toFire)
+        end
+        myAmmo:Empty()
+    end
+
 
     action LoadCannon(Array<GameObject> newAmmo)
         integer i = 0
@@ -56,11 +80,12 @@ class GameObject_Player is GameObject, GameKeyboard
             LoadCannon(newAmmo:Get(i))
             i = i + 1
         end
+        origSize = myAmmo:GetSize()
     end
 
-    action LoadCannon(GameObject newAmmo)
-            newAmmo:Hide()
-            myAmmo:Add(newAmmo)
+    action LoadCannon(GameObject newAmmo) 
+        newAmmo:Hide()
+        myAmmo:Add(newAmmo)
     end
 
     on create
@@ -74,7 +99,7 @@ class GameObject_Player is GameObject, GameKeyboard
         //SetPosition(GetStartPositionX(),GetStartPositionY())
         ResetForce()
         //me:LoadFilledRectangle(80,20)
-        me:Load("resources/cannon.png")
+        me:Load("assets/Player/player.png")
     end
 
     // resets Force after we released Space Bar
@@ -99,24 +124,112 @@ class GameObject_Player is GameObject, GameKeyboard
         parent:GameObject:AddToGame(newGame)
 	AddKeyboardToGame(newGame)
 	SetupPowerBars(newGame)
+        SetupAmmoCount(newGame)
+        SetupScore(newGame)
     end
 
     action SetupPowerBars (Game newGame)
-	PowerBar:LoadFilledRectangle(20,cast(integer,Force)/500)
+	PowerBar:LoadFilledRectangle(20,cast(integer,Force/velScaleFactor))
 	PowerBar:SetPosition(20,40)
-	PowerBarBackground:LoadRectangle(20,cast(integer,ForceCap)/500)
+	PowerBarBackground:LoadRectangle(20,cast(integer,ForceCap/velScaleFactor))
 	PowerBarBackground:SetPosition(20,40)
 	newGame:Add(PowerBar)
 	newGame:Add(PowerBarBackground)
     end
 
     action UpdatePowerBar
-	PowerBar:LoadFilledRectangle(20,cast(integer,Force)/500)
+	PowerBar:LoadFilledRectangle(20,cast(integer,Force/velScaleFactor))
+    end
+    
+    action LoadCount (Drawable d, integer digit)
+        integer tmp = digit
+                if tmp = 0 
+                    d:Load("assets/UI/Symbols & Text/SYMB_0.png")
+                elseif tmp = 1 
+                    d:Load("assets/UI/Symbols & Text/SYMB_1.png")
+                elseif tmp = 2
+                    d:Load("assets/UI/Symbols & Text/SYMB_2.png")
+                elseif tmp = 3
+                    d:Load("assets/UI/Symbols & Text/SYMB_3.png")
+                elseif tmp = 4
+                    d:Load("assets/UI/Symbols & Text/SYMB_4.png")
+                elseif tmp = 5
+                    d:Load("assets/UI/Symbols & Text/SYMB_5.png")
+                elseif tmp = 6
+                    d:Load("assets/UI/Symbols & Text/SYMB_6.png")
+                elseif tmp = 7
+                    d:Load("assets/UI/Symbols & Text/SYMB_7.png")
+                elseif tmp = 8 
+                    d:Load("assets/UI/Symbols & Text/SYMB_8.png")
+                elseif tmp = 9
+                    d:Load("assets/UI/Symbols & Text/SYMB_9.png")
+                end 
     end
 
+    action SetupScore (Game newGame)
+        integer score = currentScore
+        integer tmp = 0
+        tmp = score mod 10
+        LoadCount(Score3, tmp)
+        score = score / 10
+        tmp = score mod 10
+        LoadCount(Score2, tmp)
+        score = score / 10
+        tmp = score mod 10
+        LoadCount(Score1, tmp)
+        score = score / 10
+        LoadCount(Score0, score)
+        Score3:SetPosition(20,300)
+        Score2:SetPosition(70,300)
+        Score1:SetPosition(120, 300)
+        Score0:SetPosition(170, 300)
+        newGame:Add(Score3)
+        newGame:Add(Score2)
+        newGame:Add(Score1)
+        newGame:Add(Score0)
+    end
+    
+    action UpdateScore 
+        integer score = currentScore
+        integer tmp = score mod 10
+        LoadCount(Score3, tmp)
+        score = score / 10
+        tmp = score mod 10
+        LoadCount(Score2, tmp)
+        score = score / 10
+        tmp = score mod 10
+        LoadCount(Score1, tmp)
+        score = score / 10
+        LoadCount(Score0, score)
+    end    
+    
+    action SetupAmmoCount (Game newGame)
+        integer count = myAmmo:GetSize()
+        integer tmp = count
+        currentCount = myAmmo:GetSize()
+        tmp = count mod 10
+        LoadCount(Counter2, tmp)
+        count = count / 10
+        LoadCount(Counter1, count)
+        Counter1:SetPosition(20,200)
+        Counter2:SetPosition(70,200)
+        newGame:Add(Counter1)
+        newGame:Add(Counter2)
+    end
+    
+    action UpdateAmmoCount 
+        integer tmp = myAmmo:GetSize()
+        currentCount = tmp
+        tmp = tmp mod 10
+        LoadCount(Counter2, tmp)
+        tmp = tmp / 10
+        LoadCount(Counter1, tmp)
+    end
+    
     action RemoveFromGame (Game newGame)
         parent:GameObject:RemoveFromGame(newGame)
         newGame:RemoveKeyboardListener(me)
+        newGame:Remove(me)
     end
 
     action GetBarrelX returns number
@@ -134,11 +247,7 @@ class GameObject_Player is GameObject, GameKeyboard
     action GetVelocityY() returns number
         return -(MyMath:Sine(GetRotationInRadians()) * Force)
     end
-
-    action removeAmmo
- 
-    end
-
+    
     // Keyboard Managers
     action StartKey(KeyboardEvent event)
     end
@@ -148,6 +257,8 @@ class GameObject_Player is GameObject, GameKeyboard
             FireCannon(0)
 	    ResetForce()
 	    UpdatePowerBar()
+            UpdateAmmoCount()
+            UpdateScore()
 	end
     end
 
@@ -166,13 +277,13 @@ class GameObject_Player is GameObject, GameKeyboard
 
 	if event:keyCode = event:SPACE
             if (Force <= ForceCap and not reachedCap)
-                Force = Force + 500
+                Force = Force + velScaleFactor
                 if (Force = ForceCap)
                      reachedCap = true
                 end
             end
             if (reachedCap)
-                Force = Force - 500
+                Force = Force - velScaleFactor
                 if (Force < 0)
                    Force = 0
                    reachedCap = false

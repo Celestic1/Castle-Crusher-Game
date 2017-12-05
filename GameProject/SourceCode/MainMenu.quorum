@@ -1,4 +1,4 @@
-use Libraries.Game.Graphics.Drawable
+//use Libraries.Game.Graphics.Drawable
 use Libraries.Game.Game
 
 // This class displays the main menu
@@ -15,20 +15,25 @@ class MainMenu is GameRoom
         BackGround:RefreshGameObject()
         AddObj(BackGround)
 
+        GameObject Logo 
+        Logo:SetSpritePath("assets/castlecrushers3.png")
+        Logo:RefreshGameObject()
+        AddObj(Logo)
+        
         // Button layer!
         AddEmptyLayer()
         Clickable_MenuLoader StartButton
         StartButton:SetParentGame(game)
         StartButton:SetMenuString("LevelSelector")
-        StartButton:SetSpritePath("assets/start.png")
-        StartButton:SetStartPosition(450,250)
+        StartButton:SetSpritePath("assets/buttonStart.png")
+        StartButton:SetStartPosition(450,160)
         StartButton:RefreshGameObject()
         AddObj(StartButton)
 
         Clickable ExitButton
         ExitButton:SetParentGame(game)
-        ExitButton:SetSpritePath("assets/exit.png")
-        ExitButton:SetStartPosition(450,50)
+        ExitButton:SetSpritePath("assets/exit_1.png")
+        ExitButton:SetStartPosition(895,235)
         ExitButton:RefreshGameObject()
         AddObj(ExitButton)
     end

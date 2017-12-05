@@ -5,88 +5,80 @@ use Libraries.Interface.Item2D
 use Libraries.Interface.Events.CollisionListener2D
 use Libraries.Interface.Events.CollisionEvent2D
 use GameObject
+use Libraries.Compute.Vector2
 
 class GameCollision is CollisionListener2D
-    public GameRoom roo
+    private Game main
     integer score = 0
     Drawable Counter1
     Drawable Counter2 
+    Vector2 force
 
     action BeginCollision(CollisionEvent2D event)
-<<<<<<< dev
-/*
-=======
->>>>>>> local
         GameObject itemA = cast(GameObject, event:GetItemA())
         GameObject itemB = cast(GameObject, event:GetItemB())
-
-        if itemA:GetName() = "objFish" and itemB:GetName() = "objCat"
-            roo:QueueDelObj(itemA)
-        elseif itemA:GetName() = "objCat" and itemB:GetName() = "objFish"
-            roo:QueueDelObj(itemB)
-        end
-
-        if itemA:GetName() = "objExit1" and itemB:GetName() = "objCat"
-            roo:QueueDelObj(itemA)
-            roo:LoadRoom("./map2.txt")
-        elseif itemA:GetName() = "objCat" and itemB:GetName() = "objExit1"
-            roo:QueueDelObj(itemB)
-            roo:LoadRoom("./map2.txt")
-        end
-
-        if itemA:GetName() = "objExit2" and itemB:GetName() = "objCat"
-            roo:QueueDelObj(itemA)
-            roo:LoadRoom("./map0.txt")
-        elseif itemA:GetName() = "objCat" and itemB:GetName() = "objExit2"
-            roo:QueueDelObj(itemB)
-            roo:LoadRoom("./map0.txt")
-        end
-
-        if itemA:GetName() = "objBox" and itemB:GetName() = "objBlock"
-           // roo:QueueDelObj(itemA)
-            score = score + 1
-            output score 
-         /*elseif itemA:GetName() = "objBlock" and itemB:GetName() = "objBox"
-            roo:QueueDelObj(itemB)
-            score = score + 5
-<<<<<<< dev
-            output score 
-=======
-            output score */
->>>>>>> local
-        end
-
-        if itemA:GetName() = "objKey" and itemB:GetName() = "objCat"
-            roo:QueueDelObj(itemA)
-            integer i = roo:GetObjCount()
-            repeat until i = 0
-                if (roo:GetObjAtIndex(i-1):GetName() = "objLock")
-                    roo:QueueDelObj(roo:GetObjAtIndex(i-1))
-                end
-                i = i - 1
+        //output "itemA: " + itemA:GetName()
+        //output "itemB: " + itemB:GetName()
+        // BasicBox
+        // Standard cannon ball can ONLY destory wooden stuff
+        if itemA:GetName() = "CannonBall" and itemB:GetName() = "BasicBox"
+            force = itemA:GetLinearVelocity()
+            output "Velocity = " + force:Length()
+            if force:Length() > 800
+                itemB:RemoveFromGame(main)
             end
-        elseif itemA:GetName() = "objCat" and itemB:GetName() = "objKey"
-            roo:QueueDelObj(itemB)
-            integer i = roo:GetObjCount()
-            repeat until i = 0
-                if (roo:GetObjAtIndex(i-1):GetName() = "objLock")
-                    roo:QueueDelObj(roo:GetObjAtIndex(i-1))
-                end
-                i = i - 1
-<<<<<<< dev
-            end*/
-        end
-
-
-    action LoadCount(Drawable d, integer digit)
-=======
+        elseif itemA:GetName() = "BasicBox" and itemB:GetName() = "CannonBall"
+            force = itemB:GetLinearVelocity()
+            output "Velocity = " + force:Length()
+            if force:Length() > 800
+                itemA:RemoveFromGame(main)
             end
         end
 
+        if itemA:GetName() = "CannonBall" and itemB:GetName() = "BasicBox2"
+            force = itemA:GetLinearVelocity()
+            output "Velocity = " + force:Length()
+            if force:Length() > 800
+                itemB:RemoveFromGame(main)
+            end
+        elseif itemA:GetName() = "BasicBox2" and itemB:GetName() = "CannonBall"
+            force = itemB:GetLinearVelocity()
+            output "Velocity = " + force:Length()
+            if force:Length() > 800
+                itemA:RemoveFromGame(main)
+            end
+        end
+
+        if itemA:GetName() = "CannonBall" and itemB:GetName() = "BasicBox3"
+            force = itemA:GetLinearVelocity()
+            output "Velocity = " + force:Length()
+            if force:Length() > 800
+                itemB:RemoveFromGame(main)
+            end
+        elseif itemA:GetName() = "BasicBox3" and itemB:GetName() = "CannonBall"
+            force = itemB:GetLinearVelocity()
+            output "Velocity = " + force:Length()
+            if force:Length() > 800
+                itemA:RemoveFromGame(main)
+            end
+        end
+
+        if itemA:GetName() = "CannonBall" and itemB:GetName() = "Star"
+            force = itemA:GetLinearVelocity()
+            output "Velocity = " + force:Length()
+            if force:Length() > 800
+                itemB:RemoveFromGame(main)
+            end
+        elseif itemA:GetName() = "Star" and itemB:GetName() = "CannonBall"
+            force = itemB:GetLinearVelocity()
+            output "Velocity = " + force:Length()
+            if force:Length() > 800
+                itemA:RemoveFromGame(main)
+            end
+        end
     end
 
-    action LoadCount (Drawable d, integer digit)
->>>>>>> local
+    action LoadCount(Drawable d, integer digit)
         integer tmp = digit
                 if tmp = 0 
                     d:Load("resources/SYMB_0.png")
