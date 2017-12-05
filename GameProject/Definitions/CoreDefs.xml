@@ -36,6 +36,7 @@ and open the template in the editor.
 	<SpritePath>assets/DisBlockSmall.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
+        <Unmovable>true</Unmovable>
 	<Friction>0.5</Friction>
     </Object>
     <Object>
