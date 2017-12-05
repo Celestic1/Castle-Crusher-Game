@@ -110,7 +110,7 @@ class Main is Game
             RoomStack:Peek():RemoveRoomFromGame(me)
             RoomStack:Pop()
             if RoomStack:GetSize() > 0
-                RoomStack:Peek():AddRoomToGame(me)
+                //RoomStack:Peek():AddRoomToGame(me)
             else
                 Exit()
             end

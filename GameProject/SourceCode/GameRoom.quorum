@@ -21,7 +21,7 @@ class GameRoom
     public integer pg_CamMaxXOffset = 0
     public integer pg_CamMaxYOffset = 0
     public integer pg_CamReset = 0        // Set to one so main knows to reset cam
- 
+    
     action isEmpty returns boolean
         return RoomLayers:IsEmpty()
     end
@@ -87,7 +87,6 @@ class GameRoom
 	    Array<GameObject> CurrentLayer = RoomLayers:Get(i)
 	    integer j = 0
 	    repeat while j < RoomLayers:Get(i):GetSize()
-                output "REMOVING"
 		CurrentLayer:Get(j):RemoveFromGame(game)
 		j = j + 1
 	    end

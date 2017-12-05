@@ -216,7 +216,6 @@ class GameObject_Player is GameObject, GameKeyboard
     end
     
     action RemoveFromGame (Game newGame)
-        parent:GameObject:RemoveFromGame(newGame)
         newGame:Remove(Counter1)
         newGame:Remove(Counter2)
         newGame:Remove(Score0)
