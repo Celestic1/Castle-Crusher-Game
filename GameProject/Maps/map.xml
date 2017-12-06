@@ -16,6 +16,10 @@
 	    <X>540</X>
 	    <Y>440</Y>
 	</BasicBox>
+	<Star>
+	    <X>700</X>
+	    <Y>440</Y>
+	</Star>
 	<BasicBox>
 	    <X>900</X>
 	    <Y>440</Y>
@@ -52,6 +56,14 @@
 	    <X>1040</X>
 	    <Y>400</Y>
 	</BasicBox>
+	<Star>
+	    <X>660</X>
+	    <Y>380</Y>
+	</Star>
+	<Star>
+	    <X>760</X>
+	    <Y>380</Y>
+	</Star>
 	<BasicBlock>
 	    <X>400</X>
 	    <Y>360</Y>
@@ -169,7 +181,15 @@
 	    <Y>200</Y>
 	</BasicBox>
 	<Star>
+	    <X>620</X>
+	    <Y>200</Y>
+	</Star>
+	<Star>
 	    <X>720</X>
+	    <Y>200</Y>
+	</Star>
+	<Star>
+	    <X>820</X>
 	    <Y>200</Y>
 	</Star>
 	<BasicBox2>
@@ -205,7 +225,15 @@
 	    <Y>120</Y>
 	</BasicBox>
 	<Star>
+	    <X>620</X>
+	    <Y>120</Y>
+	</Star>
+	<Star>
 	    <X>720</X>
+	    <Y>120</Y>
+	</Star>
+	<Star>
+	    <X>820</X>
 	    <Y>120</Y>
 	</Star>
 	<BasicBox2>
