@@ -9,6 +9,7 @@ use Libraries.Compute.Vector2
 use Libraries.Interface.Events.KeyboardEvent
 use Libraries.Compute.Math
 use Libraries.Game.InputMonitor
+use Libraries.Game.Graphics.Color
 
 use Libraries.Sound.Audio
 use Libraries.System.File
@@ -40,10 +41,22 @@ class GameObject_Player is GameObject, GameKeyboard
     Drawable Score2
     Drawable Score3
     private integer origSize = 0
-
+    GameRoom room
+    Clickable ds
+    Main game
+    Color blue
+    
     action FireCannon(integer AmmoRef)
         if not (AmmoRef < myAmmo:GetSize() and AmmoRef >= 0)
-            output "Cannon is out of ammo!"
+            //output "Cannon is out of ammo!"
+            /*
+            ds:SetParentGame(game)
+            ds:SetSpritePath("assets/GameOver.png")
+            ds:SetStartPosition(420,250)
+            ds:RefreshGameObject()
+            Add(ds)
+            */
+            game:MenuOntoRoomStack("Defeat")
             return now
         end
         toFire = myAmmo:Get(AmmoRef)
@@ -61,8 +74,12 @@ class GameObject_Player is GameObject, GameKeyboard
         cannonFire:Play()
         
         //output "Force: " + Force
-        output "Shot fired! " + myAmmo:GetSize() + " ammo left."
+        //output "Shot fired! " + myAmmo:GetSize() + " ammo left."
         ResetForce()
+    end
+
+    action SetGame(Main g)
+        game = g
     end
 
     action RemoveAmmoFromGame
@@ -75,6 +92,7 @@ class GameObject_Player is GameObject, GameKeyboard
 
 
     action LoadCannon(Array<GameObject> newAmmo)
+        Remove(ds)
         integer i = 0
         myAmmo:Empty()
         repeat while i < newAmmo:GetSize()
@@ -130,45 +148,47 @@ class GameObject_Player is GameObject, GameKeyboard
     end
 
     action SetupPowerBars (Game newGame)
-	PowerBar:LoadFilledRectangle(20,cast(integer,Force/velScaleFactor))
-	PowerBar:SetPosition(0,80)
-	PowerBarBackground:LoadRectangle(20,cast(integer,ForceCap/velScaleFactor))
-	PowerBarBackground:SetPosition(0,80)
+        blue:SetColor(0,0,0,1)
+	PowerBar:LoadFilledRectangle(20,cast(integer,Force/velScaleFactor), blue)
+	PowerBar:SetPosition(10,120)
+	PowerBarBackground:LoadRectangle(20,cast(integer,ForceCap/velScaleFactor), blue)
+	PowerBarBackground:SetPosition(10,120)
 	newGame:Add(PowerBar)
 	newGame:Add(PowerBarBackground)
     end
 
     action UpdatePowerBar
-	PowerBar:LoadFilledRectangle(20,cast(integer,Force/velScaleFactor))
+        blue:SetColor(0,0,0,1)
+	PowerBar:LoadFilledRectangle(20,cast(integer,Force/velScaleFactor), blue)
     end
     
     action LoadCount (Drawable d, integer digit)
         integer tmp = digit
                 if tmp = 0 
-                    d:Load("assets/UI/Symbols & Text/SYMB_0.png")
+                    d:Load("assets/UI/SymbolsText/SYMB_0.png")
                 elseif tmp = 1 
-                    d:Load("assets/UI/Symbols & Text/SYMB_1.png")
+                    d:Load("assets/UI/SymbolsText/SYMB_1.png")
                 elseif tmp = 2
-                    d:Load("assets/UI/Symbols & Text/SYMB_2.png")
+                    d:Load("assets/UI/SymbolsText/SYMB_2.png")
                 elseif tmp = 3
-                    d:Load("assets/UI/Symbols & Text/SYMB_3.png")
+                    d:Load("assets/UI/SymbolsText/SYMB_3.png")
                 elseif tmp = 4
-                    d:Load("assets/UI/Symbols & Text/SYMB_4.png")
+                    d:Load("assets/UI/SymbolsText/SYMB_4.png")
                 elseif tmp = 5
-                    d:Load("assets/UI/Symbols & Text/SYMB_5.png")
+                    d:Load("assets/UI/SymbolsText/SYMB_5.png")
                 elseif tmp = 6
-                    d:Load("assets/UI/Symbols & Text/SYMB_6.png")
+                    d:Load("assets/UI/SymbolsText/SYMB_6.png")
                 elseif tmp = 7
-                    d:Load("assets/UI/Symbols & Text/SYMB_7.png")
+                    d:Load("assets/UI/SymbolsText/SYMB_7.png")
                 elseif tmp = 8 
-                    d:Load("assets/UI/Symbols & Text/SYMB_8.png")
+                    d:Load("assets/UI/SymbolsText/SYMB_8.png")
                 elseif tmp = 9
-                    d:Load("assets/UI/Symbols & Text/SYMB_9.png")
+                    d:Load("assets/UI/SymbolsText/SYMB_9.png")
                 end 
     end
 
     action SetupScore (Game newGame)
-        integer score = currentScore
+        /*integer score = currentScore
         integer tmp = 0
         tmp = score mod 10
         LoadCount(Score3, tmp)
@@ -187,7 +207,16 @@ class GameObject_Player is GameObject, GameKeyboard
         newGame:Add(Score3)
         newGame:Add(Score2)
         newGame:Add(Score1)
-        newGame:Add(Score0)
+        newGame:Add(Score0)*/
+    end
+
+    action CleanupNumbers (Game newGame)
+	newGame:Remove(Score3)
+	newGame:Remove(Score2)
+	newGame:Remove(Score1)
+	newGame:Remove(Score0)
+	newGame:Remove(Counter1)
+	newGame:Remove(Counter2)
     end
     
     action UpdateScore 
@@ -205,15 +234,9 @@ class GameObject_Player is GameObject, GameKeyboard
     end    
     
     action SetupAmmoCount (Game newGame)
-        integer count = myAmmo:GetSize()
-        integer tmp = count
-        currentCount = myAmmo:GetSize()
-        tmp = count mod 10
-        LoadCount(Counter2, tmp)
-        count = count / 10
-        LoadCount(Counter1, count)
-        Counter1:SetPosition(20,200)
-        Counter2:SetPosition(70,200)
+	UpdateAmmoCount()
+        Counter1:SetPosition(20,240)
+        Counter2:SetPosition(70,240)
         newGame:Add(Counter1)
         newGame:Add(Counter2)
     end
@@ -221,15 +244,21 @@ class GameObject_Player is GameObject, GameKeyboard
     action UpdateAmmoCount 
         integer tmp = myAmmo:GetSize()
         currentCount = tmp
-        tmp = tmp mod 10
-        LoadCount(Counter2, tmp)
-        tmp = tmp / 10
-        LoadCount(Counter1, tmp)
+        integer ones = tmp mod 10
+        LoadCount(Counter2, ones)
+        integer tens = tmp / 10
+        LoadCount(Counter1, tens)
     end
     
     action RemoveFromGame (Game newGame)
-        parent:GameObject:RemoveFromGame(newGame)
+        newGame:Remove(Counter1)
+        newGame:Remove(Counter2)
+        newGame:Remove(Score0)
+        newGame:Remove(Score1)
+        newGame:Remove(Score2)
+        newGame:Remove(Score3)
         newGame:RemoveKeyboardListener(me)
+	CleanupNumbers(newGame)
         newGame:Remove(me)
     end
 

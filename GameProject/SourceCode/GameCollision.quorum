@@ -5,149 +5,179 @@ use Libraries.Interface.Item2D
 use Libraries.Interface.Events.CollisionListener2D
 use Libraries.Interface.Events.CollisionEvent2D
 use GameObject
-use Libraries.Compute.Vector2
+use Libraries.Sound.Audio
+
 
 class GameCollision is CollisionListener2D
     private Game main
-    integer score = 0
-    Drawable Counter1
-    Drawable Counter2 
-    Vector2 force
+    public integer starCount = 0
+    public boolean victory = false
+    Audio scream1
+    Audio scream2
 
     action BeginCollision(CollisionEvent2D event)
         GameObject itemA = cast(GameObject, event:GetItemA())
         GameObject itemB = cast(GameObject, event:GetItemB())
-        //output "itemA: " + itemA:GetName()
-        //output "itemB: " + itemB:GetName()
-        // BasicBox
-        // Standard cannon ball can ONLY destory wooden stuff
-
+    
         if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox"
             itemA:RemoveFromGame(main)
+            starCount = starCount - 1
             itemA:Load("assets/blood.png")
             itemA:AddToGame(main)
             itemA:EnablePhysics(false)
+            scream1:Play()
         elseif itemA:GetName() = "BasicBox" and itemB:GetName() = "Star"
             itemB:RemoveFromGame(main)
+            starCount = starCount - 1
             itemB:Load("assets/blood.png")
             itemB:AddToGame(main)
             itemB:EnablePhysics(false)
+            scream2:Play()
+        end
+
+        if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox"
+            itemA:RemoveFromGame(main)
+            starCount = starCount - 1
+            itemA:Load("assets/blood.png")
+            itemA:AddToGame(main)
+            itemA:EnablePhysics(false)
+            scream2:Play()
+        elseif itemA:GetName() = "BasicBox" and itemB:GetName() = "Star"
+            itemB:RemoveFromGame(main)
+            starCount = starCount - 1
+            itemB:Load("assets/blood.png")
+            itemB:AddToGame(main)
+            itemB:EnablePhysics(false)
+            scream1:Play()
         end
 
         if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox2"
             itemA:RemoveFromGame(main)
+            starCount = starCount - 1
             itemA:Load("assets/blood.png")
             itemA:AddToGame(main)
             itemA:EnablePhysics(false)
+            scream2:Play()
         elseif itemA:GetName() = "BasicBox2" and itemB:GetName() = "Star"
             itemB:RemoveFromGame(main)
+            starCount = starCount - 1
             itemB:Load("assets/blood.png")
             itemB:AddToGame(main)
             itemB:EnablePhysics(false)
+            scream1:Play()
         end
 
         if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox3"
-            force = itemA:GetLinearVelocity()
             itemA:RemoveFromGame(main)
+            starCount = starCount - 1
             itemA:Load("assets/blood.png")
             itemA:AddToGame(main)
             itemA:EnablePhysics(false)
+            scream2:Play()
         elseif itemA:GetName() = "BasicBox3" and itemB:GetName() = "Star"
-            force = itemB:GetLinearVelocity()
             itemB:RemoveFromGame(main)
+            starCount = starCount - 1
             itemB:Load("assets/blood.png")
             itemB:AddToGame(main)
             itemB:EnablePhysics(false)
+            scream1:Play()
         end
 
         if itemA:GetName() = "Star" and itemB:GetName() = "Roof"
-            force = itemA:GetLinearVelocity()
+            starCount = starCount - 1
             itemA:RemoveFromGame(main)
             itemA:Load("assets/blood.png")
             itemA:AddToGame(main)
             itemA:EnablePhysics(false)
+            scream1:Play()
         elseif itemA:GetName() = "Roof" and itemB:GetName() = "Star"
-            force = itemB:GetLinearVelocity()
+            starCount = starCount - 1
             itemB:RemoveFromGame(main)
             itemB:Load("assets/blood.png")
             itemB:AddToGame(main)
             itemB:EnablePhysics(false)
+            scream1:Play()
         end
-
         if itemA:GetName() = "CannonBall" and itemB:GetName() = "Star"
-            //force = itemA:GetLinearVelocity()
+            starCount = starCount - 1
             itemB:RemoveFromGame(main)
             itemB:Load("assets/blood.png")
             itemB:AddToGame(main)
             itemB:EnablePhysics(false)
+            scream2:Play()
 
         elseif itemA:GetName() = "Star" and itemB:GetName() = "CannonBall"
-            //force = itemB:GetLinearVelocity()
+            starCount = starCount - 1
             itemA:RemoveFromGame(main)
             itemA:Load("assets/blood.png")
             itemA:AddToGame(main)
             itemA:EnablePhysics(false)
+            scream1:Play()
 
         end
+        /*if starCount = 0
+            victory = true
+        end*/
+        //output "Stars ="+ starCount
     end
+    action FinishCollision (CollisionEvent2D event)
+        GameObject itemA = cast(GameObject, event:GetItemA())
+        GameObject itemB = cast(GameObject, event:GetItemB())
+        
+        /*if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox"
+            starCount = starCount - 1
+        elseif itemA:GetName() = "BasicBox" and itemB:GetName() = "Star"
+            starCount = starCount - 1
+        end
 
-    action LoadCount(Drawable d, integer digit)
-        integer tmp = digit
-                if tmp = 0 
-                    d:Load("resources/SYMB_0.png")
-                else if tmp = 1 
-                    d:Load("resources/SYMB_1.png")
-                else if tmp = 2
-                    d:Load("resources/SYMB_2.png")
-                else if tmp = 3
-                    d:Load("resources/SYMB_3.png")
-                else if tmp = 4
-                    d:Load("resources/SYMB_4.png")
-                else if tmp = 5
-                    d:Load("resources/SYMB_5.png")
-                else if tmp = 6
-                    d:Load("resources/SYMB_6.png")
-                else if tmp = 7
-                    d:Load("resources/SYMB_7.png")
-                else if tmp = 8 
-                    d:Load("resources/SYMB_8.png")
-                else if tmp = 9
-                    d:Load("resources/SYMB_9.png")
-                    end 
-                    end
-                    end
-                    end
-                    end
-                    end
-                    end
-                    end
-                    end
-                    end
+        if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox"
+            starCount = starCount - 1
+        elseif itemA:GetName() = "BasicBox" and itemB:GetName() = "Star"
+            starCount = starCount - 1
+        end
+
+        if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox2"
+            starCount = starCount - 1
+        elseif itemA:GetName() = "BasicBox2" and itemB:GetName() = "Star"
+            starCount = starCount - 1
+        end
+
+        if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox3"
+           starCount = starCount - 1
+        elseif itemA:GetName() = "BasicBox3" and itemB:GetName() = "Star"
+           starCount = starCount - 1
+        end
+
+        if itemA:GetName() = "Star" and itemB:GetName() = "Roof"
+            starCount = starCount - 1
+        elseif itemA:GetName() = "Roof" and itemB:GetName() = "Star"
+            starCount = starCount - 1
+        end
+        
+        if itemA:GetName() = "CannonBall" and itemB:GetName() = "Star"
+            starCount = starCount - 1
+        elseif itemA:GetName() = "Star" and itemB:GetName() = "CannonBall"
+            starCount = starCount - 1
+        end*/
+        
+        if starCount <= 0
+            victory = true
+        end
     end
-    
-    action SetScore (Game newGame)
-         /*   integer count = score
-            integer tmp = 0
-            currentCount = score
-            tmp = count mod 10
-            if (tmp = 0)
-                LoadCount(Counter2, count)
-            else LoadCount(Counter2, tmp)
-            end
-            count = count / 10
-            LoadCount(Counter1, count)
-        Counter1:SetPosition(20,200)
-        Counter2:SetPosition(70,200)
-        newGame:Add(Counter1)
-        newGame:Add(Counter2) */
-        integer count = score
-        integer tmp = count mod 10
-        integer tmp2 = score / 10
-        LoadCount(Counter1,tmp)
-        LoadCount(Counter2, tmp2)
-        Counter1:SetPosition(70,200)
-        Counter2:SetPosition(20,200)
-        newGame:Add(Counter1)
-        newGame:Add(Counter2)
+    action setAudio(Audio one, Audio two)
+        scream1 = one
+        scream2 = two
+    end
+    action Victorious returns boolean
+        return victory
+    end
+    action resetVictory ()
+        victory = false
+    end
+    action setStarCount (integer x)
+        starCount = x
+    end
+    action getStarCount returns integer
+        return starCount
     end
 end

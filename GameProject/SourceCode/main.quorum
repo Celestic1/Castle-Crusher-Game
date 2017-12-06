@@ -8,10 +8,12 @@ use Libraries.System.File
 use GameObject
 //use GameObject_Attrib_List
 use GameObject_Player
+use Libraries.Sound.Audio
 
 class Main is Game
     GameRoom RefRoom
     Stack<GameRoom> RoomStack
+    HashTable <text, integer> dudesInPlay
     HashTable<text,GameRoom> MenuTable
     GameMouse GameMouseListener
     GameCollision GameCollisionListener
@@ -21,11 +23,18 @@ class Main is Game
 //    Drawable mainScreen
     MainMenu mainmenu
     LevelSelector ls
-
+    inGameMenu igm
+    Victory VictoryRoom
+    Defeat DefeatRoom
+    boolean isLoaded = false
+    
+    Audio first
+    Audio second
     action Main
 
         //GameMouseListener:RefRoom = RefRoom
         GameCollisionListener:main = me
+
         // Fixed screensize / gamename
         EnableResizing(true)
         SetScreenSize(RefRoom:pg_ScreenSizeX , RefRoom:pg_ScreenSizeY)
@@ -55,36 +64,50 @@ class Main is Game
         //AddMouseMovementListener(GameMouseListener)
         //RefRoom:pg_CamMaxXOffset = 200
         mainmenu:InitMainMenu(me)
+        MenuTable:Add("MainMenu",mainmenu)
         PushRoomStack(mainmenu)
+        
         ls:CreateScreen(me)
         MenuTable:Add("LevelSelector",ls)
+        VictoryRoom:createScreen(me)
+        MenuTable:Add("Victory", VictoryRoom)
+        DefeatRoom:createScreen(me)
+        MenuTable:Add("Defeat",DefeatRoom)
+        //igm:createScreen(me)
+        //MenuTable:Add("InGameMenu",igm)
         
-
+        first:Load("assets/Sounds/dying.wav")
+        second:Load("assets/Sounds/wilhelm.wav")
+        GameCollisionListener:setAudio(first,second)
         //Add(GameMouseListener)
     end
 
     action Update(number seconds)
-
+        if RoomStack:Peek():getDudes() > 0 
+            if not isLoaded
+                //isLoaded = true
+                GameCollisionListener:setStarCount(RoomStack:Peek():getDudes())
+                //output "GCL has " + GameCollisionListener:getStarCount() + " dudes."
+                isLoaded = true
+            end
+            if isLoaded
+                //output "Loaded but NOT VICTORIOUS!!"
+                if GameCollisionListener:Victorious()
+                    //output "VICTORIOUS!!"
+                    isLoaded = false
+                    GameCollisionListener:resetVictory()
+                    RoomStack:Peek():resetDudes()
+                    GameCollisionListener:setStarCount(RoomStack:Peek():getDudes())
+                    //RoomStack:Peek():getDudes()
+                    MenuOntoRoomStack("Victory")
+                    //VictoryRoom:createVictory(me)
+                end
+            end    
+        end
     end
 
     action GetCoreLibrary returns GameObject_Library
         return CoreLibrary
-    end
-
-    action createMainMenu
-
-/*
-        exitFunction exit
-        startFunction start
-        mainmenu:Create(mainScreen)
-        exit:setGame(me)
-        start:setMainMenu(mainmenu)
-//        start:setGameRoom(roo)
-        start:setGame(me)
-        mainmenu:startMenu:LoadClick(start)
-        mainmenu:exitMenu:LoadClick(exit)
-        mainmenu:Render()
-*/
     end
 
     // ROOM AND STACK MANAGEMENT
@@ -93,8 +116,11 @@ class Main is Game
     action PushRoomStack (GameRoom NewRoom)
         if RoomStack:GetSize() > 0
             RoomStack:Peek():RemoveRoomFromGame(me)
+            //output "Removed Room"
         end
         RoomStack:Push(NewRoom)
+        currentRoomName = RoomStack:Peek():getLevelName()
+        //output "Got to AddRoom"
         RoomStack:Peek():AddRoomToGame(me)
     end
 
@@ -107,6 +133,7 @@ class Main is Game
             Exit()
         else
             RoomStack:Peek():RemoveRoomFromGame(me)
+            RoomStack:Peek():DumpRoom()
             RoomStack:Pop()
             if RoomStack:GetSize() > 0
                 RoomStack:Peek():AddRoomToGame(me)
@@ -114,6 +141,9 @@ class Main is Game
                 Exit()
             end
         end
+    end
+    action Top returns GameRoom
+        return RoomStack:Peek()
     end
 
     action GetCoreLib returns GameObject_Library

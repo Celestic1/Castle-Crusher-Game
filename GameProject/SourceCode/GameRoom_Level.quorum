@@ -10,6 +10,8 @@ class GameRoom_Level is GameRoom
     private Array<GameObject> PAmmo
     XMLNode RefNode
     private text currentLevelName = ""
+    private integer dudes = 0
+    public integer numberOfDudes = 0 
 
     action AddRoomToGame(Game game)
         parent:GameRoom:AddRoomToGame(game)
@@ -27,6 +29,7 @@ class GameRoom_Level is GameRoom
             PAmmo:Get(i):RemoveFromGame(game)
             i = i + 1
         end
+        PAmmo:Empty()
     end
 
     // helper functions so we don't have to juggle XML before gettin ghere
@@ -39,9 +42,12 @@ class GameRoom_Level is GameRoom
             parent:GameRoom:setLevelName(roomTextPath)
         end
         LoadRoomFromTree(RootNode, BlockLib, Cannon, Ammo)
+        //After Loading all the drawn objects; add the clickables
+        
         AddEmptyLayer()
         Clickable exit
         exit:SetParentGame(game)
+        //exit:SetMenuString("MainMenu")
         exit:SetSpritePath("assets/exit_1.png")
         exit:SetStartPosition(1280,650)
         exit:RefreshGameObject()
@@ -109,6 +115,10 @@ class GameRoom_Level is GameRoom
 
     action LoadObjectFromTree(XMLNode TargetTree, Array<GameObject> Layer, GameObject_Library BlockLib)
 	    GameObject NextObject = BlockLib:GetGameObject(TargetTree:GetName())
+            if (TargetTree:GetName() = "Star")
+                dudes = dudes + 1
+                numberOfDudes = dudes
+            end
             if (NextObject:GetPlayerSub())
                 // if it's a player substitute marker, substitute!
                 NextObject = PCan
@@ -119,15 +129,25 @@ class GameRoom_Level is GameRoom
 	    repeat while j < TargetTree:Children:GetSize()
 		XMLNode NextPart = TargetTree:Children:Get(j)
 		if NextPart:GetName() = RefNode:XCOORD
+                    //output "X COORD: "+NextPart:GetValue()
 		    NextObject:SetPosition(cast(number,NextPart:GetValue()),NextObject:GetY())
 		elseif NextPart:GetName() = RefNode:YCOORD
 		    NextObject:SetPosition(NextObject:GetX(),cast(number,NextPart:GetValue()))
 		elseif NextPart:GetName() = RefNode:ROTATION
 		    NextObject:SetRotation(cast(number,NextPart:GetValue()))
-		end
+                end
 		j = j + 1
 	    end
-
 	    Layer:Add(NextObject)
+    end
+    
+    action getDudes returns integer
+        return dudes
+    end
+    action setDudes (integer n)
+        dudes = n
+    end
+    action resetDudes ()
+        dudes = numberOfDudes
     end
 end

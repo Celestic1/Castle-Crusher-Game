@@ -43,7 +43,7 @@ and open the template in the editor.
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Unmovable>true</Unmovable>
 	<Restitution>0.5</Restitution>
-	<Friction>10000</Friction>
+	<Friction>10</Friction>
     </Object>
     <Object>
         <Name>WoodenBox</Name>
@@ -81,6 +81,7 @@ and open the template in the editor.
     <Object>
 	<Name>CannonBall</Name>
         <DisplayName>CannonBall</DisplayName>
+        <SpritePath>assets/Player/cannonball.png</SpritePath>
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Mass>100</Mass>
 	<Restitution>0.5</Restitution>
@@ -165,5 +166,17 @@ and open the template in the editor.
         <PhysicsEnabled>true</PhysicsEnabled>
 	<Responsive>true</Responsive>
         <Friction>250</Friction>
+    </Object>
+    <Object>
+        <Name>Mountain</Name>
+        <SpritePath>assets/Mtn2.png</SpritePath>
+    </Object>
+    <Object>
+        <Name>Desert</Name>
+        <SpritePath>assets/Desert/Full-Background.png</SpritePath>
+    </Object>    
+    <Object>
+        <Name>Misty</Name>
+        <SpritePath>assets/Misty2.png</SpritePath>
     </Object>
 </ObjectLibrary>

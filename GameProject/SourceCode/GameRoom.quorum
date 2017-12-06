@@ -21,7 +21,12 @@ class GameRoom
     public integer pg_CamMaxXOffset = 0
     public integer pg_CamMaxYOffset = 0
     public integer pg_CamReset = 0        // Set to one so main knows to reset cam
+    public integer starCount = -9999
 
+    action isEmpty returns boolean
+        return RoomLayers:IsEmpty()
+    end
+    
     action GetLayerCount
         returns integer
         return RoomLayers:GetSize()
@@ -38,10 +43,12 @@ class GameRoom
     end
 
     action AddObj(GameObject obj)
+        isEmpty = false
         RoomLayers:GetFromEnd():Add(obj)
     end
 
     action AddObjAtIndex (integer layer, integer index, GameObject obj)
+        isEmpty = false
         RoomLayers:Get(layer):Add(index, obj)
     end
 
@@ -58,6 +65,7 @@ class GameRoom
     end
 
     action AddEmptyLayer
+        isEmpty = false
         Array<GameObject> EmptyLayer
         RoomLayers:Add(EmptyLayer)
     end
@@ -106,11 +114,34 @@ class GameRoom
         pg_CamMaxYOffset = 0
         pg_CamReset = 1
     end
+    
+    action copyRoom returns Array<Array<GameObject>>
+        Array<Array<GameObject>> newArray
+        integer i = 0
+        repeat while i < RoomLayers:GetSize()
+	    integer j = 0
+	    repeat while j < RoomLayers:Get(i):GetSize()
+		newArray:Get(i):Add(GetObjAtIndex(i, j))
+		j = j + 1
+	    end
+	    i = i + 1
+        end
+        return newArray
+    end
     action getLevelName () returns text
         return levelName
     end
     
     action setLevelName(text name) 
         levelName = name
+    end
+    action getDudes returns integer
+        return starCount
+    end
+    action setDudes (integer n)
+        starCount = n
+    end
+    action resetDudes 
+        starCount = -9999
     end
 end

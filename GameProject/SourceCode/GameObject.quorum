@@ -6,7 +6,6 @@ class GameObject is Drawable
     private text SpritePath = "resources/sprFesh-Trimmed.png"
     private Vector2 StartPosition
     private boolean IsPlayerSub = false
-
     // loads the things that aren't auto-loaded to begin with
 /*
     action InitGameObject
@@ -18,7 +17,6 @@ class GameObject is Drawable
 	me:SetPosition(GetStartPositionX(), GetStartPositionY())
     end
 */
-
     // AddToGame and RemoveFromGame give you a place to do special behavior
     // when you get added or removed.
     action AddToGame (Game newGame)
@@ -40,7 +38,6 @@ class GameObject is Drawable
 	Load(SpritePath)
 	SetPosition(GetStartPositionX(),GetStartPositionY())
     end
-
     // Some getters and setter
     action SetStartPosition (Vector2 newPos)
 	StartPosition:Set(newPos)

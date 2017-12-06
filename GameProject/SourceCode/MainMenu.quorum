@@ -16,7 +16,7 @@ class MainMenu is GameRoom
         AddObj(BackGround)
 
         GameObject Logo 
-        Logo:SetSpritePath("assets/castlecrushers3.png")
+        Logo:SetSpritePath("assets/CastleCrusherLogo.png")
         Logo:RefreshGameObject()
         AddObj(Logo)
         
@@ -25,12 +25,12 @@ class MainMenu is GameRoom
         Clickable_MenuLoader StartButton
         StartButton:SetParentGame(game)
         StartButton:SetMenuString("LevelSelector")
-        StartButton:SetSpritePath("assets/buttonStart.png")
-        StartButton:SetStartPosition(630,400)
+        StartButton:SetSpritePath("assets/start.png")
+        StartButton:SetStartPosition(580,400)
         StartButton:RefreshGameObject()
         AddObj(StartButton)
 
-        Clickable ExitButton
+        Clickable_Exit ExitButton
         ExitButton:SetParentGame(game)
         ExitButton:SetSpritePath("assets/exit_1.png")
         ExitButton:SetStartPosition(1280,650)

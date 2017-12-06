@@ -1,0 +1,44 @@
+class inGameMenu is GameRoom
+    action createScreen(Main game)
+        // Background layer!
+        AddEmptyLayer()
+        GameObject BackGround
+        BackGround:SetSpritePath("assets/newBackground.png")
+        BackGround:RefreshGameObject()
+        AddObj(BackGround)
+        //x = 744 ; y = 280
+        
+        GameObject Logo 
+        Logo:SetSpritePath("assets/UI/SymbolsText/TEXT_MENU.png")
+        Logo:SetStartPosition(450, 300)
+        Logo:RefreshGameObject()
+        AddObj(Logo)
+        
+        // Button layer!
+        AddEmptyLayer()
+        Clickable StartButton //resume
+        StartButton:SetParentGame(game)
+        StartButton:SetSpritePath("assets/UI/SymbolsText/SYMB_PLAY.png")
+        StartButton:SetStartPosition(250,150)
+        StartButton:RefreshGameObject()
+        AddObj(StartButton)
+        
+        Clickable_LevelLoader ReplayButton
+        ReplayButton:SetParentGame(game)
+        //Level String should be the same
+        ReplayButton:SetLevelString(ReplayButton:GetLevelString())
+        ReplayButton:SetSpritePath("assets/UI/SymbolsText/SYMB_REPLAY.png")
+        ReplayButton:SetStartPosition(500,150)
+        ReplayButton:RefreshGameObject()
+        AddObj(ReplayButton)
+        
+        Clickable_MenuLoader ExitButton
+        ExitButton:SetParentGame(game)
+        ExitButton:SetMenuString("MainMenu")
+        ExitButton:SetSpritePath("assets/UI/SymbolsText/SYMB_MENU.png")
+        ExitButton:SetStartPosition(750,150)
+        ExitButton:RefreshGameObject()
+        AddObj(ExitButton)
+        
+    end
+end
