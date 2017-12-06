@@ -113,7 +113,6 @@ class GameCollision is CollisionListener2D
             itemA:AddToGame(main)
             itemA:EnablePhysics(false)
             scream1:Play()
-
         end
         /*if starCount = 0
             victory = true
@@ -123,8 +122,8 @@ class GameCollision is CollisionListener2D
     action FinishCollision (CollisionEvent2D event)
         GameObject itemA = cast(GameObject, event:GetItemA())
         GameObject itemB = cast(GameObject, event:GetItemB())
-        
-        /*if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox"
+        /*
+        if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox"
             starCount = starCount - 1
         elseif itemA:GetName() = "BasicBox" and itemB:GetName() = "Star"
             starCount = starCount - 1
@@ -158,8 +157,8 @@ class GameCollision is CollisionListener2D
             starCount = starCount - 1
         elseif itemA:GetName() = "Star" and itemB:GetName() = "CannonBall"
             starCount = starCount - 1
-        end*/
-        
+        end
+        */
         if starCount <= 0
             victory = true
         end

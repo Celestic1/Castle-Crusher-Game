@@ -26,7 +26,7 @@ class inGameMenu is GameRoom
         Clickable_LevelLoader ReplayButton
         ReplayButton:SetParentGame(game)
         //Level String should be the same
-        ReplayButton:SetLevelString(ReplayButton:GetLevelString())
+        ReplayButton:SetLevelString(parent:GameRoom:getLevelName())
         ReplayButton:SetSpritePath("assets/UI/SymbolsText/SYMB_REPLAY.png")
         ReplayButton:SetStartPosition(500,150)
         ReplayButton:RefreshGameObject()

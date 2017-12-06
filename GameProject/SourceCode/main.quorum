@@ -30,6 +30,9 @@ class Main is Game
     
     Audio first
     Audio second
+    Audio victoryTheme
+    Audio defeatTheme
+    Audio mainTheme
     action Main
 
         //GameMouseListener:RefRoom = RefRoom
@@ -79,6 +82,9 @@ class Main is Game
         first:Load("assets/Sounds/dying.wav")
         second:Load("assets/Sounds/wilhelm.wav")
         GameCollisionListener:setAudio(first,second)
+        victoryTheme:Load("assets/Sounds/victory.wav")
+        defeatTheme:Load("assets/Sounds/defeat.wav")
+
         //Add(GameMouseListener)
     end
 
@@ -125,6 +131,12 @@ class Main is Game
     end
 
     action MenuOntoRoomStack (text NextMenu)
+        if (NextMenu = "Victory")
+            victoryTheme:Play()
+        end
+        if (NextMenu = "Defeat")
+            defeatTheme:Play()
+        end
         PushRoomStack(MenuTable:GetValue(NextMenu))
     end
 
@@ -142,10 +154,6 @@ class Main is Game
             end
         end
     end
-    action Top returns GameRoom
-        return RoomStack:Peek()
-    end
-
     action GetCoreLib returns GameObject_Library
         return CoreLibrary
     end
