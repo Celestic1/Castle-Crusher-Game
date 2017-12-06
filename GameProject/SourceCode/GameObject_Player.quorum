@@ -9,6 +9,7 @@ use Libraries.Compute.Vector2
 use Libraries.Interface.Events.KeyboardEvent
 use Libraries.Compute.Math
 use Libraries.Game.InputMonitor
+use Libraries.Game.Graphics.Color
 
 use Libraries.Sound.Audio
 use Libraries.System.File
@@ -40,10 +41,19 @@ class GameObject_Player is GameObject, GameKeyboard
     Drawable Score2
     Drawable Score3
     private integer origSize = 0
+    GameRoom room
+    Clickable ds
+    Main game
+    Color blue
 
     action FireCannon(integer AmmoRef)
         if not (AmmoRef < myAmmo:GetSize() and AmmoRef >= 0)
             output "Cannon is out of ammo!"
+            ds:SetParentGame(game)
+            ds:SetSpritePath("assets/GameOver.png")
+            ds:SetStartPosition(420,250)
+            ds:RefreshGameObject()
+            Add(ds)
             return now
         end
         toFire = myAmmo:Get(AmmoRef)
@@ -65,6 +75,10 @@ class GameObject_Player is GameObject, GameKeyboard
         ResetForce()
     end
 
+    action SetGame(Main g)
+        game = g
+    end
+
     action RemoveAmmoFromGame
         integer i = 0
         repeat while i < origSize
@@ -75,6 +89,7 @@ class GameObject_Player is GameObject, GameKeyboard
 
 
     action LoadCannon(Array<GameObject> newAmmo)
+        Remove(ds)
         integer i = 0
         myAmmo:Empty()
         repeat while i < newAmmo:GetSize()
@@ -130,16 +145,18 @@ class GameObject_Player is GameObject, GameKeyboard
     end
 
     action SetupPowerBars (Game newGame)
-	PowerBar:LoadFilledRectangle(20,cast(integer,Force/velScaleFactor))
-	PowerBar:SetPosition(0,80)
-	PowerBarBackground:LoadRectangle(20,cast(integer,ForceCap/velScaleFactor))
-	PowerBarBackground:SetPosition(0,80)
+        blue:SetColor(0,0,0,1)
+	PowerBar:LoadFilledRectangle(20,cast(integer,Force/velScaleFactor), blue)
+	PowerBar:SetPosition(10,120)
+	PowerBarBackground:LoadRectangle(20,cast(integer,ForceCap/velScaleFactor), blue)
+	PowerBarBackground:SetPosition(10,120)
 	newGame:Add(PowerBar)
 	newGame:Add(PowerBarBackground)
     end
 
     action UpdatePowerBar
-	PowerBar:LoadFilledRectangle(20,cast(integer,Force/velScaleFactor))
+        blue:SetColor(0,0,0,1)
+	PowerBar:LoadFilledRectangle(20,cast(integer,Force/velScaleFactor), blue)
     end
     
     action LoadCount (Drawable d, integer digit)
@@ -168,7 +185,7 @@ class GameObject_Player is GameObject, GameKeyboard
     end
 
     action SetupScore (Game newGame)
-        integer score = currentScore
+        /*integer score = currentScore
         integer tmp = 0
         tmp = score mod 10
         LoadCount(Score3, tmp)
@@ -187,7 +204,16 @@ class GameObject_Player is GameObject, GameKeyboard
         newGame:Add(Score3)
         newGame:Add(Score2)
         newGame:Add(Score1)
-        newGame:Add(Score0)
+        newGame:Add(Score0)*/
+    end
+
+    action CleanupNumbers (Game newGame)
+	newGame:Remove(Score3)
+	newGame:Remove(Score2)
+	newGame:Remove(Score1)
+	newGame:Remove(Score0)
+	newGame:Remove(Counter1)
+	newGame:Remove(Counter2)
     end
     
     action UpdateScore 
@@ -205,15 +231,9 @@ class GameObject_Player is GameObject, GameKeyboard
     end    
     
     action SetupAmmoCount (Game newGame)
-        integer count = myAmmo:GetSize()
-        integer tmp = count
-        currentCount = myAmmo:GetSize()
-        tmp = count mod 10
-        LoadCount(Counter2, tmp)
-        count = count / 10
-        LoadCount(Counter1, count)
-        Counter1:SetPosition(20,200)
-        Counter2:SetPosition(70,200)
+	UpdateAmmoCount()
+        Counter1:SetPosition(20,240)
+        Counter2:SetPosition(70,240)
         newGame:Add(Counter1)
         newGame:Add(Counter2)
     end
@@ -221,10 +241,10 @@ class GameObject_Player is GameObject, GameKeyboard
     action UpdateAmmoCount 
         integer tmp = myAmmo:GetSize()
         currentCount = tmp
-        tmp = tmp mod 10
-        LoadCount(Counter2, tmp)
-        tmp = tmp / 10
-        LoadCount(Counter1, tmp)
+        integer ones = tmp mod 10
+        LoadCount(Counter2, ones)
+        integer tens = tmp / 10
+        LoadCount(Counter1, tens)
     end
     
     action RemoveFromGame (Game newGame)
@@ -235,6 +255,7 @@ class GameObject_Player is GameObject, GameKeyboard
         newGame:Remove(Score2)
         newGame:Remove(Score3)
         newGame:RemoveKeyboardListener(me)
+	CleanupNumbers(newGame)
         newGame:Remove(me)
     end
 
