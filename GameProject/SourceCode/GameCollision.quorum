@@ -21,14 +21,14 @@ class GameCollision is CollisionListener2D
     
         if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox"
             itemA:RemoveFromGame(main)
-            //starCount = starCount - 1
+            starCount = starCount - 1
             itemA:Load("assets/blood.png")
             itemA:AddToGame(main)
             itemA:EnablePhysics(false)
             scream1:Play()
         elseif itemA:GetName() = "BasicBox" and itemB:GetName() = "Star"
             itemB:RemoveFromGame(main)
-            //starCount = starCount - 1
+            starCount = starCount - 1
             itemB:Load("assets/blood.png")
             itemB:AddToGame(main)
             itemB:EnablePhysics(false)
@@ -37,14 +37,14 @@ class GameCollision is CollisionListener2D
 
         if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox"
             itemA:RemoveFromGame(main)
-            //starCount = starCount - 1
+            starCount = starCount - 1
             itemA:Load("assets/blood.png")
             itemA:AddToGame(main)
             itemA:EnablePhysics(false)
             scream2:Play()
         elseif itemA:GetName() = "BasicBox" and itemB:GetName() = "Star"
             itemB:RemoveFromGame(main)
-            //starCount = starCount - 1
+            starCount = starCount - 1
             itemB:Load("assets/blood.png")
             itemB:AddToGame(main)
             itemB:EnablePhysics(false)
@@ -53,14 +53,14 @@ class GameCollision is CollisionListener2D
 
         if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox2"
             itemA:RemoveFromGame(main)
-            //starCount = starCount - 1
+            starCount = starCount - 1
             itemA:Load("assets/blood.png")
             itemA:AddToGame(main)
             itemA:EnablePhysics(false)
             scream2:Play()
         elseif itemA:GetName() = "BasicBox2" and itemB:GetName() = "Star"
             itemB:RemoveFromGame(main)
-            //starCount = starCount - 1
+            starCount = starCount - 1
             itemB:Load("assets/blood.png")
             itemB:AddToGame(main)
             itemB:EnablePhysics(false)
@@ -69,14 +69,14 @@ class GameCollision is CollisionListener2D
 
         if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox3"
             itemA:RemoveFromGame(main)
-            //starCount = starCount - 1
+            starCount = starCount - 1
             itemA:Load("assets/blood.png")
             itemA:AddToGame(main)
             itemA:EnablePhysics(false)
             scream2:Play()
         elseif itemA:GetName() = "BasicBox3" and itemB:GetName() = "Star"
             itemB:RemoveFromGame(main)
-            //starCount = starCount - 1
+            starCount = starCount - 1
             itemB:Load("assets/blood.png")
             itemB:AddToGame(main)
             itemB:EnablePhysics(false)
@@ -84,14 +84,14 @@ class GameCollision is CollisionListener2D
         end
 
         if itemA:GetName() = "Star" and itemB:GetName() = "Roof"
-            //starCount = starCount - 1
+            starCount = starCount - 1
             itemA:RemoveFromGame(main)
             itemA:Load("assets/blood.png")
             itemA:AddToGame(main)
             itemA:EnablePhysics(false)
             scream1:Play()
         elseif itemA:GetName() = "Roof" and itemB:GetName() = "Star"
-            //starCount = starCount - 1
+            starCount = starCount - 1
             itemB:RemoveFromGame(main)
             itemB:Load("assets/blood.png")
             itemB:AddToGame(main)
@@ -99,7 +99,7 @@ class GameCollision is CollisionListener2D
             scream1:Play()
         end
         if itemA:GetName() = "CannonBall" and itemB:GetName() = "Star"
-            //starCount = starCount - 1
+            starCount = starCount - 1
             itemB:RemoveFromGame(main)
             itemB:Load("assets/blood.png")
             itemB:AddToGame(main)
@@ -107,7 +107,7 @@ class GameCollision is CollisionListener2D
             scream2:Play()
 
         elseif itemA:GetName() = "Star" and itemB:GetName() = "CannonBall"
-            //starCount = starCount - 1
+            starCount = starCount - 1
             itemA:RemoveFromGame(main)
             itemA:Load("assets/blood.png")
             itemA:AddToGame(main)
@@ -124,7 +124,7 @@ class GameCollision is CollisionListener2D
         GameObject itemA = cast(GameObject, event:GetItemA())
         GameObject itemB = cast(GameObject, event:GetItemB())
         
-        if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox"
+        /*if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox"
             starCount = starCount - 1
         elseif itemA:GetName() = "BasicBox" and itemB:GetName() = "Star"
             starCount = starCount - 1
@@ -158,9 +158,9 @@ class GameCollision is CollisionListener2D
             starCount = starCount - 1
         elseif itemA:GetName() = "Star" and itemB:GetName() = "CannonBall"
             starCount = starCount - 1
-        end
+        end*/
         
-        if starCount = 0
+        if starCount <= 0
             victory = true
         end
     end
@@ -170,6 +170,9 @@ class GameCollision is CollisionListener2D
     end
     action Victorious returns boolean
         return victory
+    end
+    action resetVictory ()
+        victory = false
     end
     action setStarCount (integer x)
         starCount = x

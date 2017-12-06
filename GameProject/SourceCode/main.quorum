@@ -83,19 +83,26 @@ class Main is Game
     end
 
     action Update(number seconds)
-        if (RoomStack:Peek():getDudes() > 0 and not isLoaded)
-           //isLoaded = true
-           GameCollisionListener:setStarCount(RoomStack:Peek():getDudes())
-           //output GameCollisionListener:getStarCount()
-           isLoaded = true
-        end
-        if isLoaded and GameCollisionListener:Victorious()
-                isLoaded = false
-                RoomStack:Peek():resetDudes()
-                //RoomStack:Peek():getDudes()
-                //output "Got to MenuOnto"
-                MenuOntoRoomStack("Victory")
-                //VictoryRoom:createVictory(me)
+        if RoomStack:Peek():getDudes() > 0 
+            if not isLoaded
+                //isLoaded = true
+                GameCollisionListener:setStarCount(RoomStack:Peek():getDudes())
+                //output "GCL has " + GameCollisionListener:getStarCount() + " dudes."
+                isLoaded = true
+            end
+            if isLoaded
+                //output "Loaded but NOT VICTORIOUS!!"
+                if GameCollisionListener:Victorious()
+                    //output "VICTORIOUS!!"
+                    isLoaded = false
+                    GameCollisionListener:resetVictory()
+                    RoomStack:Peek():resetDudes()
+                    GameCollisionListener:setStarCount(RoomStack:Peek():getDudes())
+                    //RoomStack:Peek():getDudes()
+                    MenuOntoRoomStack("Victory")
+                    //VictoryRoom:createVictory(me)
+                end
+            end    
         end
     end
 
