@@ -540,193 +540,101 @@
 	    <X>900</X>
 	    <Y>20</Y>
 	</MiniBasicBlock>
-	<MiniBasicBlock>
+	<BasicBlock>
 	    <X>0</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
-	    <X>20</X>
-	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</BasicBlock>
+	<BasicBlock>
 	    <X>40</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
-	    <X>60</X>
-	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</BasicBlock>
+	<BasicBlock>
 	    <X>80</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
-	    <X>100</X>
-	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</BasicBlock>
+	<BasicBlock>
 	    <X>120</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
-	    <X>140</X>
-	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</BasicBlock>
+	<BasicBlock>
 	    <X>160</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
-	    <X>180</X>
-	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</BasicBlock>
+	<BasicBlock>
 	    <X>200</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
-	    <X>220</X>
-	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</BasicBlock>
+	<BasicBlock>
 	    <X>240</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
-	    <X>260</X>
-	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</BasicBlock>
+	<BasicBlock>
 	    <X>280</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
-	    <X>300</X>
-	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</BasicBlock>
+	<BasicBlock>
 	    <X>320</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
-	    <X>340</X>
-	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</BasicBlock>
+	<BasicBlock>
 	    <X>360</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
-	    <X>380</X>
-	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</BasicBlock>
+	<BasicBlock>
 	    <X>400</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
-	    <X>420</X>
-	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</BasicBlock>
+	<BasicBlock>
 	    <X>440</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
-	    <X>460</X>
-	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</BasicBlock>
+	<BasicBlock>
 	    <X>480</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
-	    <X>500</X>
-	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</BasicBlock>
+	<BasicBlock>
 	    <X>520</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
-	    <X>540</X>
-	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</BasicBlock>
+	<BasicBlock>
 	    <X>560</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
-	    <X>580</X>
-	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</BasicBlock>
+	<BasicBlock>
 	    <X>600</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
-	    <X>620</X>
-	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</BasicBlock>
+	<BasicBlock>
 	    <X>640</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
-	    <X>660</X>
-	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</BasicBlock>
+	<BasicBlock>
 	    <X>680</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
-	    <X>700</X>
-	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</BasicBlock>
+	<BasicBlock>
 	    <X>720</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
-	    <X>740</X>
-	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</BasicBlock>
+	<BasicBlock>
 	    <X>760</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
-	    <X>780</X>
-	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</BasicBlock>
+	<BasicBlock>
 	    <X>800</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
-	    <X>820</X>
-	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</BasicBlock>
+	<BasicBlock>
 	    <X>840</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
-	    <X>860</X>
-	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</BasicBlock>
+	<BasicBlock>
 	    <X>880</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
-	    <X>900</X>
-	    <Y>0</Y>
-	</MiniBasicBlock>
-	<MiniBasicBlock>
+	</BasicBlock>
+	<BasicBlock>
 	    <X>920</X>
 	    <Y>0</Y>
-	</MiniBasicBlock>
+	</BasicBlock>
     </Layer>
 </Map>
