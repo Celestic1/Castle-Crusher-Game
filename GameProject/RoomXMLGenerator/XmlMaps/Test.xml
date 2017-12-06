@@ -1,5 +1,25 @@
 <Map>
     <Layer>
+	<Roof>
+	    <X>560</X>
+	    <Y>320</Y>
+	</Roof>
+	<BasicBox>
+	    <X>560</X>
+	    <Y>280</Y>
+	</BasicBox>
+	<BasicBox>
+	    <X>760</X>
+	    <Y>280</Y>
+	</BasicBox>
+	<BasicBox>
+	    <X>560</X>
+	    <Y>240</Y>
+	</BasicBox>
+	<BasicBox>
+	    <X>760</X>
+	    <Y>240</Y>
+	</BasicBox>
 	<Star>
 	    <X>640</X>
 	    <Y>220</Y>
@@ -7,11 +27,43 @@
 	<Star>
 	    <X>680</X>
 	    <Y>220</Y>
-        </Star>
+	</Star>
+	<BasicBox>
+	    <X>560</X>
+	    <Y>200</Y>
+	</BasicBox>
+	<BasicBox>
+	    <X>760</X>
+	    <Y>200</Y>
+	</BasicBox>
+	<BasicBox3>
+	    <X>560</X>
+	    <Y>160</Y>
+	</BasicBox3>
+	<BasicBox>
+	    <X>560</X>
+	    <Y>120</Y>
+	</BasicBox>
+	<BasicBox>
+	    <X>760</X>
+	    <Y>120</Y>
+	</BasicBox>
+	<BasicBox>
+	    <X>560</X>
+	    <Y>80</Y>
+	</BasicBox>
+	<BasicBox>
+	    <X>760</X>
+	    <Y>80</Y>
+	</BasicBox>
 	<Cannon>
 	    <X>120</X>
 	    <Y>40</Y>
 	</Cannon>
+	<BasicBox>
+	    <X>560</X>
+	    <Y>40</Y>
+	</BasicBox>
 	<Star>
 	    <X>640</X>
 	    <Y>40</Y>
@@ -19,6 +71,150 @@
 	<Star>
 	    <X>680</X>
 	    <Y>40</Y>
-        </Star>
+	</Star>
+	<BasicBox>
+	    <X>760</X>
+	    <Y>40</Y>
+	</BasicBox>
+	<Water>
+	    <X>0</X>
+	    <Y>0</Y>
+	</Water>
+	<Water>
+	    <X>40</X>
+	    <Y>0</Y>
+	</Water>
+	<Water>
+	    <X>80</X>
+	    <Y>0</Y>
+	</Water>
+	<BasicBlock>
+	    <X>120</X>
+	    <Y>0</Y>
+	</BasicBlock>
+	<BasicBlock>
+	    <X>160</X>
+	    <Y>0</Y>
+	</BasicBlock>
+	<BasicBlock>
+	    <X>200</X>
+	    <Y>0</Y>
+	</BasicBlock>
+	<BasicBlock>
+	    <X>240</X>
+	    <Y>0</Y>
+	</BasicBlock>
+	<BasicBlock>
+	    <X>280</X>
+	    <Y>0</Y>
+	</BasicBlock>
+	<BasicBlock>
+	    <X>320</X>
+	    <Y>0</Y>
+	</BasicBlock>
+	<BasicBlock>
+	    <X>360</X>
+	    <Y>0</Y>
+	</BasicBlock>
+	<BasicBlock>
+	    <X>400</X>
+	    <Y>0</Y>
+	</BasicBlock>
+	<BasicBlock>
+	    <X>440</X>
+	    <Y>0</Y>
+	</BasicBlock>
+	<BasicBlock>
+	    <X>480</X>
+	    <Y>0</Y>
+	</BasicBlock>
+	<BasicBlock>
+	    <X>520</X>
+	    <Y>0</Y>
+	</BasicBlock>
+	<BasicBlock>
+	    <X>560</X>
+	    <Y>0</Y>
+	</BasicBlock>
+	<BasicBlock>
+	    <X>600</X>
+	    <Y>0</Y>
+	</BasicBlock>
+	<BasicBlock>
+	    <X>640</X>
+	    <Y>0</Y>
+	</BasicBlock>
+	<BasicBlock>
+	    <X>680</X>
+	    <Y>0</Y>
+	</BasicBlock>
+	<BasicBlock>
+	    <X>720</X>
+	    <Y>0</Y>
+	</BasicBlock>
+	<BasicBlock>
+	    <X>760</X>
+	    <Y>0</Y>
+	</BasicBlock>
+	<BasicBlock>
+	    <X>800</X>
+	    <Y>0</Y>
+	</BasicBlock>
+	<BasicBlock>
+	    <X>840</X>
+	    <Y>0</Y>
+	</BasicBlock>
+	<BasicBlock>
+	    <X>880</X>
+	    <Y>0</Y>
+	</BasicBlock>
+	<BasicBlock>
+	    <X>920</X>
+	    <Y>0</Y>
+	</BasicBlock>
+	<BasicBlock>
+	    <X>960</X>
+	    <Y>0</Y>
+	</BasicBlock>
+	<BasicBlock>
+	    <X>1000</X>
+	    <Y>0</Y>
+	</BasicBlock>
+	<BasicBlock>
+	    <X>1040</X>
+	    <Y>0</Y>
+	</BasicBlock>
+	<BasicBlock>
+	    <X>1080</X>
+	    <Y>0</Y>
+	</BasicBlock>
+	<BasicBlock>
+	    <X>1120</X>
+	    <Y>0</Y>
+	</BasicBlock>
+	<BasicBlock>
+	    <X>1160</X>
+	    <Y>0</Y>
+	</BasicBlock>
+	<BasicBlock>
+	    <X>1200</X>
+	    <Y>0</Y>
+	</BasicBlock>
+	<Water>
+	    <X>1240</X>
+	    <Y>0</Y>
+	</Water>
+	<Water>
+	    <X>1280</X>
+	    <Y>0</Y>
+	</Water>
+	<Water>
+	    <X>1320</X>
+	    <Y>0</Y>
+	</Water>
+	<Water>
+	    <X>1360</X>
+	    <Y>0</Y>
+	</Water>
     </Layer>
 </Map>

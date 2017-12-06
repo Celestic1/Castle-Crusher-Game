@@ -41,6 +41,15 @@ class LevelSelector is GameRoom
         levelThree:RefreshGameObject()
         AddObj(levelThree)
 
+        Clickable_LevelLoader levelFour
+        levelFour:SetParentGame(game)
+        levelFour:SetAmmoCount(15)
+        levelFour:SetLevelString("Maps/map3.xml")
+        levelFour:SetSpritePath("assets/SYMB_4.png")
+        levelFour:SetStartPosition(650,200)
+        levelFour:RefreshGameObject()
+        AddObj(levelFour)
+
         Clickable_MenuLoader MainScreen
         MainScreen:SetParentGame(game)
         MainScreen:SetSpritePath("assets/exit_1.png")
