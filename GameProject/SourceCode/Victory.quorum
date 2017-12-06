@@ -3,7 +3,7 @@ class Victory is GameRoom
         // Background layer!
         AddEmptyLayer()
         GameObject BackGround
-        BackGround:SetSpritePath("assets/newBackground.png")
+        BackGround:SetSpritePath("assets/CastleBackground.png")
         BackGround:RefreshGameObject()
         AddObj(BackGround)
         //x = 744 ; y = 280
@@ -13,10 +13,6 @@ class Victory is GameRoom
         Logo:SetStartPosition(450, 280)
         Logo:RefreshGameObject()
         AddObj(Logo)
-        
-        // Button layer!
-        AddEmptyLayer()
-        
         
     end
 end

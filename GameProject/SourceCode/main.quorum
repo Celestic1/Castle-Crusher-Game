@@ -8,6 +8,7 @@ use Libraries.System.File
 use GameObject
 //use GameObject_Attrib_List
 use GameObject_Player
+use Libraries.Language.Errors.UndefinedObjectError
 
 class Main is Game
     GameRoom RefRoom
@@ -80,9 +81,10 @@ class Main is Game
            //isLoaded = true
         end
         if isLoaded 
-            if (GameCollisionListener:getStarCount() <= 0)
+            if (GameCollisionListener:Victorious())
                 isLoaded = false
-                PushRoomStack(VictoryRoom)
+                output "Got to MenuOnto"
+                MenuOntoRoomStack("Victory")
             end
         end
     end
@@ -97,9 +99,11 @@ class Main is Game
     action PushRoomStack (GameRoom NewRoom)
         if RoomStack:GetSize() > 0
             RoomStack:Peek():RemoveRoomFromGame(me)
+            output "Removed Room"
         end
         RoomStack:Push(NewRoom)
         currentRoomName = RoomStack:Peek():getLevelName()
+        output "Got to AddRoom"
         RoomStack:Peek():AddRoomToGame(me)
     end
 
@@ -126,8 +130,5 @@ class Main is Game
 
     action GetCoreLib returns GameObject_Library
         return CoreLibrary
-    end
-    action victory 
-        PushRoomStack(VictoryRoom)
     end
 end

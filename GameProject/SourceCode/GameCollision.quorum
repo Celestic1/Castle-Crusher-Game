@@ -5,14 +5,11 @@ use Libraries.Interface.Item2D
 use Libraries.Interface.Events.CollisionListener2D
 use Libraries.Interface.Events.CollisionEvent2D
 use GameObject
-use Libraries.Compute.Vector2
 
 class GameCollision is CollisionListener2D
     private Game main
     public integer starCount = 0
-    public integer score = 0
     public boolean victory = false
-    Vector2 force
     
     action BeginCollision(CollisionEvent2D event)
         GameObject itemA = cast(GameObject, event:GetItemA())
@@ -96,25 +93,19 @@ class GameCollision is CollisionListener2D
             itemB:AddToGame(main)
             itemB:EnablePhysics(false)
         end
-
+        */
         if itemA:GetName() = "CannonBall" and itemB:GetName() = "Star"
             //force = itemA:GetLinearVelocity()
-            if force:Length() > 800
-                score = score + 5
-                itemB:RemoveFromGame(main)
-                starCount = starCount - 1
-            end
+            starCount = starCount - 1
+
             itemB:Load("assets/blood.png")
             itemB:AddToGame(main)
             itemB:EnablePhysics(false)
 
         elseif itemA:GetName() = "Star" and itemB:GetName() = "CannonBall"
             //force = itemB:GetLinearVelocity()
-            if force:Length() > 800
-                score = score + 5
-                itemA:RemoveFromGame(main)
+          
             starCount = starCount - 1
-            end
             itemA:Load("assets/blood.png")
             itemA:AddToGame(main)
             itemA:EnablePhysics(false)
