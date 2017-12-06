@@ -19,83 +19,80 @@ class GameCollision is CollisionListener2D
         // BasicBox
         // Standard cannon ball can ONLY destory wooden stuff
         //output "Dudes = " + starCount
-        /*if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox"
-            force = itemA:GetLinearVelocity()
-                score = score + 5
+        if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox"
             itemA:RemoveFromGame(main)
             starCount = starCount - 1
-        elseif itemA:GetName() = "BasicBox" and itemB:GetName() = "Star"
-            force = itemB:GetLinearVelocity()
-                score = score + 5
-                itemB:RemoveFromGame(main)
-            starCount = starCount - 1
-        end
-
-        if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox"
-                itemA:RemoveFromGame(main)
-            //starCount = starCount - 1
             itemA:Load("assets/blood.png")
             itemA:AddToGame(main)
             itemA:EnablePhysics(false)
         elseif itemA:GetName() = "BasicBox" and itemB:GetName() = "Star"
-                score = score + 5
+            
+            itemB:RemoveFromGame(main)
+            starCount = starCount - 1
+            itemB:Load("assets/blood.png")
+            itemB:AddToGame(main)
+            itemB:EnablePhysics(false)
+        end
+
+        if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox"
+                itemA:RemoveFromGame(main)
+            starCount = starCount - 1
+            itemA:Load("assets/blood.png")
+            itemA:AddToGame(main)
+            itemA:EnablePhysics(false)
+        elseif itemA:GetName() = "BasicBox" and itemB:GetName() = "Star"
+             
                 itemB:RemoveFromGame(main)
-            //starCount = starCount - 1
+            starCount = starCount - 1
             itemB:Load("assets/blood.png")
             itemB:AddToGame(main)
             itemB:EnablePhysics(false)
         end
 
         if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox2"
-                score = score + 5
                 itemA:RemoveFromGame(main)
-            //starCount = starCount - 1
+            starCount = starCount - 1
             itemA:Load("assets/blood.png")
             itemA:AddToGame(main)
             itemA:EnablePhysics(false)
         elseif itemA:GetName() = "BasicBox2" and itemB:GetName() = "Star"
-                score = score + 5
-                itemB:RemoveFromGame(main)
-            //starCount = starCount - 1
+            itemB:RemoveFromGame(main)
+            starCount = starCount - 1
             itemB:Load("assets/blood.png")
             itemB:AddToGame(main)
             itemB:EnablePhysics(false)
         end
 
         if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox3"
-            force = itemA:GetLinearVelocity()
-                score = score + 5
+
                 itemA:RemoveFromGame(main)
-            //starCount = starCount - 1
+            starCount = starCount - 1
             itemA:Load("assets/blood.png")
             itemA:AddToGame(main)
             itemA:EnablePhysics(false)
         elseif itemA:GetName() = "BasicBox3" and itemB:GetName() = "Star"
-            force = itemB:GetLinearVelocity()
-                score = score + 5
+
                 itemB:RemoveFromGame(main)
-            //starCount = starCount - 1
+            starCount = starCount - 1
             itemB:Load("assets/blood.png")
             itemB:AddToGame(main)
             itemB:EnablePhysics(false)
         end
 
         if itemA:GetName() = "Star" and itemB:GetName() = "Roof"
-            force = itemA:GetLinearVelocity()
+            starCount = starCount - 1
             itemA:RemoveFromGame(main)
             itemA:Load("assets/blood.png")
             itemA:AddToGame(main)
             itemA:EnablePhysics(false)
         elseif itemA:GetName() = "Roof" and itemB:GetName() = "Star"
-            force = itemB:GetLinearVelocity()
+            starCount = starCount - 1
             itemB:RemoveFromGame(main)
             itemB:Load("assets/blood.png")
             itemB:AddToGame(main)
             itemB:EnablePhysics(false)
         end
-        */
         if itemA:GetName() = "CannonBall" and itemB:GetName() = "Star"
-            //force = itemA:GetLinearVelocity()
             starCount = starCount - 1
             itemB:RemoveFromGame(main)
             itemB:Load("assets/blood.png")
@@ -103,8 +100,6 @@ class GameCollision is CollisionListener2D
             itemB:EnablePhysics(false)
 
         elseif itemA:GetName() = "Star" and itemB:GetName() = "CannonBall"
-            //force = itemB:GetLinearVelocity()
-          
             starCount = starCount - 1
             itemA:RemoveFromGame(main)
             itemA:Load("assets/blood.png")

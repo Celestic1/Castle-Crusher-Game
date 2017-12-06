@@ -124,4 +124,7 @@ class GameRoom
     action getDudes returns integer
         return starCount
     end
+    action setDudes (integer n)
+        starCount = n
+    end
 end

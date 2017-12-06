@@ -75,17 +75,16 @@ class Main is Game
 
     action Update(number seconds)
         if (RoomStack:Peek():getDudes() > 0 and not isLoaded)
-           isLoaded = true
+           //isLoaded = true
            GameCollisionListener:setStarCount(RoomStack:Peek():getDudes())
            //output GameCollisionListener:getStarCount()
-           //isLoaded = true
+           isLoaded = true
         end
-        if isLoaded 
-            if (GameCollisionListener:Victorious())
+        if isLoaded and GameCollisionListener:Victorious()
                 isLoaded = false
+                RoomStack:Peek():setDudes(-9999)
                 //output "Got to MenuOnto"
                 MenuOntoRoomStack("Victory")
-            end
         end
     end
 

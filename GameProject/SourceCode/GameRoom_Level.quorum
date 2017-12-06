@@ -142,4 +142,7 @@ class GameRoom_Level is GameRoom
     action getDudes returns integer
         return dudes
     end
+    action setDudes (integer n)
+        dudes = n
+    end
 end

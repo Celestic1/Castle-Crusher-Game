@@ -27,7 +27,7 @@ class Victory is GameRoom
         main:SetParentGame(game)
         main:SetMenuString("MainMenu")
         main:SetSpritePath("assets/UI/SymbolsText/SYMB_MENU.png")
-        main:SetStartPosition(450,350)
+        main:SetStartPosition(450,50)
         main:RefreshGameObject()
         AddObj(main)
 
