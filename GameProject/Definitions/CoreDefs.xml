@@ -43,7 +43,7 @@ and open the template in the editor.
 	<PhysicsEnabled>true</PhysicsEnabled>
 	<Unmovable>true</Unmovable>
 	<Restitution>0.5</Restitution>
-	<Friction>10000</Friction>
+	<Friction>10</Friction>
     </Object>
     <Object>
         <Name>WoodenBox</Name>

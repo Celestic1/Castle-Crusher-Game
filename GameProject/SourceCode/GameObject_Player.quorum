@@ -40,10 +40,18 @@ class GameObject_Player is GameObject, GameKeyboard
     Drawable Score2
     Drawable Score3
     private integer origSize = 0
+    GameRoom room
+    Clickable ds
+    Main game
 
     action FireCannon(integer AmmoRef)
         if not (AmmoRef < myAmmo:GetSize() and AmmoRef >= 0)
             output "Cannon is out of ammo!"
+            ds:SetParentGame(game)
+            ds:SetSpritePath("assets/GameOver.png")
+            ds:SetStartPosition(420,250)
+            ds:RefreshGameObject()
+            Add(ds)
             return now
         end
         toFire = myAmmo:Get(AmmoRef)
@@ -65,6 +73,10 @@ class GameObject_Player is GameObject, GameKeyboard
         ResetForce()
     end
 
+    action SetGame(Main g)
+        game = g
+    end
+
     action RemoveAmmoFromGame
         integer i = 0
         repeat while i < origSize
@@ -75,6 +87,7 @@ class GameObject_Player is GameObject, GameKeyboard
 
 
     action LoadCannon(Array<GameObject> newAmmo)
+        Remove(ds)
         integer i = 0
         myAmmo:Empty()
         repeat while i < newAmmo:GetSize()
