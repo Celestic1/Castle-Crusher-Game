@@ -83,7 +83,7 @@ class Main is Game
         if isLoaded 
             if (GameCollisionListener:Victorious())
                 isLoaded = false
-                output "Got to MenuOnto"
+                //output "Got to MenuOnto"
                 MenuOntoRoomStack("Victory")
             end
         end
@@ -99,11 +99,11 @@ class Main is Game
     action PushRoomStack (GameRoom NewRoom)
         if RoomStack:GetSize() > 0
             RoomStack:Peek():RemoveRoomFromGame(me)
-            output "Removed Room"
+            //output "Removed Room"
         end
         RoomStack:Push(NewRoom)
         currentRoomName = RoomStack:Peek():getLevelName()
-        output "Got to AddRoom"
+        //output "Got to AddRoom"
         RoomStack:Peek():AddRoomToGame(me)
     end
 

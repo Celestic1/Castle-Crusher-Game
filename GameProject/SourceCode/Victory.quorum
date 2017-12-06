@@ -9,10 +9,28 @@ class Victory is GameRoom
         //x = 744 ; y = 280
         
         GameObject Logo 
-        Logo:SetSpritePath("assets/UI/SymbolsText/TEXT_MENU.png")
+        Logo:SetSpritePath("assets/laurel-crown.png")
         Logo:SetStartPosition(450, 280)
         Logo:RefreshGameObject()
         AddObj(Logo)
         
+        AddEmptyLayer()
+        Clickable_MenuLoader exit
+        exit:SetParentGame(game)
+        exit:SetMenuString("LevelSelector")
+        exit:SetSpritePath("assets/exit_1.png")
+        exit:SetStartPosition(1280,650)
+        exit:RefreshGameObject()
+        AddObj(exit)
+        
+        Clickable_MenuLoader main
+        main:SetParentGame(game)
+        main:SetMenuString("MainMenu")
+        main:SetSpritePath("assets/UI/SymbolsText/SYMB_MENU.png")
+        main:SetStartPosition(450,350)
+        main:RefreshGameObject()
+        AddObj(main)
+
+
     end
 end
