@@ -17,7 +17,7 @@ class LevelSelector is GameRoom
         Clickable_LevelLoader levelOne
         levelOne:SetParentGame(game)
         levelOne:SetAmmoCount(10)
-        levelOne:SetLevelString("Maps/Test.xml")
+        levelOne:SetLevelString("Maps/Test 2.xml")
         levelOne:SetSpritePath("assets/SYMB_1.png")
         levelOne:SetStartPosition(250,450)
         levelOne:RefreshGameObject()
