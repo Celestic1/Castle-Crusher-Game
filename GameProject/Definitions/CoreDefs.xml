@@ -136,6 +136,22 @@ and open the template in the editor.
         <Friction>250</Friction>
     </Object>
     <Object>
+	<Name>BasicBox4</Name>
+        <DisplayName>BasicBox4</DisplayName>
+	<SpritePath>assets/WoodBlockLongVertical.png</SpritePath>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Responsive>true</Responsive>
+        <Friction>250</Friction>
+    </Object>
+    <Object>
+	<Name>BasicBox5</Name>
+        <DisplayName>BasicBox5</DisplayName>
+	<SpritePath>assets/WoodBlockMedVertical.png</SpritePath>
+	<PhysicsEnabled>true</PhysicsEnabled>
+	<Responsive>true</Responsive>
+        <Friction>250</Friction>
+    </Object>
+    <Object>
 	<Name>StartButton</Name>
 	<SpritePath>resources/sprStartButton.png</SpritePath>
     </Object>
