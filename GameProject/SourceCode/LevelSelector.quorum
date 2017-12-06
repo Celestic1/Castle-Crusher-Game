@@ -41,9 +41,10 @@ class LevelSelector is GameRoom
         levelThree:RefreshGameObject()
         AddObj(levelThree)
 
-        Clickable MainScreen
+        Clickable_MenuLoader MainScreen
         MainScreen:SetParentGame(game)
         MainScreen:SetSpritePath("assets/exit_1.png")
+        MainScreen:SetMenuString("MainMenu")
         MainScreen:SetStartPosition(1280,650)
         MainScreen:RefreshGameObject()
         AddObj(MainScreen)

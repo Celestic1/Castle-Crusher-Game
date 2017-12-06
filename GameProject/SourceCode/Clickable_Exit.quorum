@@ -1,0 +1,7 @@
+use Libraries.Interface.Events.MouseEvent
+
+class Clickable_Exit is Clickable
+    action ClickedMouse(MouseEvent event)
+        parent:Clickable:ParentGame:Exit()
+    end
+end

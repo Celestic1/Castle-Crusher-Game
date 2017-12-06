@@ -8,11 +8,12 @@ use Libraries.System.File
 use GameObject
 //use GameObject_Attrib_List
 use GameObject_Player
-use Libraries.Language.Errors.UndefinedObjectError
+use Libraries.Sound.Audio
 
 class Main is Game
     GameRoom RefRoom
     Stack<GameRoom> RoomStack
+    HashTable <text, integer> dudesInPlay
     HashTable<text,GameRoom> MenuTable
     GameMouse GameMouseListener
     GameCollision GameCollisionListener
@@ -24,8 +25,11 @@ class Main is Game
     LevelSelector ls
     inGameMenu igm
     Victory VictoryRoom
+    Defeat DefeatRoom
     boolean isLoaded = false
-
+    
+    Audio first
+    Audio second
     action Main
 
         //GameMouseListener:RefRoom = RefRoom
@@ -67,9 +71,14 @@ class Main is Game
         MenuTable:Add("LevelSelector",ls)
         VictoryRoom:createScreen(me)
         MenuTable:Add("Victory", VictoryRoom)
+        DefeatRoom:createScreen(me)
+        MenuTable:Add("Defeat",DefeatRoom)
         //igm:createScreen(me)
         //MenuTable:Add("InGameMenu",igm)
         
+        first:Load("assets/Sounds/dying.wav")
+        second:Load("assets/Sounds/wilhelm.wav")
+        GameCollisionListener:setAudio(first,second)
         //Add(GameMouseListener)
     end
 
@@ -82,9 +91,11 @@ class Main is Game
         end
         if isLoaded and GameCollisionListener:Victorious()
                 isLoaded = false
-                RoomStack:Peek():setDudes(-9999)
+                RoomStack:Peek():resetDudes()
+                //RoomStack:Peek():getDudes()
                 //output "Got to MenuOnto"
                 MenuOntoRoomStack("Victory")
+                //VictoryRoom:createVictory(me)
         end
     end
 
@@ -115,6 +126,7 @@ class Main is Game
             Exit()
         else
             RoomStack:Peek():RemoveRoomFromGame(me)
+            RoomStack:Peek():DumpRoom()
             RoomStack:Pop()
             if RoomStack:GetSize() > 0
                 RoomStack:Peek():AddRoomToGame(me)

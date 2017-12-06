@@ -10,7 +10,8 @@ class GameRoom_Level is GameRoom
     private Array<GameObject> PAmmo
     XMLNode RefNode
     private text currentLevelName = ""
-    public integer dudes = 0
+    private integer dudes = 0
+    public integer numberOfDudes = 0 
 
     action AddRoomToGame(Game game)
         parent:GameRoom:AddRoomToGame(game)
@@ -116,6 +117,7 @@ class GameRoom_Level is GameRoom
 	    GameObject NextObject = BlockLib:GetGameObject(TargetTree:GetName())
             if (TargetTree:GetName() = "Star")
                 dudes = dudes + 1
+                numberOfDudes = dudes
             end
             if (NextObject:GetPlayerSub())
                 // if it's a player substitute marker, substitute!
@@ -144,5 +146,8 @@ class GameRoom_Level is GameRoom
     end
     action setDudes (integer n)
         dudes = n
+    end
+    action resetDudes ()
+        dudes = numberOfDudes
     end
 end

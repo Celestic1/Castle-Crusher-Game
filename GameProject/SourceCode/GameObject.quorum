@@ -17,7 +17,6 @@ class GameObject is Drawable
 	me:SetPosition(GetStartPositionX(), GetStartPositionY())
     end
 */
-
     // AddToGame and RemoveFromGame give you a place to do special behavior
     // when you get added or removed.
     action AddToGame (Game newGame)

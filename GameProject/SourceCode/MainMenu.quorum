@@ -30,7 +30,7 @@ class MainMenu is GameRoom
         StartButton:RefreshGameObject()
         AddObj(StartButton)
 
-        Clickable ExitButton
+        Clickable_Exit ExitButton
         ExitButton:SetParentGame(game)
         ExitButton:SetSpritePath("assets/exit_1.png")
         ExitButton:SetStartPosition(1280,650)

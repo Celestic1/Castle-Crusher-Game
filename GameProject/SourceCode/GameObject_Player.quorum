@@ -45,15 +45,18 @@ class GameObject_Player is GameObject, GameKeyboard
     Clickable ds
     Main game
     Color blue
-
+    
     action FireCannon(integer AmmoRef)
         if not (AmmoRef < myAmmo:GetSize() and AmmoRef >= 0)
-            output "Cannon is out of ammo!"
+            //output "Cannon is out of ammo!"
+            /*
             ds:SetParentGame(game)
             ds:SetSpritePath("assets/GameOver.png")
             ds:SetStartPosition(420,250)
             ds:RefreshGameObject()
             Add(ds)
+            */
+            game:MenuOntoRoomStack("Defeat")
             return now
         end
         toFire = myAmmo:Get(AmmoRef)
@@ -71,7 +74,7 @@ class GameObject_Player is GameObject, GameKeyboard
         cannonFire:Play()
         
         //output "Force: " + Force
-        output "Shot fired! " + myAmmo:GetSize() + " ammo left."
+        //output "Shot fired! " + myAmmo:GetSize() + " ammo left."
         ResetForce()
     end
 

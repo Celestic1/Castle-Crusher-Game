@@ -6,7 +6,7 @@ use Libraries.Game.Game
 class Clickable is GameObject, MouseListener
     
     private Main ParentGame
-
+    boolean wasClicked = false
     // Ensures this object will receive mouse events when it is clicked
     on create
         AddMouseListener(me)
@@ -23,6 +23,10 @@ class Clickable is GameObject, MouseListener
     // When mouse is clicked, it acces the GameFunction class's run function
     action ClickedMouse(MouseEvent event)
         ParentGame:PopRoomStack()
+        wasClicked = true
     end
     
+    action isClicked returns boolean
+        return wasClicked
+    end
 end

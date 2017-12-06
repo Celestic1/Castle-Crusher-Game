@@ -114,6 +114,20 @@ class GameRoom
         pg_CamMaxYOffset = 0
         pg_CamReset = 1
     end
+    
+    action copyRoom returns Array<Array<GameObject>>
+        Array<Array<GameObject>> newArray
+        integer i = 0
+        repeat while i < RoomLayers:GetSize()
+	    integer j = 0
+	    repeat while j < RoomLayers:Get(i):GetSize()
+		newArray:Get(i):Add(GetObjAtIndex(i, j))
+		j = j + 1
+	    end
+	    i = i + 1
+        end
+        return newArray
+    end
     action getLevelName () returns text
         return levelName
     end
@@ -126,5 +140,8 @@ class GameRoom
     end
     action setDudes (integer n)
         starCount = n
+    end
+    action resetDudes 
+        starCount = -9999
     end
 end

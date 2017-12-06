@@ -1,19 +1,16 @@
-use Libraries.Interface.Panel
-    
-class Victory is GameRoom
-                // or GameObject
-    action createScreen(Main game)
+class Defeat is GameRoom 
+   action createScreen(Main game)
         // Background layer!
         AddEmptyLayer()
         GameObject BackGround
-        BackGround:SetSpritePath("assets/CastleBackground.png")
+        BackGround:SetSpritePath("assets/Misty2.png")
         BackGround:RefreshGameObject()
         AddObj(BackGround)
         //x = 744 ; y = 280
         
         GameObject Logo 
-        Logo:SetSpritePath("assets/laurel-crown.png")
-        Logo:SetStartPosition(450, 100)
+        Logo:SetSpritePath("assets/GameOver.png")
+        Logo:SetStartPosition(450, 280)
         Logo:RefreshGameObject()
         AddObj(Logo)
         
@@ -30,22 +27,10 @@ class Victory is GameRoom
         main:SetParentGame(game)
         main:SetMenuString("MainMenu")
         main:SetSpritePath("assets/UI/SymbolsText/SYMB_MENU.png")
-        main:SetStartPosition(300,450)
+        main:SetStartPosition(450,120)
         main:RefreshGameObject()
         AddObj(main)
 
     end
-    /*
-    action createVictory (Main game)
-        Clickable Logo
-        Logo:SetParentGame(game)
-        Logo:SetSpritePath("assets/laurel-crown.png")
-        Logo:SetStartPosition(450, 250)
-        Logo:RefreshGameObject()
-        AddToGame(game)
-    end
-    action removeVictory (Main game)
-        RemoveFromGame(game)
-    end
-    */
+    
 end

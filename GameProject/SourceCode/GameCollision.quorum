@@ -5,112 +5,168 @@ use Libraries.Interface.Item2D
 use Libraries.Interface.Events.CollisionListener2D
 use Libraries.Interface.Events.CollisionEvent2D
 use GameObject
+use Libraries.Sound.Audio
+
 
 class GameCollision is CollisionListener2D
     private Game main
     public integer starCount = 0
     public boolean victory = false
-    
+    Audio scream1
+    Audio scream2
+
     action BeginCollision(CollisionEvent2D event)
         GameObject itemA = cast(GameObject, event:GetItemA())
         GameObject itemB = cast(GameObject, event:GetItemB())
-        //output "itemA: " + itemA:GetName()
-        //output "itemB: " + itemB:GetName()
-        // BasicBox
-        // Standard cannon ball can ONLY destory wooden stuff
-        //output "Dudes = " + starCount
+    
         if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox"
             itemA:RemoveFromGame(main)
-            starCount = starCount - 1
+            //starCount = starCount - 1
             itemA:Load("assets/blood.png")
             itemA:AddToGame(main)
             itemA:EnablePhysics(false)
+            scream1:Play()
         elseif itemA:GetName() = "BasicBox" and itemB:GetName() = "Star"
-            
             itemB:RemoveFromGame(main)
-            starCount = starCount - 1
+            //starCount = starCount - 1
             itemB:Load("assets/blood.png")
             itemB:AddToGame(main)
             itemB:EnablePhysics(false)
+            scream2:Play()
         end
 
         if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox"
-                itemA:RemoveFromGame(main)
-            starCount = starCount - 1
+            itemA:RemoveFromGame(main)
+            //starCount = starCount - 1
             itemA:Load("assets/blood.png")
             itemA:AddToGame(main)
             itemA:EnablePhysics(false)
+            scream2:Play()
         elseif itemA:GetName() = "BasicBox" and itemB:GetName() = "Star"
-             
-                itemB:RemoveFromGame(main)
-            starCount = starCount - 1
+            itemB:RemoveFromGame(main)
+            //starCount = starCount - 1
             itemB:Load("assets/blood.png")
             itemB:AddToGame(main)
             itemB:EnablePhysics(false)
+            scream1:Play()
         end
 
         if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox2"
-                itemA:RemoveFromGame(main)
-            starCount = starCount - 1
+            itemA:RemoveFromGame(main)
+            //starCount = starCount - 1
             itemA:Load("assets/blood.png")
             itemA:AddToGame(main)
             itemA:EnablePhysics(false)
+            scream2:Play()
         elseif itemA:GetName() = "BasicBox2" and itemB:GetName() = "Star"
             itemB:RemoveFromGame(main)
-            starCount = starCount - 1
+            //starCount = starCount - 1
             itemB:Load("assets/blood.png")
             itemB:AddToGame(main)
             itemB:EnablePhysics(false)
+            scream1:Play()
         end
 
         if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox3"
-
-                itemA:RemoveFromGame(main)
-            starCount = starCount - 1
+            itemA:RemoveFromGame(main)
+            //starCount = starCount - 1
             itemA:Load("assets/blood.png")
             itemA:AddToGame(main)
             itemA:EnablePhysics(false)
+            scream2:Play()
         elseif itemA:GetName() = "BasicBox3" and itemB:GetName() = "Star"
-
-                itemB:RemoveFromGame(main)
-            starCount = starCount - 1
+            itemB:RemoveFromGame(main)
+            //starCount = starCount - 1
             itemB:Load("assets/blood.png")
             itemB:AddToGame(main)
             itemB:EnablePhysics(false)
+            scream1:Play()
+        end
+
+        if itemA:GetName() = "Star" and itemB:GetName() = "Roof"
+            //starCount = starCount - 1
+            itemA:RemoveFromGame(main)
+            itemA:Load("assets/blood.png")
+            itemA:AddToGame(main)
+            itemA:EnablePhysics(false)
+            scream1:Play()
+        elseif itemA:GetName() = "Roof" and itemB:GetName() = "Star"
+            //starCount = starCount - 1
+            itemB:RemoveFromGame(main)
+            itemB:Load("assets/blood.png")
+            itemB:AddToGame(main)
+            itemB:EnablePhysics(false)
+            scream1:Play()
+        end
+        if itemA:GetName() = "CannonBall" and itemB:GetName() = "Star"
+            //starCount = starCount - 1
+            itemB:RemoveFromGame(main)
+            itemB:Load("assets/blood.png")
+            itemB:AddToGame(main)
+            itemB:EnablePhysics(false)
+            scream2:Play()
+
+        elseif itemA:GetName() = "Star" and itemB:GetName() = "CannonBall"
+            //starCount = starCount - 1
+            itemA:RemoveFromGame(main)
+            itemA:Load("assets/blood.png")
+            itemA:AddToGame(main)
+            itemA:EnablePhysics(false)
+            scream1:Play()
+
+        end
+        /*if starCount = 0
+            victory = true
+        end*/
+        //output "Stars ="+ starCount
+    end
+    action FinishCollision (CollisionEvent2D event)
+        GameObject itemA = cast(GameObject, event:GetItemA())
+        GameObject itemB = cast(GameObject, event:GetItemB())
+        
+        if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox"
+            starCount = starCount - 1
+        elseif itemA:GetName() = "BasicBox" and itemB:GetName() = "Star"
+            starCount = starCount - 1
+        end
+
+        if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox"
+            starCount = starCount - 1
+        elseif itemA:GetName() = "BasicBox" and itemB:GetName() = "Star"
+            starCount = starCount - 1
+        end
+
+        if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox2"
+            starCount = starCount - 1
+        elseif itemA:GetName() = "BasicBox2" and itemB:GetName() = "Star"
+            starCount = starCount - 1
+        end
+
+        if itemA:GetName() = "Star" and itemB:GetName() = "BasicBox3"
+           starCount = starCount - 1
+        elseif itemA:GetName() = "BasicBox3" and itemB:GetName() = "Star"
+           starCount = starCount - 1
         end
 
         if itemA:GetName() = "Star" and itemB:GetName() = "Roof"
             starCount = starCount - 1
-            itemA:RemoveFromGame(main)
-            itemA:Load("assets/blood.png")
-            itemA:AddToGame(main)
-            itemA:EnablePhysics(false)
         elseif itemA:GetName() = "Roof" and itemB:GetName() = "Star"
             starCount = starCount - 1
-            itemB:RemoveFromGame(main)
-            itemB:Load("assets/blood.png")
-            itemB:AddToGame(main)
-            itemB:EnablePhysics(false)
         end
+        
         if itemA:GetName() = "CannonBall" and itemB:GetName() = "Star"
             starCount = starCount - 1
-            itemB:RemoveFromGame(main)
-            itemB:Load("assets/blood.png")
-            itemB:AddToGame(main)
-            itemB:EnablePhysics(false)
-
         elseif itemA:GetName() = "Star" and itemB:GetName() = "CannonBall"
             starCount = starCount - 1
-            itemA:RemoveFromGame(main)
-            itemA:Load("assets/blood.png")
-            itemA:AddToGame(main)
-            itemA:EnablePhysics(false)
-
         end
+        
         if starCount = 0
             victory = true
         end
-        //output "Stars ="+ starCount
+    end
+    action setAudio(Audio one, Audio two)
+        scream1 = one
+        scream2 = two
     end
     action Victorious returns boolean
         return victory
