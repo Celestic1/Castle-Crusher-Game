@@ -189,6 +189,15 @@ class GameObject_Player is GameObject, GameKeyboard
         newGame:Add(Score1)
         newGame:Add(Score0)
     end
+
+    action CleanupNumbers (Game newGame)
+	newGame:Remove(Score3)
+	newGame:Remove(Score2)
+	newGame:Remove(Score1)
+	newGame:Remove(Score0)
+	newGame:Remove(Counter1)
+	newGame:Remove(Counter2)
+    end
     
     action UpdateScore 
         integer score = currentScore
@@ -205,13 +214,7 @@ class GameObject_Player is GameObject, GameKeyboard
     end    
     
     action SetupAmmoCount (Game newGame)
-        integer count = myAmmo:GetSize()
-        integer tmp = count
-        currentCount = myAmmo:GetSize()
-        tmp = count mod 10
-        LoadCount(Counter2, tmp)
-        count = count / 10
-        LoadCount(Counter1, count)
+	UpdateAmmoCount()
         Counter1:SetPosition(20,200)
         Counter2:SetPosition(70,200)
         newGame:Add(Counter1)
@@ -221,15 +224,16 @@ class GameObject_Player is GameObject, GameKeyboard
     action UpdateAmmoCount 
         integer tmp = myAmmo:GetSize()
         currentCount = tmp
-        tmp = tmp mod 10
-        LoadCount(Counter2, tmp)
-        tmp = tmp / 10
-        LoadCount(Counter1, tmp)
+        integer ones = tmp mod 10
+        LoadCount(Counter2, ones)
+        integer tens = tmp / 10
+        LoadCount(Counter1, tens)
     end
     
     action RemoveFromGame (Game newGame)
         parent:GameObject:RemoveFromGame(newGame)
         newGame:RemoveKeyboardListener(me)
+	CleanupNumbers(newGame)
         newGame:Remove(me)
     end
 
