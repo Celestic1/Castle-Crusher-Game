@@ -9,6 +9,7 @@ use Libraries.Compute.Vector2
 use Libraries.Interface.Events.KeyboardEvent
 use Libraries.Compute.Math
 use Libraries.Game.InputMonitor
+use Libraries.Game.Graphics.Color
 
 use Libraries.Sound.Audio
 use Libraries.System.File
@@ -43,6 +44,7 @@ class GameObject_Player is GameObject, GameKeyboard
     GameRoom room
     Clickable ds
     Main game
+    Color blue
 
     action FireCannon(integer AmmoRef)
         if not (AmmoRef < myAmmo:GetSize() and AmmoRef >= 0)
@@ -143,16 +145,18 @@ class GameObject_Player is GameObject, GameKeyboard
     end
 
     action SetupPowerBars (Game newGame)
-	PowerBar:LoadFilledRectangle(20,cast(integer,Force/velScaleFactor))
-	PowerBar:SetPosition(0,80)
-	PowerBarBackground:LoadRectangle(20,cast(integer,ForceCap/velScaleFactor))
-	PowerBarBackground:SetPosition(0,80)
+        blue:SetColor(0,0,0,1)
+	PowerBar:LoadFilledRectangle(20,cast(integer,Force/velScaleFactor), blue)
+	PowerBar:SetPosition(10,120)
+	PowerBarBackground:LoadRectangle(20,cast(integer,ForceCap/velScaleFactor), blue)
+	PowerBarBackground:SetPosition(10,120)
 	newGame:Add(PowerBar)
 	newGame:Add(PowerBarBackground)
     end
 
     action UpdatePowerBar
-	PowerBar:LoadFilledRectangle(20,cast(integer,Force/velScaleFactor))
+        blue:SetColor(0,0,0,1)
+	PowerBar:LoadFilledRectangle(20,cast(integer,Force/velScaleFactor), blue)
     end
     
     action LoadCount (Drawable d, integer digit)
@@ -181,7 +185,7 @@ class GameObject_Player is GameObject, GameKeyboard
     end
 
     action SetupScore (Game newGame)
-        integer score = currentScore
+        /*integer score = currentScore
         integer tmp = 0
         tmp = score mod 10
         LoadCount(Score3, tmp)
@@ -200,7 +204,7 @@ class GameObject_Player is GameObject, GameKeyboard
         newGame:Add(Score3)
         newGame:Add(Score2)
         newGame:Add(Score1)
-        newGame:Add(Score0)
+        newGame:Add(Score0)*/
     end
 
     action CleanupNumbers (Game newGame)
@@ -228,8 +232,8 @@ class GameObject_Player is GameObject, GameKeyboard
     
     action SetupAmmoCount (Game newGame)
 	UpdateAmmoCount()
-        Counter1:SetPosition(20,200)
-        Counter2:SetPosition(70,200)
+        Counter1:SetPosition(20,240)
+        Counter2:SetPosition(70,240)
         newGame:Add(Counter1)
         newGame:Add(Counter2)
     end

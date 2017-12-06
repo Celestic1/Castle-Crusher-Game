@@ -1,4 +1,10 @@
-<Map>
+<Map>    
+    <Layer>
+        <Misty>
+            <X>0</X>
+            <Y>0</Y>
+        </Misty>
+    </Layer>
     <Layer>
 	<Star>
 	    <X>820</X>
@@ -197,10 +203,6 @@
 	    <Y>240</Y>
 	</BasicBlock>
 	<BasicBox>
-	    <X>880</X>
-	    <Y>240</Y>
-	</BasicBox>
-	<BasicBox>
 	    <X>1200</X>
 	    <Y>240</Y>
 	</BasicBox>
@@ -218,10 +220,6 @@
 	</BasicBox>
 	<BasicBox>
 	    <X>680</X>
-	    <Y>200</Y>
-	</BasicBox>
-	<BasicBox>
-	    <X>880</X>
 	    <Y>200</Y>
 	</BasicBox>
 	<BasicBox>

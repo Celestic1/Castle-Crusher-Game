@@ -1,5 +1,11 @@
 <Map>
     <Layer>
+        <Mountain>
+            <X>0</X>
+            <Y>0</Y>
+        </Mountain>
+    </Layer>
+    <Layer>
 	<Roof>
 	    <X>560</X>
 	    <Y>320</Y>

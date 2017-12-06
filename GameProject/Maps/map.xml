@@ -1,5 +1,11 @@
 <Map>
     <Layer>
+        <Desert>
+            <X>0</X>
+            <Y>0</Y>
+        </Desert>
+    </Layer>
+    <Layer>
 	<BasicBox>
 	    <X>400</X>
 	    <Y>440</Y>

@@ -166,4 +166,16 @@ and open the template in the editor.
 	<Responsive>true</Responsive>
         <Friction>250</Friction>
     </Object>
+    <Object>
+        <Name>Mountain</Name>
+        <SpritePath>assets/Mtn2.png</SpritePath>
+    </Object>
+    <Object>
+        <Name>Desert</Name>
+        <SpritePath>assets/Desert/Full-Background.png</SpritePath>
+    </Object>    
+    <Object>
+        <Name>Misty</Name>
+        <SpritePath>assets/Misty2.png</SpritePath>
+    </Object>
 </ObjectLibrary>

@@ -21,7 +21,7 @@ class Clickable_LevelLoader is Clickable
         integer i = 0
         repeat while i < ammoCount
             GameObject NewShot = parent:Clickable:ParentGame:GetCoreLib():GetGameObject("CannonBall")
-            NewShot:FastMoving(true)
+            //NewShot:FastMoving(true)
             NewShot:RefreshGameObject()
             NewShot:Load("assets/Player/cannonball.png")
             //NewShot:LoadFilledCircle(10)
