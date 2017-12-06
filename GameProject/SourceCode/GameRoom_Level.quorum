@@ -1,0 +1,133 @@
+use Libraries.Game.Game
+use Libraries.Containers.Array
+use Libraries.System.File
+use Libraries.System.FileReader
+use Libraries.Game.Graphics.Drawable
+use GameObject
+
+class GameRoom_Level is GameRoom
+    private GameObject_Player PCan
+    private Array<GameObject> PAmmo
+    XMLNode RefNode
+    private text currentLevelName = ""
+
+    action AddRoomToGame(Game game)
+        parent:GameRoom:AddRoomToGame(game)
+        integer i = 0
+        repeat while i < PAmmo:GetSize()
+            PAmmo:Get(i):AddToGame(game)
+            i = i + 1
+        end
+    end
+
+    action RemoveRoomFromGame(Game game)
+        parent:GameRoom:RemoveRoomFromGame(game)
+        integer i = 0
+        repeat while i < PAmmo:GetSize()
+            PAmmo:Get(i):RemoveFromGame(game)
+            i = i + 1
+        end
+    end
+
+    // helper functions so we don't have to juggle XML before gettin ghere
+    // we can just load from a known file
+    action LoadRoomFromFile(text roomTextPath, GameObject_Library BlockLib, GameObject_Player Cannon, Array<GameObject> Ammo, Main game)
+        XMLFileManager FileMan
+	XMLNode RootNode = FileMan:GetXMLFromFile(roomTextPath)
+	if not currentLevelName:Equals(roomTextPath)
+            currentLevelName = roomTextPath
+            parent:GameRoom:setLevelName(roomTextPath)
+        end
+        LoadRoomFromTree(RootNode, BlockLib, Cannon, Ammo)
+        AddEmptyLayer()
+        Clickable exit
+        exit:SetParentGame(game)
+        exit:SetSpritePath("assets/exit_1.png")
+        exit:SetStartPosition(1280,650)
+        exit:RefreshGameObject()
+        AddObj(exit)
+
+    end
+
+    action LoadRoomFromFile(File TargetFile, GameObject_Library BlockLib, GameObject_Player Cannon, Array<GameObject> Ammo)
+	XMLFileManager FileMan
+	XMLNode RootNode = FileMan:GetXMLFromFile(TargetFile)
+	LoadRoomFromTree(RootNode, BlockLib, Cannon, Ammo)
+    end
+
+    action LoadRoomFromFile(text roomTextPath, GameObject_Library BlockLib)
+        XMLFileManager FileMan
+	XMLNode RootNode = FileMan:GetXMLFromFile(roomTextPath)
+        if not currentLevelName:Equals(roomTextPath)
+            currentLevelName = roomTextPath
+            parent:GameRoom:setLevelName(roomTextPath)
+        end
+	LoadRoomFromTree(RootNode, BlockLib)
+    end
+
+    action LoadRoomFromFile(File TargetFile, GameObject_Library BlockLib)
+	XMLFileManager FileMan
+	XMLNode RootNode = FileMan:GetXMLFromFile(TargetFile)
+	LoadRoomFromTree(RootNode, BlockLib)
+    end
+
+    // helper to manage ammo loadinb before we get into everything
+    action LoadRoomFromTree(XMLNode TargetTree, GameObject_Library BlockLib, GameObject_Player Cannon, Array<GameObject> Ammo)
+        PCan = Cannon
+        PAmmo = Ammo
+        Cannon:LoadCannon(Ammo)
+        LoadRoomFromTree(TargetTree,BlockLib)
+    end
+
+    action LoadRoomFromTree(XMLNode TargetTree, GameObject_Library BlockLib)
+	if TargetTree:GetName() not= RefNode:MAP
+	    output "ERROR: Invalid Map Format"
+	    return now
+	else
+	    integer i = 0
+	    repeat while i < TargetTree:Children:GetSize()
+		if TargetTree:Children:Get(i):GetName() = RefNode:LAYER
+		    LoadLayerFromTree(TargetTree:Children:Get(i),BlockLib)
+		else
+		    output "WARNING: Tried to read a '" + TargetTree:Children:Get(i):GetName() + "' when expecting a layer."
+		end
+		i = i + 1
+	    end
+	end
+    end
+
+    action LoadLayerFromTree(XMLNode TargetTree, GameObject_Library BlockLib)
+	integer i = 0
+	Array<GameObject> NewLayer
+	parent:GameRoom:RoomLayers:Add(NewLayer)
+	repeat while i < TargetTree:Children:GetSize()
+	    XMLNode NextChild = TargetTree:Children:Get(i)
+            LoadObjectFromTree(TargetTree:Children:Get(i), NewLayer, BlockLib)
+            i = i + 1
+	end
+    end
+
+    action LoadObjectFromTree(XMLNode TargetTree, Array<GameObject> Layer, GameObject_Library BlockLib)
+	    GameObject NextObject = BlockLib:GetGameObject(TargetTree:GetName())
+            if (NextObject:GetPlayerSub())
+                // if it's a player substitute marker, substitute!
+                NextObject = PCan
+                PCan:RefreshGameObject()
+                //output "Found a cannon sub!"
+            end
+	    integer j = 0
+	    repeat while j < TargetTree:Children:GetSize()
+		XMLNode NextPart = TargetTree:Children:Get(j)
+		if NextPart:GetName() = RefNode:XCOORD
+		    NextObject:SetPosition(cast(number,NextPart:GetValue()),NextObject:GetY())
+		elseif NextPart:GetName() = RefNode:YCOORD
+		    NextObject:SetPosition(NextObject:GetX(),cast(number,NextPart:GetValue()))
+		elseif NextPart:GetName() = RefNode:ROTATION
+		    NextObject:SetRotation(cast(number,NextPart:GetValue()))
+		end
+		j = j + 1
+	    end
+
+	    Layer:Add(NextObject)
+    end
+end

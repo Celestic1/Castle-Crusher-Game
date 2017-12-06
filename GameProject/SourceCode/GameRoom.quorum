@@ -1,0 +1,116 @@
+use Libraries.Game.Game
+use Libraries.Containers.Array
+use Libraries.System.File
+use Libraries.System.FileReader
+use Libraries.Game.Graphics.Drawable
+use GameObject
+
+
+class GameRoom
+    private Array<Array<GameObject>> RoomLayers
+    public integer pg_ScreenSizeX = 1366  // Default width of room
+    public integer pg_ScreenSizeY = 768   // Default height of room
+    private integer g_GridX = 40          // This is the width  of each 'grid' on map
+    private integer g_GridY = 40          // This is the height of each 'grid' on map
+    private text levelName = ""
+    
+    XMLNode RefNode
+    // Camera Variables
+    public integer pg_CamXOffset = 0
+    public integer pg_CamYOffset = 0
+    public integer pg_CamMaxXOffset = 0
+    public integer pg_CamMaxYOffset = 0
+    public integer pg_CamReset = 0        // Set to one so main knows to reset cam
+
+    action GetLayerCount
+        returns integer
+        return RoomLayers:GetSize()
+    end
+
+    action GetObjAtIndex (integer layer, integer index)
+        returns GameObject
+        return RoomLayers:Get(layer):Get(index)
+    end
+
+    action GetLayerAtIndex (integer layer)
+        returns Array<GameObject>
+        return RoomLayers:Get(layer)
+    end
+
+    action AddObj(GameObject obj)
+        RoomLayers:GetFromEnd():Add(obj)
+    end
+
+    action AddObjAtIndex (integer layer, integer index, GameObject obj)
+        RoomLayers:Get(layer):Add(index, obj)
+    end
+
+    action AddObjToLayer (integer layer, GameObject obj)
+        RoomLayers:Get(layer):Add(obj)
+    end
+
+    action DeleteObjAtIndex (integer layer, integer index)
+        RoomLayers:Get(layer):RemoveAt(index)
+    end
+
+    action DeleteLayerAtIndex (integer layer)
+	RoomLayers:RemoveAt(layer)
+    end
+
+    action AddEmptyLayer
+        Array<GameObject> EmptyLayer
+        RoomLayers:Add(EmptyLayer)
+    end
+
+    action AddRoomToGame(Game game)
+        integer i = 0
+        repeat while i < RoomLayers:GetSize()
+	    integer j = 0
+	    repeat while j < RoomLayers:Get(i):GetSize()
+		RoomLayers:Get(i):Get(j):AddToGame(game)
+		j = j + 1
+	    end
+	    i = i + 1
+        end
+    end
+
+    action RemoveRoomFromGame(Game game)
+        integer i = 0
+        repeat while i < RoomLayers:GetSize()
+	    Array<GameObject> CurrentLayer = RoomLayers:Get(i)
+	    integer j = 0
+	    repeat while j < RoomLayers:Get(i):GetSize()
+		CurrentLayer:Get(j):RemoveFromGame(game)
+		j = j + 1
+	    end
+	    i = i + 1
+        end
+    end
+
+    action DumpRoom
+        RoomLayers:Empty()
+    end
+
+    action ResetCamera
+/*        integer i = GetObjCount()
+        repeat until i = 0
+            QueueDelObj(i - 1)
+            i = i - 1
+        end*/
+        
+
+        // Reset Camera
+        pg_CamXOffset = 0
+        pg_CamYOffset = 0
+        pg_CamMaxXOffset = 0
+        pg_CamMaxYOffset = 0
+        pg_CamReset = 1
+    end
+    action getLevelName () returns text
+        return levelName
+    end
+    
+    action setLevelName(text name) 
+        levelName = name
+    end
+end

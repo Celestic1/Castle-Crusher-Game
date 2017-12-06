@@ -1,0 +1,107 @@
+use Libraries.Game.Game
+use Libraries.Game.Graphics.Drawable
+use Libraries.Compute.Vector2
+
+class GameObject is Drawable
+    private text SpritePath = "resources/sprFesh-Trimmed.png"
+    private Vector2 StartPosition
+    private boolean IsPlayerSub = false
+
+    // loads the things that aren't auto-loaded to begin with
+/*
+    action InitGameObject
+	if HasSpritePath
+	    me:Load(SpritePath)
+	else
+	    me:LoadFilledCircle(5)  // just so we load SOMEthing
+	end
+	me:SetPosition(GetStartPositionX(), GetStartPositionY())
+    end
+*/
+
+    // AddToGame and RemoveFromGame give you a place to do special behavior
+    // when you get added or removed.
+    action AddToGame (Game newGame)
+        newGame:Add(me)
+    end
+
+    action RemoveFromGame (Game newGame)
+        newGame:Remove(me)
+    end
+
+    on create
+	// constructor does some basic work to ensure we have an object at all
+	SetStartPosition(0,0)
+//	me:RefreshGameObject()
+    end
+
+    // function to refresh object and make sure it's what and where we think it is
+    action RefreshGameObject
+	Load(SpritePath)
+	SetPosition(GetStartPositionX(),GetStartPositionY())
+    end
+
+    // Some getters and setter
+    action SetStartPosition (Vector2 newPos)
+	StartPosition:Set(newPos)
+    end
+    action SetStartPosition (number newX, number newY)
+	StartPosition:Set(newX, newY)
+    end
+    action SetStartPositionX (number newX)
+	StartPosition:SetX(newX)
+    end
+    action SetStartPositionY (number newY)
+	StartPosition:SetY(newY)
+    end
+    action GetStartPosition returns Vector2
+	return StartPosition
+    end
+    action GetStartPositionX returns number
+	return StartPosition:GetX()
+    end
+    action GetStartPositionY returns number
+	return StartPosition:GetY()
+    end
+
+    action SetSpritePath (text newPath)
+	SpritePath = newPath
+	HasSpritePath = true
+    end
+    action GetSpritePath returns text
+	return SpritePath
+    end
+
+    action SetPlayerSub (boolean newPlay)
+        IsPlayerSub = newPlay
+    end
+    action GetPlayerSub returns boolean
+        return IsPlayerSub
+    end
+
+    action Copy returns GameObject
+	GameObject NewObject
+	NewObject:QuickCopy(me)
+	NewObject:SetStartPosition(me:GetStartPosition())
+	NewObject:SetSpritePath(me:GetSpritePath())
+        NewObject:SetPlayerSub(me:GetPlayerSub())
+
+        NewObject:SetName(me:GetName())
+        if me:IsPhysicsEnabled()
+            NewObject:EnablePhysics(true)
+            if me:IsUnmovable()
+                NewObject:SetUnmovable()
+            end
+            if me:IsResponsive()
+                NewObject:SetResponsive()
+            end
+            NewObject:SetMass(me:GetMass())
+            NewObject:SetFriction(me:GetFriction())
+            NewObject:SetRestitution(me:GetRestitution())
+        end
+        NewObject:SetCollidable(me:IsCollidable())
+
+        NewObject:RefreshGameObject()
+	return NewObject
+    end
+end

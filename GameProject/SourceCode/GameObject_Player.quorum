@@ -1,0 +1,317 @@
+use GameObject
+//use GameObject_Attrib_List
+use GameKeyboard
+use Libraries.Game.Game
+use Libraries.Containers.List
+use Libraries.Containers.Array
+use Libraries.Game.Graphics.Drawable
+use Libraries.Compute.Vector2
+use Libraries.Interface.Events.KeyboardEvent
+use Libraries.Compute.Math
+use Libraries.Game.InputMonitor
+use Libraries.Game.Graphics.Color
+
+use Libraries.Sound.Audio
+use Libraries.System.File
+
+class GameObject_Player is GameObject, GameKeyboard
+    List<GameObject> myAmmo
+    private number ForceCap = 100000
+    private number Force = 0
+    boolean reachedCap = false
+    private number velScaleFactor = 1000
+    private number offSideScale = 4
+    GameObject toFire
+    Vector2 MyForce
+    Drawable barX
+    Drawable barY
+    Drawable PowerBar
+    Drawable PowerBarBackground
+    Drawable CannonBase
+//    Drawable Cannon
+    Math MyMath
+    InputMonitor monitor
+    KeyboardEvent keys
+    Drawable Counter1 //10s place 
+    Drawable Counter2   // 0th place
+    integer currentCount = 0
+    integer currentScore = 0
+    Drawable Score0
+    Drawable Score1
+    Drawable Score2
+    Drawable Score3
+    private integer origSize = 0
+    GameRoom room
+    Clickable ds
+    Main game
+    Color blue
+
+    action FireCannon(integer AmmoRef)
+        if not (AmmoRef < myAmmo:GetSize() and AmmoRef >= 0)
+            output "Cannon is out of ammo!"
+            ds:SetParentGame(game)
+            ds:SetSpritePath("assets/GameOver.png")
+            ds:SetStartPosition(420,250)
+            ds:RefreshGameObject()
+            Add(ds)
+            return now
+        end
+        toFire = myAmmo:Get(AmmoRef)
+        toFire:SetPosition(GetBarrelX()-toFire:GetWidth()/2,GetBarrelY()-toFire:GetHeight()/2)
+        MyForce:Set(GetVelocityX(),GetVelocityY())
+        toFire:SetResponsive()
+        toFire:ApplyForceToCenter(MyForce)
+        toFire:Show()
+        myAmmo:RemoveAt(AmmoRef)
+        currentCount = myAmmo:GetSize()
+
+        //Audio
+        Audio cannonFire
+        cannonFire:Load("resources/cannonfire.wav")
+        cannonFire:Play()
+        
+        //output "Force: " + Force
+        output "Shot fired! " + myAmmo:GetSize() + " ammo left."
+        ResetForce()
+    end
+
+    action SetGame(Main g)
+        game = g
+    end
+
+    action RemoveAmmoFromGame
+        integer i = 0
+        repeat while i < origSize
+            Remove(toFire)
+        end
+        myAmmo:Empty()
+    end
+
+
+    action LoadCannon(Array<GameObject> newAmmo)
+        Remove(ds)
+        integer i = 0
+        myAmmo:Empty()
+        repeat while i < newAmmo:GetSize()
+            LoadCannon(newAmmo:Get(i))
+            i = i + 1
+        end
+        origSize = myAmmo:GetSize()
+    end
+
+    action LoadCannon(GameObject newAmmo) 
+        newAmmo:Hide()
+        myAmmo:Add(newAmmo)
+    end
+
+    on create
+//	SetStartPosition(0,0)
+//	RefreshGameObject()
+    end
+
+    action RefreshGameObject
+        parent:GameObject:RefreshGameObject()
+	//me:LoadFilledRectangle(80,20)
+        //SetPosition(GetStartPositionX(),GetStartPositionY())
+        ResetForce()
+        //me:LoadFilledRectangle(80,20)
+        me:Load("assets/Player/player.png")
+    end
+
+    // resets Force after we released Space Bar
+    action ResetForce
+        Force = 0
+    end
+
+    //don't need this
+    action ReloadBars
+	barX:LoadFilledRectangle(cast(integer,MyForce:GetX()/velScaleFactor),cast(integer,me:GetHeight()/offSideScale))
+	barY:LoadFilledRectangle(cast(integer,me:GetWidth()/offSideScale), cast(integer,MyForce:GetY()/velScaleFactor))
+    end
+
+
+    action Update(number seconds)
+	if HaveActiveKeys()
+	    ActiveKeysUpdate()
+	end
+    end
+
+    action AddToGame (Game newGame)
+        parent:GameObject:AddToGame(newGame)
+	AddKeyboardToGame(newGame)
+	SetupPowerBars(newGame)
+        SetupAmmoCount(newGame)
+        SetupScore(newGame)
+    end
+
+    action SetupPowerBars (Game newGame)
+        blue:SetColor(0,0,0,1)
+	PowerBar:LoadFilledRectangle(20,cast(integer,Force/velScaleFactor), blue)
+	PowerBar:SetPosition(10,120)
+	PowerBarBackground:LoadRectangle(20,cast(integer,ForceCap/velScaleFactor), blue)
+	PowerBarBackground:SetPosition(10,120)
+	newGame:Add(PowerBar)
+	newGame:Add(PowerBarBackground)
+    end
+
+    action UpdatePowerBar
+        blue:SetColor(0,0,0,1)
+	PowerBar:LoadFilledRectangle(20,cast(integer,Force/velScaleFactor), blue)
+    end
+    
+    action LoadCount (Drawable d, integer digit)
+        integer tmp = digit
+                if tmp = 0 
+                    d:Load("assets/UI/Symbols & Text/SYMB_0.png")
+                elseif tmp = 1 
+                    d:Load("assets/UI/Symbols & Text/SYMB_1.png")
+                elseif tmp = 2
+                    d:Load("assets/UI/Symbols & Text/SYMB_2.png")
+                elseif tmp = 3
+                    d:Load("assets/UI/Symbols & Text/SYMB_3.png")
+                elseif tmp = 4
+                    d:Load("assets/UI/Symbols & Text/SYMB_4.png")
+                elseif tmp = 5
+                    d:Load("assets/UI/Symbols & Text/SYMB_5.png")
+                elseif tmp = 6
+                    d:Load("assets/UI/Symbols & Text/SYMB_6.png")
+                elseif tmp = 7
+                    d:Load("assets/UI/Symbols & Text/SYMB_7.png")
+                elseif tmp = 8 
+                    d:Load("assets/UI/Symbols & Text/SYMB_8.png")
+                elseif tmp = 9
+                    d:Load("assets/UI/Symbols & Text/SYMB_9.png")
+                end 
+    end
+
+    action SetupScore (Game newGame)
+        /*integer score = currentScore
+        integer tmp = 0
+        tmp = score mod 10
+        LoadCount(Score3, tmp)
+        score = score / 10
+        tmp = score mod 10
+        LoadCount(Score2, tmp)
+        score = score / 10
+        tmp = score mod 10
+        LoadCount(Score1, tmp)
+        score = score / 10
+        LoadCount(Score0, score)
+        Score3:SetPosition(20,300)
+        Score2:SetPosition(70,300)
+        Score1:SetPosition(120, 300)
+        Score0:SetPosition(170, 300)
+        newGame:Add(Score3)
+        newGame:Add(Score2)
+        newGame:Add(Score1)
+        newGame:Add(Score0)*/
+    end
+
+    action CleanupNumbers (Game newGame)
+	newGame:Remove(Score3)
+	newGame:Remove(Score2)
+	newGame:Remove(Score1)
+	newGame:Remove(Score0)
+	newGame:Remove(Counter1)
+	newGame:Remove(Counter2)
+    end
+    
+    action UpdateScore 
+        integer score = currentScore
+        integer tmp = score mod 10
+        LoadCount(Score3, tmp)
+        score = score / 10
+        tmp = score mod 10
+        LoadCount(Score2, tmp)
+        score = score / 10
+        tmp = score mod 10
+        LoadCount(Score1, tmp)
+        score = score / 10
+        LoadCount(Score0, score)
+    end    
+    
+    action SetupAmmoCount (Game newGame)
+	UpdateAmmoCount()
+        Counter1:SetPosition(20,240)
+        Counter2:SetPosition(70,240)
+        newGame:Add(Counter1)
+        newGame:Add(Counter2)
+    end
+    
+    action UpdateAmmoCount 
+        integer tmp = myAmmo:GetSize()
+        currentCount = tmp
+        integer ones = tmp mod 10
+        LoadCount(Counter2, ones)
+        integer tens = tmp / 10
+        LoadCount(Counter1, tens)
+    end
+    
+    action RemoveFromGame (Game newGame)
+        parent:GameObject:RemoveFromGame(newGame)
+        newGame:RemoveKeyboardListener(me)
+	CleanupNumbers(newGame)
+        newGame:Remove(me)
+    end
+
+    action GetBarrelX returns number
+        return (GetGlobalX()+ GetWidth()/2 + (MyMath:Cosine(GetRotationInRadians()) * GetWidth()/2))
+    end
+
+    action GetBarrelY returns number
+        return (GetGlobalY() + GetHeight()/2 - (MyMath:Sine(GetRotationInRadians()) * GetWidth()/2))
+    end
+
+    action GetVelocityX() returns number
+        return MyMath:Cosine(GetRotationInRadians()) * Force
+    end
+
+    action GetVelocityY() returns number
+        return -(MyMath:Sine(GetRotationInRadians()) * Force)
+    end
+    
+    // Keyboard Managers
+    action StartKey(KeyboardEvent event)
+    end
+
+    action EndKey(KeyboardEvent event)
+	if event:keyCode = event:SPACE
+            FireCannon(0)
+	    ResetForce()
+	    UpdatePowerBar()
+            UpdateAmmoCount()
+            UpdateScore()
+	end
+    end
+
+    action OperateOnKey(KeyboardEvent event)
+	if event:keyCode = event:W
+            if me:GetRotation() > -90
+                me:Rotate(-1)
+            end
+	end
+
+	if event:keyCode = event:S
+            if me:GetRotation() < 0
+                me:Rotate(1)
+            end
+	end
+
+	if event:keyCode = event:SPACE
+            if (Force <= ForceCap and not reachedCap)
+                Force = Force + velScaleFactor
+                if (Force = ForceCap)
+                     reachedCap = true
+                end
+            end
+            if (reachedCap)
+                Force = Force - velScaleFactor
+                if (Force < 0)
+                   Force = 0
+                   reachedCap = false
+                end
+            end
+	    UpdatePowerBar()
+	end
+    end
+end
