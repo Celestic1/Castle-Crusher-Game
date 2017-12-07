@@ -12,7 +12,7 @@ class Defeat is GameRoom
         AddEmptyLayer()
         Clickable_MenuLoader exit
         exit:SetParentGame(game)
-        exit:SetMenuString("LevelSelector")
+        exit:SetMenuString("MainMenu")
         exit:SetSpritePath("assets/exit_1.png")
         exit:SetStartPosition(1280,650)
         exit:RefreshGameObject()
@@ -20,7 +20,7 @@ class Defeat is GameRoom
         
         Clickable_MenuLoader main
         main:SetParentGame(game)
-        main:SetMenuString("MainMenu")
+        main:SetMenuString("LevelSelector")
         main:SetSpritePath("assets/GameOver.png")
         main:SetStartPosition(450,280)
         main:RefreshGameObject()

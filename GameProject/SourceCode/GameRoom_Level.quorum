@@ -11,7 +11,7 @@ class GameRoom_Level is GameRoom
     XMLNode RefNode
     private text currentLevelName = ""
     private integer dudes = 0
-    public integer numberOfDudes = 0 
+    boolean wasLoaded = false
 
     action AddRoomToGame(Game game)
         parent:GameRoom:AddRoomToGame(game)
@@ -43,7 +43,6 @@ class GameRoom_Level is GameRoom
         end
         LoadRoomFromTree(RootNode, BlockLib, Cannon, Ammo)
         //After Loading all the drawn objects; add the clickables
-        
         AddEmptyLayer()
         Clickable exit
         exit:SetParentGame(game)
@@ -116,8 +115,7 @@ class GameRoom_Level is GameRoom
     action LoadObjectFromTree(XMLNode TargetTree, Array<GameObject> Layer, GameObject_Library BlockLib)
 	    GameObject NextObject = BlockLib:GetGameObject(TargetTree:GetName())
             if (TargetTree:GetName() = "Star")
-                dudes = dudes + 1
-                numberOfDudes = dudes
+                    dudes = dudes + 2
             end
             if (NextObject:GetPlayerSub())
                 // if it's a player substitute marker, substitute!
@@ -148,6 +146,6 @@ class GameRoom_Level is GameRoom
         dudes = n
     end
     action resetDudes ()
-        dudes = numberOfDudes
+        dudes = 0
     end
 end

@@ -26,8 +26,8 @@ class Main is Game
     inGameMenu igm
     Victory VictoryRoom
     Defeat DefeatRoom
-    boolean isLoaded = false
-    
+    boolean isLoaded = false 
+    integer oldCount = 0
     Audio first
     Audio second
     Audio victoryTheme
@@ -89,27 +89,34 @@ class Main is Game
     end
 
     action Update(number seconds)
-        if RoomStack:Peek():getDudes() > 0 
+       /* if RoomStack:Peek():getDudes() > 0 
+            oldCount = RoomStack:Peek():getDudes()
             if not isLoaded
                 //isLoaded = true
                 GameCollisionListener:setStarCount(RoomStack:Peek():getDudes())
                 //output "GCL has " + GameCollisionListener:getStarCount() + " dudes."
+                if not (GameCollisionListener:getStarCount() = oldCount)
+                    GameCollisionListener:setStarCount(oldCount)
+                end
                 isLoaded = true
             end
             if isLoaded
-                //output "Loaded but NOT VICTORIOUS!!"
+               //output "GCL COUNT: " + GameCollisionListener:getStarCount() + " isLoaded: " + isLoaded
                 if GameCollisionListener:Victorious()
                     //output "VICTORIOUS!!"
+                    RoomStack:Peek():setDudes(oldCount)
                     isLoaded = false
                     GameCollisionListener:resetVictory()
-                    RoomStack:Peek():resetDudes()
                     GameCollisionListener:setStarCount(RoomStack:Peek():getDudes())
                     //RoomStack:Peek():getDudes()
                     MenuOntoRoomStack("Victory")
+                    //output "GCL COUNT: " + GameCollisionListener:getStarCount() + " isLoaded: " + isLoaded
                     //VictoryRoom:createVictory(me)
                 end
+                //output "GCL COUNT: " + GameCollisionListener:getStarCount() + " isLoaded: " + isLoaded
             end    
         end
+        */
     end
 
     action GetCoreLibrary returns GameObject_Library

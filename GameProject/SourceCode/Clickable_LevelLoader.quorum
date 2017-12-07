@@ -12,6 +12,7 @@ class Clickable_LevelLoader is Clickable
         //integer i = TempAmmo:GetSize()
         TempAmmo:Empty()
         MakeSpecialAmmo()
+        NewRoom:setDudes(0)
         NewCannon:SetGame(parent:Clickable:GetParentGame())
         NewRoom:LoadRoomFromFile(LevelString,parent:Clickable:ParentGame:GetCoreLibrary(),NewCannon,TempAmmo,parent:Clickable:GetParentGame())
         parent:Clickable:ParentGame:PushRoomStack(NewRoom)
