@@ -1,0 +1,118 @@
+Assets Checklist 
+	2D ART
+		Logo 11/15
+		Buttons 11/13
+			Start
+			Exit
+			Yes
+			No
+			Pause
+			Continue
+			Retry
+			Settings
+			Desert Level
+			Mountainous Level
+			Winter Level
+			Castle Level
+			Cloudy Level
+			Back
+			Quit/Back to Main Menu
+		Player 11/12
+			Cannon Sprite
+		Cannonball 11/15
+			'Normal' Sprite
+			'Small' Sprite
+			'Large' Sprite
+		Castle Blocks 11/15
+			Undamaged Wood Block
+			Undamaged Steel Block
+			Semi-destroyed Wood Block
+			Semi-destroyed Steel Block
+			Wholly-destroyed Wood Block
+			Wholly-destroyed Steel Block
+		Level Themes 11/14
+			(Each Level Theme will have its own background, 'ground'/Border blocks)
+			Desert	
+			Mountainous (Default) 
+			Winter 
+			Castle
+			Cloudy 
+		People (Sprites)
+			(Each Level will come with own accompanying 'royalty' to crush)
+			Cloudy Knight 11/13
+			Desert Knight 11/13
+			Mountainous Knight 11/13
+			Winter Knight 11/13
+			Castle Knight 11/13
+			Cloudy Knight 11/13
+	SOUNDS
+		Themes
+			Victory (Maestoso, Noble (Fanfare))
+			Defeat (Minor-key, Foreboding)
+			Title (used at the main menu)
+			Desert (Arabic, Exotic)
+			Mountainous (Strong, Japanese)
+			Castle (Fanfare-esque, Royal)
+			Cloudy (Light, Lilting)
+		Cannonfire
+			'small' sound
+			'normal' sound
+			'large' sound
+		Person
+			Dead (Scream)
+			Injured 
+			'Talking'
+		Collisions (hitter -> hitee) 
+			Cannonball -> Block
+				small -> wood
+				small -> steel
+				normal -> wood
+				normal -> steel
+				large -> wood
+				large -> steel
+			Block -> Block
+				wood -> wood
+				wood -> steel
+				steel -> wood
+				steel -> steel
+			Block -> Person
+				Wood -> Desert King
+				Wood -> Mountainous King
+				Wood -> Winter King
+				Wood -> Castle King
+				Wood -> Cloudy Knight
+				Wood -> Desert Knight
+				Wood -> Mountainous Knight
+				Wood -> Winter Knight
+				Wood -> Castle Knight
+				Wood -> Cloudy Knight
+				Wood -> Desert Prince
+				Wood -> Mountainous Prince
+				Wood -> Winter Prince
+				Wood -> Castle Prince
+				Wood -> Cloudy Prince
+				Wood -> Desert Foot Solider
+				Wood -> Mountainous Foot Solider
+				Wood -> Winter Foot Solider
+				Wood -> Castle Foot Solider
+				Wood -> Cloudy Foot Solider
+				Steel -> Desert King
+				Steel -> Mountainous King
+				Steel -> Winter King
+				Steel -> Castle King
+				Steel -> Cloudy Knight
+				Steel -> Desert Knight
+				Steel -> Mountainous Knight
+				Steel -> Winter Knight
+				Steel -> Castle Knight
+				Steel -> Cloudy Knight
+				Steel -> Desert Prince
+				Steel -> Mountainous Prince
+				Steel -> Winter Prince
+				Steel -> Castle Prince
+				Steel -> Cloudy Prince
+				Steel -> Desert Foot Solider
+				Steel -> Mountainous Foot Solider
+				Steel -> Winter Foot Solider
+				Steel -> Castle Foot Solider
+				Steel -> Cloudy Foot Solider
