@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<Map>
+    <Layer>
+	<WoodenBox>
+	    <X>200</X>
+	    <Y>40</Y>
+	</WoodenBox>
+        <WoodenBox>
+	    <X>200</X>
+	    <Y>80</Y>
+	</WoodenBox>
+        <WoodenBox>
+	    <X>200</X>
+	    <Y>120</Y>
+	</WoodenBox>
+        <WoodenBox>
+	    <X>200</X>
+	    <Y>160</Y>
+	</WoodenBox>
+        <BasicBlock>
+            <X>200</X>
+            <Y>0</Y>
+        </BasicBlock>
+        <Cannon>
+            <X>30</X>
+            <Y>100</Y>
+        </Cannon>
+    </Layer>
+</Map>
