@@ -1,0 +1,117 @@
+use Libraries.Containers.Array
+use Libraries.Containers.HashTable
+use Libraries.Containers.Support.HashTableIterator
+use Libraries.Containers.Support.HashTableKeyIterator
+use XMLNode
+
+// GameObject_Library stores blueprints of the objects we care about
+// and spits copies out when we ask for them
+class GameObject_Library
+    private HashTable<text,GameObject> ObjectLibrary
+    private XMLNode RefNode
+
+    action GetGameObject(text target) returns GameObject
+	if not ObjectLibrary:HasKey(target)
+	    output "WARNING: Tried to find nonexistent object '" + target + "'"
+	end
+	GameObject ReturnObject = ObjectLibrary:GetValue(target):Copy()
+	ReturnObject:RefreshGameObject()
+	return ReturnObject
+    end
+
+    action LoadLibraryFromTree(XMLNode TargetTree)
+        if TargetTree:GetName() = RefNode:OBJECT
+	    //we effectively repeatedly switch through the tags to load
+	    //all the relevant information.
+	    integer i = 0
+	    GameObject NewObject
+            NewObject:RefreshGameObject()
+	    text NewKey = ""
+	    repeat while i < TargetTree:Children:GetSize()
+		XMLNode NextChild = TargetTree:Children:Get(i)
+		// begin switch
+		if NextChild:GetName() = RefNode:NAME
+		    NewKey = NextChild:GetValue()
+		elseif NextChild:GetName() = RefNode:DISPLAYNAME
+		    NewObject:SetName(NextChild:GetValue())
+		elseif NextChild:GetName() = RefNode:SPRITEPATH
+		    NewObject:SetSpritePath(NextChild:GetValue())
+                elseif NextChild:GetName() = RefNode:PLAYER
+                    if NextChild:GetValue():EqualsIgnoringCase("true")
+                        NewObject:SetPlayerSub(true)
+                    elseif NextChild:GetValue():EqualsIgnoringCase("false")
+                        NewObject:SetPlayerSub(false)
+                    else
+			output "WARNING: Encountered bad boolean value '" + NextChild:GetName() + "'"
+                    end
+		elseif NextChild:GetName() = RefNode:PHYSICSENABLED
+		    if NextChild:GetValue():EqualsIgnoringCase("true")
+			NewObject:EnablePhysics(true)
+		    elseif NextChild:GetValue():EqualsIgnoringCase("false")
+			NewObject:EnablePhysics(false)
+		    else
+			output "WARNING: Encountered bad boolean value '" + NextChild:GetName() + "'"
+		    end
+		elseif NextChild:GetName() = RefNode:UNMOVABLE
+		    if NextChild:GetValue():EqualsIgnoringCase("true")
+			NewObject:SetUnmovable()
+		    elseif NextChild:GetValue():EqualsIgnoringCase("false")
+		    else
+			output "WARNING: Encountered bad boolean value '" + NextChild:GetName() + "'"
+		    end
+		elseif NextChild:GetName() = RefNode:RESPONSIVE
+		    if NextChild:GetValue():EqualsIgnoringCase("true")
+			NewObject:SetResponsive()
+		    elseif NextChild:GetValue():EqualsIgnoringCase("false")
+		    else
+			output "WARNING: Encountered bad boolean value '" + NextChild:GetName() + "'"
+		    end
+		elseif NextChild:GetName() = RefNode:COLLIDABLE
+		    if NextChild:GetValue():EqualsIgnoringCase("true")
+			NewObject:SetCollidable(true)
+		    elseif NextChild:GetValue():EqualsIgnoringCase("false")
+		    else
+			output "WARNING: Encountered bad boolean value '" + NextChild:GetName() + "'"
+		    end
+		elseif NextChild:GetName() = RefNode:MASS
+		    NewObject:SetMass(cast(number,NextChild:GetValue()))
+		elseif NextChild:GetName() = RefNode:FRICTION
+		    NewObject:SetFriction(cast(number,NextChild:GetValue()))
+		elseif NextChild:GetName() = RefNode:RESTITUTION
+		    NewObject:SetRestitution(cast(number,NextChild:GetValue()))
+		else
+		    output "WARNING: Encountered unidentified tag '" + NextChild:GetName() + "'"
+		end
+		// end switch
+		i = i + 1
+	    end
+	    if NewKey:IsEmpty()
+		output "WARNING: Tried to add a nameless object to the library."
+	    else
+		if ObjectLibrary:HasKey(NewKey)
+		    output "WARNING: Attempted to redefine object '" + NewKey + "'"
+		else
+		    ObjectLibrary:Add(NewKey,NewObject)
+		end
+	    end
+	else
+	    integer i = 0
+	    repeat while i < TargetTree:Children:GetSize()
+		LoadLibraryFromTree(TargetTree:Children:Get(i))
+		i = i + 1
+	    end
+	end
+    end
+
+    action OutputHashTableContents
+	Array<text> KeyList = ObjectLibrary:CopyToKeyArray()
+	integer i = 0
+	text RefText = ""
+	/*
+	output "Library Contents:"
+	repeat while i < KeyList:GetSize()
+	    output RefText:GetTab() + KeyList:Get(i) + " - " + ObjectLibrary:GetValue(KeyList:Get(i)):GetSpritePath()
+	    i = i + 1
+	end*/
+    end
+end

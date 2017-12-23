@@ -1,0 +1,65 @@
+use Libraries.Interface.Events.KeyboardListener
+use Libraries.Interface.Events.KeyboardEvent
+use Libraries.Containers.List
+use Libraries.Containers.Iterator
+use Libraries.Game.Game
+
+class GameKeyboard is KeyboardListener
+    List<KeyboardEvent> ActiveKeys
+
+    action PressedKey(KeyboardEvent event)
+        ActiveKeys:AddToFront(event)
+        StartKey(event)
+	//output "Pressed key " + event:keyCode
+    end
+
+    // find object, remove
+    action ReleasedKey(KeyboardEvent event)
+        integer TargLoc = GetActiveKeyLocation(event)
+//	output "TargLoc: " + TargLoc
+        if TargLoc >= 0
+            ActiveKeys:RemoveAt(TargLoc)
+	    //output "Cleared key " + event:keyCode
+        end
+        EndKey(event)
+    end
+
+    action GetActiveKeys() returns List<KeyboardEvent>
+        return ActiveKeys
+    end
+    action HaveActiveKeys returns boolean
+	return not ActiveKeys:IsEmpty()
+    end
+
+    action GetActiveKeyLocation(KeyboardEvent target) returns integer
+        integer KeyIt = 0
+        repeat while KeyIt < ActiveKeys:GetSize()
+            if target:keyCode = ActiveKeys:Get(KeyIt):keyCode
+                return KeyIt
+            end
+	    KeyIt = KeyIt + 1
+        end
+        return -1
+    end
+
+    action StartKey(KeyboardEvent event)
+    end
+
+    action EndKey(KeyboardEvent event)
+    end
+
+    action OperateOnKey(KeyboardEvent event)
+    end
+
+    action ActiveKeysUpdate()
+        integer KeyIt = 0
+        repeat while KeyIt < ActiveKeys:GetSize()
+            OperateOnKey(ActiveKeys:Get(KeyIt))
+	    KeyIt = KeyIt + 1
+        end
+    end
+
+    action AddKeyboardToGame(Game newGame)
+	newGame:AddKeyboardListener(me)
+    end
+end

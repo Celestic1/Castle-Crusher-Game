@@ -1,0 +1,122 @@
+use Libraries.Containers.Array
+use Libraries.Containers.Stack
+use Libraries.Containers.HashTable
+use Libraries.Game.Game
+use Libraries.Game.Graphics.Camera
+use Libraries.Game.Graphics.Drawable
+use Libraries.System.File
+use GameObject
+//use GameObject_Attrib_List
+use GameObject_Player
+
+class Main is Game
+    GameRoom RefRoom
+    Stack<GameRoom> RoomStack
+    HashTable<text,GameRoom> MenuTable
+    GameMouse GameMouseListener
+    GameCollision GameCollisionListener
+//    GameObject_Attrib_List src
+    Camera camera = undefined
+    GameObject_Library CoreLibrary
+//    Drawable mainScreen
+    MainMenu mainmenu
+    LevelSelector ls
+
+    action Main
+
+        //GameMouseListener:RefRoom = RefRoom
+        GameCollisionListener:main = me
+        // Fixed screensize / gamename
+        EnableResizing(true)
+        SetScreenSize(RefRoom:pg_ScreenSizeX , RefRoom:pg_ScreenSizeY)
+        SetGameName("Castle Crusher")
+        StartGame()
+    end
+
+    action CreateGame
+        XMLFileManager FileMan
+        XMLNode ReadRoot = FileMan:GetXMLFromFile("Definitions/CoreDefs.xml")
+	CoreLibrary:LoadLibraryFromTree(ReadRoot)
+	CoreLibrary:OutputHashTableContents()
+        camera = GetCamera2D()
+        EnablePhysics2D(true)
+        SetGravity2D(0, -75)
+        //AddMouseListener(GameMouseListener)
+        //AddMouseMovementListener(GameMouseListener)
+        AddCollisionListener(GameCollisionListener)
+        RefRoom:pg_CamMaxXOffset = 200
+	/*GameRoom_Level TestRoom
+	TestRoom:LoadRoomFromFile("Maps/TestMap.xml",CoreLibrary)
+	TestRoom:AddRoomToGame(me)*/
+
+        // Draw cursor
+        //Add(GameMouseListener)
+        //AddMouseListener(GameMouseListener)
+        //AddMouseMovementListener(GameMouseListener)
+        //RefRoom:pg_CamMaxXOffset = 200
+        mainmenu:InitMainMenu(me)
+        PushRoomStack(mainmenu)
+        ls:CreateScreen(me)
+        MenuTable:Add("LevelSelector",ls)
+        
+
+        //Add(GameMouseListener)
+    end
+
+    action Update(number seconds)
+
+    end
+
+    action GetCoreLibrary returns GameObject_Library
+        return CoreLibrary
+    end
+
+    action createMainMenu
+
+/*
+        exitFunction exit
+        startFunction start
+        mainmenu:Create(mainScreen)
+        exit:setGame(me)
+        start:setMainMenu(mainmenu)
+//        start:setGameRoom(roo)
+        start:setGame(me)
+        mainmenu:startMenu:LoadClick(start)
+        mainmenu:exitMenu:LoadClick(exit)
+        mainmenu:Render()
+*/
+    end
+
+    // ROOM AND STACK MANAGEMENT
+    // PRETTY FRIGGIN IMPORTANT
+
+    action PushRoomStack (GameRoom NewRoom)
+        if RoomStack:GetSize() > 0
+            RoomStack:Peek():RemoveRoomFromGame(me)
+        end
+        RoomStack:Push(NewRoom)
+        RoomStack:Peek():AddRoomToGame(me)
+    end
+
+    action MenuOntoRoomStack (text NextMenu)
+        PushRoomStack(MenuTable:GetValue(NextMenu))
+    end
+
+    action PopRoomStack
+        if RoomStack:GetSize() <= 0
+            Exit()
+        else
+            RoomStack:Peek():RemoveRoomFromGame(me)
+            RoomStack:Pop()
+            if RoomStack:GetSize() > 0
+                RoomStack:Peek():AddRoomToGame(me)
+            else
+                Exit()
+            end
+        end
+    end
+
+    action GetCoreLib returns GameObject_Library
+        return CoreLibrary
+    end
+end

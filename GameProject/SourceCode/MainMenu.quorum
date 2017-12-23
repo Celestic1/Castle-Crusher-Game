@@ -1,0 +1,41 @@
+//use Libraries.Game.Graphics.Drawable
+use Libraries.Game.Game
+
+// This class displays the main menu
+// Functionality is added through startFunction and exitFunction
+class MainMenu is GameRoom
+    
+    LevelSelector ls
+
+    action InitMainMenu (Main game)
+        // Background layer!
+        AddEmptyLayer()
+        GameObject BackGround
+        BackGround:SetSpritePath("assets/MainBackground.png")
+        BackGround:RefreshGameObject()
+        AddObj(BackGround)
+
+        GameObject Logo 
+        Logo:SetSpritePath("assets/CastleCrusherLogo.png")
+        Logo:RefreshGameObject()
+        AddObj(Logo)
+        
+        // Button layer!
+        AddEmptyLayer()
+        Clickable_MenuLoader StartButton
+        StartButton:SetParentGame(game)
+        StartButton:SetMenuString("LevelSelector")
+        StartButton:SetSpritePath("assets/start.png")
+        StartButton:SetStartPosition(580,400)
+        StartButton:RefreshGameObject()
+        AddObj(StartButton)
+
+        Clickable ExitButton
+        ExitButton:SetParentGame(game)
+        ExitButton:SetSpritePath("assets/exit_1.png")
+        ExitButton:SetStartPosition(1280,650)
+        ExitButton:RefreshGameObject()
+        AddObj(ExitButton)
+    end
+
+end
